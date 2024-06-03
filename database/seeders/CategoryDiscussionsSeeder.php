@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CategoryDiscussionsSeeder extends Seeder
 {
@@ -13,5 +14,51 @@ class CategoryDiscussionsSeeder extends Seeder
     public function run(): void
     {
         //
+        DB::table('categories_discussions')->insert([
+            [
+                'slug' => 'code-review',
+                'name' => 'Code Review',
+            ],
+            [
+                'slug' => 'eloquent',
+                'name' => 'Eloquent',
+            ],
+            [
+                'slug' => 'facade',
+                'name' => 'Facade',
+            ],
+            [
+                'slug' => 'general',
+                'name' => 'General',
+            ],
+            [
+                'slug' => 'javascript',
+                'name' => 'JavaScript',
+            ],
+            [
+                'slug' => 'mix',
+                'name' => 'Mix',
+            ],
+            [
+                'slug' => 'query-builder',
+                'name' => 'Query Builder',
+            ],
+            [
+                'slug' => 'requests',
+                'name' => 'Requests',
+            ],
+            [
+                'slug' => 'servers',
+                'name' => 'Servers',
+            ],
+            [
+                'slug' => 'testing',
+                'name' => 'Testing',
+            ],
+            [
+                'slug' => 'vite',
+                'name' => 'Vite',
+            ],
+        ]);
     }
 }
