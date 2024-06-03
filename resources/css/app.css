@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .scrollbar-hidden {
+    overflow: scroll; /* Menyembunyikan scrollbar standar */
+  }
+  
+  /* Membuat scrollbar kustom */
+  
+  .scrollbar-hidden::-webkit-scrollbar {
+    width: 0; /* Menyembunyikan scrollbar horizontal */
+    height: 0; /* Menyembunyikan scrollbar vertikal */
+  }
+  
+  .scrollbar-hidden::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Menyembunyikan thumb scrollbar */
+  }
+  
+  .scrollbar-hidden::-webkit-scrollbar-track {
+    background-color: transparent; /* Menyembunyikan track scrollbar */
+  }
+}
+@layer utilities {
+  .scrollbar-hidden-vertikal {
+    overflow: scroll; /* Menyembunyikan scrollbar standar */
+  }
+  
+  /* Membuat scrollbar kustom */
+  
+  .scrollbar-hidden-vertikal::-webkit-scrollbar {
+    width: 0; /* Menyembunyikan scrollbar horizontal */
+    height: 0; /* Menyembunyikan scrollbar vertikal */
+  }
+  
+  .scrollbar-hidden-vertikal::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Menyembunyikan thumb scrollbar */
+  }
+  
+  .scrollbar-hidden-vertikal::-webkit-scrollbar-track {
+    background-color: transparent; /* Menyembunyikan track scrollbar */
+  }
+}
+@keyframes moveText {
+  0% {
+    transform: translateY(0%);
+    width: 396px;
+    animation-delay: 9s;
+  }
+  33.33% {
+    transform: translateY(-100%);
+    width: 372px;
+    animation-delay: 3s;
+  }
+  66.66% {
+    transform: translateY(-200%);
+    width: 472px;
+    animation-delay: 6s;
+  }
+  100% {
+    transform: translateY(0%);
+    width: 396px;
+    animation-delay: 9s;
+}
+}
+
+.movingText {
+  animation: moveText 6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation-delay: 00ms;
+}
+
+@keyframes buttonToFullClicked {
+  0% {
+    
+    background-color: #FFFFFF;
+    border-radius: 0px;
+    animation-delay: 3s;
+  }
+  33.33% {
+    
+    border-radius: 0px;
+    animation-delay: 3s;
+  }
+  66.66% {
+    
+    border-radius: 0px;
+    animation-delay: 3s;
+  }
+  100% {
+    
+    border-radius: 0px;
+    animation-delay: 3s;
+}
+}
+
+/* .buttonToFull {
+  animation: moveText 6s cubic-bezier(0.25, 0.1, 0.25, 1) ;
+  animation-delay: 00ms;
+}
+.buttonToFullAnimation {
+  animation: buttonToFull 6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation-delay: 0ms;
+} */
+
+/* .buttonToFullClicked {
+  animation: buttonToFullClicked 6s cubic-bezier(0.25, 0.1, 0.25, 1);
+ 
+  animation-delay: 1s;
+}
+.buttonToFull {
+  transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+#button1 {
+  transition: none;
+} */
+
+@keyframes slideIn {
+  from {
+      transform: translateY(-40%);
+      opacity: 1;
+  }
+  to {
+      transform: translateY(-100%);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Animasi untuk muncul */
+.tutup-btn {
+  animation: tutupBtn 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.btn-rounded-tutup {
+  animation: btnTutupRounded 0.1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.show-btn-1 {
+  animation: showBtn1 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+
+}
+
+.show-btn-2 {
+  animation: showBtn2 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; 
+}
+
+.hide-btn-1 {
+  animation: hideBtn1 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+
+}
+
+.hide-btn-2 {
+  animation: hideBtn2 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+
+.body-opacity-0 {
+  animation: opacity0 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.btn-Rounded {
+  animation: btnRounded 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  animation-delay: 1s;
+}
+
+.body-height-0 {
+  animation: height0 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+
+}
+.navbar-height-0 {
+  animation: navbarheight0 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes opacity0 {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+/* @keyframes btnTutupRounded {
+  from {
+    
+  }
+  to {
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+  }
+} */
+
+@keyframes btnRounded {
+  from {
+    
+  }
+  to {
+    border-radius :0;
+  }
+}
+
+
+@keyframes height0 {
+  from {
+      opacity:  0;
+      height: 100%;
+  }
+  to {
+      opacity: 0;
+      height: 0;
+}
+}
+
+@keyframes navbarheight0 {
+  from {
+    opacity:  0;
+    
+
+  }
+  to {
+      opacity: 0;
+      height: 0;
+  }
+}
+
+@keyframes showBtn1 {
+  from {
+    opacity:  0;
+    display: none;
+  }
+
+  to {
+    opacity: 1;
+   
+  }
+}
+
+@keyframes showBtn2 {
+  from {
+    opacity:  0;
+    display: none;
+  }
+
+  to {
+    opacity: 1;
+    
+  }
+}
+
+@keyframes hideBtn1 {
+
+  from {
+    opacity: 1;
+    
+  }
+  to {
+    opacity:  0;
+    display: none;
+  }
+}
+
+@keyframes hideBtn2 {
+
+  from {
+    opacity: 1;
+   
+  }
+  to {
+    opacity:  0;
+    display: none;
+  }
+}
+
+@keyframes tutupBtn {
+
+  from {
+    transform: translateY(0);
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    overflow: clip;
+  }
+  to {
+    transform: translateY(-100%);
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    overflow: clip;
+  }
+
+}
