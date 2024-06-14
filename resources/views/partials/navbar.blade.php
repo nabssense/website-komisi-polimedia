@@ -44,40 +44,30 @@
                 <div class="py-1 justify-start items-start gap-2.5 flex">
                     <a class="" href="/tentang-komisi">
                         <div
-                            class="{{ $active === 'Tentang Komisi' || $active === 'Detail Kabinet' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
+                            class="{{ $active === 'Tentang Komisi' || $active === 'Tentang Kabinet' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
                             Tentang Komisi</div>
-                        @if ($active === 'Tentang Komisi' || $active === 'Detail Kabinet')
+                        @if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet')
                             <div class="w-1/2 h-1 bg-primary-600"></div>
                         @endif
                     </a>
                 </div>
             </div>
 
-            <div class="justify-end items-center gap-8 flex">
-                <a class="" href="/notifikasi">
-                    <i
-                        class="{{ $active === 'Notifikasi' ? 'ph-fill ph-notifikasi text-3xl text-primary-base ' : '' }} ph ph-notification text-3xl"></i>
-                </a>
-                @if ($active === 'masuk-akun')
-                    <a class="" href="/masuk-akun">
-                        <div class="text-lg font-semibold font-THICCCBOI px-6 bg-primary-base justify-start
-                            items-center gap-2.5 flex">
-                            <div class="text-white text-lg font-medium font-THICCCBOI leading-9">Masuk</div>
-                        </div>
-                    </a>
-                @else
-                    <a class="" href="/akun">
-                        <i
-                            class="{{ $active === 'Profil' || $active === 'Kelola Website' ? 'ph-fill ph-user text-3xl text-primary-base ' : '' }} ph ph-user text-3xl"></i>
-                    </a>
-                @endif
-                {{-- @if ($session_terlogin === 'login')
-                        <div>
-                        <i class="ph ph-acoun text-3xl"></i>
-                        <i class="ph ph-notification text-3xl"></i>
-                        </div>
-                    @endif --}}
-
+            <div class="justify-end items-center gap-8 flex ">
+                    <button onclick="pageNotifikasi()" class="{{ $active === 'Notifikasi' ? 'ph-fill ph-notifikasi text-32 text-primary-base ' : '' }} ph ph-notification text-32"></button>
+                @auth
+                    <button class="" onclick="pageAkunProfile()">
+                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) 
+                        ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" 
+                        alt="{{ auth()->user()->fullname }}" class="rounded-full w-8">
+                    </button>
+                @endauth
+                @guest
+                <button onclick="pageMasuk()" class="text-lg font-semibold font-THICCCBOI px-6 bg-primary-base justify-start rounded-lg
+                        items-center gap-2.5 flex" >
+                        <div class="text-white text-lg font-medium font-THICCCBOI leading-9">Masuk</div>
+                </button>
+                @endguest
             </div>
         </div>
     </div>
@@ -117,12 +107,25 @@
     <div class="py-1 justify-start items-start gap-2.5 flex">
         <a class="" href="/tentang-komisi">
             <div
-                class="{{ $active === 'Tentang Komisi' || $active === 'Detail Kabinet' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
+                class="{{ $active === 'Tentang Komisi' || $active === 'Tentang Kabinet' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
                 Tentang</div>
-            @if ($active === 'Tentang Komisi' || $active === 'Detail Kabinet')
+            @if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet')
                 <div class="w-1/2 h-1 bg-primary-600"></div>
             @endif
         </a>
     </div>
 </div>
-
+@if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet' )
+<script>
+    let prevScrollPos = window.pageYOffset;
+    window.onscroll = function() {
+      let currentScrollPos = window.pageYOffset;
+      if (prevScrollPos > currentScrollPos) {
+        document.getElementById("navbar").style.transform = "translateY(0)";
+      } else {
+        document.getElementById("navbar").style.transform = "translateY(-100%)";
+      }
+      prevScrollPos = currentScrollPos;
+    }   
+</script>
+@endif

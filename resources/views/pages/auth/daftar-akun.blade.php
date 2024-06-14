@@ -21,7 +21,7 @@
                                 <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Nama Lengkap
                                 </div>
                             </div>
-                            <input type="text" name="fullname" placeholder="Masukkan nama lengkapmu" id=""
+                            <input type="text" name="fullname" placeholder="Masukkan nama lengkapmu" id="fullname"
                                 class="w-full pt-2 pb-3 @error('fullname') border-danger-base @enderror bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                             @error('fullname')
                                 <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">{{ $message }}</div>
@@ -33,7 +33,7 @@
                                 <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Email
                                 </div>
                             </div>
-                            <input type="email" name="email" placeholder="Masukkan email kamu" id=""
+                            <input type="email" name="email" placeholder="Masukkan email kamu" id="email"
                                 class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                             @error('email')
                                 <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">{{ $message }}</div>
@@ -59,6 +59,16 @@
                         </div>
                         <div class="self-stretch h-fit flex-col justify-start items-start hidden">
                             <div class="justify-start items-start inline-flex">
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Nim
+                                </div>
+                            </div>
+                            <div class="w-full justify-center items-center flex flex-row relative">
+                                <input type="hidden" name="nim" placeholder="Masukkan kata sandi kamu" id="nim" value="20202002"
+                                    class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                            </div>
+                        </div>
+                        <div class="self-stretch h-fit flex-col justify-start items-start hidden">
+                            <div class="justify-start items-start inline-flex">
                                 <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Edu Program
                                 </div>
                             </div>
@@ -73,7 +83,7 @@
                                 </div>
                             </div>
                             <div class="w-full justify-center items-center flex flex-row relative">
-                                <input type="hidden" name="tipe-user" placeholder="Masukkan kata sandi kamu" id="tipe-user" value="Umum"
+                                <input type="hidden" name="user_type" placeholder="Masukkan kata sandi kamu" id="user_type" value="Umum"
                                     class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                             </div>
                         </div>
@@ -115,7 +125,10 @@
 
         {{-- Button --}}
         <button id="buttonAsli" type="submit" class="w-full h-full py-12 bg-primary-base rounded-tl-4xl rounded-tr-4xl flex-col justify-center items-center flex">
-            <div id="text-btn" class="text-center text-white text-5xl font-extrabold font-['THICCCBOI'] leading-10">Daftar
+            <div id="text-btn" class="justify-center items-center gap-8 flex flex-row">
+                <div 
+                class="text-center text-white text-5xl font-extrabold font-['THICCCBOI'] leading-10">Daftar</div>
+                <i class="text-5xl text-netral-100 ph-fill ph-pen"></i>
             </div>
             {{-- Animation Teks 1 --}}
             <div id="text-btn-content" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
@@ -165,96 +178,101 @@
             passwordVisible = !passwordVisible;
         });
         </script>
-        <script>
+        {{-- <script>
         // 
-        document.addEventListener("DOMContentLoaded", function() {
-        const form = document.querySelector('form'); // Select the form element
-    
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-    
-            const formData = new FormData(form);
-    
-            fetch(form.action, {
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-                    'Accept': 'application/json',
-                },
-                body: formData // Send form data as-is (no need for JSON.stringify)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    runButtonAnimation(); // Run animation if login successful
-                    setTimeout(() => {
-                        window.location.href = "{{ route('beranda.index') }}"; // Redirect after animation
-                    }, 13500); // Adjust timing based on your animation duration
-                } 
-                    else {
-                    alert('Login gagal'); // Show generic error message if no specific errors returned
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
+            // 
+            document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector('form'); // Select the form element
+        
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form submission
+        
+                const formData = new FormData(form);
+        
+                fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                        'Accept': 'application/json',
+                    },
+                    body: formData // Send form data as-is (no need for JSON.stringify)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        runButtonAnimation(); // Run animation if login successful
+                        setTimeout(() => {
+                            window.location.href = "{{ route('beranda.index') }}"; // Redirect after animation
+                        }, 13500); // Adjust timing based on your animation duration
+                    } else {
+                        // Handle errors here, display appropriate message
+                        if (data.error) {
+                            alert('Login gagal: ' + data.error);
+                        } else {
+                            alert('Login gagal, silakan cek kembali informasi login Anda.');
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
             });
-        });
-    
-        function runButtonAnimation() {
-            // Implement your button animation logic here
-            // This function should handle the animation of your button as per your design
-            // Jalankan animasi tombol seperti yang telah Anda definisikan
-            document.getElementById("MainContent").classList.add("body-opacity-0");
-            document.getElementById("navbar").classList.add('body-opacity-0');
-            document.getElementById("text-btn").classList.add('body-opacity-0');
-    
-            document.getElementById("text-btn").addEventListener("animationend", function() {
-                document.getElementById("MainContent").classList.add('body-height-0');
-                document.getElementById("MainContent2").classList.add('body-height-0');
-                document.getElementById("buttonAsli").classList.add('btn-Rounded');
-                document.getElementById("navbar").classList.add('navbar-height-0');
-    
-                document.getElementById("buttonAsli").addEventListener("animationend", function() {
-                    setTimeout(function() {
-                        document.getElementById("text-btn-content").classList.add('show-btn-1');
-                        document.getElementById("text-btn-content").classList.remove('hidden');
-                        document.getElementById("text-btn-1").classList.add('show-btn-1', 'flex');
-                        document.getElementById("text-btn-1").classList.remove('hidden');
-                        document.getElementById("text-skip").classList.add('show-btn-1');
-                        document.getElementById("text-skip").classList.remove('hidden');
-                    }, 3000);
-    
-                    document.getElementById("text-btn-1").addEventListener("animationend", function() {
+        
+            function runButtonAnimation() {
+                // Implement your button animation logic here
+                // This function should handle the animation of your button as per your design
+                // Jalankan animasi tombol seperti yang telah Anda definisikan
+                document.getElementById("MainContent").classList.add("body-opacity-0");
+                document.getElementById("navbar").classList.add('body-opacity-0');
+                document.getElementById("text-btn").classList.add('body-opacity-0');
+        
+                document.getElementById("text-btn").addEventListener("animationend", function() {
+                    document.getElementById("MainContent").classList.add('body-height-0');
+                    document.getElementById("MainContent2").classList.add('body-height-0');
+                    document.getElementById("buttonAsli").classList.add('btn-Rounded');
+                    document.getElementById("navbar").classList.add('navbar-height-0');
+        
+                    document.getElementById("buttonAsli").addEventListener("animationend", function() {
                         setTimeout(function() {
-                            document.getElementById("text-btn-1").classList.add('hide-btn-1');
-                            document.getElementById("text-skip-1").classList.add('hide-btn-1');
-                        }, 1000);
-    
+                            document.getElementById("text-btn-content").classList.add('show-btn-1');
+                            document.getElementById("text-btn-content").classList.remove('hidden');
+                            document.getElementById("text-btn-1").classList.add('show-btn-1', 'flex');
+                            document.getElementById("text-btn-1").classList.remove('hidden');
+                            document.getElementById("text-skip").classList.add('show-btn-1');
+                            document.getElementById("text-skip").classList.remove('hidden');
+                        }, 3000);
+        
                         document.getElementById("text-btn-1").addEventListener("animationend", function() {
                             setTimeout(function() {
-                                document.getElementById("text-btn-2").classList.add('show-btn-2', 'flex');
-                                document.getElementById("text-btn-2").classList.remove('hidden');
-                            }, 800);
-    
-                            document.getElementById("text-btn-2").addEventListener("animationend", function() {
+                                document.getElementById("text-btn-1").classList.add('hide-btn-1');
+                                document.getElementById("text-skip-1").classList.add('hide-btn-1');
+                            }, 1000);
+        
+                            document.getElementById("text-btn-1").addEventListener("animationend", function() {
                                 setTimeout(function() {
-                                    document.getElementById("text-btn-2").classList.add('hide-btn-2');
-                                    document.getElementById("text-skip").classList.add('hide-btn-2');
-                                    document.getElementById("divFull").classList.add('tutup-btn');
-                                }, 3300);
-    
-                                document.getElementById("divFull").addEventListener("animationend", function() {
-                                    // Setelah animasi selesai, redirect ke halaman beranda
+                                    document.getElementById("text-btn-2").classList.add('show-btn-2', 'flex');
+                                    document.getElementById("text-btn-2").classList.remove('hidden');
+                                }, 800);
+        
+                                document.getElementById("text-btn-2").addEventListener("animationend", function() {
                                     setTimeout(function() {
-                                    window.location.href = "{{ route('beranda.index') }}";
-                                    }, 60 * 900);
+                                        document.getElementById("text-btn-2").classList.add('hide-btn-2');
+                                        document.getElementById("text-skip").classList.add('hide-btn-2');
+                                        document.getElementById("divFull").classList.add('tutup-btn');
+                                    }, 3300);
+        
+                                    document.getElementById("divFull").addEventListener("animationend", function() {
+                                        // Setelah animasi selesai, redirect ke halaman beranda
+                                        setTimeout(function() {
+                                        window.location.href = "{{ route('beranda.index') }}";
+                                        }, 60 * 900);
+                                    });
                                 });
                             });
                         });
                     });
                 });
-            });
-        }
-    });
-    </script>
+            }
+        });
+    </script> --}}
 @endsection

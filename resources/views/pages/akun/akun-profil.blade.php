@@ -10,7 +10,7 @@
                         <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">Nama Lengkap</div>
                     </div>
                     <div class="col-span-7 h-9 py-1 bg-white justify-start items-center gap-4 flex">
-                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Muhammad Nabil Musyaffa</div>
+                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">{{ auth()->user()->fullname }}</div>
                     </div>
                     <div class="col-span-2 py-1 rounded-full justify-center items-center gap-3 flex">
                         {{-- Pop Up Card --}}
@@ -42,35 +42,35 @@
                     
                 </div>
                 <div class="grid grid-cols-12 col-span-12 self-stretch justify-start items-start gap-4">
-                    <div class="col-span-3 h-9 py-1 bg-white justify-start items-center gap-4 flex">
+                    <div class="col-span-3 h-fit py-1 bg-white justify-start items-center gap-4 flex">
                         <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">NIM/NIP</div>
                     </div>
-                    <div class="col-span-7 h-9 py-1 bg-white justify-start items-center gap-4 flex">
-                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">20240090</div>
+                    <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">{{ auth()->user()->nim }}</div>
                     </div>
                 </div>
                 <div class="grid grid-cols-12 col-span-12 self-stretch justify-start items-start gap-4">
-                    <div class="col-span-3 h-9 py-1 bg-white justify-start items-center gap-4 flex">
+                    <div class="col-span-3 h-fit py-1 bg-white justify-start items-center gap-4 flex">
                         <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">Email</div>
                     </div>
-                    <div class="col-span-7 h-9 py-1 bg-white justify-start items-center gap-4 flex">
-                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">nabilmusyaffa7@gmail.com</div>
+                    <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">{{ auth()->user()->email }}</div>
                     </div>
                 </div>
                 <div class="grid grid-cols-12 col-span-12 self-stretch justify-start items-start gap-4">
-                    <div class="col-span-3 h-9 py-1 bg-white justify-start items-center gap-4 flex">
+                    <div class="col-span-3 h-fit py-1 bg-white justify-start items-center gap-4 flex">
                         <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">Program Pendidikan</div>
                     </div>
-                    <div class="col-span-7 h-9 py-1 bg-white justify-start items-center gap-4 flex">
-                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Teknologi Rekayasa Multimedia</div>
+                    <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">{{ auth()->user()->edu_program }}</div>
                     </div>
                 </div>
                 <div class="grid grid-cols-12 col-span-12 self-stretch justify-start items-start gap-4">
-                    <div class="col-span-3 h-9 py-1 bg-white justify-start items-center gap-4 flex">
+                    <div class="col-span-3 h-fit py-1 bg-white justify-start items-center gap-4 flex">
                         <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">Kata Sandi</div>
                     </div>
-                    <div class="col-span-7 h-9 py-1 bg-white justify-start items-center gap-4 flex">
-                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Tersedia</div>
+                    <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">************************</div>
                     </div>
                     <div class="col-span-2 py-1 rounded-full justify-center items-center gap-3 flex">
                         {{-- Pop Up Card --}}

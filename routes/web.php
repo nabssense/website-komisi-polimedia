@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('App\Http\Controllers\Auth')->group(function () {
     Route::get('masuk-akun', 'LoginController@index')->name('auth.masuk.index');
     Route::post('masuk-akun', 'LoginController@login')->name('auth.masuk.login');
+    Route::post('keluar-akun', 'LoginController@logout')->name('auth.masuk.logout');
     Route::get('daftar-akun', 'RegisterController@index')->name('auth.daftar.index');
     Route::post('daftar-akun', 'RegisterController@register')->name('auth.daftar.register');
 });
@@ -106,8 +107,8 @@ Route::get('/tentang-komisi', function () {
 });
 Route::get('/tentang-kabinet', function () {
     return view('pages.tentang-komisi.tentang-kabinet', [
-        "title" => "Website Komisi | Detail Kabinet",
-        "active" => "Detail Kabinet",
+        "title" => "Website Komisi | Tentang Kabinet",
+        "active" => "Tentang Kabinet",
     ]);
 });
 

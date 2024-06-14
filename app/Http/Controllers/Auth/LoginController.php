@@ -35,5 +35,12 @@ class LoginController extends Controller
         // Jika login gagal, kirim respons JSON dengan status 401 (Unauthorized)
         return response()->json(['success' => false], 401);
     }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect()->route('beranda.index');
+    }
 }
 

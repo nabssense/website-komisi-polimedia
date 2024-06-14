@@ -24,10 +24,13 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'profile_picture' => config('app.avatar_generator_url').'test',
+            
+            'profile_picture' => config('app.avatar_generator_url').'nabil',
             'fullname' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'password' => static::$password ??= Hash::make('password'),
+            'nim'=> fake()->phoneNumber(),
+            'user_type' => fake()->name(),
             'edu_program' => fake()->name(),
             'status' => fake()->name(),
             // 'email_verified_at' => now(),

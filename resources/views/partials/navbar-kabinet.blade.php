@@ -1,4 +1,5 @@
-{{-- Desktop Navbar --}} <div id="navbar"
+{{-- Desktop Navbar --}} 
+<div id="navbar"
     class="w-full  lg:px-8 px-4 py-4 bg-white shadow-navbar justify-center items-center gap-72 inline-flex fixed inset-x-0 top-0 z-50 transform transition-transform duration-500">
     <div class="grow max-w-[1480px] shrink basis-0 justify-between items-center flex">
         <div class="h-16 justify-start  items-center gap-5 flex">

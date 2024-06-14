@@ -76,8 +76,11 @@
 
                 {{-- Button --}}
                 <button type="submit" id="buttonAsli" class="w-full h-full py-12 bg-primary-base rounded-t-5xl flex-col justify-center items-center flex">
-                    <div id="text-btn"
+                    <div id="text-btn" class="justify-center items-center gap-8 flex flex-row">
+                        <div 
                         class="text-center text-white text-5xl font-extrabold font-['THICCCBOI'] leading-10">Masuk</div>
+                        <i class="text-5xl text-netral-100 ph-fill ph-sign-in"></i>
+                    </div>
                     {{-- Animation Teks 1 --}}
                     <div id="text-btn-content" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
                         <div id="text-btn-1" class="w-full h-full hidden  justify-center items-center gap-2 flex-col">
@@ -102,7 +105,28 @@
 
 
 
+        <script>
 
+            // Show Password
+            const passwordField = document.getElementById('password');
+            const togglePasswordButton = document.getElementById('showPassword');
+        
+            let passwordVisible = false;
+        
+            togglePasswordButton.addEventListener('click', function() {
+                if (passwordVisible) {
+                    passwordField.type = 'password'; // Sembunyikan password
+                    togglePasswordButton.classList.remove('ph-fill');
+                    togglePasswordButton.classList.remove('text-primary-base');
+        
+                } else {
+                    passwordField.type = 'text'; // Tampilkan password
+                    togglePasswordButton.classList.add('text-primary-base');
+                    togglePasswordButton.classList.add('ph-fill');
+                }
+                passwordVisible = !passwordVisible;
+            });
+            </script>
 
         <script>
             // 

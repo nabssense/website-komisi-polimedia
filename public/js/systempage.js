@@ -26,3 +26,43 @@ function pageMasuk() {
 function pageDaftar() {
   window.location.href = "daftar-akun";
 }
+
+// Notifikasi
+function pageNotifikasi() {
+  window.location.href = "/notifikasi";
+}
+
+// Akun
+function pageAkunProfile() {
+  window.location.href = "/akun";
+}
+
+// Kelola Kabinet
+function pageKelolaKabinet() {
+  window.location.href = "/kelola-kabinet";
+}
+function pageKelolaKabinetTambah() {
+  window.location.href = "/kelola-kabinet-tambah";
+}
+
+// Kelola Akun
+function pageKelolaAkun() {
+  window.location.href = "/kelola-akun";
+}
+function pageKelolaAkunTambah() {
+  window.location.href = "/kelola-akun-tambah";
+}
+
+
+// Kelola Berita
+function pageKelolaBerita() {
+  window.location.href = "/kelola-berita";
+}
+function pageKelolaBeritaTambah() {
+  window.location.href = "/kelola-berita-tambah";
+}
+
+// Kelola Pengajuan
+function pageKelolaPengajuanPencairan() {
+  window.location.href = "/kelola-berita";
+}

@@ -13,12 +13,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
+        $fullname = 'Muhammad Nabil Musyaffa';
 
         \App\Models\User::factory()->create([
-            'fullname' => 'muhammad nabil',
+            'profile_picture' => config('app.avatar_generator_url').$fullname,
+            'fullname' => $fullname,
             'email' => 'nabil723@admin.com',
-            'password' => bcrypt('nabil723'),
-            'status' => 'active',
+            'password' => 'nabil723',
+            'nim'=> '20240090',
+            'user_type' => 'Mahasiswa',
+            'edu_program' => 'Teknologi Rekayasa Multimedia',
+            'status' => 'Active',
         ]);
 
         $this->call([

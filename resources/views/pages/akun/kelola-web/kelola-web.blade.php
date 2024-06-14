@@ -44,13 +44,13 @@
                 <div class="self-stretch pl-4 justify-start items-center gap-4 inline-flex">
                     <div class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
                         Kelola Kabinet</div>
-                    <button onclick="window.location.href='/tambah-kabinet'" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
+                    <button onclick="pageKelolaKabinetTambah()" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
                         <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Tambah
                             Kabinet</div>
                         <i class=" text-rose-600 ph ph-plus text-3xl"></i>
                     </button>
                 </div>
-                <div onclick="window.location.href='/kelola-kabinet'"
+                <div onclick="pageKelolaKabinet()"
                     class="self-stretch h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex relative">
                     <div class="self-stretch h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
@@ -70,13 +70,13 @@
                 <div class="self-stretch pl-4 justify-start items-center gap-4 inline-flex">
                     <div class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
                         Kelola Berita</div>
-                    <button onclick="window.location.onclick='window.location.href='/kelola-berita'-tambah'" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
+                    <button onclick="pageKelolaBeritaTambah()" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
                         <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Tambah
                             Berita</div>
                         <i class=" text-rose-600 ph ph-plus text-3xl"></i>
                     </button>
                 </div>
-                <div onclick="window.location.href='/kelola-berita'"
+                <div onclick="pageKelolaBerita()"
                     class="self-stretch h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="self-stretch h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
@@ -96,13 +96,13 @@
                 <div class="self-stretch pl-4 justify-start items-center gap-4 inline-flex">
                     <div class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
                         Kelola Akun</div>
-                    <button onclick="window.location.onclick='window.location.href='/kelola-akun-t'ambah'" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
+                    <button onclick="pageKelolaAkunTambah()" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
                         <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Tambah
                             Akun</div>
                         <i class=" text-rose-600 ph ph-plus text-3xl"></i>
                     </button>
                 </div>
-                <div onclick="window.location.href='/kelola-akun'"
+                <div onclick="pageKelolaAkun()"
 '                    class="self-stretch h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="self-stretch h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
@@ -145,7 +145,7 @@
                     <div class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
                         Kelola Pengajuan Pencairan</div>
                 </div>
-                <div onclick="window.location.href='/kelola-pengajuan-pencairan'"
+                <div onclick="pageKelolaPengajuanPencairan()"
                     class="self-stretch h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="self-stretch h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">

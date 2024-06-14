@@ -4,9 +4,9 @@
 <div class="w-full h-fit px-56 py-8 bg-soft-base flex-col justify-start items-start gap-8 inline-flex">
     <div class="self-stretch h-14 justify-start items-center gap-6 inline-flex">
         <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
-            <a href="/kelola-website" class="text-32 text-netral-800 ph-bold ph-arrow-left"></a>
+            <button onclick="goBack()" class="text-32 text-netral-800 ph-bold ph-arrow-left"></button>
             <div class="grow shrink basis-0 text-zinc-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kelola Berita</div>
-            <button onclick="window.location.href='/kelola-berita-tambah'" class="py-3 rounded-full justify-center items-center gap-4 flex">
+            <button onclick="pageKelolaBeritaTambah()" class="py-3 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Tambah Berita</div>
                 <i class="text-32 text-primary-base ph ph-plus"></i>
             </button>
