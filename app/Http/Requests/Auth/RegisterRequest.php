@@ -27,6 +27,9 @@ class RegisterRequest extends FormRequest
             'fullname' => 'required',
             'email' => 'required|email|unique:App\Models\User,email|min:8|max:50',
             'password' => ['required', Password::min(8)->mixedCase()->numbers()->symbols()],
+            'edu_program' => '',
+            'tipe_user' => '',
+            'status' => '',
         ];
     }
 }

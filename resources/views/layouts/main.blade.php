@@ -16,8 +16,8 @@
         {{-- Phosphor Icons --}}
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
     </head>
-    <body class="m-0 p-0 w-screen h-screen">
-        <div class="w-screen h-screen {{ $active === 'Tambah Kabinet' || $active === 'Tambah Berita' || $active === 'Tambah Akun' || $active === 'Ajukan Pertanyaan' || $active === 'Ubah Komisi'  || $active === 'Masuk Akun' || $active === 'Daftar Akun' || $active === 'Testing' ? '' : 'pt-24' }}">
+    <body class="m-0 p-0 w-full h-screen ">
+        <div class="w-full h-fit {{ $active === 'Tambah Kabinet' || $active === 'Tambah Berita' || $active === 'Tambah Akun' || $active === 'Ajukan Pertanyaan' || $active === 'Ubah Komisi'  || $active === 'Masuk Akun' || $active === 'Daftar Akun' || $active === 'Testing' ? '' : 'pt-24' }}">
             @if ( $active === 'Profil' || $active === 'Kelola Website')
                 @include('partials.akun-navigation')
                 @yield('container')

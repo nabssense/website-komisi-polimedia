@@ -23,6 +23,12 @@ use Illuminate\Support\Facades\Route;
 //         "active" => "Daftar Akun",
 //     ]);
 // });
+// Route::get('/beranda', function () {
+//     return view('pages.beranda', [
+//         "title" => "Website Komisi | Beranda",
+//         "active" => "Beranda",
+//     ]);
+// });
 
 Route::namespace('App\Http\Controllers\Auth')->group(function () {
     Route::get('masuk-akun', 'LoginController@index')->name('auth.masuk.index');
@@ -31,6 +37,9 @@ Route::namespace('App\Http\Controllers\Auth')->group(function () {
     Route::post('daftar-akun', 'RegisterController@register')->name('auth.daftar.register');
 });
 
+Route::namespace('App\Http\Controllers\Home')->group(function () {
+    Route::get('beranda', 'HomeController@index')->name('beranda.index');
+});
 
 Route::get('/testing', function () {
     return view('pages.auth.testing', [
@@ -48,12 +57,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/beranda', function () {
-    return view('pages.beranda', [
-        "title" => "Website Komisi | Beranda",
-        "active" => "Beranda",
-    ]);
-});
+
 
 // Berita
 Route::get('/berita', function () {

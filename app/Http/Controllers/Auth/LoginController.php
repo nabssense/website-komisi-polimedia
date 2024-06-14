@@ -7,6 +7,10 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Redirect;
+
+
 
 class LoginController extends Controller
 {
@@ -24,10 +28,12 @@ class LoginController extends Controller
         $credentials = $request->validated();
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('pages.beranda');
+            // Jika login berhasil, kirim respons JSON
+            return response()->json(['success' => true], 200);
         }
 
-        return redirect()->back()->withInput()->withErrors(['credentials' => 'Email atau Password Salah']);
+        // Jika login gagal, kirim respons JSON dengan status 401 (Unauthorized)
+        return response()->json(['success' => false], 401);
     }
 }
 

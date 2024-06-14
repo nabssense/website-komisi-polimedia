@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('edu_program');
+            $table->string('user_type');
             $table->string('status');
             $table->timestamps('');
         });

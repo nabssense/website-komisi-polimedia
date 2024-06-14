@@ -36,7 +36,7 @@ class RegisterController extends Controller
 
         if ($create) {
             Auth::login($create);
-            return redirect()->route('pages.beranda');
+            return response()->json(['success' => true]);
         }
 
         return abort(500);
