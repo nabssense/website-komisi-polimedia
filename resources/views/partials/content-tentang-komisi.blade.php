@@ -196,7 +196,7 @@
     @if ($active === "Kelola Komisi")
         <div class="w-full max-w-[1480px] p-12 bg-white rounded-3xl shadow flex-col justify-start items-start gap-9 flex">
             <div class="self-stretch  flex-col justify-start items-start gap-8 flex">
-                <div class="w-full bg-lime-300 justify-start items-center gap-12 flex xl:flex-row">
+                <div class="w-full justify-start items-center gap-8 flex xl:flex-row">
                     <div class=" text-zinc-900 xl:text-8xl sm:text-5xl font-extrabold font-['THICCCBOI'] leading-H1-H2-H3">
                         Membidik Prestasi Membangun Negeri</div>
                     <div class="w-full h-full bg-blue-300">
@@ -227,11 +227,11 @@
     <div class="w-full xl:px-56 px-4 pt-16 pb-24 bg-stone-700 flex-col justify-center items-center gap-12 flex">
         <div class="w-full max-w-[1480px] p-12 bg-white rounded-3xl shadow flex-col justify-start items-start gap-9 flex">
             <div class="self-stretch  flex-col justify-start items-start gap-8 flex">
-                <div class="w-full bg-lime-300 justify-start items-center gap-12 flex xl:flex-row">
+                <div class="w-full justify-start items-center gap-8 flex xl:flex-row">
                     <div class=" text-zinc-900 xl:text-8xl sm:text-5xl font-extrabold font-['THICCCBOI'] leading-H1-H2-H3">
                         Membidik Prestasi Membangun Negeri</div>
                     <div class="w-full h-full bg-blue-300">
-                        {{-- <img class="w-full h-full " src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" /> --}}
+                        <img class="w-full h-full " src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
                     </div>
                 </div>
                 <div class="self-stretch  justify-start items-start gap-8 inline-flex flex-wrap">

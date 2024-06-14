@@ -181,7 +181,7 @@
         </div>
         {{-- Section 3 Berita --}}
         <div class="w-full h-fit xl:px-56 px-4 py-16 bg-white flex-col justify-center items-center gap-12 flex flex-wrap">
-            <div class="max-w-[1480px] w-full text-blue-600 text-5xl font-extrabold font-THICCCBOI leading-10">Berita</div>
+            <div class="max-w-[1480px] w-full text-netral-900 text-5xl font-extrabold font-THICCCBOI leading-10">Berita</div>
             <div class="max-w-[1480px] w-full flex-col justify-start items-center gap-16 flex">
                 {{-- Card Berita --}}
                 <div class="gap-8  justify-center items-center">
@@ -257,13 +257,12 @@
                 
             </div>
         </div>
-        {{-- Section 4 Tanya Jawab --}}
+        {{-- Section 4 Forum Diskusi --}}
         <div class="w-full xl:px-56 px-4 py-16 flex-col justify-center items-center gap-12 flex flex-wrap">
-            <div class="max-w-[1480px] w-full text-neutral-900 text-5xl font-extrabold font-THICCCBOI leading-10">Tanya
-                Jawab</div>
+            <div class="max-w-[1480px] w-full text-neutral-900 text-5xl font-extrabold font-THICCCBOI leading-10">Forum Diskusi</div>
             <div class="max-w-[1480px] w-full flex-col justify-start items-center gap-16 flex flex-wrap">
                 <div class="self-stretch justify-start items-start gap-8 inline-flex flex-wrap">
-                    {{-- Card Tanya Jawab --}}
+                    {{-- Card Forum Diskusi --}}
                     <div
                         class="grow shrink basis-0 h-fit py-6 bg-white rounded-lg shadow flex-col justify-start items-start gap-8 inline-flex">
                         <div class="self-stretch h-fit  px-6 flex-col justify-start items-start gap-6 flex">
@@ -389,7 +388,7 @@
                     </div>
                 </div>
             </div>
-            <button onclick="window.location.href='/tanya-jawab';" class="px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
+            <button onclick="window.location.href='/forum';" class="px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
                 <div class="text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat
                     Selengkapnya
                 </div>

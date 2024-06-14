@@ -32,14 +32,14 @@
                     </a>
                 </div>
                 <div class="py-1 justify-start items-start gap-2.5 flex">
-                    <a href="/tanya-jawab">
+                    <button onclick="pageForumDiskusi()">
                         <div
-                            class="{{ $active === 'Tanya Jawab' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }}text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
-                            Tanya Jawab</div>
-                        @if ($active === 'Tanya Jawab')
+                            class="{{ $active === 'Forum Diskusi' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }}text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
+                            Forum Diskusi</div>
+                        @if ($active === 'Forum Diskusi')
                             <div class="w-1/2 h-1 bg-primary-600"></div>
                         @endif
-                    </a>
+                    </button>
                 </div>
                 <div class="py-1 justify-start items-start gap-2.5 flex">
                     <a class="" href="/tentang-komisi">

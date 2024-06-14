@@ -58,6 +58,9 @@ export default {
           800: '#27272B',
           900: '#0A0A0B',
         },
+        danger: {
+          'base': '#ef4444',
+        },
       },
       fontFamily: {
         'display-montagu': ['Montagu Slab'],

@@ -88,25 +88,25 @@
                     {{-- Row --}}
                     <div class="w-full justify-center px-4 items-start gap-8 inline-flex flex-wrap ">
                         {{-- Card --}}
-                        <div class="w-fit h-fit flex-col justify-start items-center gap-4 inline-flex group">
+                        <div class="w-fit h-fit flex-col justify-start items-center gap-4 inline-flex group/card-photo">
                             <div class="w-720 h-480 relative ">
                                 <div class="left-12 z-10 top-6 absolute justify-end items-center inline-flex">
                                     <svg class="h-10" viewbox="0 0 64 64">
                                         @foreach ($pathDataWithFill as $pathInfo)
                                             : ?>
                                             <!-- Tetapkan data path dan fill yang diambil dari SVG -->
-                                            <path class="group-hover:fill-white" d="{{ $pathInfo['path'] }}"
+                                            <path class="group-hover/card-photo:fill-white" d="{{ $pathInfo['path'] }}"
                                                 fill="{{ $pathInfo['fill'] }}" />
                                         @endforeach
                                     </svg>
                                 </div>
                                 <div class="justify-center items-center flex">
-                                    <img class="group-hover:scale-110 group-hover:ease-in group-hover:duration-500 w-fit h-fit sm:w-fit sm:h-fit lg:w-fit lg:h-fit relative transform origin-bottom z-10"
+                                    <img class="group-hover/card-photo:scale-110 group-hover/card-photo:ease-in group-hover/card-photo:duration-500 w-fit h-fit sm:w-fit sm:h-fit lg:w-fit lg:h-fit relative transform origin-bottom z-10"
                                     src="{{ url('img/Kabinet/KOBRA/KETUA-WAKIL.png') }}" alt="" />
                                 </div>
                                 
                                 <div
-                                    class="group-hover:bg-netral-700 group-hover:ease-in group-hover:duration-500 w-[240px] h-[160px] sm:w-[455px] sm:h-[320px] lg:w-[700px] lg:h-480 bg-white -skew-x-2 pt-32 left-2 top-0 z-0 absolute flex-col justify-center items-center inline-flex">
+                                    class="group-hover/card-photo:bg-netral-700 group-hover/card-photo:ease-in group-hover/card-photo:duration-500 w-[240px] h-[160px] sm:w-[455px] sm:h-[320px] lg:w-[700px] lg:h-480 bg-white -skew-x-2 pt-32 left-2 top-0 z-0 absolute flex-col justify-center items-center inline-flex">
                                 </div>
                             </div>
                             <div class="self-stretch text-white text-6xl font-extrabold font-THICCCBOI leading-120%">

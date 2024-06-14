@@ -16,48 +16,28 @@ class CategoryDiscussionsSeeder extends Seeder
         //
         DB::table('categories_discussions')->insert([
             [
-                'slug' => 'code-review',
-                'name' => 'Code Review',
+                'slug' => 'berita-resmi',
+                'name' => 'Berita Resmi',
             ],
             [
-                'slug' => 'eloquent',
-                'name' => 'Eloquent',
+                'slug' => 'pencairan',
+                'name' => 'Pencairan',
             ],
             [
-                'slug' => 'facade',
-                'name' => 'Facade',
+                'slug' => 'acara-komisi',
+                'name' => 'Acara KOMISI',
             ],
             [
-                'slug' => 'general',
-                'name' => 'General',
+                'slug' => 'kepengurusan',
+                'name' => 'Kepengurusan',
             ],
             [
-                'slug' => 'javascript',
-                'name' => 'JavaScript',
+                'slug' => 'prestasi',
+                'name' => 'Prestasi',
             ],
             [
-                'slug' => 'mix',
-                'name' => 'Mix',
-            ],
-            [
-                'slug' => 'query-builder',
-                'name' => 'Query Builder',
-            ],
-            [
-                'slug' => 'requests',
-                'name' => 'Requests',
-            ],
-            [
-                'slug' => 'servers',
-                'name' => 'Servers',
-            ],
-            [
-                'slug' => 'testing',
-                'name' => 'Testing',
-            ],
-            [
-                'slug' => 'vite',
-                'name' => 'Vite',
+                'slug' => 'permasalahan',
+                'name' => 'Permasalahan',
             ],
         ]);
     }

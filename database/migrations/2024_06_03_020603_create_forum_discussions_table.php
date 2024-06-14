@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('account_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
-            $table->string('title')->unsigned();
-            $table->string('slug')->unsigned();
-            $table->string('questions_preview')->unsigned();
-            $table->text('questions')->unsigned();
+            $table->string('title');
+            $table->string('slug');
+            $table->string('questions_preview');
+            $table->text('questions');
             $table->datetimes();
             $table->softDeletes();
         });

@@ -14,21 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Masuk & Daftar
-Route::get('/masuk-akun', function () {
-    return view('pages.masuk-daftar.masuk-akun', [
-        "title" => "Website Komisi | Masuk Akun",
-        "active" => "Masuk Akun",
-    ]);
-});
-Route::get('/daftar-akun', function () {
-    return view('pages.masuk-daftar.daftar-akun', [
-        "title" => "Website Komisi | Daftar",
-        "active" => "Daftar Akun",
-    ]);
+// Route::get('/masuk-akun', function () {
+//    
+// });
+// Route::get('/daftar-akun', function () {
+//     return view('pages.auth.daftar-akun', [
+//         "title" => "Website Komisi | Daftar",
+//         "active" => "Daftar Akun",
+//     ]);
+// });
+
+Route::namespace('App\Http\Controllers\Auth')->group(function () {
+    Route::get('masuk-akun', 'LoginController@index')->name('auth.masuk.index');
+    Route::post('masuk-akun', 'LoginController@login')->name('auth.masuk.login');
+    Route::get('daftar-akun', 'RegisterController@index')->name('auth.daftar.index');
+    Route::post('daftar-akun', 'RegisterController@register')->name('auth.daftar.register');
 });
 
+
 Route::get('/testing', function () {
-    return view('pages.masuk-daftar.testing', [
+    return view('pages.auth.testing', [
         "title" => "Website Komisi | Testing",
         "active" => "Testing",
     ]);
@@ -68,21 +73,21 @@ Route::get('/berita-detail', function () {
 
 
 // Forum Diskusi
-Route::get('/tanya-jawab', function () {
-    return view('pages.forum-diskusi.tanya-jawab', [
+Route::get('/forum-diskusi', function () {
+    return view('pages.forum-diskusi.forum-diskusi', [
         "title" => "Website Komisi | Tanya Jawab",
-        "active" => "Tanya Jawab",
+        "active" => "Forum Diskusi",
     ]);
 });
-Route::get('/pertanyaan', function () {
-    return view('pages.forum-diskusi.tanya-jawab-pertanyaan', [
+Route::get('/forum-diskusi-pertanyaan', function () {
+    return view('pages.forum-diskusi.forum-diskusi-pertanyaan', [
         "title" => "Website Komisi | Pertanyaan",
-        "active" => "Tanya Jawab",
+        "active" => "Pertanyaan",
     ]);
 });
 
-Route::get('/ajukan-pertanyaan', function () {
-    return view('pages.forum-diskusi.tanya-jawab-ajukan-pertanyaan', [
+Route::get('/forum-diskusi-ajukan-pertanyaan', function () {
+    return view('pages.forum-diskusi.forum-diskusi-ajukan-pertanyaan', [
         "title" => "Website Komisi | Ajukan Pertanyaan",
         "active" => "Ajukan Pertanyaan",
     ]);
@@ -108,7 +113,7 @@ Route::get('/tentang-kabinet', function () {
 
 // Notifikasi
 Route::get('/notifikasi', function () {
-    return view('pages.notifikasi', [
+    return view('pages.notifikasi.notifikasi', [
         "title" => "Website Komisi | Notifikasi",
         "active" => "Notifikasi",
     ]);
@@ -180,6 +185,12 @@ Route::get('/kelola-komisi-ubah', function () {
     return view('pages.akun.kelola-web.kelola-komisi-ubah', [
         "title" => "Website Komisi | Ubah Komisi",
         "active" => "Ubah Komisi",
+    ]);
+});
+Route::get('/kelola-pengajuan-pencairan', function () {
+    return view('pages.akun.kelola-web.kelola-pengajuan-pencairan', [
+        "title" => "Website Komisi | kelola-pengajuan-pencairan",
+        "active" => "Kelola Pengajuan Pencairan",
     ]);
 });
 

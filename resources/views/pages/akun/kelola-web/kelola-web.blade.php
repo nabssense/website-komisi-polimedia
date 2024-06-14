@@ -44,78 +44,78 @@
                 <div class="self-stretch pl-4 justify-start items-center gap-4 inline-flex">
                     <div class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
                         Kelola Kabinet</div>
-                    <a href="/tambah-kabinet" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
+                    <button onclick="window.location.href='/tambah-kabinet'" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
                         <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Tambah
                             Kabinet</div>
                         <i class=" text-rose-600 ph ph-plus text-3xl"></i>
-                    </a>
+                    </button>
                 </div>
-                <a href="/kelola-kabinet"
-                    class="self-stretch h-fit p-4 bg-white rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex relative">
+                <div onclick="window.location.href='/kelola-kabinet'"
+                    class="self-stretch h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex relative">
                     <div class="self-stretch h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
                             <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                                 alt="Image" />
                         </div>
                     </div>
-                    <div href="/kelola-kabinet"   
+                    <button onclick="window.location.href='/kelola-kabinet'"   
                         class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
                         <div class="w-fit h-fit text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat
                             Selengkapnya</div>
-                        </div>
-                </a>
+                    </button>
+                </div>
             </div>
             {{-- Card Kelola Berita --}}
             <div class="w-fit h-fit min-w-360 flex-shrink-0 flex-grow basis-1/3 flex-col justify-start items-center gap-4 inline-flex">
                 <div class="self-stretch pl-4 justify-start items-center gap-4 inline-flex">
                     <div class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
                         Kelola Berita</div>
-                    <button onclick="window.location.href='/kelola-berita-tambah'" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
+                    <button onclick="window.location.onclick='window.location.href='/kelola-berita'-tambah'" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
                         <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Tambah
                             Berita</div>
                         <i class=" text-rose-600 ph ph-plus text-3xl"></i>
                     </button>
                 </div>
-                <a href="/kelola-berita"
-                    class="self-stretch h-fit p-4 bg-white rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
+                <div onclick="window.location.href='/kelola-berita'"
+                    class="self-stretch h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="self-stretch h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
                             <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                                 alt="Image" />
                         </div>
                     </div>
-                    <div
+                    <button
                         class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
                         <div class="w-fit h-fit text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat
                             Selengkapnya</div>
-                        </div>
-                </a>
+                        </button>
+                </div>
             </div>
             {{-- Card Kelola Akun --}}
             <div class="w-fit h-fit min-w-360 flex-shrink-0 flex-grow basis-1/3 flex-col justify-start items-center gap-4 inline-flex">
                 <div class="self-stretch pl-4 justify-start items-center gap-4 inline-flex">
                     <div class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
                         Kelola Akun</div>
-                    <button onclick="window.location.href='/kelola-akun-tambah'" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
+                    <button onclick="window.location.onclick='window.location.href='/kelola-akun-t'ambah'" class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">
                         <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Tambah
                             Akun</div>
                         <i class=" text-rose-600 ph ph-plus text-3xl"></i>
                     </button>
                 </div>
-                <a href="/kelola-akun"
-                    class="self-stretch h-fit p-4 bg-white rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
+                <div onclick="window.location.href='/kelola-akun'"
+'                    class="self-stretch h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="self-stretch h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
                             <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                                 alt="Image" />
                         </div>
                     </div>
-                    <div
+                    <button
                         class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
                         <div class="w-fit h-fit text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat
                             Selengkapnya</div>
-                    </div>
-                </a>
+                    </button>
+                </div>
             </div>
             {{-- Card Kelola Web --}}
             <div class="w-fit h-fit min-w-360 flex-shrink-0 flex-grow basis-1/3 flex-col justify-start items-center gap-4 inline-flex">
@@ -124,22 +124,42 @@
                         Kelola Komisi</div>
                     
                 </div>
-                <a href="/kelola-komisi"
-                    class="self-stretch h-fit p-4 bg-white rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
+                <div onclick="window.location.href='/kelola-komisi'"
+                    class="self-stretch h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="self-stretch h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
                             <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                                 alt="Image" />
                         </div>
                     </div>
-                    <div
+                    <button
                         class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
                         <div class="w-fit h-fit text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat
                             Selengkapnya</div>
-                    </div>
-                </a>
+                    </button>
+                </div>
             </div>
-            
+            {{-- Card Kelola Daftar Ulang --}}
+            <div class="w-fit h-fit min-w-360 flex-shrink-0 flex-grow basis-1/3 flex-col justify-start items-center gap-4 inline-flex">
+                <div class="self-stretch pl-4 justify-start items-center gap-4 inline-flex">
+                    <div class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
+                        Kelola Pengajuan Pencairan</div>
+                </div>
+                <div onclick="window.location.href='/kelola-pengajuan-pencairan'"
+                    class="self-stretch h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
+                    <div class="self-stretch h-64 flex-col justify-center items-center gap-2.5 flex">
+                        <div class="w-fit h-fit justify-center items-center inline-flex">
+                            <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
+                                alt="Image" />
+                        </div>
+                    </div>
+                    <button
+                        class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
+                        <div class="w-fit h-fit text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat
+                            Selengkapnya</div>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
