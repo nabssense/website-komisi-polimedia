@@ -27,10 +27,12 @@ class RegisterController extends Controller
         // create user berdasarkan request yg sudah tervalidasi dan yg sudah kita proses
         // jika create berhasil maka loginkan user lalu redirect ke list discussion
         // jika tidak berhasil maka return 500
+        
 
         $validated = $request->validated();
         $validated['password'] = bcrypt($validated['password']);
-        $validated['profile_picture'] = config('app.avatar_generator_url').$validated['fullname'];
+        $modifiedFullname = str_replace(' ', '%20', $validated['fullname']);
+        $validated['profile_picture'] = config('app.avatar_generator_url') . $modifiedFullname;
 
         $create = User::create($validated);
 

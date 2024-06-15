@@ -9,13 +9,13 @@ function pageUbahKomisi() {
 
 // Forum
 function pageForumDiskusi() {
-  window.location.href = "/forum-diskusi";
+  window.location.href = "forum-diskusi";
 }
 function pageForumDiskusiPertanyaan() {
-  window.location.href = "/forum-diskusi-pertanyaan";
+  window.location.href = "forum-diskusi-pertanyaan";
 }
 function pageForumDiskusiAjukanPertanyaan() {
-  window.location.href = "/forum-diskusi-ajukan-pertanyaan";
+  window.location.href = "forum-diskusi-ajukan-pertanyaan";
 }
 
 
@@ -33,8 +33,14 @@ function pageNotifikasi() {
 }
 
 // Akun
-function pageAkunProfile() {
-  window.location.href = "/akun";
+function pageUserProfile() {
+  window.location.href = "user-profile";
+}
+
+
+// Kelola Website
+function pageKelolaWebsite() {
+  window.location.href = "kelola-website";
 }
 
 // Kelola Kabinet

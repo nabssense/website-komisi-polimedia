@@ -178,7 +178,7 @@
             passwordVisible = !passwordVisible;
         });
         </script>
-        {{-- <script>
+        <script>
         // 
             // 
             document.addEventListener("DOMContentLoaded", function() {
@@ -274,5 +274,5 @@
                 });
             }
         });
-    </script> --}}
+    </script>
 @endsection

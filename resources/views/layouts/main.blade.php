@@ -18,17 +18,8 @@
     </head>
     <body class="m-0 p-0 w-full h-screen ">
         <div class="w-full h-fit {{ $active === 'Tambah Kabinet' || $active === 'Tambah Berita' || $active === 'Tambah Akun' || $active === 'Ajukan Pertanyaan' || $active === 'Ubah Komisi'  || $active === 'Masuk Akun' || $active === 'Daftar Akun' || $active === 'Testing' ? '' : 'pt-24' }}">
-            @if ( $active === 'Profil' || $active === 'Kelola Website')
-                @include('partials.akun-navigation')
-                @yield('container')
-
-                {{-- @elseif ( $active ===  'Daftar Akun' || $active === 'Masuk Akun')
-                    @include('partials.navbar-login')
-                    @yield('container') --}}
-                
-                @else
-                    @yield('container')
-            @endif
+            @include('partials.alert-popup')
+            @yield('container')
         </div>
         <script src="js/animation.js"></script>
         <script src="js/systempage.js"></script>

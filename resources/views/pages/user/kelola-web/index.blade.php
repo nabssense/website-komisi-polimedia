@@ -1,7 +1,8 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-@section('content-akun')
+
+    @section('content-user')
     <div class="w-full h-fit col-span-9 px-8 py-8 bg-netral-100 shadow flex-col justify-start items-start gap-8 inline-flex">
         <div class="self-stretch h-14 justify-start items-center gap-6 inline-flex">
             <div class="grow shrink basis-0 text-zinc-900 text-3xl font-extrabold font-['THICCCBOI'] leading-10">Kelola

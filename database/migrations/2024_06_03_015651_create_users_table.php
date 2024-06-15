@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('nim');
+            $table->integer('nim');
             $table->string('edu_program');
-            $table->string('user_type');
-            $table->string('status');
+            $table->enum('user_type', ['Mahasiswa', 'Umum']);
+            $table->enum('status', ['Active', 'Non Active']);
             $table->timestamps('');
         });
     }

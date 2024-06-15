@@ -95,7 +95,7 @@
                     </div>
                     <div id="text-skip" class="grow shrink basis-0 bottom-0 hidden justify-end items-end gap-2 flex-col">
                         <a href="/beranda"
-                            class="text-center text-white text-opacity-20 text-base font-normal font-['THICCCBOI'] leading-10 ">Lewati,
+                            class="text-center text-white text-opacity-60 text-base font-normal font-['THICCCBOI'] leading-10 ">Lewati,
                             Langsung ke beranda</a>
                     </div>
                 </button>

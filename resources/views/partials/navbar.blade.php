@@ -33,8 +33,7 @@
                 </div>
                 <div class="py-1 justify-start items-start gap-2.5 flex">
                     <button onclick="pageForumDiskusi()">
-                        <div
-                            class="{{ $active === 'Forum Diskusi' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }}text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
+                        <div class="{{ $active === 'Forum Diskusi' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }}text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
                             Forum Diskusi</div>
                         @if ($active === 'Forum Diskusi')
                             <div class="w-1/2 h-1 bg-primary-600"></div>
@@ -54,19 +53,26 @@
             </div>
 
             <div class="justify-end items-center gap-8 flex ">
-                    <button onclick="pageNotifikasi()" class="{{ $active === 'Notifikasi' ? 'ph-fill ph-notifikasi text-32 text-primary-base ' : '' }} ph ph-notification text-32"></button>
                 @auth
-                    <button class="" onclick="pageAkunProfile()">
-                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) 
-                        ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" 
-                        alt="{{ auth()->user()->fullname }}" class="rounded-full w-8">
-                    </button>
+                <button onclick="pageNotifikasi()" class="{{ $active === 'Notifikasi' ? 'ph-fill ph-notifikasi text-32 text-primary-base ' : '' }} ph ph-notification text-32"></button>
+                <button class="" onclick="pageUserProfile()">
+                    <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) 
+                    ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" 
+                    alt="{{ auth()->user()->fullname }}" class="rounded-full w-12">
+                </button>
                 @endauth
                 @guest
-                <button onclick="pageMasuk()" class="text-lg font-semibold font-THICCCBOI px-6 bg-primary-base justify-start rounded-lg
+                <div class="flex flex-row gap-2 ">
+                <button onclick="pageMasuk()" class="text-lg font-semibold font-THICCCBOI px-4 bg-primary-base justify-start rounded-lg
                         items-center gap-2.5 flex" >
                         <div class="text-white text-lg font-medium font-THICCCBOI leading-9">Masuk</div>
                 </button>
+                {{-- <button onclick="pageMasuk()" class="text-lg font-semibold font-THICCCBOI px-4 bg-primary-100  justify-start rounded-lg
+                        items-center gap-2.5 flex" >
+                        <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-9">Daftar</div>
+                </button> --}}
+                </div>
+                
                 @endguest
             </div>
         </div>
