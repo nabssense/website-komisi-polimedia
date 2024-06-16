@@ -1,10 +1,18 @@
 function goBack() {
     window.history.back();
 }
-
-function pageUbahKomisi() {
-  window.location.href = "/kelola-komisi-ubah";
+// NAVBAR atau MENU UTAMA
+function pageBeranda() {
+  window.location.href = "beranda";
 }
+function pageBerita() {
+  window.location.href = "berita";
+}
+function pageTentangKomisi() {
+  window.location.href = "tentang-komisi";
+}
+
+
 
 
 // Forum
@@ -38,6 +46,8 @@ function pageUserProfile() {
 }
 
 
+
+
 // Kelola Website
 function pageKelolaWebsite() {
   window.location.href = "kelola-website";
@@ -66,6 +76,10 @@ function pageKelolaBerita() {
 }
 function pageKelolaBeritaTambah() {
   window.location.href = "/kelola-berita-tambah";
+}
+// 
+function pageUbahKomisi() {
+  window.location.href = "/kelola-komisi-ubah";
 }
 
 // Kelola Pengajuan

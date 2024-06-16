@@ -32,9 +32,9 @@
         </div>
         {{-- Section 3 Berita --}}
         <div class="w-full h-fit xl:px-56 px-4 py-16 bg-white flex-col justify-center items-center gap-12 flex flex-wrap">
-            <div class="max-w-[1480px] w-full text-neutral-900 text-5xl font-extrabold font-THICCCBOI leading-10">Berita
+            <div class="max-w-1480 w-full text-neutral-900 text-5xl font-extrabold font-THICCCBOI leading-10">Berita
             </div>
-            <div class="max-w-[1480px] w-full flex-col justify-start items-center gap-16 flex">
+            <div class="max-w-1480 w-full flex-col justify-start items-center gap-16 flex">
                 {{-- Card Berita --}}
                 <div class="gap-8 bg-yellow-300 justify-center items-center">
                     <div class="w-full flex max-w-1480 flex-wrap gap-8 bg-red-300 justify-center">
@@ -111,9 +111,9 @@
         </div>
         {{-- Section 4 Tanya Jawab --}}
         <div class="w-full xl:px-56 px-4 py-16 bg-red-300 flex-col justify-center items-center gap-12 flex flex-wrap">
-            <div class="max-w-[1480px] w-full text-neutral-900 text-5xl font-extrabold font-THICCCBOI leading-10">Tanya
+            <div class="max-w-1480 w-full text-neutral-900 text-5xl font-extrabold font-THICCCBOI leading-10">Tanya
                 Jawab</div>
-            <div class="max-w-[1480px] w-full flex-col justify-start items-center gap-16 flex flex-wrap">
+            <div class="max-w-1480px w-full flex-col justify-start items-center gap-16 flex flex-wrap">
                 <div class="self-stretch justify-start items-start gap-8 inline-flex flex-wrap">
                     {{-- Card Tanya Jawab --}}
                     <div

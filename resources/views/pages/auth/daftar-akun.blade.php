@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('container')
-<div id="divFull" class="w-screen h-screen  shadow justify-start items-start absolute z-50 inline-flex flex-col">
-    <div id="navbar" class="w-full h-fit">@include('partials.navbar-login')</div>
+<div id="divFull" class="w-screen h-screen  shadow justify-start items-start absolute pt-24 z-50 inline-flex flex-col">
+    <div id="navbar" class="w-full h-fit">@include('partials.navbar')</div>
     <form method="POST" action="{{ route('auth.daftar.register') }}" class="w-full h-full flex flex-col">
         @csrf
-        {{-- Main Content --}} <div id="MainContent"
+        {{-- Main Content --}} <section id="MainContent"
             class="w-full h-full self-stretch px-560 sm:px-16 flex-col justify-center items-center gap-8 inline-flex">
             <div id="MainContent2"
                 class="w-full h-fit max-w-1480 grow shrink basis-0 py-12 flex-col justify-center items-center gap-4 flex">
@@ -121,7 +121,7 @@
 
                 </div>
             </div>
-        </div>
+        </section>
 
         {{-- Button --}}
         <button id="buttonAsli" type="submit" class="w-full h-full py-12 bg-primary-base rounded-tl-4xl rounded-tr-4xl flex-col justify-center items-center flex">

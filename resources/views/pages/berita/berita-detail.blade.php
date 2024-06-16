@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-<div class="w-full h-fit px-56 pt-8 pb-2 bg-white flex-col justify-start items-center gap-8 inline-flex">
+<div class="w-full h-fit px-56 pt-8 pb-2 bg-white flex-col justify-start items-center gap-8 inline-flex ">
     <div class="self-stretch justify-center items-start gap-16 inline-flex">
         <div class="w-full h-fit grow shrink basis-0 p-8 bg-white rounded-2xl shadow-card flex-col justify-start items-start gap-4 inline-flex">
             <div class="self-stretch border-b-2 border-b-neutral-200 pb-6 justify-start items-center gap-4 inline-flex">

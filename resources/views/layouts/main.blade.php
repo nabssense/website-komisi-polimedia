@@ -16,11 +16,9 @@
         {{-- Phosphor Icons --}}
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
     </head>
-    <body class="m-0 p-0 w-full h-screen ">
-        <div class="w-full h-fit {{ $active === 'Tambah Kabinet' || $active === 'Tambah Berita' || $active === 'Tambah Akun' || $active === 'Ajukan Pertanyaan' || $active === 'Ubah Komisi'  || $active === 'Masuk Akun' || $active === 'Daftar Akun' || $active === 'Testing' ? '' : 'pt-24' }}">
-            @include('partials.alert-popup')
-            @yield('container')
-        </div>
+    <body class="m-0 p-0 w-full h-fit {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? '' : 'md:pt-24 pt-20'}}">
+        @include('partials.alert-popup')
+        @yield('container')
         <script src="js/animation.js"></script>
         <script src="js/systempage.js"></script>
         <script src="js/inputField.js"></script>

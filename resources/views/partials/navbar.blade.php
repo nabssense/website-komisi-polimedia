@@ -1,37 +1,34 @@
-{{-- Desktop Navbar --}} <div id="navbar"
-    class="w-full  lg:px-8 px-4 py-4 bg-white shadow-navbar justify-center items-center gap-72 inline-flex fixed inset-x-0 top-0 z-50 transform transition-transform duration-500">
-    <div class="grow max-w-[1480px] shrink basis-0 justify-between items-center flex">
-        <div class="h-16 justify-start  items-center gap-5 flex">
-            <a href="/beranda" class="h-full relative">
+{{-- Desktop Navbar --}} 
+<div id="navbar" class="w-full px-4 md:px-8 xl:px-16 py-2 sm:py-4 bg-white shadow-navbar justify-center items-center gap-72 inline-flex fixed inset-x-0 top-0 z-50 transform transition-transform duration-500">
+    <div class="grow max-w-1480 shrink basis-0 justify-between items-center flex">
+        <div class=" sm:h-12 md:h-16 h-8 justify-start {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'justify-center w-full' : '' }} items-center gap-1 lg:gap-2 xl:gap-4 flex">
+            <button onclick="pageBeranda()" class="w-fit h-full relative">
                 <img class="h-full w-fit aspect-square" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
-            </a>
-            <a href="/beranda" class="w-fit h-fit relative">
+            </button>
+            <button onclick="pageBeranda()" class="w-fit h-full relative">
                 <img class="w-fit h-full" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
-            </a>
+            </button>
         </div>
+        @if ($active === 'Masuk Akun' || $active === 'Daftar Akun') 
+        @else
         <div class="grow shrink basis-0 h-12 justify-end items-center gap-14 flex">
             <div class="hidden lg:flex justify-center items-start gap-8 ">
-                <div class="py-1 flex-col justify-center items-start gap-1 inline-flex">
-                    <a class="" href="/beranda">
+                    <button class="" onclick="pageBeranda()">
                         <div
                             class="{{ $active === 'Beranda' || $active === 'Masuk Akun' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
                             Beranda</div>
                         @if ($active === 'Beranda' || $active === 'Masuk Akun')
                             <div class="w-1/2 h-1 bg-primary-600"></div>
                         @endif
-                    </a>
-                </div>
-                <div class="py-1 flex-col justify-center items-start gap-1 inline-flex">
-                    <a class="" href="/berita">
+                    </button>
+                    <button class="" onclick="pageBerita()">
                         <div
                             class="{{ $active === 'Berita' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900  text-lg font-medium font-THICCCBOI leading-9">
                             Berita</div>
                         @if ($active === 'Berita')
                             <div class="w-1/2 h-1 bg-primary-600"></div>
                         @endif
-                    </a>
-                </div>
-                <div class="py-1 justify-start items-start gap-2.5 flex">
+                    </button>
                     <button onclick="pageForumDiskusi()">
                         <div class="{{ $active === 'Forum Diskusi' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }}text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
                             Forum Diskusi</div>
@@ -39,27 +36,23 @@
                             <div class="w-1/2 h-1 bg-primary-600"></div>
                         @endif
                     </button>
-                </div>
-                <div class="py-1 justify-start items-start gap-2.5 flex">
-                    <a class="" href="/tentang-komisi">
+                    <button class="" onclick="pageTentangKomisi()">
                         <div
                             class="{{ $active === 'Tentang Komisi' || $active === 'Tentang Kabinet' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
                             Tentang Komisi</div>
                         @if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet')
                             <div class="w-1/2 h-1 bg-primary-600"></div>
                         @endif
-                    </a>
-                </div>
+                    </button>
             </div>
-
             <div class="justify-end items-center gap-8 flex ">
                 @auth
-                <button onclick="pageNotifikasi()" class="{{ $active === 'Notifikasi' ? 'ph-fill ph-notifikasi text-32 text-primary-base ' : '' }} ph ph-notification text-32"></button>
-                <button class="" onclick="pageUserProfile()">
-                    <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) 
-                    ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" 
-                    alt="{{ auth()->user()->fullname }}" class="rounded-full w-12">
-                </button>
+                    <button onclick="pageNotifikasi()" class="{{ $active === 'Notifikasi' ? 'ph-fill ph-notifikasi text-32 text-primary-base ' : '' }} ph ph-notification text-32"></button>
+                    <button class="" onclick="pageUserProfile()">
+                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) 
+                        ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" 
+                        alt="{{ auth()->user()->fullname }}" class="rounded-full w-12">
+                    </button>
                 @endauth
                 @guest
                 <div class="flex flex-row gap-2 ">
@@ -76,51 +69,49 @@
                 @endguest
             </div>
         </div>
-    </div>
-
-</div>
-
-
-{{-- Mobile Navbar --}} <div
-    class="fixed bottom-0 bg-white w-full z-50 flex shadow-bottom-navbar justify-center items-start gap-4 md:gap-12 py-4 lg:hidden">
-    <div class="py-1 flex-col justify-center items-start gap-1 inline-flex">
-        <a class="" href="/beranda">
-            <div
-                class="{{ $active === 'Beranda' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
-                Beranda</div>
-            @if ($active === 'Beranda')
-                <div class="w-1/2 h-1 bg-primary-600"></div>
-            @endif
-        </a>
-    </div>
-    <div class="py-1 flex-col justify-center items-start gap-1 inline-flex">
-        <a class="" href="/berita">
-            <div
-                class="{{ $active === 'Berita' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900  text-lg font-medium font-THICCCBOI leading-9">
-                Berita</div>
-            @if ($active === 'Berita')
-                <div class="w-1/2 h-1 bg-primary-600"></div>
-            @endif
-        </a>
-    </div>
-    <div class="py-1 justify-start items-start gap-2.5 flex">
-        <a class="" href="/tanya-jawab">
-        <div class="{{ $active === 'Tanya Jawab' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">Tanya Jawab</div>
-        @if ($active === 'Tanya Jawab')
-            <div class="w-1/2 h-1 bg-primary-600"></div>
         @endif
     </div>
-    <div class="py-1 justify-start items-start gap-2.5 flex">
-        <a class="" href="/tentang-komisi">
-            <div
-                class="{{ $active === 'Tentang Komisi' || $active === 'Tentang Kabinet' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
-                Tentang</div>
-            @if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet')
-                <div class="w-1/2 h-1 bg-primary-600"></div>
-            @endif
-        </a>
-    </div>
+
 </div>
+
+
+
+
+{{-- Mobile Navbar --}} 
+<div id="navbar-bottom-mobile" class="fixed bottom-0 bg-white w-full z-50 flex shadow-bottom-navbar justify-between items-start px-2 sm:px-8 md:px-24 lg:hidden">
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2" onclick="pageBeranda()">
+        <div
+            class="{{ $active === 'Beranda' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">
+            Beranda</div>
+        @if ($active === 'Beranda')
+            <div class="w-1/2 h-1 bg-primary-600"></div>
+        @endif
+    </button>
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2" onclick="pageBerita()">
+        <div
+            class="{{ $active === 'Berita' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900  text-sm font-medium font-THICCCBOI leading-B2">
+            Berita</div>
+        @if ($active === 'Berita')
+            <div class="w-1/2 h-1 bg-primary-600"></div>
+        @endif
+    </button>
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2" onclick="pageForumDiskusi()">
+        <div class="{{ $active === 'Forum Diskusi' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">Forum Diskusi</div>
+        @if ($active === 'Forum Diskusi')
+            <div class="w-1/2 h-1 bg-primary-600"></div>
+        @endif
+    </button>
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2" onclick="pageTentangKomisi()">
+        <div
+            class="{{ $active === 'Tentang Komisi' || $active === 'Tentang Kabinet' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">
+            Tentang</div>
+        @if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet')
+            <div class="w-1/2 h-1 bg-primary-600"></div>
+        @endif
+    </button>
+</div>
+
+
 @if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet' )
 <script>
     let prevScrollPos = window.pageYOffset;

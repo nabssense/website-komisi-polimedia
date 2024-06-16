@@ -33,9 +33,9 @@ class DatabaseSeeder extends Seeder
             'fullname' => $fullname,
             'email' => 'admin@ad',
             'password' => 'admin',
-            'nim'=> '20240090',
-            'user_type' => 'Mahasiswa',
-            'edu_program' => 'Teknologi Rekayasa Multimedia',
+            'nim'=> 'Admin',
+            'user_type' => 'Admin',
+            'edu_program' => '',
             'status' => 'Active',
         ]);
 

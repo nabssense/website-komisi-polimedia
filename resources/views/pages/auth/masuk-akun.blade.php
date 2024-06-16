@@ -1,8 +1,7 @@
 @extends('layouts.main')
 @section('container')
-        <div id="divFull" class="w-screen h-screen shadow justify-start items-start absolute z-50 inline-flex flex-col">
-            <div id="navbar" class="w-full h-fit">@include('partials.navbar-login')</div>
-            
+        <div id="divFull" class="w-full bg-lime-400 h-full shadow justify-start items-start absolute z-50 pt-24 flex flex-col">
+            @include('partials.navbar')
             <form method="POST" action="{{ route('auth.masuk.login') }}" class="w-full h-full flex flex-col">
                 @csrf
                 {{-- Main Content --}} 
@@ -75,7 +74,7 @@
                 </div>
 
                 {{-- Button --}}
-                <button type="submit" id="buttonAsli" class="w-full h-full py-12 bg-primary-base rounded-t-5xl flex-col justify-center items-center flex">
+                <button type="submit" id="buttonAsli" class="w-full h-full bg-primary-base rounded-t-5xl flex-col justify-center items-center flex">
                     <div id="text-btn" class="justify-center items-center gap-8 flex flex-row">
                         <div 
                         class="text-center text-white text-5xl font-extrabold font-['THICCCBOI'] leading-10">Masuk</div>

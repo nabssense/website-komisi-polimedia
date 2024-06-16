@@ -1,6 +1,6 @@
     <div class="w-full flex-col justify-center items-center gap-12 flex">
         @if ($active === 'Beranda')
-        <div class="max-w-[1480px] pt-24 w-full justify-center items-center gap-2.5 inline-flex">
+        <div class="max-w-1480 pt-24 w-full justify-center items-center gap-2.5 inline-flex">
             <div class="grow shrink basis-0 text-neutral-900 text-5xl font-extrabold font-['THICCCBOI'] leading-10">Tentang
                 Komisi</div>
         </div>
@@ -13,7 +13,7 @@
                 {{-- Placeholder for carousel content --}}
                 <div class="carousel-item z-40 bg-primary-200 w-full h-fit px-[16%] pt-24 pb-48 flex flex-col justify-center items-center transition-transform duration-500 ease-in-out" data-index="0">
                     <div class="w-full flex justify-center items-center"> <!-- Mengubah justify-center -->
-                        <div class="w-full  max-w-[1480px] h-fit gap-24 flex justify-center items-center"> <!-- Menambahkan justify-center dan items-center -->
+                        <div class="w-full  max-w-1480 h-fit gap-24 flex justify-center items-center"> <!-- Menambahkan justify-center dan items-center -->
                             <div class="w-96 h-96 p-8 justify-center items-center flex bg-white rounded-2xl">
                                 <img class="w-full h-full" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
                             </div>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="carousel-item w-full h-fit px-[16%] pt-24 pb-48  flex-col justify-center hidden  items-center  bg-emerald-500" data-index="1">
                     <div class="w-full flex justify-center items-center"> <!-- Mengubah justify-center -->
-                        <div class="w-full  max-w-[1480px] h-fit gap-24 flex justify-center items-center"> <!-- Menambahkan justify-center dan items-center -->
+                        <div class="w-full  max-w-1480 h-fit gap-24 flex justify-center items-center"> <!-- Menambahkan justify-center dan items-center -->
                             <div class="w-96 h-96 p-8 justify-center items-center flex bg-white rounded-2xl">
                                 <img class="w-full h-full" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
                             </div>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="carousel-item w-full h-fit px-[16%] pt-24 pb-48  flex-col justify-center hidden  items-center  bg-emerald-500" data-index="1">
                     <div class="w-full flex justify-center items-center"> <!-- Mengubah justify-center -->
-                        <div class="w-full  max-w-[1480px] h-fit gap-24 flex justify-center items-center"> <!-- Menambahkan justify-center dan items-center -->
+                        <div class="w-full  max-w-1480 h-fit gap-24 flex justify-center items-center"> <!-- Menambahkan justify-center dan items-center -->
                             <div class="w-96 h-96 p-8 justify-center items-center flex bg-white rounded-2xl">
                                 <img class="w-full h-full" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
                             </div>
@@ -194,7 +194,7 @@
 
     {{-- Tentang Komisi --}}
     @if ($active === "Kelola Komisi")
-        <div class="w-full max-w-[1480px] p-12 bg-white rounded-3xl shadow flex-col justify-start items-start gap-9 flex">
+        <div class="w-full max-w-1480 p-12 bg-white rounded-3xl shadow flex-col justify-start items-start gap-9 flex">
             <div class="self-stretch  flex-col justify-start items-start gap-8 flex">
                 <div class="w-full justify-start items-center gap-8 flex xl:flex-row">
                     <div class=" text-zinc-900 xl:text-8xl sm:text-5xl font-extrabold font-['THICCCBOI'] leading-H1-H2-H3">
@@ -225,7 +225,7 @@
         </div>
     @else
     <div class="w-full xl:px-56 px-4 pt-16 pb-24 bg-stone-700 flex-col justify-center items-center gap-12 flex">
-        <div class="w-full max-w-[1480px] p-12 bg-white rounded-3xl shadow flex-col justify-start items-start gap-9 flex">
+        <div class="w-full max-w-1480 p-12 bg-white rounded-3xl shadow flex-col justify-start items-start gap-9 flex">
             <div class="self-stretch  flex-col justify-start items-start gap-8 flex">
                 <div class="w-full justify-start items-center gap-8 flex xl:flex-row">
                     <div class=" text-zinc-900 xl:text-8xl sm:text-5xl font-extrabold font-['THICCCBOI'] leading-H1-H2-H3">

@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->integer('nim');
             $table->string('edu_program');
-            $table->enum('user_type', ['Mahasiswa', 'Umum']);
+            $table->enum('user_type', ['Mahasiswa', 'Umum', 'Admin', 'Pembina Komisi']);
+            // $table->string('kabinet_active');
             $table->enum('status', ['Active', 'Non Active']);
             $table->timestamps('');
         });

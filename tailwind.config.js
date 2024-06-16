@@ -72,7 +72,7 @@ export default {
         '6xl': '60px',
       },
       screens: {
-        'xs': '300px',
+        'xs': '0px',
         // => @media (min-width: 640px) { ... }
 
         // Smartphone
@@ -80,7 +80,7 @@ export default {
         // => @media (min-width: 640px) { ... }
 
         // Tablet
-        'md': '768px',
+        'md': '720px',
         // => @media (min-width: 768px) { ... }
   
         'lg': '1024px',

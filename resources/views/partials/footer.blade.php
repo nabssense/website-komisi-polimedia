@@ -1,7 +1,7 @@
-<footer class="w-full xl:px-56 px-8 pt-24 pb-12 bg-primary-base flex-col justify-center items-center gap-16 flex">
-    <div class="max-w-[1480px] h-fit w-full justify-center items-center gap-16 flex sm:flex-wrap xl:flex-row">
-        <div class=" h-fit sm:order-2 xl:order-1 grow shrink basis-5/12 flex-col justify-center relative items-start gap-12 inline-flex">
-            <div class="w-full h-24 justify-start items-start gap-8 inline-flex flex-wrap">
+<footer class="w-full px-4 md:px-8 xl:px-16 pt-24 pb-12 bg-primary-base flex-col justify-center items-center gap-16 flex">
+    <div class="max-w-1480 h-fit w-full justify-center items-center gap-16 flex flex-col xl:flex-row">
+        <section class="w-full h-fit sm:order-2 xl:order-1 flex-col justify-center relative items-start gap-12 inline-flex">
+            <div class="w-full h-fit justify-start items-start gap-8 inline-flex flex-wrap">
                 @php
                     // Baca isi file SVG
                     $svgContent = file_get_contents(
@@ -76,16 +76,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="w-full h-360 flex-col bg-blue-400 rounded-3xl xl:order-2 grow shrink basis-6/12 flex overflow-clip justify-center items-center">
-            <div class="h-full  justify-center items-center flex bg-lime-400">
-                <img class="bg-cover order-1 rounded-3xl relative" src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
+        </section>
+        <section class="w-full h-fit rounded-2xl xl:order-2 flex  overflow-clip justify-center items-center">
+            <div class="w-full h-full justify-center items-center flex bg-lime-400">
+                <img class="bg-cover rounded-2xl relative" src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
             </div>
-        </div>
+        </section>
     </div>
     <div class="self-stretch h-16 flex-col justify-start items-center gap-10 flex">
         <div class="self-stretch h-1 bg-gray-200 rounded-2xl"></div>
         <div class="text-center"><span class="text-white text-lg font-normal font-['THICCCBOI'] leading-7">• Membidik Prestasi Membangun Negeri • © 2022 Copyright Komisi Polimedia</span></div>
     </div>
-    
 </footer>

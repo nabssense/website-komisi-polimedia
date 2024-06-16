@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
-    {{-- STEP 1 --}}<div
-        class="w-screen h-screen step p-8 bg-netral-100 shadow justify-start items-start gap-12 inline-flex" id="step1">
+    {{-- STEP 1 --}}
+    <section class="w-screen h-screen step p-8 bg-netral-100 shadow justify-start items-start gap-12 inline-flex" id="step1">
         
         {{-- Stepper --}}
         <div class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
@@ -259,9 +259,9 @@
                 </button>
             </div>
         </div>
-    </div>
-    {{-- STEP 2 --}}<div
-        class="w-screen h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12 " id="step2">
+    </section>
+    {{-- STEP 2 --}}
+    <section class="w-screen h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12 " id="step2">
         {{-- Stepper --}}
         <div class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
             <div class="flex-col justify-start items-center flex">
@@ -343,11 +343,11 @@
                 </button>
             </div>
         </div>
-    </div>
+    </section>
 
 
-     {{-- STEP 3 --}} <div
-        class="w-screen h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12 " id="step2">
+     {{-- STEP 3 --}} 
+     <section class="w-screen h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12 " id="step2">
         {{-- Stepper --}}
         <div class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
             <div class="flex-col justify-start items-center flex">
@@ -482,11 +482,11 @@
                 </button>
             </div>
         </div>
-    </div>
+    </section>
 
 
-    {{-- STEP 4 --}} <div
-        class="w-screen h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12" id="step2">
+    {{-- STEP 4 --}} 
+    <section class="w-screen h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12" id="step2">
         {{-- Stepper --}}
         <div class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
             <div class="flex-col justify-start items-center flex">
@@ -740,7 +740,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </section>
 
 <script>
 // #mahasiswaLama:checked + label:first-of-type {
@@ -1879,407 +1879,6 @@ document.getElementById('list-form-jabatan').addEventListener('click', function(
             });
             
 </script>
-
-{{-- <script>
-// add & delete jabatan
-document.getElementById('addButtonBtn-jabatan').addEventListener('click', function() {
-    const container = document.getElementById('add-content-jabatan');
-    const textField = document.createElement('div');
-    textField.classList.add('flex', 'space-x-2', 'added-field', 'w-full', 'h-full');
-    textField.innerHTML = `
-        <div
-            class="w-full px-4 py-3 bg-white rounded-2xl border border-netral-200 justify-start items-center gap-4 inline-flex">
-            <div
-                class=" text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">
-                Anggota</div>
-            <div class="w-8 h-8 p-1.5 justify-center items-center flex"></div>
-        </div>
-        <button class="w-full h-full grow shrink basis-0 remove-btn relative">
-            <i class="text-32 ph ph-trash "></i>
-        </button>
-`;
-    container.insertBefore(textField, this);
-    const removeButtons = container.querySelectorAll('.remove-btn');
-    removeButtons.forEach(button => button.classList.remove('hidden'));
-});
-
-document.getElementById('add-content-jabatan').addEventListener('click', function(event) {
-    if (event.target.classList.contains('remove-btn') || event.target.parentNode.classList.contains(
-            'remove-btn')) {
-        let targetElement = event.target;
-        if (!event.target.classList.contains('remove-btn')) {
-            targetElement = event.target.parentNode;
-        }
-        targetElement.closest('.added-field').remove();
-    }
-}); 
-
-
-// function removeFormAnggota(formAnggotaIdToRemove) {
-    
-//     const selectForm2 = document.getElementById(`${formAnggotaIdToRemove}`);
-//     console.log("FORM AMGGOTA", selectForm2);
-//     const formAnggotaToRemove = document.getElementById(`formAnggota-${selectForm2}`);
-//     console.log("FORM AMGGOTA", formAnggotaToRemove);
-//     if (formAnggotaToRemove) {
-//         formAnggotaToRemove.remove(); // Hapus formAnggota yang terkait
-//     }
-// }
-            // function updateOtherInputValue(addDivinputId){
-            //     console.log("addDivinputId:", addDivinputId);
-            // const inputFieldContainer = document.querySelectorAll(`#inputfieldContainer`);
-            // console.log("inputFieldContainer:", inputFieldContainer);
-
-            // // Update division button text according to the value entered in the dynamic text field
-            // inputFieldContainer.forEach(form => {
-            //     // Ambil nilai nama divisi dari setiap elemen
-            //     const nameDivisi = form.value;
-            //     console.log("nameDivisi:", nameDivisi);
-            //     const selectinputfieldDivisi = document.querySelector(`#inputfieldContainer[data-button-divisi-text-id="${addDivinputId}"]`);
-            //     console.log("selectinputfieldDivisi:", selectinputfieldDivisi);
-            // if (selectinputfieldDivisi){
-            //     namaDivisiValues = 'Divisi ' + nameDivisi;
-            //     console.log("Nama Divisi Values:", namaDivisiValues);
-            //         // // Tambahkan nilai nama divisi ke variabel
-            //         // // Tambahkan nilai nama divisi ke variabel
-            //         // if (selectinputfieldDivisi) {
-            //         //     selectinputfieldDivisi.addEventListener('input', function() {
-            //         //         namaDivisiValues += nameDivisi + selectinputfieldDivisi.value;
-
-            //         //     });
-            //         // } 
-            //     }
-            // });
-            // }
-        
-
-
-
-            
-            // const btnJabatanformAnggota = createFormAnggota(`formAnggota-${addDivinputId}`);
-            // const btnJabatanformAnggotaLetak = document.getElementById('list-button-jabatan');
-            // btnJabatanformAnggotaLetak.appendChild(btnJabatanformAnggota); // Ganti 'form-container' dengan ID dari elemen di mana Anda ingin menempatkan form
-
-
-
-            // // Update division button text according to the value entered in the dynamic text field
-            // inputField.addEventListener('input', function() {
-            //     dynamicTextDiv1.textContent = 'Divisi ' + inputField.value;
-            //     dynamicTextDiv2.textContent = 'Divisi ' + inputField.value;
-            // });
-
-            
-        
-    //         // Function Button
-    //     function toggleButton(button) {
-    //         const inputId = button.dataset.inputFieldId;
-    //         const associatedForm = document.getElementById(`form-${inputId}`);
-            
-    //         if (activeButton !== button) {
-    //             // Jika tombol yang diklik tidak sama dengan tombol yang sedang aktif
-    //             if (activeButton) {
-    //                 // Nonaktifkan tombol yang aktif sebelumnya
-    //                 activeButton.classList.remove('bg-primary-100', 'border', 'border-primary-base');
-    //                 activeButton.classList.add('bg-netral-100', 'border', 'border-netral-200');
-                    
-    //                 // Mengatur ulang warna teks menjadi text-netral-900 jika tombol sebelumnya diklik
-    //                 const prevInputId = activeButton.dataset.inputFieldId;
-    //                 const prevAssociatedDiv = document.querySelector(`div[data-input-field-id="${prevInputId}"]`);
-    //                 if (prevAssociatedDiv) {
-    //                     const dynamicTextDiv = prevAssociatedDiv.querySelector('.font-THICCCBOI');
-    //                     if (dynamicTextDiv) {
-    //                         dynamicTextDiv.classList.remove('text-primary-base');
-    //                         dynamicTextDiv.classList.add('text-netral-900');
-    //                     }
-    //                 }
-
-    //                 const prevAssociatedForm = document.getElementById(`form-${prevInputId}`);
-    //                 if (prevAssociatedForm) {
-    //                     prevAssociatedForm.classList.add('hidden'); // Sembunyikan formulir sebelumnya
-    //                 }
-    //             }
-    //             // Aktifkan tombol yang baru diklik
-    //             button.classList.remove('bg-netral-100', 'border', 'border-netral-200');
-    //             button.classList.add('bg-primary-100', 'border', 'border-primary-base');
-    //             activeButton = button;
-    //             // Tampilkan formulir terkait
-    //             associatedForm.classList.remove('hidden');
-    //             // Mengatur warna teks menjadi text-primary-base
-    //             dynamicTextDiv1.classList.remove('text-netral-900');
-    //             dynamicTextDiv1.classList.add('text-primary-base');
-    //         } else {
-    //             // Nonaktifkan tombol yang sedang aktif jika diklik kembali
-    //             button.classList.remove('bg-primary-100', 'border', 'border-primary-base');
-    //             button.classList.add('bg-netral-100', 'border', 'border-netral-200');
-    //             activeButton = null;
-    //             // Sembunyikan formulir terkait
-    //             associatedForm.classList.add('hidden');
-    //             // Mengatur ulang warna teks menjadi text-netral-900 jika tombol diklik kembali
-    //             dynamicTextDiv1.classList.remove('text-primary-base');
-    //             dynamicTextDiv1.classList.add('text-netral-900');
-    //         }
-    //     }
-
-
-    // // Function Button 2
-    //     function toggleButton2(button) {
-    //     const inputId = button.dataset.inputFieldId;
-    //     const associatedForm2 = document.getElementById(`form2-${inputId}`);
-        
-    //     if (activeButton2 !== button) {
-    //         // Jika tombol yang diklik tidak sama dengan tombol yang sedang aktif
-    //         if (activeButton2) {
-    //             // Nonaktifkan tombol yang aktif sebelumnya
-    //             activeButton2.classList.remove('bg-primary-100', 'border', 'border-primary-base');
-    //             activeButton2.classList.add('bg-netral-100', 'border', 'border-netral-200');
-                
-    //             // Mengatur ulang warna teks menjadi text-netral-900 jika tombol sebelumnya diklik
-    //             const prevInputId = activeButton2.dataset.inputFieldId;
-    //             const prevAssociatedForm2 = document.getElementById(`form2-${prevInputId}`);
-    //             if (prevAssociatedForm2) {
-    //                 prevAssociatedForm2.classList.add('hidden'); // Sembunyikan formulir sebelumnya
-    //             }
-                
-    //             const prevDynamicTextDiv2 = activeButton2.querySelector('.font-THICCCBOI');
-    //             if (prevDynamicTextDiv2) {
-    //                 prevDynamicTextDiv2.classList.remove('text-primary-base');
-    //                 prevDynamicTextDiv2.classList.add('text-netral-900');
-    //             }
-    //         }
-            
-    //         // Aktifkan tombol yang baru diklik
-    //         button.classList.remove('bg-netral-100', 'border', 'border-netral-200');
-    //         button.classList.add('bg-primary-100', 'border', 'border-primary-base');
-    //         activeButton2 = button;
-            
-    //         // Tampilkan formulir terkait
-    //         associatedForm2.classList.remove('hidden');
-            
-    //         // Mengatur ulang warna teks menjadi text-primary-base pada tombol yang aktif
-    //         const dynamicTextDiv2 = button.querySelector('.font-THICCCBOI');
-    //         if (dynamicTextDiv2) {
-    //             dynamicTextDiv2.classList.remove('text-netral-900');
-    //             dynamicTextDiv2.classList.add('text-primary-base');
-    //         }
-    //     } else {
-    //         // Nonaktifkan tombol yang sedang aktif jika diklik kembali
-    //         button.classList.remove('bg-primary-100', 'border', 'border-primary-base');
-    //         button.classList.add('bg-netral-100', 'border', 'border-netral-200');
-    //         activeButton2 = null;
-            
-    //         // Sembunyikan formulir terkait
-    //         associatedForm2.classList.add('hidden');
-            
-    //         // Mengatur ulang warna teks menjadi text-netral-900 jika tombol diklik kembali
-    //         const dynamicTextDiv2 = button.querySelector('.font-THICCCBOI');
-    //         if (dynamicTextDiv2) {
-    //             dynamicTextDiv2.classList.remove('text-primary-base');
-    //             dynamicTextDiv2.classList.add('text-netral-900');
-    //         }
-    //     }
-    // }
-
-
-    // // Memperbaiki penanganan event listener untuk button divisi
-    // buttonDivisi.addEventListener('click', function() {
-    //     const associatedInputField = document.querySelector(`input[data-button-divisi-text-id="${inputId}"]`);
-    //     toggleButton(this);
-    //     if (associatedInputField) {
-    //         associatedInputField.value = dynamicTextDiv1.textContent;
-    //     }
-    // });
-    // buttonDivisiText2.addEventListener('click', function() {
-    //     const associatedInputField2 = document.querySelector(`input[data-button-divisi-text-id="${inputId}"]`);
-    //     toggleButton2(this);
-    //     if (associatedInputField2) {
-    //         associatedInputField2.value = dynamicTextDiv2.textContent;
-    //     }
-    // });
-
-
-// // Menambahkan event listener untuk ikon tempat sampah
-//     trashIcon.addEventListener('click', function() {
-//     divContainer.remove(); // Hapus elemen kontainer ketika ikon tempat sampah diklik
-//     });
-
-// // Add event listener to update input field value based on division button text
-// buttonDivisiText1.addEventListener('click', function() {
-//     const associatedInputField = document.querySelector(
-//         `input[data-button-divisi-text-id="${inputId}"]`);
-//         const inputId = this.dataset.inputFieldId;
-//         toggleFormVisibility(inputId);
-//     if (associatedInputField) {
-//         associatedInputField.value = dynamicTextDiv1.textContent;
-//     }
-//     this.classList.add('bg-red-600');
-// });
-// buttonDivisiText2.addEventListener('click', function() {
-//     const associatedInputField = document.querySelector(
-//         `input[data-button-divisi-text-id="${inputId}"]`);
-//         const inputId = this.dataset.inputFieldId;
-//         toggleFormVisibility(inputId);
-//     if (associatedInputField) {
-//         associatedInputField.value = dynamicTextDiv2.textContent;
-//     }
-//     this.classList.add('bg-red-600');
-// });
-
-
-
-// // Nama Divisi Function  
-
-
-//      document.getElementById('addTextFieldBtn-divisi').addEventListener('click', function() {
-
-//     const container = document.getElementById('add-content-divisi');
-//         // Membuat container utama
-//         //label
-//     const divContainer = document.createElement('div');
-//     divContainer.classList.add('self-stretch', 'h-fit', 'flex', 'flex-row', 'gap-4', 'justify-center', 'items-center');
-
-//     // Membuat div untuk input field dan label
-//     const divInput = document.createElement('div');
-//     divInput.classList.add('w-full', 'h-fit', 'flex-col', 'justify-start', 'items-start', 'flex');
-
-//     // Membuat div untuk label "Nama Divisi"
-//     const divLabel = document.createElement('div');
-//     divLabel.textContent = 'Nama Divisi';
-//     divLabel.classList.add('text-stone-700', 'text-base', 'font-normal', 'font-THICCCBOI', 'leading-normal');
-
-//     // Membuat input field untuk nama divisi
-//     const inputField = document.createElement('input');
-//     inputField.type = 'text';
-//     inputField.name = 'nama-kabinet';
-//     inputField.placeholder = 'Cth: Kreatif';
-//     inputField.classList.add('dynamic-input', 'w-full', 'py-3', 'bg-netral-100', 'focus:border-b-2', 'focus:outline-none', 'focus:border-primary-base', 'focus:font-semibold', 'font-semibold', 'focus:text-netral-800', 'text-netral-800', 'border-b', 'border-neutral-900', 'justify-start', 'items-center', 'gap-2', 'inline-flex', 'placeholder:text-netral-300', 'text-lg', 'placeholder:font-normal', 'font-THICCCBOI', 'leading-7');
-
-//     // Menambahkan input field dan label ke dalam div input
-//     divInput.appendChild(divLabel);
-//     divInput.appendChild(inputField);
-
-//     // Membuat button untuk menghapus
-//     const removeButton = document.createElement('button');
-//     removeButton.classList.add('w-full', 'h-full', 'grow', 'shrink', 'basis-0', 'justify-center', 'items-center', 'pr-6', 'remove-btn', 'relative');
-
-//     // Membuat link pada button untuk ikon tempat sampah
-//     const trashIcon = document.createElement('a');
-//     trashIcon.classList.add('ph', 'ph-trash', 'text-32');
-
-//     // Menambahkan ikon tempat sampah ke dalam button
-//     removeButton.appendChild(trashIcon);
-
-
-//         container.insertBefore(divContainer, this);
-//         const removeButtons = container.querySelectorAll('.remove-btn');
-//         removeButtons.forEach(button => button.classList.remove('hidden'));
-
-//         // Menambahkan div input dan button ke dalam div container
-//     divContainer.appendChild(divInput);
-//     divContainer.appendChild(removeButton);
-
-
-//                 // Show division button when adding a new text field
-//                     // Membuat button divisi text
-//                     const buttonDivisiText = document.createElement('button');
-//                     buttonDivisiText.id = 'button-divisi-text';
-//                     buttonDivisiText.classList.add('divisi-btn','hidden', 'self-stretch', 'w-full', 'h-fit', 'flex-col', 'justify-start', 'items-start', 'gap-1');
-
-//                     // Membuat div dalam button divisi text
-//                     const divInsideButton = document.createElement('div');
-//                     divInsideButton.classList.add('w-full', 'h-fit', 'px-4', 'py-3', 'bg-netral-100', 'rounded-xl', 'border', 'border-netral-200', 'justify-start', 'items-center', 'gap-4', 'inline-flex');
-
-//                     // Membuat div untuk teks dinamis
-//                     const dynamicTextDiv = document.createElement('div');
-//                     dynamicTextDiv.textContent = 'Divisi' ;
-//                     dynamicTextDiv.classList.add('w-full', 'h-fit', 'text-neutral-900', 'text-lg', 'font-medium', 'font-THICCCBOI', 'leading-7');
-
-//                     // Menambahkan div teks dinamis ke dalam div dalam button divisi text
-//                     divInsideButton.appendChild(dynamicTextDiv);
-
-//                     // Menambahkan div dalam button divisi text ke dalam button divisi text
-//                     buttonDivisiText.appendChild(divInsideButton);
-//                 document.getElementById('list-btn-divisi').appendChild(buttonDivisiText);
-//                 buttonDivisiText.classList.remove('hidden');
-
-//                 // Assign a unique identifier to each input field and its associated division button
-//                 const inputId = Date.now(); // Unique ID for the input field
-//                 inputField.dataset.buttonDivisiTextId = inputId; // Set data attribute on input field
-//                 buttonDivisiText.dataset.inputFieldId = inputId; // Set data attribute on division button
-
-
-
-//                 // Add event listener to update input field value based on division button text
-//                 buttonDivisiText.addEventListener('click', function() {
-//                     const associatedInputField = document.querySelector(`input[data-division-button-id="${inputId}"]`);
-//                     if (associatedInputField) {
-//                     associatedInputField.value = dynamicTextDiv.textContent;
-//                     }
-
-//                     const buttonDivisiText1 = document.getElementById('button-divisi-text-1-' + inputFieldId);
-//                     const buttonDivisiText2 = document.getElementById('button-divisi-text-2-' + inputFieldId);
-//                     buttonDivisiText1.textContent = textValue;
-//                     buttonDivisiText2.textContent = textValue;
-//                 });
-
-//                 // Update division button text according to the value entered in the dynamic text field
-//                 inputField.addEventListener('input', function() {
-//                     dynamicTextDiv.textContent = 'Divisi ' + inputField.value;
-//                 });
-
-
-// });
-
-// document.getElementById('add-content-divisi').addEventListener('click', function(event) {
-//   if (event.target.classList.contains('remove-btn')) {
-//     const divisiBtn = event.target.parentNode.querySelector('.divisi-btn');
-//     const inputId = event.target.parentNode.querySelector('.dynamic-input').dataset.buttonDivisiTextId;
-//     const associatedDivisiBtn = document.querySelector(`button[data-input-field-id="${inputId}"]`);
-//     event.target.parentNode.remove(); // Remove the parent node containing both the input and button
-//     if (divisiBtn) {
-//       divisiBtn.remove(); // Remove division button if it exists
-//     }
-//     if (associatedDivisiBtn) {
-//       associatedDivisiBtn.remove(); // Remove associated division button from step2 if it exists
-//     }
-//   }
-// });
-
-
-
-
-
-
-    // Static Divisi Text Input Function
-
-//     // Ambil elemen input
-//     const inputText = document.getElementById('text-btn-divisi');
-
-//     // Ambil elemen tombol
-//     const div = document.getElementById('button-fix-divisi-text');
-
-//     const div2 = document.getElementById('button-fix-divisi-text-2');
-
-//     // Tambahkan event listener untuk setiap kali nilai input berubah
-//     inputText.addEventListener('input', function() {
-
-
-//     // Periksa apakah nilai input kosong
-
-//     if (this.value.trim() === '') {
-//         div.parentNode.parentNode.classList.add('hidden',
-//             'flex'); // Sembunyikan tombol jika nilai input kosong
-//     } else {
-//         div.parentNode.parentNode.classList.remove('hidden');
-//         div.parentNode.parentNode.classList.add(
-//             'flex'); // Tampilkan tombol kembali jika nilai input tidak kosong
-//         div.textContent = 'Divisi ' + this.value; // Set nilai tombol menjadi nilai dari input
-
-//         div2.parentNode.parentNode.classList.remove('hidden');
-//         div2.parentNode.parentNode.classList.add('flex');
-//         div2.textContent = 'Divisi ' + this.value;
-//     }
-// });
-</script> --}}
 <script>
             // Step Function
     function nextStep() {

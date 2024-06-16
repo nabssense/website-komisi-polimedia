@@ -39,7 +39,7 @@ use App\Http\Controllers\User\UserController;
 Route::middleware('auth.warning')->group(function () {
     
     Route::namespace('App\Http\Controllers\ForumDiscussions')->group(function(){
-        Route::get('forum-diskusi', 'ForumDiscussionsController@index')->name('forumdiscussions.index');
+        
         Route::get('forum-diskusi-ajukan-pertanyaan', 'ForumDiscussionsController@askQuestions')->name('forumdiscussions.askquestion.index');
     });
 });
@@ -48,16 +48,14 @@ Route::middleware('auth.warning')->group(function () {
 // Harus Login atau Sudah Login
 Route::middleware('auth')->group(function () {
     // Akun
-    
-        
         // Akun - Kelola Web
-        Route::get('/kelola-website', function () {
+        Route::get('kelola-website', function () {
             return view('pages.user.kelola-web.index', [
                 "title" => "Website Komisi | Kelola Website",
                 "active" => "Kelola Website",
             ]);
         });
-        Route::get('/tambah-kabinet', function () {
+        Route::get('/kelola-kabinet-tambah', function () {
             return view('pages.user.kelola-web.kelola-kabinet-tambah', [
                 "title" => "Website Komisi | Tambah Kabinet",
                 "active" => "Tambah Kabinet",
@@ -134,7 +132,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-// Tanpa Login atau Belum Login
+// Hanya Tanpa Login atau Belum Login
 Route::middleware('guest')->group(function () {
     Route::namespace('App\Http\Controllers\Auth')->group(function () {
         Route::get('masuk-akun', 'LoginController@index')->name('auth.masuk.index');
@@ -144,10 +142,11 @@ Route::middleware('guest')->group(function () {
         Route::post('daftar-akun', 'RegisterController@register')->name('auth.daftar.register');
     });
     
-   
 });
 
-
+Route::namespace('App\Http\Controllers\ForumDiscussions')->group(function(){
+    Route::get('forum-diskusi', 'ForumDiscussionsController@index')->name('forumdiscussions.index');
+});
     
 Route::namespace('App\Http\Controllers\Home')->group(function () {
     Route::get('beranda', 'HomeController@index')->name('beranda.index');

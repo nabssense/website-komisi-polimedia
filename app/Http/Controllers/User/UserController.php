@@ -9,31 +9,33 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\User\UserUpdateRequest;
 
+
+
 class UserController extends Controller
 {
     //
-    public function index($email)
+    public function index()
     {
-        $user = User::where('email', $email)->first();
-        if (!$user){
-            return abort(404);
-        }
+        // $user = User::where('email', $email)->first();
+        // if (!$user){
+        //     return abort(404);
+        // }
 
-        $profile_picture = filter_var($user->profile_picture, FILTER_VALIDATE_URL)
-        ? $user->profile_picture : Storage::url($user->profile_picture);
+        // $profile_picture = filter_var($user->profile_picture, FILTER_VALIDATE_URL)
+        // ? $user->profile_picture : Storage::url($user->profile_picture);
 
-        $perPage = 5;
-        $columns = ['*'];
-        $questionsPageName = 'questions';
-        $answersPageName = 'answers';
+        // $perPage = 5;
+        // $columns = ['*'];
+        // $questionsPageName = 'questions';
+        // $answersPageName = 'answers';
 
         return view('pages.user.user-profile', [
             "title" => "Website Komisi | User Profile",
             "active" => "User Profile",
 
 
-            "user" => $user,
-            "profile_picture" => $profile_picture,
+            // "user" => $user,
+            // "profile_picture" => $profile_picture,
             // "questions" => Question::where('user_id', $user->id)
             // ->paginate($perPage, $columns, $questionsPageName, $answersPageName),
             // "answers" => Answer::where('user_id', $user->id)
