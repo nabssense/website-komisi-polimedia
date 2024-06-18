@@ -1,10 +1,12 @@
-<div class="w-full h-fit px-4 md:px-8 xl:px-16 {{ $active === 'Beranda' ? 'py-16' : 'py-8' }} bg-soft-base flex-col justify-center items-center inline-flex ">
+<div class="w-full h-fit {{ $active === 'Beranda' ? 'py-16' : 'py-8' }} bg-soft-base flex-col justify-center items-center inline-flex ">
     <div class="w-full max-w-1480 h-fit bg-soft-base flex-col justify-center items-center gap-8 inline-flex relative">
-        <div class="w-full justify-start items-center gap-4 flex flex-col md:flex-row">
+        <div class="w-full px-4 md:px-8 xl:px-16  justify-start items-center gap-4 flex flex-col md:flex-row">
             <div class="w-full Heading1 font-extrabold">Forum Diskusi
             </div>
             <button onclick="pageForumDiskusiAjukanPertanyaan()"
-                class="btn-primary">Ajukan Pertanyaan
+                class="btn-primary xs:w-full md:w-fit">
+                <i class="ph ph-plus"></i>
+                <div class="before:content-['Ajukan_Pertanyaan']"></div>
             </button>
         </div>
         {{-- Search Bar dll --}}
@@ -19,7 +21,7 @@
                     <button id="clearButton" onclick="clearSearchText()" type="reset" class="hidden mx-6 w-fit text-xl text-netral-900 ph ph-x absolute right-0 "></button>
                 </div>
                 {{-- Urut & Kategori --}}
-                <div class="w-fit bg-lime-400 flex overflow-scroll overflow-x-scroll parent cursor-pointer scrollbar-hidden gap-4">
+                <div class="w-fit  bg-lime-400 flex overflow-scroll overflow-x-scroll parent cursor-pointer scrollbar-hidden gap-4">
                     {{-- Button Selection --}}
                     <div class="w-fit flex flex-row">
                         <button type="button" class="btn-popup option-button">
@@ -123,7 +125,7 @@
             </div>
             @endif
             {{-- Filter dll --}}
-            <div class=" w-full h-fit justify-start items-center gap-8 inline-flex">
+            <div class=" w-full h-fit px-4 md:px-8 xl:px-16  justify-start items-center gap-8 inline-flex">
                 <div class="py-1 rounded-full flex-col justify-center items-center gap-6 inline-flex">
                     <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Filter
                     </div>
@@ -173,7 +175,7 @@
             {{-- Left Content --}}
             <section
                 class=" w-full h-fit self-stretch rounded-3xl flex-col justify-start items-start gap-4 flex">
-                <div class="w-full py-4 px-6 bg-netral-100 rounded justify-start items-start flex text-netral-900 font-semibold Heading2">
+                <div class="w-full py-4 px-6 bg-netral-100 md:rounded justify-start items-start flex text-netral-900 font-semibold Heading2">
                     Pertanyaan
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start gap-4 flex">
@@ -182,7 +184,7 @@
                         <div class="self-stretch h-fit px-6 flex-col justify-start items-start gap-6 flex">
                             <div class="self-stretch h-fit flex-col justify-center items-start gap-4 flex">
                                 <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                                    <i class="text-5xl ph ph-user-circle"></i>
+                                    <i class="text-4xl md:text-5xl ph ph-user-circle"></i>
                                     <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
                                         <div class="self-stretch justify-start items-start gap-2 inline-flex">
                                             <div
@@ -249,32 +251,34 @@
                         </div>
                     </div>
                     {{-- 2 --}}
-                    <div class="w-full h-fit py-6 bg-white rounded-lg flex-col justify-start items-start gap-8 flex">
-                        <div class="w-full h-fit px-6 flex-col justify-start items-start gap-8 flex">
+                    <div class="w-full h-fit px-4 md:px-6 py-6 bg-white rounded-lg flex-col justify-start items-start gap-8 flex">
+                        <div class="w-full h-fit flex-col justify-start items-start gap-8 flex">
                             <div class="w-full h-fit flex-col justify-center items-start gap-6 flex">
-                                <div class="w-full justify-start items-center gap-2 inline-flex">
-                                    <i class="text-5xl ph ph-user-circle"></i>
-                                    <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
+                                {{-- Profil --}}
+                                <div class="w-full justify-start items-center gap-2 inline-flex Body1">
+                                    <i class="text-4xl md:text-5xl ph ph-user-circle"></i>
+                                    <div class="w-full flex-col justify-center items-start inline-flex">
                                         <div class="w-full justify-start items-start gap-2 inline-flex">
                                             <div
-                                                class="text-neutral-900 font-semibold Body1">
+                                                class="text-neutral-900 font-semibold">
                                                 Muhammad Alif</div>
                                             <div
-                                                class="text-neutral-900 font-semibold Body1">
+                                                class="text-neutral-900 font-semibold">
                                                 -</div>
                                             <div
-                                                class="w-fit text-netral-500 font-normal Body1">
+                                                class="w-fit text-netral-500 font-normal">
                                                 Mahasiswa</div>
                                         </div>
                                         <div
-                                            class="w-fit text-neutral-900 font-medium Body1">
+                                            class="w-fit text-neutral-900 font-medium">
                                             9 menit lalu</div>
                                     </div>
-                                    <i class="text-32 ph ph-dots-three-vertical"></i>
+                                    <i class="w-fit text-2xl md:text-5xl ph ph-dots-three-vertical"></i>
                                 </div>
+                                {{-- Content --}}
                                 <div class="w-full h-fit flex-col justify-start items-start gap-4 flex">
                                     <div
-                                        class="w-full text-neutral-900 font-normal Heading4">
+                                        class="w-full text-neutral-900 font-normal Body1 md:Heading4">
                                         Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
                                         bisa
                                         mengetahui rinciannya?</div>
@@ -294,7 +298,7 @@
                             class="w-full h-fit flex-col justify-center items-center gap-8 flex cursor-pointer">
                             <div class="w-full h-fit flex-col justify-start items-center gap-6 flex">
                                 <div
-                                    class="w-full px-6 py-2 border-b border-stone-300 justify-start items-center gap-1 inline-flex">
+                                    class="w-full py-2 border-b border-stone-300 justify-start items-center gap-1 inline-flex">
                                     <div class="h-fit justify-start items-start gap-1 flex">
                                         <div class="text-neutral-900 font-semibold Heading4">3
                                         </div>
@@ -302,47 +306,46 @@
                                             Jawaban</div>
                                     </div>
                                 </div>
-                                <div class="w-full h-fit  px-6 flex-col justify-center items-center gap-4 flex">
+                                <div class="w-full h-fit flex-col justify-center items-center gap-4 flex">
                                     <div class="w-full justify-start items-center gap-2 inline-flex">
-                                        <i class="text-5xl ph ph-user-circle"></i>
-                                        <div class="w-full h-fit flex-col justify-center items-start inline-flex">
-                                            <div class="w-full justify-start items-center gap-2 inline-flex">
+                                        <i class="text-4xl md:text-5xl ph ph-user-circle"></i>
+                                        <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
+                                            <div class="w-full justify-start items-center gap-2 inline-flex ">
                                                 <div class="justify-start items-center gap-2 flex">
-                                                    <div
-                                                        class="text-netral-900 font-semibold Body1">
-                                                        Bapak Suhaili</div>
-                                                    <i class="text-xl ph-fill text-blue-700 ph-seal-check"></i>
+                                                    <p class="text-netral-900 font-semibold line-clamp-1">
+                                                        Bapak Suhaili Suhaili Suhaili Suhaili Suhaili</p>
+                                                    <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
                                                 </div>
                                                 <div
-                                                    class="text-netral-900 font-semibold Body1">
+                                                    class="text-netral-900 font-semibold hidden md:block">
                                                     -</div>
-                                                <div
-                                                    class="w-fit text-netral-500 font-normal Body1">
-                                                    Pembina Komunitas Bidikmisi Polimedia</div>
+                                                <p
+                                                    class="w-fit text-netral-500 font-normal hidden md:block">
+                                                    Pembina Komunitas Bidikmisi Polimedia</p>
+                                                <i class=" ph ph-info block md:hidden"></i>
                                             </div>
-                                            <div class="w-full justify-start items-start gap-4 inline-flex">
-                                                <div
-                                                    class="w-fit text-neutral-900 font-medium Body1">
-                                                    9 menit lalu</div>
-                                            </div>
+                                            <p
+                                            class="w-fit text-neutral-900 font-medium">
+                                            9 menit lalu</p>
                                         </div>
-                                        <i class="text-32 ph ph-dots-three-vertical"></i>
+                                        <i class="w-fit text-2xl md:text-5xl ph ph-dots-three-vertical"></i>
                                     </div>
-                                    <div class="w-full text-neutral-900 font-normal Heading4">
+                                    <div class="w-full text-neutral-900 font-normal Body1 md:Heading4">
                                         Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
                                         bisa
                                         mengetahui rinciannya?</div>
                                     <div class="w-full h-fit justify-start items-center gap-4 inline-flex">
-                                        <div class="w-fit h-fit rounded-full justify-start items-center gap-2 flex">
+                                        <div class="w-fit h-fit rounded-full justify-start items-center gap-2 flex Body1">
                                             <i class="text-32 text-primary-base ph ph-heart"></i>
-                                            <button class=" py-2 rounded-full justify-start items-start flex text-primary-base font-medium Body1">
+                                            <div class="text-primary-base font-medium block md:hidden">3</div>
+                                            <div class=" py-2 rounded-full justify-start items-start text-primary-base font-medium hidden md:flex">
                                                     30 org merasa terbantu
-                                            </button>
+                                            </div>
                                         </div>
-                                        <div class="w-full rounded-full justify-start items-center gap-1 flex">
+                                        <div class="w-full rounded-full justify-start items-center gap-1 flex Body1">
                                             <i class="text-32 ph ph-chat-teardrop-text"></i>
-                                            <div class="w-full px-4 py-2 bg-gray-200 rounded-full justify-start items-start gap-2 flex text-netral-500 font-medium Body1">
-                                                    Berikan jawaban atau tanggapan
+                                            <div class="w-full px-4 py-2 bg-gray-200 rounded-full justify-start items-start gap-2 flex text-netral-500 font-medium">
+                                                <div class="line-clamp-1">Berikan jawaban atau tanggapan</div>
                                             </div>
                                         </div>
                                     </div>
@@ -357,7 +360,7 @@
                             <div class="w-full h-fit flex-col justify-center items-start gap-4 flex">
                                 <div class="w-full justify-start items-center gap-2 inline-flex">
                                     <i class="text-5xl ph ph-user-circle"></i>
-                                    <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
+                                    <div class="w-full flex-col justify-center items-start inline-flex">
                                         <div class="w-full justify-start items-start gap-2 inline-flex">
                                             <div
                                                 class="text-neutral-900 font-semibold Body1">

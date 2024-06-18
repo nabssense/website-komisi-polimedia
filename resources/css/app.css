@@ -278,34 +278,34 @@
 
 @layer components {
   .btn-primary{
-    @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 bg-primary-base rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-100 font-medium;
+    @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 bg-primary-base rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-100 font-medium;
   }
   
   .btn-secondary{
-    @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 bg-primary-100 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-900 font-medium;
+    @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 bg-primary-100 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-900 font-medium;
   }
   
   .btn-tertiary{
-    @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-900 font-medium;
+    @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-900 font-medium;
   }
 
   .btn-popup{
-    @apply w-fit h-fit px-5 py-1 lg:px-6 lg:py-2 gap-3 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 text-lg font-medium font-THICCCBOI ;
+    @apply w-fit h-fit px-4 py-1 lg:px-6 lg:py-2  gap-3 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 text-base lg:text-lg font-medium font-THICCCBOI ;
   }
   .btn-popup-active{
-    @apply w-fit h-fit px-5 py-2 bg-primary-base gap-3 rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-lg font-medium font-THICCCBOI ;
+    @apply w-fit h-fit px-5 py-2 bg-primary-base  gap-3 rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-lg font-medium font-THICCCBOI ;
   }
  
 
   .btn-sm-primary{
-    @apply w-fit h-fit px-5 py-1 bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl font-medium font-THICCCBOI ;
+    @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 bg-primary-base  rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-base md:text-xl font-medium font-THICCCBOI ;
   }
 
   .btn-navbar{
-    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3 bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium font-THICCCBOI leading-H1-H2-H3;
+    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium font-THICCCBOI leading-H1-H2-H3;
   }
   .btn-navbar-active{
-    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3 bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium font-THICCCBOI leading-H1-H2-H3;
+    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium font-THICCCBOI leading-H1-H2-H3;
   }
 /* searchbar */
   .searchbar{
@@ -324,7 +324,7 @@
     @apply text-xl lg:text-2xl font-THICCCBOI leading-H1-H2-H3;
   }
   .Heading4{
-    @apply text-lg lg:text-xl font-THICCCBOI leading-H4;
+    @apply text-base lg:text-xl font-THICCCBOI leading-H4;
   }
   .Body1{
     @apply text-sm lg:text-base font-THICCCBOI leading-B1;

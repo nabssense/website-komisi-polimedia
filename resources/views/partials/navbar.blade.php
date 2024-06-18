@@ -1,12 +1,12 @@
 {{-- Desktop Navbar --}} 
-<div id="navbar" class="w-full px-4 md:px-8 xl:px-16 py-2 sm:py-4 bg-white shadow-navbar justify-center items-center gap-72 inline-flex fixed inset-x-0 top-0 z-50 transform transition-transform duration-500">
-    <div class="grow max-w-1480 shrink basis-0 justify-between items-center flex">
+<div id="navbar" class="w-full h-fit px-4 md:px-8 xl:px-16 sm:py-4 bg-white shadow-navbar justify-center items-center gap-72 inline-flex fixed inset-x-0 top-0 z-50 transform transition-transform duration-500">
+    <div class="w-full max-w-1480 justify-between items-center flex">
         <div class=" sm:h-12 md:h-16 h-8 justify-start {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'justify-center w-full' : '' }} items-center gap-1 lg:gap-2 xl:gap-4 flex">
             <button onclick="pageBeranda()" class="w-fit h-full relative">
-                <img class="h-full w-fit aspect-square" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
+                <img class="h-full w-fit aspect-square object-scale-down" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
             </button>
             <button onclick="pageBeranda()" class="w-fit h-full relative">
-                <img class="w-fit h-full" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
+                <img class="w-fit h-full object-scale-down" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
             </button>
         </div>
         @if ($active === 'Masuk Akun' || $active === 'Daftar Akun') 
@@ -76,8 +76,8 @@
 @if ($active === 'Masuk Akun' || $active === 'Daftar Akun') 
         @else
 {{-- Mobile Navbar --}} 
-<div id="navbar-bottom-mobile" class="fixed bottom-0 bg-white w-full z-50 flex shadow-bottom-navbar justify-between items-start px-2 sm:px-8 md:px-24 lg:hidden">
-    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2 sm:px-4" onclick="pageBeranda()">
+<div id="navbar-bottom-mobile" class="fixed bottom-0 bg-white w-full z-50 flex shadow-bottom-navbar justify-between items-start px-2 sm:px-5 md:px-24 lg:hidden">
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-0 sm:px-2" onclick="pageBeranda()">
         <div
             class="{{ $active === 'Beranda' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">
             Beranda</div>
@@ -85,7 +85,7 @@
             <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
         @endif
     </button>
-    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2 sm:px-4" onclick="pageBerita()">
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-0 sm:px-2" onclick="pageBerita()">
         <div
             class="{{ $active === 'Berita' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900  text-sm font-medium font-THICCCBOI leading-B2">
             Berita</div>
@@ -93,13 +93,13 @@
             <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
         @endif
     </button>
-    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2 sm:px-4" onclick="pageForumDiskusi()">
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-0 sm:px-2" onclick="pageForumDiskusi()">
         <div class="{{ $active === 'Forum Diskusi' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">Diskusi</div>
         @if ($active === 'Forum Diskusi')
             <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
         @endif
     </button>
-    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2 sm:px-4" onclick="pageTentangKomisi()">
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-0 sm:px-2" onclick="pageTentangKomisi()">
         <div
             class="{{ $active === 'Tentang Komisi' || $active === 'Tentang Kabinet' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">
             Tentang</div>

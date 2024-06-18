@@ -10,7 +10,7 @@
                         <div
                             class="w-full max-w-1480 h-fit gap-12 xl:gap-24 flex flex-col lg:flex-row justify-center items-center">
                             <!-- Menambahkan justify-center dan items-center -->
-                            <div class="w-96 h-96  p-8 justify-center items-center flex bg-white rounded-2xl">
+                            <div class="aspect-square p-8 justify-center items-center flex bg-white rounded-2xl">
                                 <img class="w-full h-full" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}"
                                     alt="Image" />
                             </div>
