@@ -8,7 +8,7 @@
             {{-- 1 --}}
             <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <button onclick="goBack()" class="ph ph-x text-32"></button>
-                <div class="w-80 text-zinc-900 text-2xl font-extrabold font-THICCCBOI leading-9">Tambah Akun</div>
+                <div class="w-80 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Tambah Akun</div>
             </div>
             {{-- 2 --}}
             <div

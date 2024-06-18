@@ -12,7 +12,7 @@
                     class="w-full h-fit p-8 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-5 flex">
                     <div class="w-full h-fit justify-start items-center flex flex-row gap-4">
                         <button type="button" onclick="pageMasuk()"><i class="text-32 text-neutral-900 ph-bold ph-arrow-left"></i></button>
-                        <div class="self-stretch  text-zinc-900 text-3xl font-extrabold font-['THICCCBOI'] leading-10">
+                        <div class="self-stretch  text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
                             Daftar Akun</div>
                     </div>
                     <div class="self-stretch h-fit  flex-col justify-start items-start gap-4 flex">
@@ -127,24 +127,24 @@
         <button id="buttonAsli" type="submit" class="w-full h-full py-12 bg-primary-base rounded-tl-4xl rounded-tr-4xl flex-col justify-center items-center flex">
             <div id="text-btn" class="justify-center items-center gap-8 flex flex-row">
                 <div 
-                class="text-center text-white text-5xl font-extrabold font-['THICCCBOI'] leading-10">Daftar</div>
+                class="text-center text-white text-5xl font-extrabold font-THICCCBOI leading-10">Daftar</div>
                 <i class="text-5xl text-netral-100 ph-fill ph-pen"></i>
             </div>
             {{-- Animation Teks 1 --}}
             <div id="text-btn-content" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
                 <div id="text-btn-1" class="w-full h-full hidden  justify-center items-center gap-2 flex-col">
-                    <div class=" text-center text-white text-9xl font-extrabold font-['THICCCBOI'] leading-10">Welcome To
+                    <div class=" text-center text-white text-9xl font-extrabold font-THICCCBOI leading-10">Welcome To
                     </div>
                 </div>
                 {{-- Animation Teks 2 --}}
                 <div id="text-btn-2" class="w-full h-full hidden  justify-center items-center gap-2 flex-col">
-                    <div class=" text-center  text-white text-9xl font-extrabold font-['THICCCBOI'] leading-10">Website
+                    <div class=" text-center  text-white text-9xl font-extrabold font-THICCCBOI leading-10">Website
                         Komisi Polimedia</div>
                 </div>
             </div>
             <div id="text-skip" class="grow shrink basis-0 bottom-0 hidden justify-end items-end gap-2 flex-col">
                 <a href="/beranda"
-                    class="text-center text-white text-opacity-20 text-base font-normal font-['THICCCBOI'] leading-10 ">Lewati,
+                    class="text-center text-white text-opacity-20 text-base font-normal font-THICCCBOI leading-10 ">Lewati,
                     Langsung ke beranda</a>
             </div>
         </button>

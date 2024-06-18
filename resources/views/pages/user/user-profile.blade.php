@@ -1,29 +1,29 @@
 @extends('layouts.user-navigation')
 @section('user-content')
 <div class="w-full h-full col-span-9 p-8 flex-col justify-start items-start gap-8 flex">
-    <div class="text-start text-neutral-900 text-2xl font-extrabold font-['THICCCBOI'] leading-9">Personal Info</div>
+    <div class="text-start text-neutral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Personal Info</div>
     <div class="w-full h-fit flex flex-row gap-8">
         <div onclick="()" class="w-fit h-fit rounded-lg py-4 px-4 border-b border-netral-300 justify-start items-center gap-4 flex flex-col shadow-card-m">
             <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" 
             alt="{{ auth()->user()->fullname }}" class="w-360 rounded-lg">
             <button class="w-full h-full bg-primary-100 rounded-lg px-4 py-2 flex-col justify-center items-center flex gap-1">
-                <div class="text-center self-stretch text-netral-900 text-xl font-normal font-['THICCCBOI'] leading-B1">Ubah</div>
+                <div class="text-center self-stretch text-netral-900 text-xl font-normal font-THICCCBOI leading-B1">Ubah</div>
             </button>
         </div>
         <div class="w-full   h-fit flex-col grid grid-cols-12 grid-rows-1 justify-start items-start gap-2">
             <div class=" grid grid-cols-12 col-span-12 justify-start items-start gap-2">
                 <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">Nama Lengkap</div>
+                    <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">Nama Lengkap</div>
                 </div>
                 <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">
+                    <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
                         {{ auth()->user()->fullname }}</div>
                 </div>
                 <div class="w-fit py-1 justify-center items-center gap-3 flex">
                     {{-- Pop Up Card --}}
                     <div class="relative inline-block text-left">
                         <button type="button"
-                            class="option-button text-center text-rose-600 text-lg font-medium font-['THICCCBOI'] leading-7">Ubah</button>
+                            class="option-button text-center text-rose-600 text-lg font-medium font-THICCCBOI leading-7">Ubah</button>
                         <div class="option-card-menu fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden"
                             role="menu" aria-orientation="vertical" tabindex="-1">
                             <div class="close-button-bg w-screen h-screen relative justify-center items-center flex ">
@@ -63,44 +63,44 @@
             </div>
             <div class="grid grid-cols-12 col-span-12 justify-start items-start gap-2">
                 <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">NIM/NIP</div>
+                    <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">NIM/NIP</div>
                 </div>
                 <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">{{ auth()->user()->nim }}
+                    <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">{{ auth()->user()->nim }}
                     </div>
                 </div>
             </div>
             <div class="grid grid-cols-12 col-span-12 justify-start items-start gap-2">
                 <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">Email</div>
+                    <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">Email</div>
                 </div>
                 <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">
+                    <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
                         {{ auth()->user()->email }}</div>
                 </div>
             </div>
             <div class="h-fit grid grid-cols-12 col-span-12 justify-start items-start gap-2">
                 <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">Program Pendidikan</div>
+                    <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">Program Pendidikan</div>
                 </div>
                 <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">
+                    <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
                         {{ auth()->user()->edu_program }}</div>
                 </div>
             </div>
             <div class="grid grid-cols-12 col-span-12 justify-start items-start gap-2">
                 <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-stone-600 text-lg font-normal font-['THICCCBOI'] leading-7">Kata Sandi</div>
+                    <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">Kata Sandi</div>
                 </div>
                 <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                    <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">************************
+                    <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">************************
                     </div>
                 </div>
                 <div class="w-fit py-1 justify-center items-center gap-3 flex">
                     {{-- Pop Up Card --}}
                     <div class="relative inline-block text-left">
                         <button type="button"
-                            class="option-button text-center text-rose-600 text-lg font-medium font-['THICCCBOI'] leading-7">Ubah</button>
+                            class="option-button text-center text-rose-600 text-lg font-medium font-THICCCBOI leading-7">Ubah</button>
                         <div class="option-card-menu fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden"
                             role="menu" aria-orientation="vertical" tabindex="-1">
                             <div class="close-button-bg w-screen h-screen relative justify-center items-center flex ">

@@ -5,7 +5,7 @@
     <div class="w-full max-w-1480 h-14 justify-start items-center gap-6 inline-flex">
         <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
             <button onclick="goBack()" class="text-32 text-netral-800 ph-bold ph-arrow-left"></button>
-            <div class="grow shrink basis-0 text-zinc-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kelola Tentang Komisi</div>
+            <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kelola Tentang Komisi</div>
             <button onclick="pageUbahKomisi()" class="py-3 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Ubah</div>
                 <i class="text-32 text-primary-base ph ph-pencil"></i>
@@ -46,14 +46,14 @@
                                     <img class="aspect-auto object-bottom" src="{{ url('img/Kabinet/KOBRA/KETUA-WAKIL.png') }}" />
                                 </div>
                                 <div class="w-full h-full flex-col justify-center items-center inline-flex">
-                                    <div class="self-stretch text-zinc-900 text-2xl font-semibold font-THICCCBOI leading-7">Komunitas Bidikmisi</div>
-                                    <div class="self-stretch text-zinc-900 text-lg font-normal font-['THICCCBOI'] leading-7">Membidik Prestasi Membangun Negeri</div>
-                                    <div class="self-stretch text-zinc-900 text-base font-normal font-THICCCBOI leading-normal">2016</div>
+                                    <div class="self-stretch text-netral-900 text-2xl font-semibold font-THICCCBOI leading-7">Komunitas Bidikmisi</div>
+                                    <div class="self-stretch text-netral-900 text-lg font-normal font-THICCCBOI leading-7">Membidik Prestasi Membangun Negeri</div>
+                                    <div class="self-stretch text-netral-900 text-base font-normal font-THICCCBOI leading-normal">2016</div>
                                 </div>
                             </div>
                         </td>
                         <td class="w-full flex grow shrink basis-4/12">
-                            <div class="grow shrink basis-0 text-zinc-900 text-lg font-normal font-['THICCCBOI'] leading-7">40 Dictum nibh enim at quam massa venenatis. Erat et nulla posuere egestas varius lorem odio iaculis ut. In ....</div>
+                            <div class="grow shrink basis-0 text-netral-900 text-lg font-normal font-THICCCBOI leading-7">40 Dictum nibh enim at quam massa venenatis. Erat et nulla posuere egestas varius lorem odio iaculis ut. In ....</div>
                         </td>
                         <td class="w-full flex grow shrink basis-2/12">
                             <div class="h-fit w-fit overflow-clip  object-fill bg-soft-base rounded-lg justify-center items-center flex relative">
@@ -81,7 +81,7 @@
             </tbody>
         </table>
         <div class="h-14 px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-            <div class="text-center text-zinc-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat Selengkapnya</div>
+            <div class="text-center text-netral-900 text-2xl font-medium font-THICCCBOI leading-9">Lihat Selengkapnya</div>
         </div>
     </div> --}}
 </div>

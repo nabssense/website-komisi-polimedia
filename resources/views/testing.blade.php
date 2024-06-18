@@ -8,7 +8,7 @@
                     class="w-full h-fit p-8 bg-white rounded-3xl shadow-card flex-col justify-start items-start gap-5 flex">
                     <div class="w-full h-fit justify-start items-center flex flex-row gap-4">
                         <a href="/masuk-akun"><i class="text-32 text-neutral-900 ph-bold ph-arrow-left"></i></a>
-                        <div class="self-stretch  text-zinc-900 text-3xl font-extrabold font-['THICCCBOI'] leading-10">
+                        <div class="self-stretch  text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
                         Daftar Akun</div>
                     </div>
                     <div class="self-stretch h-fit flex-col justify-start items-start gap-4 flex">
@@ -57,6 +57,6 @@
                     <div class="w-full h-full bg-green-400 bottom-0 flex-col justify-center items-center gap-2 inline-flex">
                         <a href="/akun"
                             class="w-full h-full bg-primary-base rounded-tl-4xl rounded-tr-4xl flex-col justify-center items-center flex">
-                            <div class="text-center text-white text-5xl font-extrabold font-['THICCCBOI'] leading-10">Daftar</div>
+                            <div class="text-center text-white text-5xl font-extrabold font-THICCCBOI leading-10">Daftar</div>
                         </a>
                     </div>

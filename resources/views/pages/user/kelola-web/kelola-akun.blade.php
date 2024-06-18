@@ -5,7 +5,7 @@
     <div class="self-stretch h-14 justify-start items-center gap-6 inline-flex">
         <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
             <button onclick="goBack()" class="text-32 text-netral-800 ph-bold ph-arrow-left"></button>
-            <div class="grow shrink basis-0 text-zinc-900 text-3xl font-extrabold font-THICCCBOI leading-10">Daftar Akun</div>
+            <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Daftar Akun</div>
             <button onclick="pageKelolaAkunTambah()" class="py-3 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Tambah Akun</div>
                 <i class="text-32 text-primary-base ph ph-plus"></i>
@@ -14,14 +14,14 @@
     </div>
     <div class="justify-start items-start gap-9 inline-flex">
         <div class="p-4 bg-red-200 rounded-2xl flex-col justify-start items-start inline-flex">
-            <div class="text-zinc-900 text-lg font-medium font-['THICCCBOI'] leading-7">Total Akun Mahasiswa</div>
+            <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Total Akun Mahasiswa</div>
             <div class="justify-end items-end gap-4 inline-flex">
-                <div class="text-zinc-900 text-3xl font-extrabold font-['THICCCBOI'] leading-10">100</div>
+                <div class="text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">100</div>
             </div>
         </div>
         <div class="px-6 py-4 bg-netral-100 rounded-2xl flex-col justify-start items-start inline-flex">
-            <div class="text-zinc-900 text-lg font-medium font-['THICCCBOI'] leading-7">Total Akun Umum</div>
-            <div class="text-zinc-900 text-3xl font-extrabold font-['THICCCBOI'] leading-10">400 orang</div>
+            <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Total Akun Umum</div>
+            <div class="text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">400 orang</div>
         </div>
         
     </div>
@@ -54,14 +54,14 @@
                             <img class="aspect-auto object-bottom" src="{{ url('img/Kabinet/KOBRA/KETUA-WAKIL.png') }}" />
                         </div>
                         <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
-                            <div class="self-stretch text-zinc-900 text-lg font-semibold font-THICCCBOI leading-7">Putra Irawan</div>
-                            <div class="self-stretch text-zinc-900 text-base font-normal font-THICCCBOI leading-normal">Ketua</div>
-                            <div class=" text-zinc-900 text-base font-normal font-THICCCBOI leading-normal">Anggota Komisi</div>
+                            <div class="self-stretch text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">Putra Irawan</div>
+                            <div class="self-stretch text-netral-900 text-base font-normal font-THICCCBOI leading-normal">Ketua</div>
+                            <div class=" text-netral-900 text-base font-normal font-THICCCBOI leading-normal">Anggota Komisi</div>
                         </div>
                     </td>
                     
                     <td class="w-full h-full flex basis-4/12 overflow-hidden">
-                        <p class=" text-zinc-900 text-lg font-normal font-['THICCCBOI'] leading-7 text-wrap">nabilafbilafbilafbilafbilaffa7@gmail.com</p>
+                        <p class=" text-netral-900 text-lg font-normal font-THICCCBOI leading-7 text-wrap">nabilafbilafbilafbilafbilaffa7@gmail.com</p>
                     </td>
                     <td class="w-full flex basis-1/12 justify-center">
                         <i class="text-5xl ph ph-toggle-left"></i>
@@ -82,7 +82,7 @@
             </tbody>
         </table>
         <div class="h-14 px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-            <div class="text-center text-zinc-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat Selengkapnya</div>
+            <div class="text-center text-netral-900 text-2xl font-medium font-THICCCBOI leading-9">Lihat Selengkapnya</div>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-        <div id="divFull" class="w-full bg-lime-400 h-full shadow justify-start items-start absolute z-50 pt-24 flex flex-col">
+        <div id="divFull" class="w-full bg-netral-100 h-full shadow justify-start items-start absolute z-50 pt-24 flex flex-col">
             @include('partials.navbar')
             <form method="POST" action="{{ route('auth.masuk.login') }}" class="w-full h-full flex flex-col">
                 @csrf
@@ -8,7 +8,7 @@
                 <div id="MainContent" class="w-full h-fit self-stretch px-560 sm:px-16 flex-col justify-center items-center gap-8 inline-flex">
                     <div id="MainContent2" class="w-full h-fit max-w-1480 grow shrink basis-0 py-12 flex-col justify-center items-center gap-4 flex">
                         <div class="w-full h-fit p-8 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-5 flex">
-                            <div class="self-stretch  text-zinc-900 text-3xl font-extrabold font-['THICCCBOI'] leading-10">
+                            <div class="self-stretch  text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
                                 Masukkan akun anda</div>
                             <div class="self-stretch h-fit  flex-col justify-start items-start gap-8 flex">
 
@@ -54,7 +54,7 @@
                                     class="self-stretch h-10 pt-3 flex-col justify-start items-start gap-2 flex">
                                     <div class="self-stretch justify-end items-center inline-flex">
                                         <div
-                                            class="text-right text-zinc-500 text-lg font-normal font-['THICCCBOI'] leading-7">
+                                            class="text-right text-zinc-500 text-lg font-normal font-THICCCBOI leading-7">
                                             Lupa kata sandi?</div>
                                     </div>
                                 </a>
@@ -62,11 +62,11 @@
 
                         </div>
                         <div class="self-stretch px-8 justify-center items-center gap-12 inline-flex">
-                            <div class="grow shrink basis-0 text-zinc-900 text-lg font-normal font-['THICCCBOI'] leading-7">
+                            <div class="grow shrink basis-0 text-netral-900 text-lg font-normal font-THICCCBOI leading-7">
                                 Kamu
                                 calon mahasiswa? dan belum punya akun?</div>
                             <button type="button" onclick="pageDaftar()"
-                                class="text-right text-rose-900 text-lg font-semibold font-['THICCCBOI'] leading-7">Daftar
+                                class="text-right text-rose-900 text-lg font-semibold font-THICCCBOI leading-7">Daftar
                                 Dulu
                             </button>
                         </div>
@@ -77,24 +77,24 @@
                 <button type="submit" id="buttonAsli" class="w-full h-full bg-primary-base rounded-t-5xl flex-col justify-center items-center flex">
                     <div id="text-btn" class="justify-center items-center gap-8 flex flex-row">
                         <div 
-                        class="text-center text-white text-5xl font-extrabold font-['THICCCBOI'] leading-10">Masuk</div>
+                        class="text-center text-white text-5xl font-extrabold font-THICCCBOI leading-10">Masuk</div>
                         <i class="text-5xl text-netral-100 ph-fill ph-sign-in"></i>
                     </div>
                     {{-- Animation Teks 1 --}}
                     <div id="text-btn-content" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
                         <div id="text-btn-1" class="w-full h-full hidden  justify-center items-center gap-2 flex-col">
-                            <div class=" text-center text-white text-9xl font-extrabold font-['THICCCBOI'] leading-10">
+                            <div class=" text-center text-white text-9xl font-extrabold font-THICCCBOI leading-10">
                                 Welcome To</div>
                         </div>
                         {{-- Animation Teks 2 --}}
                         <div id="text-btn-2" class="w-full h-full hidden  justify-center items-center gap-2 flex-col">
-                            <div class=" text-center  text-white text-9xl font-extrabold font-['THICCCBOI'] leading-10">
+                            <div class=" text-center  text-white text-9xl font-extrabold font-THICCCBOI leading-10">
                                 Website Komisi Polimedia</div>
                         </div>
                     </div>
                     <div id="text-skip" class="grow shrink basis-0 bottom-0 hidden justify-end items-end gap-2 flex-col">
                         <a href="/beranda"
-                            class="text-center text-white text-opacity-60 text-base font-normal font-['THICCCBOI'] leading-10 ">Lewati,
+                            class="text-center text-white text-opacity-60 text-base font-normal font-THICCCBOI leading-10 ">Lewati,
                             Langsung ke beranda</a>
                     </div>
                 </button>

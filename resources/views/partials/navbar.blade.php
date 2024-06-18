@@ -18,7 +18,7 @@
                             class="{{ $active === 'Beranda' || $active === 'Masuk Akun' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
                             Beranda</div>
                         @if ($active === 'Beranda' || $active === 'Masuk Akun')
-                            <div class="w-1/2 h-1 bg-primary-600"></div>
+                            <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
                         @endif
                     </button>
                     <button class="" onclick="pageBerita()">
@@ -26,14 +26,14 @@
                             class="{{ $active === 'Berita' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900  text-lg font-medium font-THICCCBOI leading-9">
                             Berita</div>
                         @if ($active === 'Berita')
-                            <div class="w-1/2 h-1 bg-primary-600"></div>
+                            <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
                         @endif
                     </button>
                     <button onclick="pageForumDiskusi()">
                         <div class="{{ $active === 'Forum Diskusi' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }}text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
                             Forum Diskusi</div>
                         @if ($active === 'Forum Diskusi')
-                            <div class="w-1/2 h-1 bg-primary-600"></div>
+                            <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
                         @endif
                     </button>
                     <button class="" onclick="pageTentangKomisi()">
@@ -41,11 +41,11 @@
                             class="{{ $active === 'Tentang Komisi' || $active === 'Tentang Kabinet' ? 'text-primary-base text-lg font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-lg font-medium font-THICCCBOI leading-9">
                             Tentang Komisi</div>
                         @if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet')
-                            <div class="w-1/2 h-1 bg-primary-600"></div>
+                            <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
                         @endif
                     </button>
             </div>
-            <div class="justify-end items-center gap-8 flex ">
+            <div class="justify-end items-center gap-2 md:gap-4 xl:gap-8 flex ">
                 @auth
                     <button onclick="pageNotifikasi()" class="{{ $active === 'Notifikasi' ? 'ph-fill ph-notifikasi text-32 text-primary-base ' : '' }} ph ph-notification text-32"></button>
                     <button class="" onclick="pageUserProfile()">
@@ -56,10 +56,7 @@
                 @endauth
                 @guest
                 <div class="flex flex-row gap-2 ">
-                <button onclick="pageMasuk()" class="text-lg font-semibold font-THICCCBOI px-4 bg-primary-base justify-start rounded-lg
-                        items-center gap-2.5 flex" >
-                        <div class="text-white text-lg font-medium font-THICCCBOI leading-9">Masuk</div>
-                </button>
+                <button onclick="pageMasuk()" class="btn-sm-primary" >Masuk</button>
                 {{-- <button onclick="pageMasuk()" class="text-lg font-semibold font-THICCCBOI px-4 bg-primary-100  justify-start rounded-lg
                         items-center gap-2.5 flex" >
                         <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-9">Daftar</div>
@@ -76,40 +73,42 @@
 
 
 
-
+@if ($active === 'Masuk Akun' || $active === 'Daftar Akun') 
+        @else
 {{-- Mobile Navbar --}} 
 <div id="navbar-bottom-mobile" class="fixed bottom-0 bg-white w-full z-50 flex shadow-bottom-navbar justify-between items-start px-2 sm:px-8 md:px-24 lg:hidden">
-    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2" onclick="pageBeranda()">
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2 sm:px-4" onclick="pageBeranda()">
         <div
             class="{{ $active === 'Beranda' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">
             Beranda</div>
         @if ($active === 'Beranda')
-            <div class="w-1/2 h-1 bg-primary-600"></div>
+            <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
         @endif
     </button>
-    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2" onclick="pageBerita()">
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2 sm:px-4" onclick="pageBerita()">
         <div
             class="{{ $active === 'Berita' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900  text-sm font-medium font-THICCCBOI leading-B2">
             Berita</div>
         @if ($active === 'Berita')
-            <div class="w-1/2 h-1 bg-primary-600"></div>
+            <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
         @endif
     </button>
-    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2" onclick="pageForumDiskusi()">
-        <div class="{{ $active === 'Forum Diskusi' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">Forum Diskusi</div>
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2 sm:px-4" onclick="pageForumDiskusi()">
+        <div class="{{ $active === 'Forum Diskusi' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">Diskusi</div>
         @if ($active === 'Forum Diskusi')
-            <div class="w-1/2 h-1 bg-primary-600"></div>
+            <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
         @endif
     </button>
-    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2" onclick="pageTentangKomisi()">
+    <button class=" flex-col justify-center items-start inline-flex gap-1 py-4 px-2 sm:px-4" onclick="pageTentangKomisi()">
         <div
             class="{{ $active === 'Tentang Komisi' || $active === 'Tentang Kabinet' ? 'text-primary-base text-sm font-semibold font-THICCCBOI' : '' }} text-neutral-900 text-sm font-medium font-THICCCBOI leading-B2">
             Tentang</div>
         @if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet')
-            <div class="w-1/2 h-1 bg-primary-600"></div>
+            <div class="w-1/2 h-1 bg-primary-600 rounded"></div>
         @endif
     </button>
 </div>
+@endif
 
 
 @if ($active === 'Tentang Komisi' || $active === 'Tentang Kabinet' )

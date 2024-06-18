@@ -33,7 +33,7 @@
         <button type="button" class="option-button px-6 py-2 bg-white rounded-full border border-neutral-800 justify-start items-center gap-8 flex">
             <div class="justify-start items-center gap-3 flex">
                 <i class="text-xl text-netral-900 ph ph-funnel-simple"></i>
-                <div class="text-zinc-800 text-lg font-normal font-['THICCCBOI'] leading-7">Tahun 23/24</div>
+                <div class="text-zinc-800 text-lg font-normal font-THICCCBOI leading-7">Tahun 23/24</div>
             </div>
             <i class="text-xl text-netral-900 ph ph-caret-down"></i>
         </button>

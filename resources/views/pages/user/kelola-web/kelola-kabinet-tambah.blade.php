@@ -38,7 +38,7 @@
             {{-- 1 --}}
             <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <button onclick="goBack()" class="ph ph-x text-32"></button>
-                <div class="w-80 text-zinc-900 text-2xl font-extrabold font-THICCCBOI leading-9">Kabinet</div>
+                <div class="w-80 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Kabinet</div>
             </div>
             {{-- 2 --}}
             <div
@@ -64,7 +64,7 @@
                             </div>
                             <div class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
                                 <div
-                                    class="grow shrink basis-0 text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                    class="grow shrink basis-0 text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                     Masukkan logo dengan ukuran horizontal dan dengan format svg</div>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                             </div>
                             <div class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
                                 <div
-                                    class="grow shrink basis-0 text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                    class="grow shrink basis-0 text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                     Masukkan logo berukuran kotak 1:1 dan dengan format svg</div>
                             </div>
                         </div>
@@ -297,7 +297,7 @@
             {{-- 1 --}}
             <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <button onclick="goBack()" class="ph ph-x text-32"></button>
-                <div class="w-80 text-zinc-900 text-2xl font-extrabold font-THICCCBOI leading-9">Divisi</div>
+                <div class="w-80 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Divisi</div>
             </div>
             {{-- 2 --}}
             <div
@@ -323,7 +323,7 @@
                     <div
                         class="w-full h-fit px-4 py-3 bg-netral-200 rounded-xl justify-start items-center gap-4 inline-flex">
                         <i class="ph-fill ph-info text-32"></i>
-                        <div class="grow shrink basis-0 text-neutral-900 text-lg font-normal font-['THICCCBOI'] leading-7">
+                        <div class="grow shrink basis-0 text-neutral-900 text-lg font-normal font-THICCCBOI leading-7">
                             Untuk menambahkan divisi silahkan tekan tombol tambah</div>
                     </div>
                 </div>
@@ -383,21 +383,21 @@
             {{-- 1 --}}
             <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <button onclick="goBack()" class="ph ph-x text-32"></button>
-                <div class="w-80 text-zinc-900 text-2xl font-extrabold font-THICCCBOI leading-9">Tim</div>
+                <div class="w-80 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Tim</div>
             </div>
             {{-- 2 --}}
             <div
                 class="w-full h-full overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y grow shrink basis-0justify-start items-start gap-8 flex flex-row flex-1">
                 <div
                     class="h-full grow shrink basis-6/12 self-stretch gap-4 flex-col justify-start items-start flex">
-                    <div class="self-stretch text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">Pilih
+                    <div class="self-stretch text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Pilih
                         Divisi</div>
                         <div id="list-btn-divisi" class="w-full h-full overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y flex-col justify-start items-start gap-4 flex">
                             {{-- <div id="button-divisi-text-1" class="divisi-btn order-3 w-full h-fit flex-col justify-start items-start hidden gap-1" data-input-field-id="form-0" >
                                 <div
                                     class="self-stretch px-4 py-3 bg-white rounded-2xl border border-netral-200 justify-start items-center gap-4 inline-flex">
                                     <div id="button-fix-divisi-text"
-                                        class="  text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">
+                                        class="  text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
                                         Divisi</div>
                                 </div>
                             </div> --}}
@@ -408,13 +408,13 @@
                 <div id="list-form-tim" class="w-full h-full bg-white flex-col justify-start items-start gap-12 inline-flex">
                     {{-- <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                         <div
-                            class="grow shrink basis-0 text-zinc-900 text-2xl font-extrabold font-['THICCCBOI'] leading-9">
+                            class="grow shrink basis-0 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">
                             Tambahkan Foto Tim</div>
                     </div>
                     <div class="self-stretch grow shrink basis-0 flex-col justify-start items-start gap-4 flex">
                         <div class="self-stretch h-40 flex-col justify-start items-start gap-1 flex">
                             <div class="justify-start items-start inline-flex">
-                                <div class="text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">Foto
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Foto
                                     Bersama Tim</div>
                             </div>
                             <div
@@ -432,18 +432,18 @@
                     </div>
                     <div
                         class="self-stretch h-11 px-6 py-1 bg-primary-base rounded-full justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-white text-2xl font-medium font-['THICCCBOI'] leading-9">Simpan</div>
+                        <div class="text-center text-white text-2xl font-medium font-THICCCBOI leading-9">Simpan</div>
                     </div> --}}
                     {{-- <form id="form-0" class="w-full h-full bg-blue-400 hidden">
                         <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                             <div
-                                class="grow shrink basis-0 text-zinc-900 text-2xl font-extrabold font-['THICCCBOI'] leading-9">
+                                class="grow shrink basis-0 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">
                                 Tambahkan Foto Tim</div>
                         </div>
                         <div class="self-stretch grow shrink basis-0 flex-col justify-start items-start gap-4 flex">
                             <div class="self-stretch h-40 flex-col justify-start items-start gap-1 flex">
                                 <div class="justify-start items-start inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">Foto
+                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Foto
                                         Bersama Tim</div>
                                 </div>
                                 <div
@@ -461,7 +461,7 @@
                         </div>
                         <div
                             class="self-stretch h-11 px-6 py-1 bg-primary-base rounded-full justify-center items-center gap-6 inline-flex">
-                            <div class="text-center text-white text-2xl font-medium font-['THICCCBOI'] leading-9">Simpan</div>
+                            <div class="text-center text-white text-2xl font-medium font-THICCCBOI leading-9">Simpan</div>
                         </div>
                     </form>  --}}
                 </div>
@@ -522,13 +522,13 @@
             {{-- 1 --}}
             <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <button onclick="goBack()" class="ph ph-x text-32"></button>
-                <div class="w-80 text-zinc-900 text-2xl font-extrabold font-THICCCBOI leading-9">Anggota</div>
+                <div class="w-80 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Anggota</div>
             </div>
             {{-- 2 --}}
             <div
                 class="w-full h-full overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y grow shrink basis-0justify-start items-start gap-6 flex flex-row flex-1">
                 <div class="grow shrink basis-3/12 h-full bg-white flex-col justify-start items-start gap-4 inline-flex">
-                    <div class="self-stretch text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">Pilih
+                    <div class="self-stretch text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Pilih
                         Divisi</div>
                     <div id="list-btn-divisi-2"
                         class="self-stretch overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y flex-col justify-start items-start gap-4 flex">
@@ -542,13 +542,13 @@
                     {{-- <div 
                         class="w-full h-fit bg-fuchsia-300 overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y flex-col justify-start items-start gap-8 flex">
                         <div class="self-stretch h-44 flex-col justify-start items-start gap-4 flex">
-                            <div class="text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">Pilih Jabatan
+                            <div class="text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Pilih Jabatan
                             </div>
                             <div class="self-stretch h-fit flex-col justify-start items-start gap-1 flex">
                                 <div
                                     class="self-stretch px-4 py-3 bg-white rounded-2xl border border-netral-200 justify-start items-center gap-4 inline-flex">
                                     <div
-                                        class="grow shrink basis-0 text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">
+                                        class="grow shrink basis-0 text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
                                         Ketua</div>
                                 </div>
                             </div>
@@ -556,7 +556,7 @@
                                 <div
                                     class="self-stretch px-4 py-3 bg-white rounded-2xl border border-netral-200 justify-start items-center gap-4 inline-flex">
                                     <div
-                                        class="grow shrink basis-0 text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">
+                                        class="grow shrink basis-0 text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
                                         Wakil</div>
                                 </div>
                             </div>
@@ -566,7 +566,7 @@
                             <div class="w-full h-fit flex justify-start items-center gap-2 flex-row">
                                 <div
                                     class="w-full px-4 py-3 bg-white rounded-2xl border border-netral-200 justify-start items-center gap-4 inline-flex">
-                                    <div class=" text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">
+                                    <div class=" text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
                                         Anggota</div>
                                     <div class="w-8 h-8 p-1.5 justify-center items-center flex"></div>
                                 </div>
@@ -574,20 +574,20 @@
                             <div id="addButtonBtn-jabatan"
                                 class="self-stretch h-fit flex-col justify-start items-start gap-4 flex">
                                 <div class="px-5 justify-start items-start gap-2.5 inline-flex">
-                                    <div class="text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-7">Tambah
+                                    <div class="text-netral-900 text-base font-normal font-THICCCBOI leading-7">Tambah
                                         Anggota</div>
                                 </div>
                                 <div
                                     class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
                                     <div
-                                        class="text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">
+                                        class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">
                                         Tambah</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Selesai
+                        <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
                         </div>
                     </div> --}}
                 </div>
@@ -596,13 +596,13 @@
 
                 <div id="list-form-anggota" class="grow basis-6/12 self-stretch bg-white flex-col justify-start items-start gap-8 inline-flex">
                     {{-- <div class="w-full h-full flex-col justify-start items-start gap-4 flex">
-                        <div class="text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">Data Anggota</div>
+                        <div class="text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Data Anggota</div>
                         <div
                             class="w-full h-full overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y flex-col justify-start items-start gap-4 flex">
                             <div class="self-stretch h-32 flex-col justify-center items-center gap-2 flex">
                                 <div class="self-stretch  justify-between items-center inline-flex">
                                     <div
-                                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-7">
+                                        class="grow shrink basis-0 text-netral-900 text-base font-normal font-THICCCBOI leading-7">
                                         Tipe Mahasiswa</div>
                                     <i class="ph-fill ph-info text-2xl"></i>
                                 </div>
@@ -611,13 +611,13 @@
                                     <div
                                         class="grow shrink basis-0 px-8 py-2 bg-white flex-col justify-center items-center inline-flex">
                                         <i class="ph-fill ph-student text-netral-800 text-32"></i>
-                                        <div class="text-neutral-900 text-lg font-semibold font-['THICCCBOI'] leading-7">
+                                        <div class="text-neutral-900 text-lg font-semibold font-THICCCBOI leading-7">
                                             Mahasiswa Lama</div>
                                     </div>
                                     <div
                                         class="grow shrink basis-0 px-8 py-2 bg-neutral-900 flex-col justify-center items-center inline-flex">
                                         <i class="ph ph-user text-netral-100 text-32"></i>
-                                        <div class="text-white text-lg font-semibold font-['THICCCBOI'] leading-7">
+                                        <div class="text-white text-lg font-semibold font-THICCCBOI leading-7">
                                             Mahasiswa
                                             Baru</div>
                                     </div>
@@ -625,7 +625,7 @@
                             </div>
                             <div class="self-stretch h-fit flex-col justify-start items-start gap-1 flex">
                                 <div class="justify-start items-start inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                         Foto Kabinet Anggota
                                     </div>
                                 </div>
@@ -645,7 +645,7 @@
                                     <div
                                         class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
                                         <div
-                                            class="grow shrink basis-0 text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                            class="grow shrink basis-0 text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                             Masukkan foto kabinet anggota dengan latar belakang transparan dan format png
                                         </div>
                                     </div>
@@ -709,7 +709,7 @@
 
                     </div>
                     <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Selesai
+                        <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
                         </div>
                     </div> --}}
 
@@ -856,13 +856,13 @@ function btnJabatanANDformAnggotaID() {
         form.innerHTML = `
         <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <div
-                    class="grow shrink basis-0 text-zinc-900 text-2xl font-extrabold font-['THICCCBOI'] leading-9">
+                    class="grow shrink basis-0 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">
                     Tambahkan Foto Tim</div>
             </div>
             <div class="self-stretch grow shrink basis-0 flex-col justify-start items-start gap-4 flex">
                 <div class="self-stretch h-40 flex-col justify-start items-start gap-1 flex">
                     <div class="justify-start items-start inline-flex">
-                        <div class="text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">Foto
+                        <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Foto
                             Bersama Tim</div>
                     </div>
                     <div
@@ -880,7 +880,7 @@ function btnJabatanANDformAnggotaID() {
             </div>
             <div
                 class="self-stretch h-11 px-6 py-1 bg-primary-base rounded-full justify-center items-center gap-6 inline-flex">
-                <div class="text-center text-white text-2xl font-medium font-['THICCCBOI'] leading-9">Simpan</div>
+                <div class="text-center text-white text-2xl font-medium font-THICCCBOI leading-9">Simpan</div>
             </div>
         `;
             
@@ -894,25 +894,25 @@ function btnJabatanANDformAnggotaID() {
         form2.innerHTML = `
         <div class="w-full h-full bg-white flex-col justify-start items-start gap-8 inline-flex overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y">
                 <div id="list-button-jabatan" class="self-stretch h-full flex-col justify-start items-start gap-4 flex">
-                    <div class="text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">Pilih Jabatan
+                    <div class="text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Pilih Jabatan
                     </div>
                         <div
                             class="w-full h-fit order-last flex-col justify-start items-start gap-4 flex">
                             <div class="w-full justify-start items-start gap-2.5 inline-flex">
-                                <div class="w-full text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-7">Tambah
+                                <div class="w-full text-netral-900 text-base font-normal font-THICCCBOI leading-7">Tambah
                                     Anggota</div>
                             </div>
                             <button id="addButtonJabatanAnggota-${addDivinputId}"
                                 class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
                                 <div
-                                    class="text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">
+                                    class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">
                                     Tambah</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
-                    <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Selesai
+                    <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
                 </div>
             </div>
                 
@@ -1012,13 +1012,13 @@ function btnJabatanANDformAnggotaID() {
         formAnggota.classList.add('w-full', 'h-full', 'hidden','w-basis-6/12', 'h-self-stretch', 'bg-netral-100', 'flex-col', 'justify-start', 'items-start', 'gap-8', 'inline-flex');
         formAnggota.innerHTML = `
         <div class="w-full h-full flex-col justify-start items-start gap-4 flex">
-                        <div class="text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">Data Anggota</div>
+                        <div class="text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Data Anggota</div>
                         <div
                             class="w-full h-full overflow-scroll  overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y flex-col justify-start items-start gap-4 flex">
                             <div class="self-stretch h-fit flex-col justify-center items-center gap-2 flex">
                                 <div class="w-full h-fit justify-between items-center inline-flex">
                                     <div
-                                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-7">
+                                        class="grow shrink basis-0 text-netral-900 text-base font-normal font-THICCCBOI leading-7">
                                         Tipe Mahasiswa</div>
                                     <i class="ph-fill ph-info text-2xl"></i>
                                 </div>
@@ -1026,13 +1026,13 @@ function btnJabatanANDformAnggotaID() {
                                     <input id="mahasiswaAktif-${datainputId}-${idInsideForm}" type="radio" name="jenisMahasiswa" class="">
                                     <label for="mahasiswaAktif" class="grow shrink basis-0 px-8 py-2 bg-white flex-col justify-center items-center inline-flex cursor-pointer">
                                         <i class="ph-fill ph-student text-netral-800 text-32"></i>
-                                        <div class="text-netral-900 text-lg font-semibold font-['THICCCBOI'] leading-7">
+                                        <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
                                             Mahasiswa Aktif</div>
                                     </label>
                                     <input id="mahasiswaBaru-${datainputId}-${idInsideForm}" type="radio" name="jenisMahasiswa" class="">
                                     <label for="mahasiswaBaru" class="grow shrink basis-0 px-8 py-2 bg-netral-900 flex-col justify-center items-center inline-flex cursor-pointer">
                                         <i class="ph ph-user text-netral-100 text-32"></i>
-                                        <div class="text-white text-lg font-semibold font-['THICCCBOI'] leading-7">
+                                        <div class="text-white text-lg font-semibold font-THICCCBOI leading-7">
                                             Mahasiswa Baru</div>
                                     </label>
                                 </div>
@@ -1050,7 +1050,7 @@ function btnJabatanANDformAnggotaID() {
                             
                             <div class="self-stretch h-fit flex-col justify-start items-start gap-1 flex">
                                 <div class="justify-start items-start inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                         Foto Kabinet Anggota
                                     </div>
                                 </div>
@@ -1070,7 +1070,7 @@ function btnJabatanANDformAnggotaID() {
                                     <div
                                         class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
                                         <div
-                                            class="grow shrink basis-0 text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                            class="grow shrink basis-0 text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                             Masukkan foto kabinet anggota dengan latar belakang transparan dan format png
                                         </div>
                                     </div>
@@ -1133,7 +1133,7 @@ function btnJabatanANDformAnggotaID() {
                         </div>
                     </div>
                     <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
-                            <div class="text-center text-rose-600 text-2xl font-medium font-['THICCCBOI'] leading-9">Selesai
+                            <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
                             </div>
                         </div>
         `;

@@ -8,7 +8,7 @@
             {{-- 1 --}}
             <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <button onclick="goBack()" class="ph ph-x text-32"></button>
-                <div class="w-80 text-zinc-900 text-2xl font-extrabold font-THICCCBOI leading-9">Tambah Berita</div>
+                <div class="w-80 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Tambah Berita</div>
             </div>
             {{-- 2 --}}
             <div
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="w-full  h-full p-4 justify-start items-center flex flex-wrap">
                                     <div
-                                        class="w-full flex  text-wrap text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="w-full flex  text-wrap text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                         Masukkan logo dengan ukuran horizontal dan dengan format svg</div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                     <div class="flex flex-col bg-netral-100 rounded-4xl w-480 h-fit justify-center items-center overflow-clip gap-4" role="none">
                                         <div class="w-full flex flex-col">
                                             <div class="grow shrink basis-0 m-4 h-fit bg-white rounded-full border justify-start items-center flex relative">
-                                                <input  id="searchText" oninput="toggleClearButton()" type="text" class="rounded-full grow shrink basis-0 px-6 py-2 border text-zinc-800 text-lg font-normal font-['THICCCBOI'] leading-7 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800" placeholder="Cari Kategori">
+                                                <input  id="searchText" oninput="toggleClearButton()" type="text" class="rounded-full grow shrink basis-0 px-6 py-2 border text-zinc-800 text-lg font-normal font-THICCCBOI leading-7 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800" placeholder="Cari Kategori">
                                                 <button id="clearButton" onclick="clearSearchText()" type="reset" class="hidden mx-6 w-fit text-xl text-netral-900 ph ph-x absolute right-0 "></button>
                                             </div>
                                             <button data-value="Kategori 1" class="flex flex-row items-center gap-3 w-full text-start px-4 py-3 h-fit border-b-2 border-netral-200 text-xl font-THICCCBOI text-netral-900 hover:bg-netral-200 hover:text-gray-900" role="menuitem">
@@ -176,7 +176,7 @@
                                 </div>
                                 <div class="w-full self-stretch p-4 justify-start items-center gap-2.5 flex">
                                     <div
-                                        class="w-full text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="w-full text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                         Masukkan logo dengan ukuran horizontal dan dengan format svg</div>
                                 </div>
                             </div>

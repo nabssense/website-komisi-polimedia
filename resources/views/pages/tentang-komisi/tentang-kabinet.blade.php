@@ -8,7 +8,7 @@
                 <div class="w-48 h-14 justify-center items-center inline-flex">
                     <img src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
                 </div>
-                <div class="self-stretch text-center text-zinc-900 text-5xl font-extrabold font-THICCCBOI ">Kolaborasi,
+                <div class="self-stretch text-center text-netral-900 text-5xl font-extrabold font-THICCCBOI ">Kolaborasi,
                     Optimis, Berprestasi, Realistis, Apresiasif</div>
             </div>
             <div class="justify-center items-start gap-12 inline-flex flex-wrap">

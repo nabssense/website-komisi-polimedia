@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-    <div class="w-full h-fit flex-col justify-center items-center flex gap-8 pt-24">
+    <div class="w-full h-fit flex-col justify-center items-center flex gap-8">
         <div class="w-full h-fit max-w-1480 sm:px-8 py-8 bg-netral-100 flex-col justify-center items-center flex gap-8">
             <div
                 class="w-full h-fit relative bg-netral-100 rounded-2xl grid grid-cols-12 shadow-card justify-start items-start overflow-clip">
@@ -12,9 +12,9 @@
                         <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
                             alt="{{ auth()->user()->fullname }}" class="rounded-full w-12">
                         <div class="w-full h-fit flex-col justify-start items-start inline-flex overflow-hidden">
-                            <div class="truncate text-left self-stretch text-neutral-900 text-lg font-bold font-['THICCCBOI'] leading-H4">
+                            <div class="truncate text-left self-stretch text-neutral-900 text-lg font-bold font-THICCCBOI leading-H4">
                                 {{ auth()->user()->fullname }}</div>
-                            <div class="text-left self-stretch text-stone-500 text-base font-normal font-['THICCCBOI'] leading-B1">
+                            <div class="text-left self-stretch text-stone-500 text-base font-normal font-THICCCBOI leading-B1">
                                 {{ auth()->user()->user_type }}</div>
                         </div>
                     </button>
@@ -23,7 +23,7 @@
                             <button onclick="pageKelolaWebsite()"
                                 class="{{ $active === 'Kelola Website' ? 'bg-netral-200' : '' }} text-left self-stretch px-4 py-3 rounded-lg justify-start items-center gap-3 inline-flex">
                                 <i class="text-4xl ph ph-kanban"></i>
-                                <div class="text-zinc-900 text-lg font-medium font-['THICCCBOI'] leading-7">Kelola Website
+                                <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Kelola Website
                                 </div>
                             </button>
                         @endif
@@ -32,7 +32,7 @@
                             <button type="submit"
                                 class="w-full text-left self-stretch px-4 py-3 bg-white rounded-lg justify-start items-center gap-3 inline-flex">
                                 <i class="text-4xl ph ph-sign-out"></i>
-                                <div class="text-zinc-900 text-lg font-medium font-['THICCCBOI'] leading-7">Keluar</div>
+                                <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Keluar</div>
                             </button>
                         </form>
                     </div>

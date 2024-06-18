@@ -45,16 +45,16 @@
                                     <div class="self-stretch h-72 bg-zinc-800 rounded-2xl"></div>
                                     <div class="self-stretch pl-1 justify-start items-start gap-2.5 inline-flex">
                                         <div
-                                            class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
+                                            class="grow shrink basis-0 text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">
                                             Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
                                     </div>
                                 </div>
                                 <div class="self-stretch pl-1 justify-start items-start gap-2.5 inline-flex">
                                     <div
-                                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="grow shrink basis-0 text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
                                         29 Juli 2022</div>
                                     <div
-                                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                                         SBMPN</div>
                                 </div>
                             </div>
@@ -65,16 +65,16 @@
                                     <div class="self-stretch h-72 bg-zinc-800 rounded-2xl"></div>
                                     <div class="self-stretch pl-1 justify-start items-start gap-2.5 inline-flex">
                                         <div
-                                            class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
+                                            class="grow shrink basis-0 text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">
                                             Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
                                     </div>
                                 </div>
                                 <div class="self-stretch pl-1 justify-start items-start gap-2.5 inline-flex">
                                     <div
-                                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="grow shrink basis-0 text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
                                         29 Juli 2022</div>
                                     <div
-                                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                                         SBMPN</div>
                                 </div>
                             </div>
@@ -85,16 +85,16 @@
                                     <div class="self-stretch h-72 bg-zinc-800 rounded-2xl"></div>
                                     <div class="self-stretch pl-1 justify-start items-start gap-2.5 inline-flex">
                                         <div
-                                            class="grow shrink basis-0 text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
+                                            class="grow shrink basis-0 text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">
                                             Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
                                     </div>
                                 </div>
                                 <div class="self-stretch pl-1 justify-start items-start gap-2.5 inline-flex">
                                     <div
-                                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="grow shrink basis-0 text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
                                         29 Juli 2022</div>
                                     <div
-                                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                                         SBMPN</div>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <div class="px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                    <div class="text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat
+                    <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Lihat
                         Selengkapnya
                     </div>
                 </div>

@@ -10,6 +10,7 @@ export default {
       'THICCCBOI': "THICCCBOI",
     },
     extend: {
+      
       colors: {
         soft: {
           'base': '#EFF3F8',
@@ -167,14 +168,20 @@ export default {
         '1480': '1480px',
       },
       lineHeight:{
-        'H1-H2-H3': '150%',
-        'H4': '156%',
-        'B1': '156%',
+        'H1-H2-H3': '156%',
+        'H4': '140%',
+        'B1': '140%',
         'B2': '1.334em',
         'B3': '124%',
         'B4': '124%',
         '120%': '120%',
       },
+      // fontWeight:{
+      //   '400': '400',
+      //   '500': '500',
+      //   '600': '600',
+      //   '700': '700',
+      // }
       boxShadow: {
         'card': '0px 0px 8px 0px rgba(0, 0, 0, 0.12);',
         'navbar': '0px 2px 4px 0px rgba(0, 0, 0, 0.10)',
@@ -187,6 +194,12 @@ export default {
         '32': '32px'
       }
     },
+    buttonPrimary: {
+      'button-primary': 'px-4 py-2 lg:px-8 lg:py-4 bg-primary-base rounded-full justify-center items-center flex text-center text-netral-100 text-2xl font-medium font-THICCCBOI leading-9',
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    // plugin lainnya
+  ],
 }

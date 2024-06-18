@@ -1,24 +1,28 @@
-    <div class="w-full h-fit px-4 md:px-8 xl:px-16 pt-8 pb-24 bg-white flex-col justify-start items-center gap-8 inline-flex ">
-        <div class="w-full max-w-1480 text-neutral-900 text-5xl font-extrabold font-['THICCCBOI'] leading-10 flex">Berita
+    <div class="w-full h-fit px-4 md:px-8 xl:px-16 {{ $active === 'Beranda' ? 'py-16' : 'pt-8 ' }} pb-24 bg-white flex-col justify-start items-center gap-8 inline-flex ">
+        <div class="w-full max-w-1480 text-neutral-900 font-extrabold Heading1 flex">Berita
         </div>
         {{-- Search Bar dll --}}
+        
         <section class="w-full max-w-1480 h-fit flex-col justify-start items-center gap-4 flex ">
+            @if ( $active === 'Beranda')
+            
+            @else
             <div class="w-full justify-start items-start gap-4 flex md:flex-row xs:flex-col">
                 <div class="w-full h-fit bg-white rounded-full border justify-start items-center flex-col flex relative">
                     <input id="searchText" oninput="toggleClearButton()" type="text"
-                        class="w-full rounded-full grow shrink basis-0 px-6 py-2 border text-zinc-800 text-lg font-normal font-['THICCCBOI'] leading-7 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800"
+                        class="w-full rounded-full grow shrink basis-0 px-6 py-2 border text-zinc-800 text-lg font-normal font-THICCCBOI leading-7 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800"
                         placeholder="Cari Berita">
                     <button id="clearButton" onclick="clearSearchText()" type="reset"
                         class="hidden mx-6 w-fit text-xl text-netral-900 ph ph-x absolute right-0 "></button>
                 </div>
                 {{-- Urutkan --}}
-                <div class="w-full flex  overflow-x-scroll parent cursor-pointer scrollbar-hidden gap-4">
+                <div class="w-full flex overflow-scroll overflow-x-scroll parent cursor-pointer scrollbar-hidden gap-4">
                     <div class="relative inline-block text-left">
                         <button type="button"
                             class="option-button px-6 py-2 bg-white rounded-full border border-neutral-800 justify-start items-center gap-8 flex">
                             <div class="justify-start items-center gap-3 flex">
                                 <i class="text-xl text-netral-900 ph ph-funnel-simple"></i>
-                                <div class="text-zinc-800 text-lg font-normal font-['THICCCBOI'] leading-7">Urutkan
+                                <div class="text-zinc-800 text-lg font-normal font-THICCCBOI leading-7">Urutkan
                                 </div>
                             </div>
                             <i class="text-xl text-netral-900 ph ph-caret-down"></i>
@@ -64,7 +68,7 @@
                             class="option-button px-6 py-2 bg-white rounded-full border border-neutral-800 justify-start items-center gap-8 flex">
                             <div class="justify-start items-center gap-3 flex">
                                 <i class="text-xl text-netral-900 ph ph-square-half"></i>
-                                <div class="text-zinc-800 text-lg font-normal font-['THICCCBOI'] leading-7">Kategori
+                                <div class="text-zinc-800 text-lg font-normal font-THICCCBOI leading-7">Kategori
                                 </div>
                             </div>
                             <i class="text-xl text-netral-900 ph ph-caret-down"></i>
@@ -78,7 +82,7 @@
                                         <div
                                             class="grow shrink basis-0 m-4 h-fit bg-white rounded-full border justify-start items-center flex relative">
                                             <input id="searchText" oninput="toggleClearButton()" type="text"
-                                                class="rounded-full grow shrink basis-0 px-6 py-2 border text-zinc-800 text-lg font-normal font-['THICCCBOI'] leading-7 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800"
+                                                class="rounded-full grow shrink basis-0 px-6 py-2 border text-zinc-800 text-lg font-normal font-THICCCBOI leading-7 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800"
                                                 placeholder="Cari Kategori">
                                             <button id="clearButton" onclick="clearSearchText()" type="reset"
                                                 class="hidden mx-6 w-fit text-xl text-netral-900 ph ph-x absolute right-0 "></button>
@@ -112,69 +116,69 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+            @endif
             {{-- Filter dll --}}
-            <div class=" w-full h-fit justify-start items-center gap-8 inline-flex">
+            <div class=" w-full h-fit justify-start items-center gap-8 inline-flex ">
                 <div class="xs:px-0 py-1 rounded-full flex-col justify-center items-center gap-6 inline-flex">
-                    <div class="text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Filter
+                    <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Filter
                     </div>
                 </div>
                 <div
-                    class="w-full h-fit overflow-scroll justify-start items-center gap-4 flex overflow-x-scroll parent cursor-pointer scrollbar-hidden">
+                    class="w-full h-fit justify-start items-center gap-4 flex overflow-scroll overflow-x-scroll parent cursor-pointer scrollbar-hidden ">
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                     <div
                         class="px-9 py-2 bg-white rounded-full border border-stone-300 flex-col justify-center items-center gap-6 inline-flex">
-                        <div class="text-center text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Beli
+                        <div class="text-center text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Beli
                         </div>
                     </div>
                 </div>
@@ -182,145 +186,142 @@
         </section>
         {{-- Content Berita --}}
         <section class="w-full max-w-1480 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 flex-wrap gap-2 md:gap-8  justify-center">
-            <button onclick="" class="flex w-full flex-col justify-start items-start gap-4">
+            <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
-                    <div class="w-full h-48 flex">
-                        <img class="w-full h-full overflow-clip rounded-2xl"
+                    <div class="aspect-square flex">
+                        <img class="w-full h-full object-cover rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
-                <div class="w-full pl-1 justify-start items-start flex flex-col">
+                <div class="w-full justify-start items-start flex flex-col">
                     <div
-                        class="truncate w-full text-left text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
-                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
+                        class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
+                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                         SBMPN</div>
                 </div>
             </button>
-            <button onclick="" class="flex w-full flex-col justify-start items-start gap-4">
+            <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
-                    <div class="w-full h-48 flex">
+                    <div class="aspect-square flex">
                         <img class="w-full h-full overflow-clip rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
-                <div class="w-full pl-1 justify-start items-start flex flex-col">
+                <div class="w-full justify-start items-start flex flex-col">
                     <div
-                        class="truncate w-full text-left text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
-                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
+                        class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
+                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                         SBMPN</div>
                 </div>
             </button>
-            <button onclick="" class="flex w-full flex-col justify-start items-start gap-4">
+            <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
-                    <div class="w-full h-48 flex">
+                    <div class="aspect-square flex">
                         <img class="w-full h-full overflow-clip rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
-                <div class="w-full pl-1 justify-start items-start flex flex-col">
+                <div class="w-full justify-start items-start flex flex-col">
                     <div
-                        class="truncate w-full text-left text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
-                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
+                        class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
+                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                         SBMPN</div>
                 </div>
             </button>
-            <button onclick="" class="flex w-full flex-col justify-start items-start gap-4">
+            <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
-                    <div class="w-full h-48 flex">
+                    <div class="aspect-square flex">
                         <img class="w-full h-full overflow-clip rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
-                <div class="w-full pl-1 justify-start items-start flex flex-col">
+                <div class="w-full justify-start items-start flex flex-col">
                     <div
-                        class="truncate w-full text-left text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
-                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
+                        class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
+                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                         SBMPN</div>
                 </div>
             </button>
-            <button onclick="" class="flex w-full flex-col justify-start items-start gap-4">
+            <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
-                    <div class="w-full h-48 flex">
+                    <div class="aspect-square flex">
                         <img class="w-full h-full overflow-clip rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
-                <div class="w-full pl-1 justify-start items-start flex flex-col">
+                <div class="w-full justify-start items-start flex flex-col">
                     <div
-                        class="truncate w-full text-left text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
-                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
+                        class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
+                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                         SBMPN</div>
                 </div>
             </button>
-            <button onclick="" class="flex w-full flex-col justify-start items-start gap-4">
+            <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
-                    <div class="w-full h-48 flex">
+                    <div class="aspect-square flex">
                         <img class="w-full h-full overflow-clip rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
-                <div class="w-full pl-1 justify-start items-start flex flex-col">
+                <div class="w-full justify-start items-start flex flex-col">
                     <div
-                        class="truncate w-full text-left text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
-                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
+                        class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
+                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                         SBMPN</div>
                 </div>
             </button>
-            <button onclick="" class="flex w-full flex-col justify-start items-start gap-4">
+            <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
-                    <div class="w-full h-48 flex">
+                    <div class="aspect-square flex">
                         <img class="w-full h-full overflow-clip rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
-                <div class="w-full pl-1 justify-start items-start flex flex-col">
+                <div class="w-full justify-start items-start flex flex-col">
                     <div
-                        class="truncate w-full text-left text-zinc-900 text-2xl font-semibold font-['THICCCBOI'] leading-9">
-                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo...</div>
+                        class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
+                        Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-zinc-900 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-['THICCCBOI'] leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
                         SBMPN</div>
                 </div>
             </button>
         </section>
-        <div class="px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-            <div class="text-center text-neutral-900 text-2xl font-medium font-['THICCCBOI'] leading-9">Lihat
-                Selengkapnya
-            </div>
-        </div>
+        <button class="btn-secondary">Lihat Selengkapnya
+        </button>
     </div>
 
     {{-- Fungsi Option Card --}}
@@ -364,37 +365,6 @@
     </script>
 
     <script>
-        // Drag Touch
-        let mouseDown = false;
-        let startX, scrollLeft;
-        const slider = document.querySelector('.parent');
-
-        const startDragging = (e) => {
-            mouseDown = true;
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        }
-
-        const stopDragging = (e) => {
-            mouseDown = false;
-        }
-
-        const move = (e) => {
-            e.preventDefault();
-            if (!mouseDown) {
-                return;
-            }
-            const x = e.pageX - slider.offsetLeft;
-            const scroll = x - startX;
-            slider.scrollLeft = scrollLeft - scroll;
-        }
-
-        // Add the event listeners
-        slider.addEventListener('mousemove', move, false);
-        slider.addEventListener('mousedown', startDragging, false);
-        slider.addEventListener('mouseup', stopDragging, false);
-        slider.addEventListener('mouseleave', stopDragging, false);
-
 
         // Hide Button X
         function toggleClearButton() {

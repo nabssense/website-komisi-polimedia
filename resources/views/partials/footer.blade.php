@@ -37,42 +37,42 @@
             </div>
             <div class="self-stretch justify-start items-start gap-24 inline-flex flex-wrap">
                 <div class="flex-col justify-center items-start gap-4 inline-flex">
-                    <div class="text-white text-2xl font-bold font-['THICCCBOI'] leading-9">Menu</div>
+                    <div class="text-white text-2xl font-bold font-THICCCBOI leading-9">Menu</div>
                     <button onclick="window.location.href='/beranda';" class="flex-col justify-start items-start flex cursor-pointer group/beranda">
-                        <div class="text-white text-2xl font-medium font-['THICCCBOI'] leading-9">Beranda</div>
+                        <div class="text-white text-2xl font-medium font-THICCCBOI leading-9">Beranda</div>
                         <div class="opacity-0 w-1/2 h-1 bg-white group-hover/beranda:opacity-100"></div>
                     </button>
                     <button onclick="window.location.href='/berita';" class="flex-col justify-start items-start flex cursor-pointer group/berita">
-                        <div class="text-white text-2xl font-medium font-['THICCCBOI'] leading-9">Berita</div>
+                        <div class="text-white text-2xl font-medium font-THICCCBOI leading-9">Berita</div>
                         <div class="opacity-0 w-1/2 h-1 bg-white group-hover/berita:opacity-100"></div>
                     </button>
                     <button onclick="window.location.href='/tanya-jawab';" class="flex-col justify-start items-start flex cursor-pointer group/tanya">
-                        <div class="text-white text-2xl font-medium font-['THICCCBOI'] leading-9">Tanya Jawab</div>
+                        <div class="text-white text-2xl font-medium font-THICCCBOI leading-9">Tanya Jawab</div>
                         <div class="opacity-0 w-1/2 h-1 bg-white group-hover/tanya:opacity-100"></div>
                     </button>
                     <button onclick="window.location.href='/tentang-komisi';" class="flex-col justify-start items-start flex cursor-pointer group/tentang">
-                        <div class="text-white text-2xl font-medium font-['THICCCBOI'] leading-9">Tentang Komisi</div>
+                        <div class="text-white text-2xl font-medium font-THICCCBOI leading-9">Tentang Komisi</div>
                         <div class="opacity-0 w-1/2 h-1 bg-white group-hover/tentang:opacity-100"></div>
                     </button>
                 </div>
                 <div class="grow shrink basis-0 flex-col justify-center items-start gap-4 inline-flex">
-                    <div class="text-white text-2xl font-bold font-['THICCCBOI'] leading-9">Terhubung dengan kami</div>
+                    <div class="text-white text-2xl font-bold font-THICCCBOI leading-9">Terhubung dengan kami</div>
                     <div class="px-4 py-1 bg-rose-100 rounded-full justify-start items-center gap-3 inline-flex">
                         <i class="text-3xl text-netral-800 ph ph-instagram-logo"></i>
-                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">@komisipolimedia</div>
+                        <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">@komisipolimedia</div>
                     </div>
                     <div class="px-4 py-1 bg-rose-100 rounded-full justify-start items-center gap-3 inline-flex">
                         <i class="text-3xl text-netral-800 ph ph-youtube-logo"></i>
-                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">Komisi Polimedia</div>
+                        <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Komisi Polimedia</div>
                     </div>
-                    <div class="text-white text-2xl font-bold font-['THICCCBOI'] leading-9">Hubungi kami</div>
+                    <div class="text-white text-2xl font-bold font-THICCCBOI leading-9">Hubungi kami</div>
                     <div class="px-4 py-1 bg-rose-100 rounded-full justify-start items-center gap-3 inline-flex">
                         <i class="text-3xl text-netral-800 ph ph-envelope-simple"></i>
-                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">humaskomisipolimedia@gmail.com</div>
+                        <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">humaskomisipolimedia@gmail.com</div>
                     </div>
                     <div class="px-4 py-1 bg-rose-100 rounded-full justify-start items-center gap-3 inline-flex">
                         <i class="text-3xl text-netral-800 ph ph-whatsapp-logo"></i>
-                        <div class="text-neutral-900 text-lg font-medium font-['THICCCBOI'] leading-7">0813-2329-2564 </div>
+                        <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">0813-2329-2564 </div>
                     </div>
                 </div>
             </div>
@@ -85,6 +85,6 @@
     </div>
     <div class="self-stretch h-16 flex-col justify-start items-center gap-10 flex">
         <div class="self-stretch h-1 bg-gray-200 rounded-2xl"></div>
-        <div class="text-center"><span class="text-white text-lg font-normal font-['THICCCBOI'] leading-7">• Membidik Prestasi Membangun Negeri • © 2022 Copyright Komisi Polimedia</span></div>
+        <div class="text-center"><span class="text-white text-lg font-normal font-THICCCBOI leading-7">• Membidik Prestasi Membangun Negeri • © 2022 Copyright Komisi Polimedia</span></div>
     </div>
 </footer>

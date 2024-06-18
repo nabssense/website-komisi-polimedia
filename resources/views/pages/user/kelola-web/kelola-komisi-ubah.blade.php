@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="w-full  h-full p-4 justify-start items-center flex flex-wrap">
                                     <div
-                                        class="w-full flex  text-wrap text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="w-full flex  text-wrap text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                         Masukkan logo dengan ukuran horizontal dan dengan format svg</div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="w-full  h-full p-4 justify-start items-center flex flex-wrap">
                                     <div
-                                        class="w-full flex  text-wrap text-stone-700 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                        class="w-full flex  text-wrap text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
                                         Masukkan logo dengan ukuran horizontal dan dengan format svg</div>
                                 </div>
                             </div>

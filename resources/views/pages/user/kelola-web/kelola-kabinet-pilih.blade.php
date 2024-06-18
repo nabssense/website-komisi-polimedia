@@ -5,7 +5,7 @@
     <div class="self-stretch h-fit rounded-2xl flex-col justify-start items-start gap-9 flex">
         <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
             <button onclick="goBack()" class="text-32 text-netral-800 ph-bold ph-arrow-left"></button>
-            <div class="grow shrink basis-0 text-zinc-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kabinet KOBRA</div>
+            <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kabinet KOBRA</div>
             <div class="py-3 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Ubah Kabinet</div>
                 <i class="text-32 text-primary-base ph ph-pencil-simple"></i>
@@ -32,7 +32,7 @@
                         </div>
                         {{-- <div class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
                             <div
-                                class="grow shrink basis-0 text-netral-400 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                class="grow shrink basis-0 text-netral-400 text-base font-normal font-THICCCBOI leading-normal">
                                 Masukkan Logo dengan format svg</div>
                         </div> --}}
                     </div>  
@@ -55,7 +55,7 @@
                         </div>
                         {{-- <div class="grow shrink basis-0 self-stretch p-4 justify-start items-center flex">
                             <div
-                                class="grow shrink basis-0 text-netral-400 text-base font-normal font-['THICCCBOI'] leading-normal">
+                                class="grow shrink basis-0 text-netral-400 text-base font-normal font-THICCCBOI leading-normal">
                                 Masukkan Logo dengan format svg</div>
                         </div> --}}
                     </div>  
@@ -174,7 +174,7 @@
 
         {{-- Table Divisi --}}
         <div class="self-stretch h-fit  justify-start items-center gap-6 inline-flex">
-            <div class="grow shrink basis-0 text-zinc-900 text-3xl font-semibold font-THICCCBOI leading-10">Tim / Divisi</div>
+            <div class="grow shrink basis-0 text-netral-900 text-3xl font-semibold font-THICCCBOI leading-10">Tim / Divisi</div>
             <div class="px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Tambah Divisi</div>
                 <i class="text-2xl text-netral-800 ph ph-plus"></i>
@@ -207,7 +207,7 @@
                             </div>
                             <div class="self-stretch justify-start items-center gap-4 flex">
                                 <div class=" self-stretch flex-col justify-center items-start inline-flex">
-                                    <div class="self-stretch text-zinc-900 text-3xl font-semibold font-THICCCBOI leading-10">Ketua & Wakil</div>
+                                    <div class="self-stretch text-netral-900 text-3xl font-semibold font-THICCCBOI leading-10">Ketua & Wakil</div>
                                 </div>
                             </div>
                             <div class="h-fit grow shrink basis-0  justify-end items-center gap-4 flex">
@@ -229,7 +229,7 @@
 
         {{-- Anggota --}}
         <div class="self-stretch h-fit justify-start items-center gap-6 inline-flex">
-            <div class="grow shrink basis-0 text-zinc-900 text-3xl font-semibold font-THICCCBOI leading-10">Anggota Kepengurusan</div>
+            <div class="grow shrink basis-0 text-netral-900 text-3xl font-semibold font-THICCCBOI leading-10">Anggota Kepengurusan</div>
             <div class="px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Tambah Anggota</div>
                 <i class="text-2xl text-netral-800 ph ph-plus"></i>
@@ -260,14 +260,14 @@
                                 <img class="aspect-auto object-bottom" src="{{ url('img/Kabinet/KOBRA/KETUA-WAKIL.png') }}" />
                             </div>
                             <div class="grow shrink basis-0 self-stretch flex-col justify-center items-start inline-flex">
-                                <div class="self-stretch text-zinc-900 text-lg font-semibold font-THICCCBOI leading-7">Putra Irawan</div>
-                                <div class="self-stretch text-zinc-900 text-base font-normal font-THICCCBOI leading-normal">Ketua</div>
+                                <div class="self-stretch text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">Putra Irawan</div>
+                                <div class="self-stretch text-netral-900 text-base font-normal font-THICCCBOI leading-normal">Ketua</div>
                             </div>
                         </td>
                         <td class="w-full h-full flex grow shrink basis-7/12 flex-row gap-4 justify-start items-center">
                             <div class="h-full  justify-start items-center gap-4 flex">
                                 <div class=" self-stretch flex-col justify-center items-start inline-flex">
-                                    <div class="grow shrink basis-0 text-zinc-900 text-lg font-normal font-['THICCCBOI'] leading-7">Desain Grafis</div>
+                                    <div class="grow shrink basis-0 text-netral-900 text-lg font-normal font-THICCCBOI leading-7">Desain Grafis</div>
                                 </div>
                             </div>
                             <div class="h-fit grow shrink basis-0  justify-end items-center gap-4 flex">

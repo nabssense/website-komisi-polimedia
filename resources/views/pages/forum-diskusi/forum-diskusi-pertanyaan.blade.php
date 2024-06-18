@@ -68,10 +68,10 @@
                                     <div class="w-full flex-col justify-center items-start inline-flex">
                                         <div class="justify-start items-center gap-2 inline-flex">
                                             <div class="w-fit justify-start items-center gap-2 flex">
-                                                <div class="text-zinc-900 text-base font-semibold font-THICCCBOI leading-normal">Bapak Suhaili</div>
+                                                <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">Bapak Suhaili</div>
                                                 <i class="text-xl ph-fill text-blue-700 ph-seal-check"></i>
                                             </div>
-                                            <div class="text-zinc-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
+                                            <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
                                             <div class="grow shrink basis-0 text-stone-600 text-base font-normal font-THICCCBOI leading-normal">Pembina Komunitas Bidikmisi Polimedia</div>
                                         </div>
                                         <div class="self-stretch justify-start items-start gap-4 inline-flex">
@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="self-stretch text-zinc-900 text-lg font-normal font-THICCCBOI leading-7">Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa mengetahui rinciannya?</div>
+                                <div class="self-stretch text-netral-900 text-lg font-normal font-THICCCBOI leading-7">Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa mengetahui rinciannya?</div>
                                 <div class="self-stretch justify-start items-center gap-4 inline-flex">
                                     <div class="rounded-full justify-start items-center gap-2 flex">
                                         <i class="text-32 text-primary-base ph ph-heart"></i>
@@ -110,9 +110,9 @@
                                     <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
                                         <div class="self-stretch justify-start items-center gap-2 inline-flex">
                                             <div class="justify-start items-center gap-2 flex">
-                                                <div class="text-zinc-900 text-base font-semibold font-THICCCBOI leading-normal">Muhammad Alif</div>
+                                                <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">Muhammad Alif</div>
                                             </div>
-                                            <div class="text-zinc-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
+                                            <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
                                             <div class="grow shrink basis-0 text-stone-600 text-base font-normal font-THICCCBOI leading-normal">Mahasiswa</div>
                                         </div>
                                         <div class="self-stretch justify-start items-start gap-4 inline-flex">
@@ -121,7 +121,7 @@
                                     </div>
                                     <i class="text-32 ph ph-dots-three-vertical"></i>
                                 </div>
-                                <div class="self-stretch text-zinc-900 text-lg font-normal font-THICCCBOI leading-7">Baik Terimakasih Pak</div>
+                                <div class="self-stretch text-netral-900 text-lg font-normal font-THICCCBOI leading-7">Baik Terimakasih Pak</div>
                                 <div class="self-stretch justify-start items-center gap-4 inline-flex">
                                     <div class="rounded-full justify-start items-center gap-2 flex">
                                         <i class="text-32 text-primary-base ph ph-heart"></i>
@@ -138,10 +138,10 @@
                                     <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
                                         <div class="self-stretch justify-start items-center gap-2 inline-flex">
                                             <div class="justify-start items-center gap-2 flex">
-                                                <div class="text-zinc-900 text-base font-semibold font-THICCCBOI leading-normal">Insan Hadid</div>
+                                                <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">Insan Hadid</div>
                                                 <i class="text-xl ph-fill text-blue-700 ph-seal-check"></i>
                                             </div>
-                                            <div class="text-zinc-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
+                                            <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
                                             <div class="grow shrink basis-0 text-stone-600 text-base font-normal font-THICCCBOI leading-normal">Ketua Komunitas Bidikmisi Polimedia Kabinet Sancaka</div>
                                         </div>
                                         <div class="self-stretch justify-start items-start gap-4 inline-flex">
@@ -150,7 +150,7 @@
                                     </div>
                                     <i class="text-32 ph ph-dots-three-vertical"></i>
                                 </div>
-                                <div class="self-stretch text-zinc-900 text-lg font-normal font-THICCCBOI leading-7">Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa mengetahui rinciannya?</div>
+                                <div class="self-stretch text-netral-900 text-lg font-normal font-THICCCBOI leading-7">Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa mengetahui rinciannya?</div>
                                 <div class="self-stretch justify-start items-center gap-4 inline-flex">
                                     <div class="rounded-full justify-start items-center gap-2 flex">
                                         <i class="text-32 text-primary-base ph ph-heart"></i>
@@ -179,7 +179,7 @@
         {{-- Right Content --}} <div class="grow shrink basis-0 self-stretch rounded-3xl flex-col justify-start items-start gap-9 inline-flex">
             <div class="self-stretch py-2 bg-rose-100 rounded justify-start items-start gap-4 inline-flex">
                 <div class="w-2 h-12 relative bg-primary-base rounded"></div>
-                <div class="grow shrink basis-0 text-zinc-900 text-3xl font-extrabold font-THICCCBOI leading-10">Terpopuler</div>
+                <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Terpopuler</div>
             </div>
             
             
