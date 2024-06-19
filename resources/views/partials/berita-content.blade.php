@@ -1,4 +1,4 @@
-    <div class="w-full h-fit px-4 md:px-8 xl:px-16 {{ $active === 'Beranda' ? 'py-16' : 'pt-8 ' }} pb-24 bg-white flex-col justify-start items-center gap-8 inline-flex ">
+    <div class="w-full h-fit px-4 md:px-8 xl:px-16 {{ $active === 'Beranda' ? 'py-16' : '' }} pt-24 md:pt-32 pb-24 bg-white flex-col justify-start items-center gap-8 inline-flex ">
         <div class="w-full max-w-1480 text-neutral-900 font-extrabold Heading1 flex">Berita
         </div>
         {{-- Search Bar dll --}}
@@ -120,7 +120,7 @@
             @endif
             {{-- Filter dll --}}
             <div class=" w-full h-fit justify-start items-center gap-8 inline-flex ">
-                <div class="xs:px-0 py-1 rounded-full flex-col justify-center items-center gap-6 inline-flex">
+                <div class="px-0 py-1 rounded-full flex-col justify-center items-center gap-6 inline-flex">
                     <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Filter
                     </div>
                 </div>
@@ -185,7 +185,7 @@
             </div>
         </section>
         {{-- Content Berita --}}
-        <section class="w-full max-w-1480 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 flex-wrap gap-2 md:gap-8  justify-center">
+        <section class="w-full max-w-1480 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 flex-wrap gap-3 md:gap-8  justify-center">
             <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="aspect-square flex">
@@ -198,17 +198,17 @@
                         class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
                         Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
+                        class="grow shrink basis-0 text-netral-600 font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 font-normal font-THICCCBOI Body2">
                         SBMPN</div>
                 </div>
             </button>
             <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="aspect-square flex">
-                        <img class="w-full h-full overflow-clip rounded-2xl"
+                        <img class="w-full h-full object-cover rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
@@ -217,17 +217,17 @@
                         class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
                         Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
+                        class="grow shrink basis-0 text-netral-600 font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 font-normal font-THICCCBOI Body2">
                         SBMPN</div>
                 </div>
             </button>
             <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="aspect-square flex">
-                        <img class="w-full h-full overflow-clip rounded-2xl"
+                        <img class="w-full h-full object-cover rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
@@ -236,17 +236,17 @@
                         class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
                         Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
+                        class="grow shrink basis-0 text-netral-600 font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 font-normal font-THICCCBOI Body2">
                         SBMPN</div>
                 </div>
             </button>
             <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="aspect-square flex">
-                        <img class="w-full h-full overflow-clip rounded-2xl"
+                        <img class="w-full h-full object-cover rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
@@ -255,17 +255,17 @@
                         class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
                         Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
+                        class="grow shrink basis-0 text-netral-600 font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 font-normal font-THICCCBOI Body2">
                         SBMPN</div>
                 </div>
             </button>
             <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="aspect-square flex">
-                        <img class="w-full h-full overflow-clip rounded-2xl"
+                        <img class="w-full h-full object-cover rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
@@ -274,17 +274,17 @@
                         class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
                         Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
+                        class="grow shrink basis-0 text-netral-600 font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 font-normal font-THICCCBOI Body2">
                         SBMPN</div>
                 </div>
             </button>
             <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="aspect-square flex">
-                        <img class="w-full h-full overflow-clip rounded-2xl"
+                        <img class="w-full h-full object-cover rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
@@ -293,17 +293,17 @@
                         class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
                         Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
+                        class="grow shrink basis-0 text-netral-600 font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 font-normal font-THICCCBOI Body2">
                         SBMPN</div>
                 </div>
             </button>
             <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="aspect-square flex">
-                        <img class="w-full h-full overflow-clip rounded-2xl"
+                        <img class="w-full h-full object-cover rounded-2xl"
                             src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
                     </div>
                 </div>
@@ -312,10 +312,10 @@
                         class="w-full text-left line-clamp-2 text-netral-900 font-semibold Body1">
                         Mahasiswa Polimedia Raih Prestasi Juara Street Photo Prestasi Juara Street Photo</div>
                     <div
-                        class="grow shrink basis-0 text-netral-600 text-base font-normal Body2">
+                        class="grow shrink basis-0 text-netral-600 font-normal Body2">
                         29 Juli 2022</div>
                     <div
-                        class="grow shrink basis-0 text-right text-stone-500 text-base font-normal font-THICCCBOI leading-normal">
+                        class="grow shrink basis-0 text-right text-stone-500 font-normal font-THICCCBOI Body2">
                         SBMPN</div>
                 </div>
             </button>

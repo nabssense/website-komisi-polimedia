@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     {{-- STEP 1 --}}<div
-        class="w-screen h-screen step p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
+        class="w-full h-full step p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
         
         {{-- Main Content --}}
         <div class="w-full max-w-960  h-full self-stretch px-8 flex-col justify-start items-start gap-8 inline-flex">

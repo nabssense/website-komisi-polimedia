@@ -1,15 +1,15 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-    <section class="w-full h-fit relative items-center justify-center pt-12 pb-12 px-4 md:px-8 xl:px-16 flex">
+    <section class="w-full h-fit relative items-center justify-center pt-16 md:pt-24 lg:pt-32 pb-12 lg:px-8 xl:px-16 flex ">
         {{-- ISI BERITA --}}
         <div class="headline-container w-1480 h-fit gap-4 relative flex-col justify-center items-center flex ">
             {{-- Placeholder for headline content --}}
             <div class="headline-item z-30 w-full h-fit flex flex-col justify-center items-center transition-transform duration-500 ease-in-out"
                 data-index="0">
-                <div class="w-full flex bg-netral-100 shadow-card rounded-2xl justify-center items-center relative">
+                <div class="w-full flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center relative">
                     <!-- Mengubah justify-center -->
-                    <img class="w-full h-full overflow-clip rounded-2xl" src="{{ url('img/Berita/test-headline-news.jpg') }}"
+                    <img class="w-full h-full overflow-clip  lg:rounded-2xl" src="{{ url('img/Berita/test-headline-news.jpg') }}"
                         alt="Image" />
                 </div>
             </div>
@@ -32,11 +32,11 @@
             {{-- End of headline content --}}
 
             {{-- Button nextnews & prevnewsious --}}
-            <div class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center inline-flex">
+            <div class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center lg:flex hidden">
                 <i
                     class="xs:text-xl  sm:text-3xl md:text-5xl ph ph-caret-left text-primary-base cursor-pointer prevnews-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
             </div>
-            <div class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center inline-flex">
+            <div class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center lg:flex hidden">
                 <i
                     class="xs:text-xl  sm:text-3xl md:text-5xl ph ph-caret-right text-primary-base cursor-pointer nextnews-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
             </div>
@@ -72,96 +72,95 @@
     </section>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const prevnewsBtn = document.querySelector('.prevnews-btn');
-            const nextnewsBtn = document.querySelector('.nextnews-btn');
-            const headlineItems = document.querySelectorAll('.headline-item');
-            const listIndicators = document.querySelectorAll('.list-indicator');
-            const defaultlistIndicators = document.querySelectorAll('.list-indicator-default');
-            let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const prevnewsBtn = document.querySelector('.prevnews-btn');
+    const nextnewsBtn = document.querySelector('.nextnews-btn');
+    const headlineItems = document.querySelectorAll('.headline-item');
+    const listIndicators = document.querySelectorAll('.list-indicator');
+    const defaultlistIndicators = document.querySelectorAll('.list-indicator-default');
+    let currentIndex = 0;
 
-            function showheadlineItem(index) {
-                headlineItems.forEach((item, i) => {
-                    if (i === index) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
-                    }
-                });
-                updatelistIndicators(index);
+    let startX = 0;
+    let endX = 0;
+
+    function showheadlineItem(index) {
+        headlineItems.forEach((item, i) => {
+            if (i === index) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
             }
-
-            function showprevnewsItem() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    showheadlineItem(currentIndex);
-                    updateNavBtn();
-                    updatelistIndicators(currentIndex); // Tambahkan ini
-                }
-            }
-
-            function shownextnewsItem() {
-                if (currentIndex < headlineItems.length - 1) {
-                    currentIndex++;
-                    showheadlineItem(currentIndex);
-                    updateNavBtn();
-                    updatelistIndicators(currentIndex); // Tambahkan ini
-                }
-            }
-
-            function updateNavBtn() {
-                if (currentIndex === 0) {
-                    prevnewsBtn.classList.add('disabled', 'opacity-10');
-                } else {
-                    prevnewsBtn.classList.remove('disabled', 'opacity-10');
-                }
-
-                if (currentIndex === headlineItems.length - 1) {
-                    nextnewsBtn.classList.add('disabled', 'opacity-10');
-                } else {
-                    nextnewsBtn.classList.remove('disabled', 'opacity-10');
-                }
-            }
-
-            function updatelistIndicators(index) {
-                // Mengambil penanda tahun yang sesuai dengan indeks carousel
-                const currentListIndicator = listIndicators[index];
-
-                // Menghapus kelas 'active' dari semua penanda tahun
-                listIndicators.forEach(indicator => {
-                    indicator.classList.add('hidden');
-                });
-
-                // Menambahkan kelas 'active' hanya pada penanda tahun yang sesuai
-                currentListIndicator.classList.remove('hidden');
-            }
-
-            function updatelistIndicators(index) {
-                listIndicators.forEach((indicator, i) => {
-                    if (i === index) {
-                        indicator.classList.remove('hidden');
-
-                    } else {
-                        indicator.classList.add('hidden');
-
-                    }
-                });
-                defaultlistIndicators.forEach((indicator, i) => {
-                    if (i === index) {
-                        indicator.classList.add('hidden');
-
-                    } else {
-                        indicator.classList.remove('hidden');
-                    }
-                });
-            }
-
-            prevnewsBtn.addEventListener('click', showprevnewsItem);
-            nextnewsBtn.addEventListener('click', shownextnewsItem);
-
-            showheadlineItem(currentIndex);
-            updateNavBtn();
         });
+        updatelistIndicators(index);
+    }
+
+    function showprevnewsItem() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = headlineItems.length - 1; // Mengarah ke item headline terakhir jika saat ini di awal
+        }
+        showheadlineItem(currentIndex);
+        updatelistIndicators(currentIndex);
+    }
+
+    function shownextnewsItem() {
+        if (currentIndex < headlineItems.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Mengarah ke item headline pertama jika saat ini di akhir
+        }
+        showheadlineItem(currentIndex);
+        updatelistIndicators(currentIndex);
+    }
+
+    function updatelistIndicators(index) {
+        listIndicators.forEach((indicator, i) => {
+            if (i === index) {
+                indicator.classList.remove('hidden');
+            } else {
+                indicator.classList.add('hidden');
+            }
+        });
+        defaultlistIndicators.forEach((indicator, i) => {
+            if (i === index) {
+                indicator.classList.add('hidden');
+            } else {
+                indicator.classList.remove('hidden');
+            }
+        });
+    }
+
+    function handleTouchStart(event) {
+        startX = event.touches[0].clientX;
+    }
+
+    function handleTouchMove(event) {
+        endX = event.touches[0].clientX;
+    }
+
+    function handleTouchEnd() {
+        if (startX > endX) {
+            shownextnewsItem();
+        } else if (startX < endX) {
+            showprevnewsItem();
+        }
+    }
+
+    prevnewsBtn.addEventListener('click', showprevnewsItem);
+    nextnewsBtn.addEventListener('click', shownextnewsItem);
+
+    headlineItems.forEach(item => {
+        item.addEventListener('touchstart', handleTouchStart);
+        item.addEventListener('touchmove', handleTouchMove);
+        item.addEventListener('touchend', handleTouchEnd);
+    });
+
+    showheadlineItem(currentIndex);
+
+    // Auto-slide functionality
+    setInterval(shownextnewsItem, 8000); // 8000 milliseconds = 8 seconds
+});
     </script>
     {{-- Section 2 Logo --}}
     <section

@@ -290,11 +290,9 @@
   }
 
   .btn-popup{
-    @apply w-fit h-fit px-4 py-1 lg:px-6 lg:py-2  gap-3 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 text-base lg:text-lg font-medium font-THICCCBOI ;
+    @apply w-fit h-fit px-4 py-1.5 md:px-6 md:py-2 gap-3 bg-netral-100 focus:border-primary-base focus:bg-primary-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 focus:text-primary-base Body1 md:Heading4 font-medium ;
   }
-  .btn-popup-active{
-    @apply w-fit h-fit px-5 py-2 bg-primary-base  gap-3 rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-lg font-medium font-THICCCBOI ;
-  }
+  
  
 
   .btn-sm-primary{
@@ -307,35 +305,41 @@
   .btn-navbar-active{
     @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium font-THICCCBOI leading-H1-H2-H3;
   }
+  
 /* searchbar */
   .searchbar{
-    @apply w-full px-5 py-1 lg:px-6 lg:py-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-start text-netral-800 text-lg placeholder:font-normal font-THICCCBOI focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800;
+    @apply w-full px-4 py-1.5 md:px-6 md:py-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center line-clamp-1 flex text-nowrap text-start text-netral-800 Body1 md:Heading4 placeholder:font-normal placeholder:line-clamp-1 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800;
+  }
+
+  /* searchbar */
+  .commentbar{
+    @apply w-full px-4 py-1.5 md:px-6 md:py-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center line-clamp-1 flex text-nowrap text-start text-netral-800 Body1 md:Heading4 placeholder:font-normal placeholder:line-clamp-1 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800;
   }
   
 
   /* FONTS SYSTEM */
   .Heading1{
-    @apply text-4xl lg:text-5xl font-THICCCBOI leading-H1-H2-H3;
+    @apply text-32 lg:text-5xl font-THICCCBOI leading-H2 lg:leading-H1;
   }
   .Heading2{
-    @apply text-2xl lg:text-4xl font-THICCCBOI leading-H1-H2-H3;
+    @apply text-2xl lg:text-32 font-THICCCBOI leading-H3 lg:leading-H2;
   }
   .Heading3{
-    @apply text-xl lg:text-2xl font-THICCCBOI leading-H1-H2-H3;
+    @apply text-xl lg:text-2xl font-THICCCBOI leading-H4 lg:leading-H3;
   }
   .Heading4{
-    @apply text-base lg:text-xl font-THICCCBOI leading-H4;
+    @apply text-base lg:text-lg font-THICCCBOI leading-B1 lg:leading-H4;
   }
   .Body1{
-    @apply text-sm lg:text-base font-THICCCBOI leading-B1;
+    @apply text-sm lg:text-base font-THICCCBOI leading-B2 lg:leading-B1;
   }
   .Body2{
-    @apply text-xs lg:text-sm font-THICCCBOI leading-B2;
+    @apply text-xs lg:text-sm font-THICCCBOI leading-B3 lg:leading-B2;
   }
   .Body3{
-    @apply text-5xl lg:text-2xl font-THICCCBOI leading-B3;
+    @apply text-3xs lg:text-2xs font-THICCCBOI leading-B3;
   }
   .Body4{
-    @apply text-5xl lg:text-2xl font-THICCCBOI leading-B4;
+    @apply text-4xs lg:text-3xs font-THICCCBOI leading-B4;
   }
 }

@@ -146,6 +146,7 @@ export default {
         '1480': '1480px',
       },
       size: {
+        // '18': '72px',
         '128': '128px',
         '192': '192px',
         '348': '348px',
@@ -168,12 +169,14 @@ export default {
         '1480': '1480px',
       },
       lineHeight:{
-        'H1-H2-H3': '156%',
-        'H4': '140%',
-        'B1': '140%',
-        'B2': '1.334em',
-        'B3': '124%',
-        'B4': '124%',
+        'H1': '3.75rem',
+        'H2': '3.0rem',
+        'H3': '2.25rem',
+        'H4': '1.75rem',
+        'B1': '1.5rem',
+        'B2': '1.25rem',
+        'B3': '1rem',
+        'B4': '.75rem',
         '120%': '120%',
       },
       // fontWeight:{
@@ -191,7 +194,11 @@ export default {
         'card-m': '0px 0px 4px rgba(0, 0, 0, 0.12)',
       },
       fontSize:{
-        '32': '32px'
+        '2xs': '12px',
+        '3xs': '10px',
+        '4xs': '8px',
+        '32': '32px',
+        '40': '40px',
       }
     },
     buttonPrimary: {
@@ -199,7 +206,8 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/line-clamp'),
+    // require
+    // ('@tailwindcss/line-clamp'),
     // plugin lainnya
   ],
 }

@@ -1,45 +1,43 @@
     <div class="w-full flex-col justify-center items-center gap-12 flex">
         @if ($active !== 'Kelola Komisi')
-            <div class="w-full relative items-center justify-center ">
+            <div class="w-full relative items-center justify-center">
                 {{-- ISI KABINET --}}
                 <div
                     class="carousel-container w-full h-full overflow-hidden relative flex-col justify-center items-center flex ">
                     {{-- Placeholder for carousel content --}}
-                    <div class="carousel-item px-4 md:px-8 xl:px-16 bg-primary-200 w-full h-fit pt-24 pb-48 flex flex-col justify-center items-center transition-transform duration-500 ease-in-out"
+                    <div class="carousel-item px-8 md:px-32 xl:px-48 bg-primary-200 w-full h-fit pt-8 pb-24 lg:pt-24 lg:pb-48 flex flex-col justify-center items-center transition-transform duration-500 ease-in-out"
                         data-index="0">
                         <div
-                            class="w-full max-w-1480 h-fit gap-12 xl:gap-24 flex flex-col lg:flex-row justify-center items-center">
+                            class="w-full max-w-1480 h-fit gap-4 xl:gap-24 flex flex-col md:flex-row justify-center items-center">
                             <!-- Menambahkan justify-center dan items-center -->
-                            <div class="aspect-square p-8 justify-center items-center flex bg-white rounded-2xl">
-                                <img class="w-full h-full" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}"
+                            <div class=" w-fit md:w-72 p-8 object-center bg-yellow-400 rounded-full">
+                                <img class="" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}"
                                     alt="Image" />
                             </div>
                             <div
-                                class="grow shrink basis-0 w-full justify-center items-start gap-4 md:gap-8 flex flex-col">
-                                <div class="h-fit flex-col justify-center gap-2 md:gap-4 items-start flex">
+                                class=" w-full justify-center items-start gap-4 md:gap-8 flex flex-col">
+                                <div class="w-full h-fit flex-col justify-center gap-2 md:gap-4 items-start flex">
                                     <div
                                         class="self-stretch text-neutral-900 font-extrabold Heading1">
                                         Kabinet KOBRA</div>
                                     <div
-                                        class="px-4 py-1 bg-white rounded-xl justify-center items-start gap-2.5 inline-flex">
-                                        <div
-                                            class="text-right text-neutral-900 font-extrabold Heading4">
-                                            2021 - 2022</div>
+                                        class="w-fit px-4 py-1 text-nowrap bg-white rounded-xl justify-center items-start inline-flex text-left text-neutral-900 font-extrabold Heading4">
+                                            2021 - 2022
                                     </div>
                                 </div>
                                 <div class="w-full h-fit flex-col justify-center gap-2 md:gap-4 items-start flex">
-                                    <div class="text-neutral-900 font-medium Heading3">Lorem
+                                    <p class="text-neutral-900 font-medium Heading4 line-clamp-5">Lorem
                                         ipsum
                                         dolor sit amet, consectetur adipiscing elit. Volutpat metus sed lacus, ornare
                                         feugiat mattis.
-                                        Sed pulvinar id bibendum id vel consequat dui elementum auctor. </div>
-                                    <a class="w-full h-fit justify-start items-center gap-4 flex flex-row"
+                                        Sed pulvinar id bibendum id vel consequat dui elementum auctor. </p>
+                                    <button class="w-full h-fit justify-start items-center gap-2 md:gap-4 flex Heading4 flex-row"
                                         href="/tentang-kabinet">
-                                        <div class="text-center text-primary-base text-2xl font-medium font-THICCCBOI">
+                                        <div class="text-center text-primary-base font-medium ">
                                             Lihat Kabinet
                                         </div>
-                                        <i class="text-3xl text-primary-base ph ph-caret-right"></i>
-                                    </a>
+                                        <i class=" text-primary-base ph ph-caret-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -84,46 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- Placeholder for carousel content --}}
-                    <div class="carousel-item px-4 md:px-8 xl:px-16 bg-primary-200 w-full h-fit pt-24 pb-48 flex flex-col justify-center items-center transition-transform duration-500 ease-in-out"
-                        data-index="0">
-                        <div
-                            class="w-full max-w-1480 h-fit gap-12 xl:gap-24 flex flex-col lg:flex-row justify-center items-center">
-                            <!-- Menambahkan justify-center dan items-center -->
-                            <div class="w-96 h-96  p-8 justify-center items-center flex bg-white rounded-2xl">
-                                <img class="w-full h-full" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}"
-                                    alt="Image" />
-                            </div>
-                            <div
-                                class="grow shrink basis-0 w-full justify-center items-start gap-4 md:gap-8 flex flex-col">
-                                <div class="h-fit flex-col justify-center gap-2 md:gap-4 items-start flex">
-                                    <div
-                                        class="self-stretch text-neutral-900 text-5xl font-extrabold font-THICCCBOI leading-10">
-                                        Kabinet KOBRA</div>
-                                    <div
-                                        class="px-4 py-1 bg-white rounded-xl justify-center items-start gap-2.5 inline-flex">
-                                        <div
-                                            class="text-right text-neutral-900 text-lg font-extrabold font-THICCCBOI leading-7">
-                                            2021 - 2022</div>
-                                    </div>
-                                </div>
-                                <div class="w-full h-fit flex-col justify-center gap-2 md:gap-4 items-start flex">
-                                    <div class="text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Lorem
-                                        ipsum
-                                        dolor sit amet, consectetur adipiscing elit. Volutpat metus sed lacus, ornare
-                                        feugiat mattis.
-                                        Sed pulvinar id bibendum id vel consequat dui elementum auctor. </div>
-                                    <a class="w-full h-fit justify-start items-center gap-4 flex flex-row"
-                                        href="/tentang-kabinet">
-                                        <div class="text-center text-primary-base text-2xl font-medium font-THICCCBOI">
-                                            Lihat Kabinet
-                                        </div>
-                                        <i class="text-3xl text-primary-base ph ph-caret-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
 
 
@@ -131,19 +90,18 @@
                 {{-- Button Next & Previous --}}
                 <div id="prev-btn"
                     class="w-fit h-full z-40 cursor-pointer px-1 md:px-8 left-0 top-0 absolute justify-center items-center inline-flex">
-                    <i class="text-5xl ph ph-caret-left text-white"></i>
+                    <i class="text-2xl md:text-5xl ph ph-caret-left text-white"></i>
                 </div>
                 <div id="next-btn"
                     class="w-fit h-full cursor-pointer px-1 md:px-8 z-40 right-0 top-0 absolute justify-center items-center inline-flex">
-                    <i class="text-5xl ph ph-caret-right text-white"></i>
+                    <i class="text-2xl md:text-5xl ph ph-caret-right text-white"></i>
                 </div>
 
                 {{-- </div> --}}
                 {{-- List Daftar Tahun Kabinet --}}
-                {{-- <div class="w-1480 h-[84px] top-[84%] z-50 flex justify-center items-center parent overflow-x-auto overflow-y-hidden scrollbar-hidden touch-pan-x cursor-pointer absolute bg-white rounded-full "> --}}
-                <div class="w-full flex justify-center px-4 md:px-8 xl:px-16">
+                <div class="w-full flex justify-center scale-50 xl:scale-100">
                     <div
-                        class="w-full max-w-1480 h-fit bottom-8 px-4 py-8 justify-start items-center gap-4 flex overflow-scroll overflow-x-scroll parent cursor-pointer scrollbar-hidden rounded-full absolute scale-90 xl:scale-100  bg-white">
+                        class="w-full lg:max-w-1480 h-fit bottom-8 px-4 py-8 justify-start items-center gap-4 flex overflow-scroll overflow-x-scroll parent cursor-pointer scrollbar-hidden rounded-full absolute  bg-white">
                         
                             <div class="rounded-full flex-col justify-center items-start flex relative">
                                 <div class="w-6 h-6 bg-netral-900 rounded-full"></div>

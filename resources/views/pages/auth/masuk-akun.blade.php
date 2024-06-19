@@ -1,18 +1,18 @@
 @extends('layouts.main')
 @section('container')
-        <div id="divFull" class="w-full bg-netral-100 h-full shadow justify-start items-start absolute z-50 pt-24 flex flex-col">
-            @include('partials.navbar')
-            <form method="POST" action="{{ route('auth.masuk.login') }}" class="w-full h-full flex flex-col">
+        <div id="divFull" class="w-full h-screen bg-netral-100 shadow justify-start items-start pt-20 md:pt-32 flex flex-col">
+                @include('partials.navbar')
+            <form id="form-login" method="POST" action="{{ route('auth.masuk.login') }}" class="w-full h-full flex flex-col gap-8">
                 @csrf
                 {{-- Main Content --}} 
-                <div id="MainContent" class="w-full h-fit self-stretch px-560 sm:px-16 flex-col justify-center items-center gap-8 inline-flex">
-                    <div id="MainContent2" class="w-full h-fit max-w-1480 grow shrink basis-0 py-12 flex-col justify-center items-center gap-4 flex">
-                        <div class="w-full h-fit p-8 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-5 flex">
-                            <div class="self-stretch  text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
-                                Masukkan akun anda</div>
-                            <div class="self-stretch h-fit  flex-col justify-start items-start gap-8 flex">
+                <div id="MainContent" class="w-full h-full lg:h-fit px-4 md:px-8 lg:px-32 xl:px-72 flex-col justify-center items-center flex lg:flex-none">
+                    <div id="MainContent2" class="w-full h-full max-w-1480 flex-col justify-center items-center gap-2 md:gap-4 flex">
+                        <div class="w-full h-fit p-4 md:p-6 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-2 md:gap-4 flex">
+                            <p class="w-full  text-netral-900 font-extrabold Heading1 line-clamp-1">
+                                Masukkan akun anda</p>
+                            <div class="w-full h-fit  flex-col justify-start items-start  md:gap-4 flex">
 
-                                <div class="self-stretch h-fit pt-3 flex-col justify-start items-start gap-4 flex">
+                                <div class="self-stretch h-fit flex-col justify-start items-start gap-2 md:gap-4 flex">
                                     <div class="self-stretch h-fit flex-col justify-start items-start flex">
                                         <div class="justify-start items-start inline-flex">
                                             <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
@@ -21,13 +21,13 @@
                                         </div>
                                         <input type="email" id="email" name="email" placeholder="Masukkan email kamu"
                                             value="{{ old('email') }}" 
-                                            class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7
+                                            class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-font-normal Heading4
                                                     @error('email') border-red-500 @enderror @error('credentials') border-red-500 @enderror">
                                         @error('email')
-                                            <div id="email-error" class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">{{ $message }}</div>
+                                            <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
                                         @enderror
                                  @error('credentials')
-                                     <div id="credentials-error" class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">{{ $message }}</div>
+                                     <div id="credentials-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
                                  @enderror
                                     </div>
                                     <div class="self-stretch h-fit flex-col justify-start items-start flex">
@@ -39,14 +39,14 @@
                                         </div>
                                         <div class="w-full justify-center items-center flex flex-row relative">
                                             <input type="password" id="password" name="password" placeholder="Masukkan kata sandi kamu" id="password" 
-                                                class="w-full pt-2 pb-3 @error('password') border-red-500 @enderror bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                                class="w-full pt-2 pb-3 @error('password') border-red-500 @enderror bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-font-normal Heading4">
                                             <div href="/berita" class="h-full justify-center items-center cursor-pointer"><i
                                                     id="showPassword"
                                                     class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
                                             </div>
                                         </div>
                                         @error('password')
-                                            <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">{{ $message }}</div>
+                                            <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
@@ -54,19 +54,18 @@
                                     class="self-stretch h-10 pt-3 flex-col justify-start items-start gap-2 flex">
                                     <div class="self-stretch justify-end items-center inline-flex">
                                         <div
-                                            class="text-right text-zinc-500 text-lg font-normal font-THICCCBOI leading-7">
+                                            class="text-right text-zinc-500 font-normal Heading4">
                                             Lupa kata sandi?</div>
                                     </div>
                                 </a>
                             </div>
 
                         </div>
-                        <div class="self-stretch px-8 justify-center items-center gap-12 inline-flex">
-                            <div class="grow shrink basis-0 text-netral-900 text-lg font-normal font-THICCCBOI leading-7">
-                                Kamu
-                                calon mahasiswa? dan belum punya akun?</div>
+                        <div class="self-stretch justify-center items-center gap-2  md:gap-12 flex flex-col md:flex-row">
+                            <div class="w-full text-center md:text-start text-netral-900 font-normal Heading4 line-clamp-2">
+                                Belum punya akun?</div>
                             <button type="button" onclick="pageDaftar()"
-                                class="text-right text-rose-900 text-lg font-semibold font-THICCCBOI leading-7">Daftar
+                                class="btn-tertiary w-fit text-right text-rose-900 font-semibold Heading4">Daftar
                                 Dulu
                             </button>
                         </div>
@@ -74,27 +73,27 @@
                 </div>
 
                 {{-- Button --}}
-                <button type="submit" id="buttonAsli" class="w-full h-full bg-primary-base rounded-t-5xl flex-col justify-center items-center flex">
+                <button type="submit" id="buttonAsli" class="w-full h-fit lg:h-full py-8 lg:py-8 bg-primary-base rounded-t-5xl flex-col justify-center items-center flex">
                     <div id="text-btn" class="justify-center items-center gap-8 flex flex-row">
                         <div 
-                        class="text-center text-white text-5xl font-extrabold font-THICCCBOI leading-10">Masuk</div>
+                        class="text-center text-white font-extrabold Heading1">Masuk</div>
                         <i class="text-5xl text-netral-100 ph-fill ph-sign-in"></i>
                     </div>
                     {{-- Animation Teks 1 --}}
                     <div id="text-btn-content" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
-                        <div id="text-btn-1" class="w-full h-full hidden  justify-center items-center gap-2 flex-col">
-                            <div class=" text-center text-white text-9xl font-extrabold font-THICCCBOI leading-10">
+                        <div id="text-btn-1" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
+                            <div class=" text-center text-white text-5xl lg:text-9xl font-extrabold font-THICCCBOI">
                                 Welcome To</div>
                         </div>
                         {{-- Animation Teks 2 --}}
-                        <div id="text-btn-2" class="w-full h-full hidden  justify-center items-center gap-2 flex-col">
-                            <div class=" text-center  text-white text-9xl font-extrabold font-THICCCBOI leading-10">
+                        <div id="text-btn-2" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
+                            <div class=" text-center  text-white text-32 lg:text-8xl font-extrabold font-THICCCBOI">
                                 Website Komisi Polimedia</div>
                         </div>
                     </div>
                     <div id="text-skip" class="grow shrink basis-0 bottom-0 hidden justify-end items-end gap-2 flex-col">
                         <a href="/beranda"
-                            class="text-center text-white text-opacity-60 text-base font-normal font-THICCCBOI leading-10 ">Lewati,
+                            class="text-center text-white text-opacity-60 font-normal Body1">Lewati,
                             Langsung ke beranda</a>
                     </div>
                 </button>
@@ -175,9 +174,11 @@
                 document.getElementById("text-btn").classList.add('body-opacity-0');
         
                 document.getElementById("text-btn").addEventListener("animationend", function() {
+                    document.getElementById("divFull").classList.remove('pt-20', 'md:pt-32');
+                    document.getElementById("form-login").classList.remove('gap-8');
                     document.getElementById("MainContent").classList.add('body-height-0');
                     document.getElementById("MainContent2").classList.add('body-height-0');
-                    document.getElementById("buttonAsli").classList.add('btn-Rounded');
+                    document.getElementById("buttonAsli").classList.add('btn-Rounded', 'h-full');
                     document.getElementById("navbar").classList.add('navbar-height-0');
         
                     document.getElementById("buttonAsli").addEventListener("animationend", function() {
@@ -188,13 +189,13 @@
                             document.getElementById("text-btn-1").classList.remove('hidden');
                             document.getElementById("text-skip").classList.add('show-btn-1');
                             document.getElementById("text-skip").classList.remove('hidden');
-                        }, 3000);
+                        }, 2400);
         
                         document.getElementById("text-btn-1").addEventListener("animationend", function() {
                             setTimeout(function() {
                                 document.getElementById("text-btn-1").classList.add('hide-btn-1');
                                 document.getElementById("text-skip-1").classList.add('hide-btn-1');
-                            }, 1000);
+                            }, 1200);
         
                             document.getElementById("text-btn-1").addEventListener("animationend", function() {
                                 setTimeout(function() {
