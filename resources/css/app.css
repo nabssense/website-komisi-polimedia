@@ -296,14 +296,17 @@
  
 
   .btn-sm-primary{
-    @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 bg-primary-base  rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-base md:text-xl font-medium font-THICCCBOI ;
+    @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 bg-primary-base  rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 Heading4 font-medium ;
+  }
+  .btn-sm-tertiary{
+    @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-3 lg:gap-4 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-400 font-medium;
   }
 
   .btn-navbar{
-    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium font-THICCCBOI leading-H1-H2-H3;
+    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium leading-H1-H2-H3;
   }
   .btn-navbar-active{
-    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium font-THICCCBOI leading-H1-H2-H3;
+    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium leading-H1-H2-H3;
   }
   
 /* searchbar */
@@ -313,7 +316,7 @@
 
   /* searchbar */
   .commentbar{
-    @apply w-full px-4 py-1.5 md:px-6 md:py-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center line-clamp-1 flex text-nowrap text-start text-netral-800 Body1 md:Heading4 placeholder:font-normal placeholder:line-clamp-1 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800;
+    @apply w-full px-4 py-1 bg-netral-100 border-netral-900 border-2 rounded-full justify-center items-center flex line-clamp-1 text-start text-netral-800 Body1 focus:outline-none focus:border-primary-base;
   }
   
 

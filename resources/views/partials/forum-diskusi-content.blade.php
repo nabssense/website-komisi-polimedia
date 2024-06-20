@@ -1,12 +1,14 @@
 <div
     class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-20 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
-    <button onclick="pageForumDiskusiAjukanPertanyaan()" class="{{ $active === 'Beranda' ? 'hidden' : '' }} btn-primary w-fit fixed bottom-16 right-2 z-50 lg:hidden">
+    {{-- Button Fix --}}
+    <button onclick="pageForumDiskusiAjukanPertanyaan()"
+        class="{{ $active === 'Beranda' ? 'hidden' : '' }} btn-primary w-fit fixed bottom-18 right-2 z-50 lg:hidden drop-shadow-2xl">
         <i class="ph ph-plus"></i>
         <div class="before:content-['Pertanyaan'] md:before:content-['Ajukan_Pertanyaan']"></div>
     </button>
     <div class="w-full max-w-1480 h-fit bg-soft-base flex-col justify-center items-center gap-4 lg:gap-8 flex ">
-        <div class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 flex-col md:flex-row lg:flex hidden">
-            <p class="w-full Heading1 font-extrabold hidden lg:flex">Forum Diskusi
+        <div class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 {{ $active === 'Beranda' ? 'flex' : 'hidden' }} flex-col md:flex-row lg:flex ">
+            <p class="w-full Heading1 font-extrabold {{ $active === 'Beranda' ? 'flex' : 'hidden' }}  lg:flex">Forum Diskusi
             </p>
             <button onclick="pageForumDiskusiAjukanPertanyaan()" class="btn-primary w-fit md:flex hidden">
                 <i class="ph ph-plus"></i>
@@ -23,7 +25,7 @@
                         <input id="searchText" oninput="toggleClearButton()" type="text" class="searchbar "
                             placeholder="Official Store">
                         <button id="clearButton" onclick="clearSearchText()" type="reset"
-                            class="hidden mx-6 w-fit text-xl text-netral-900 ph ph-x absolute right-0 h-full"></button>
+                            class="hidden px-4 lg:px-6 w-fit text-base lg:text-xl text-netral-900 ph ph-x absolute right-0 h-full"></button>
                     </div>
                     {{-- Urut & Kategori --}}
                     <div
@@ -31,10 +33,8 @@
                         {{-- Button Selection --}}
                         <div class="w-fit flex flex-row">
                             <button type="button" class="btn-popup option-button">
-                                <div class="justify-start items-center gap-3 flex">
-                                    <i class=" ph ph-funnel-simple"></i>
-                                    <div class="">Urutkan</div>
-                                </div>
+                                <i class=" ph ph-funnel-simple"></i>
+                                <div class="">Urutkan</div>
                                 <i class=" ph ph-caret-down"></i>
                             </button>
                             {{-- Pop Up --}}
@@ -80,10 +80,8 @@
 
                         <div class="w-fit flex flex-row">
                             <button type="button" class="btn-popup option-button">
-                                <div class="justify-start items-center gap-3 flex">
-                                    <i class="ph ph-square-half"></i>
-                                    <div class="">Kategori</div>
-                                </div>
+                                <i class="ph ph-square-half"></i>
+                                <div class="">Kategori</div>
                                 <i class=" text-netral-900 ph ph-caret-down"></i>
                             </button>
                             {{-- Pop Up --}}
@@ -166,7 +164,7 @@
                     </button>
                 </div>
                 {{-- Button Selection --}}
-                <div class="w-fit flex flex-row">
+                <div class="w-fit flex flex-row lg:hidden">
                     <button type="button" class="btn-popup option-button">
                         <div class="justify-start items-center gap-3 flex">
                             <div class="">Urutkan</div>
@@ -220,7 +218,7 @@
             {{-- Left Content --}}
             <section class=" w-full h-fit self-stretch rounded-3xl flex-col justify-start items-start gap-4 flex">
                 <div
-                    class="w-full py-2 px-4 md:px-6 bg-netral-100 md:rounded justify-start items-start flex text-netral-900 font-semibold Heading2">
+                    class="w-full py-2 px-4 md:px-8 bg-netral-100 md:rounded justify-start items-start flex text-netral-900 font-semibold Heading2">
                     Pertanyaan
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start gap-4 flex">
@@ -301,8 +299,7 @@
                                                 <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
                                                     ? auth()->user()->profile_picture
                                                     : Storage::url(auth()->user()->profile_picture) }}"
-                                                    alt="{{ auth()->user()->fullname }}"
-                                                    class="rounded-full w-9 md:w-12">
+                                                    alt="{{ auth()->user()->fullname }}" class="rounded-full w-9 md:w-12">
                                             </div>
                                         @endauth
                                         <div
@@ -491,67 +488,134 @@
                         </div>
                     </div>
 
-                    <div class="w-full h-fit py-6 bg-white rounded-lg flex-col justify-start items-start gap-8 flex">
-                        <div class="w-full h-fit px-6 flex-col justify-start items-start gap-6 flex">
-                            <div class="w-full h-fit flex-col justify-center items-start gap-4 flex">
+                    {{-- 1 --}}
+                    <div
+                        class="w-full h-fit px-4 lg:px-8 bg-white md:rounded-lg flex-col justify-start items-start flex">
+                        <div class="w-full h-fit flex-col justify-start items-start gap-8 py-4 lg:py-8 flex border-b-2 border-netral-200">
+                            <div class="w-full h-fit flex-col justify-center items-start gap-4 lg:gap-6 flex">
+                                {{-- Profil --}}
                                 <div class="w-full justify-start items-center gap-2 inline-flex">
-                                    <i class="text-40 md:text-5xl ph ph-user-circle"></i>
-                                    <div class="w-full flex-col justify-center items-start inline-flex">
-                                        <div class="w-full justify-start items-start gap-2 inline-flex">
-                                            <div class="text-neutral-900 font-semibold Body1">
-                                                Muhammad Alif</div>
-                                            <div class="text-neutral-900 font-semibold Body1">
-                                                -</div>
-                                            <div class="w-fit text-netral-500 font-normal Body1">
-                                                Mahasiswa</div>
+                                    @auth
+                                        <div class="flex-none" onclick="pageUserProfile()">
+                                            <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
+                                                ? auth()->user()->profile_picture
+                                                : Storage::url(auth()->user()->profile_picture) }}"
+                                                alt="{{ auth()->user()->fullname }}" class="rounded-full w-9 md:w-12">
                                         </div>
-                                        <div
-                                            class="w-full text-neutral-900 text-base font-medium font-THICCCBOI leading-normal">
-                                            9 menit lalu</div>
+                                    @endauth
+                                    <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
+                                        <div class="w-full justify-start items-center gap-2 inline-flex ">
+                                            <div class="justify-start items-center gap-2 flex">
+                                                <p class="w-full text-netral-900 font-semibold line-clamp-1">
+                                                    Muhammad Alif</p>
+                                                <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                            </div>
+                                            <div class="text-netral-900 font-semibold hidden md:flex">
+                                                -</div>
+                                            <div
+                                                class="w-fit text-nowrap text-netral-500 font-normal hidden md:block line-clamp-1">
+                                                Pembina Komunitas Bidikmisi Polimedia</div>
+                                            <i
+                                                class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
+                                                <div id="info-akun"
+                                                    class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
+                                                    Pembina Komunitas Bidikmisi Polimedia</div>
+                                            </i>
+                                        </div>
+                                        <p class="w-fit text-neutral-900 font-medium Body2">
+                                            9 menit lalu</p>
                                     </div>
-                                    <i class="text-32 ph ph-dots-three-vertical"></i>
+                                    <i class="w-fit text-2xl md:text-4xl ph ph-dots-three"></i>
                                 </div>
-                                <div class="w-full h-fit flex-col justify-start items-start gap-2 flex">
-                                    <div class="w-full text-neutral-900 text-lg font-normal font-THICCCBOI leading-7">
+                                {{-- Content --}}
+                                <div class="w-full h-fit flex-col justify-start items-start gap-4 flex">
+                                    <div class="w-full flex flex-col gap-2">
+                                        <div
+                                        class="w-fit h-fit px-2 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex flex-none text-neutral-900 font-medium Body2">
+                                            Pencairan KIPK
+                                    </div>
+                                    <div class="w-full text-neutral-900 font-normal Body1 md:Heading4">
                                         Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
                                         bisa
                                         mengetahui rinciannya?</div>
-                                    <div class="w-full justify-start items-center gap-4 inline-flex">
-                                        <div
-                                            class="w-fit h-fit px-4 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex">
-                                            <div
-                                                class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-B2">
-                                                Pencairan KIPK</div>
+                                    </div>
+                                    <div class="h-48 rounded-2xl overflow-clip">
+                                        <img class="h-full" src="{{ url('img/Kabinet/KOBRA/All-Team.png') }}"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="w-full h-fit justify-start items-center gap-2 md:gap-4 inline-flex">
+                                    <button
+                                        class="w-fit h-fit rounded-full justify-start items-center gap-2 flex flex-none Body1">
+                                        <div class="w-fit flex flex-none items-center gap-1">
+                                            <i class="text-32 lg:text-4xl text-love-base ph ph-heart"></i>
+                                            <div class="text-love-base font-medium flex md:hidden">3</div>
                                         </div>
+                                        <div
+                                            class="w-full text-nowrap rounded-full justify-start items-start text-love-base font-medium hidden md:flex">
+                                            30 org merasa terbantu
+                                        </div>
+                                    </button>
+                                    <div class="w-full rounded-full justify-start items-center gap-2 flex Body1">
+                                        <div class="w-fit flex flex-none items-center gap-1">
+                                            <i class="text-32 lg:text-4xl ph ph-chat-teardrop-text"></i>
+                                            <div class="text-netral-900 font-medium flex">3</div>
+                                        </div>
+                                        <button class="commentbar">
+                                            <div class="w-full line-clamp-1">Berikan jawaban atau tanggapan</div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="w-full h-32 flex-col justify-start items-start gap-8 flex">
-                            <div class="w-full h-32 flex-col justify-start items-start gap-6 flex">
-                                <div
-                                    class="w-full px-6 py-2 border-b border-stone-300 justify-start items-center gap-1 inline-flex">
-                                    <div class="h-7 justify-start items-start gap-1 flex">
-                                        <div class="text-neutral-900 text-lg font-semibold font-THICCCBOI leading-7">0
-                                        </div>
-                                        <div class="text-neutral-900 text-lg font-semibold font-THICCCBOI leading-7">
-                                            Jawaban</div>
-                                    </div>
-                                </div>
-                                <div class="w-full h-16 px-6 flex-col justify-center items-start gap-2 flex">
-                                    <div class="w-full text-netral-900 text-lg font-normal font-THICCCBOI leading-7">
-                                        Belum Ada Jawaban</div>
-                                    <div class="w-full justify-start items-center gap-4 inline-flex">
-                                        <div class="rounded-full justify-start items-center gap-1 flex">
-                                            <i class="text-32 ph ph-chat-teardrop-text"></i>
-                                            <div
-                                                class="px-4 py-2 bg-gray-200 rounded-full justify-start items-start gap-2 flex">
-                                                <div
-                                                    class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-none">
-                                                    Berikan jawaban atau tanggapan</div>
+                        {{-- Comment --}}
+                        <div onclick="pageForumDiskusiPertanyaan()"
+                            class="w-full h-fit flex-col justify-center items-center py-4 lg:py-8 gap-8 flex cursor-pointer">
+                            <div class="w-full h-fit flex-col justify-start items-center gap-6 flex">
+                                
+                                <div class="w-full h-fit flex-col justify-center items-center gap-4 flex">
+                                    <div class="w-full justify-start items-center gap-2 inline-flex">
+                                        {{-- Profil --}}
+                                        @auth
+                                            <div class="flex-none" onclick="pageUserProfile()">
+                                                <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
+                                                    ? auth()->user()->profile_picture
+                                                    : Storage::url(auth()->user()->profile_picture) }}"
+                                                    alt="{{ auth()->user()->fullname }}"
+                                                    class="rounded-full w-9 md:w-12">
                                             </div>
+                                        @endauth
+                                        <div
+                                            class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
+                                            <div class="w-full justify-start items-center gap-2 inline-flex ">
+                                                <div class="justify-start items-center gap-2 flex">
+                                                    <p class="w-full text-netral-900 font-semibold line-clamp-1">
+                                                        Bapak Suhaili Suhaili Suhaili Suhaili Suhaili</p>
+                                                    <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                </div>
+                                                <div class="text-netral-900 font-semibold hidden md:flex">
+                                                    -</div>
+                                                <div
+                                                    class="w-fit text-nowrap text-netral-500 font-normal hidden md:block line-clamp-1">
+                                                    Pembina Komunitas Bidikmisi Polimedia</div>
+                                                <i
+                                                    class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
+                                                    <div id="info-akun"
+                                                        class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
+                                                        Pembina Komunitas Bidikmisi Polimedia</div>
+                                                </i>
+                                            </div>
+                                            <p class="w-fit text-neutral-900 font-medium Body2">
+                                                9 menit lalu</p>
                                         </div>
+                                        <i class="w-fit text-2xl md:text-4xl ph ph-dots-three"></i>
                                     </div>
+                                    {{-- Content --}}
+                                    <div class="w-full text-neutral-900 font-normal Body1 md:Heading4 line-clamp-2">
+                                        Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
+                                        bisa
+                                        mengetahui rinciannya?</div>
+                                    <button class="btn-sm-tertiary p-0">Baca Selengkapnya</button>
                                 </div>
                             </div>
                         </div>
@@ -560,75 +624,150 @@
             </section>
 
             {{-- Right Content --}}
-            <section class="w-full lg:max-w-360 flex-col justify-start items-start gap-6 flex">
+            <section class="w-full lg:max-w-360 flex-col justify-start items-start gap-4 flex">
                 <div
-                    class="w-full py-4 px-6 bg-primary-100 rounded justify-start items-start flex text-netral-900 font-semibold Heading2">
+                    class="w-full py-2 px-4 md:py-2 md:px-6 bg-primary-100 rounded justify-start items-start flex text-netral-900 font-semibold Heading2">
                     Terpopuler
                 </div>
-                <div class=" h-fit py-6 bg-white rounded-lg flex-col justify-start items-start gap-8 flex">
-                    <div class="self-stretch h-fit px-6 flex-col justify-start items-start gap-6 flex">
-                        <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                            <i class="text-5xl ph ph-user-circle"></i>
-                            <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
-                                <div class="self-stretch justify-start items-start gap-2 inline-flex">
-                                    <div class="text-neutral-900 font-semibold Body1">
-                                        Muhammad Alif</div>
-                                    <div class="text-neutral-900 font-semibold Body1">
-                                        -</div>
-                                    <div class="w-fit text-netral-500 font-normal Body1">
-                                        Mahasiswa</div>
+                {{-- 1 --}}
+                <div
+                    class="w-full h-fit px-4 md:px-6 py-6 bg-white md:rounded-lg flex-col justify-start items-start gap-8 flex">
+                    <div class="w-full h-fit flex-col justify-start items-start gap-8 flex">
+                        <div class="w-full h-fit flex-col justify-center items-start gap-6 flex">
+                            {{-- Profil --}}
+                            <div class="w-full justify-start items-center gap-2 inline-flex">
+                                @auth
+                                    <div class="flex-none" onclick="pageUserProfile()">
+                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
+                                            ? auth()->user()->profile_picture
+                                            : Storage::url(auth()->user()->profile_picture) }}"
+                                            alt="{{ auth()->user()->fullname }}" class="rounded-full w-9 md:w-12">
+                                    </div>
+                                @endauth
+                                <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
+                                    <div class="w-full justify-start items-center gap-2 inline-flex ">
+                                        <div class="justify-start items-center gap-2 flex">
+                                            <p class="w-full text-netral-900 font-semibold line-clamp-1">
+                                                Muhammad Alif</p>
+                                            <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                        </div>
+                                        <div class="text-netral-900 font-semibold hidden md:flex">
+                                            -</div>
+                                        <div
+                                            class="w-fit text-nowrap text-netral-500 font-normal hidden md:block line-clamp-1">
+                                            Pembina Komunitas Bidikmisi Polimedia</div>
+                                        <i
+                                            class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
+                                            <div id="info-akun"
+                                                class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
+                                                Pembina Komunitas Bidikmisi Polimedia</div>
+                                        </i>
+                                    </div>
+                                    <p class="w-fit text-neutral-900 font-medium Body2">
+                                        9 menit lalu</p>
+                                </div>
+                                <i class="w-fit text-2xl md:text-4xl ph ph-dots-three"></i>
+                            </div>
+                            {{-- Content --}}
+                            <div class="w-full h-fit flex-col justify-start items-start gap-4 flex">
+                                <div class="w-full text-neutral-900 font-normal Body1 md:Heading4">
+                                    Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
+                                    bisa
+                                    mengetahui rinciannya?</div>
+                                <div class="h-48 rounded-2xl overflow-clip">
+                                    <img class="h-full" src="{{ url('img/Kabinet/KOBRA/All-Team.png') }}"
+                                        alt="">
                                 </div>
                                 <div
-                                    class="self-stretch text-neutral-900 text-base font-medium font-THICCCBOI leading-normal">
-                                    9 menit lalu</div>
-                            </div>
-                            <i class="text-32 ph ph-dots-three-vertical"></i>
-                        </div>
-                        <div class="self-stretch h-fit flex-col justify-start items-start gap-2 flex">
-                            <div class="self-stretch text-neutral-900 text-lg font-normal font-THICCCBOI leading-7">
-                                Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa
-                                mengetahui rinciannya?</div>
-                            <div class="self-stretch justify-start items-center gap-4 inline-flex">
-                                <div
                                     class="w-fit h-fit px-4 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex">
-                                    <div class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-B2">
+                                    <div class="text-neutral-900 font-medium Body2">
                                         Pencairan KIPK</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="h-fit py-6 bg-white rounded-lg flex-col justify-start items-start gap-8 flex">
-                    <div class="self-stretch h-fit px-6 flex-col justify-start items-start gap-6 flex">
-                        <div class="self-stretch h-fit flex-col justify-center items-start gap-4 flex">
-                            <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                                <i class="text-5xl ph ph-user-circle"></i>
-                                <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
-                                    <div class="self-stretch justify-start items-start gap-2 inline-flex">
-                                        <div class="text-neutral-900 font-semibold Body1">
-                                            Muhammad Alif</div>
-                                        <div class="text-neutral-900 font-semibold Body1">
-                                            -</div>
-                                        <div class="w-fit text-netral-500 font-normal Body1">
-                                            Mahasiswa</div>
+                    <div onclick="pageForumDiskusiPertanyaan()"
+                        class="w-full h-fit flex-col justify-center items-center gap-8 flex cursor-pointer">
+                        <div class="w-full h-fit flex-col justify-start items-center gap-6 flex">
+                            <div
+                                class="w-full py-2 border-b border-stone-300 justify-start items-center gap-1 inline-flex">
+                                <div class="h-fit justify-start items-start gap-1 flex">
+                                    <div class="text-neutral-900 font-semibold Heading4">3
                                     </div>
-                                    <div
-                                        class="self-stretch text-neutral-900 text-base font-medium font-THICCCBOI leading-normal">
-                                        9 menit lalu</div>
+                                    <div class="text-neutral-900 font-semibold Heading4">
+                                        Jawaban</div>
                                 </div>
-                                <i class="text-32 ph ph-dots-three-vertical"></i>
                             </div>
-                            <div class="self-stretch h-fit flex-col justify-start items-start gap-2 flex">
-                                <div
-                                    class="self-stretch text-neutral-900 text-lg font-normal font-THICCCBOI leading-7">
-                                    Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa
-                                    mengetahui rinciannya?</div>
-                                <div class="self-stretch justify-start items-center gap-4 inline-flex">
-                                    <div
-                                        class="w-fit h-fit px-4 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex">
-                                        <div class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-B2">
-                                            Pencairan KIPK</div>
+                        </div>
+                    </div>
+                </div>
+                {{-- 2 --}}
+                <div
+                    class="w-full h-fit px-4 md:px-6 py-6 bg-white md:rounded-lg flex-col justify-start items-start gap-8 flex">
+                    <div class="w-full h-fit flex-col justify-start items-start gap-8 flex">
+                        <div class="w-full h-fit flex-col justify-center items-start gap-6 flex">
+                            {{-- Profil --}}
+                            <div class="w-full justify-start items-center gap-2 inline-flex">
+                                @auth
+                                    <div class="flex-none" onclick="pageUserProfile()">
+                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
+                                            ? auth()->user()->profile_picture
+                                            : Storage::url(auth()->user()->profile_picture) }}"
+                                            alt="{{ auth()->user()->fullname }}" class="rounded-full w-9 md:w-12">
                                     </div>
+                                @endauth
+                                <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
+                                    <div class="w-full justify-start items-center gap-2 inline-flex ">
+                                        <div class="justify-start items-center gap-2 flex">
+                                            <p class="w-full text-netral-900 font-semibold line-clamp-1">
+                                                Muhammad Alif</p>
+                                            <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                        </div>
+                                        <div class="text-netral-900 font-semibold hidden md:flex">
+                                            -</div>
+                                        <div
+                                            class="w-fit text-nowrap text-netral-500 font-normal hidden md:block line-clamp-1">
+                                            Pembina Komunitas Bidikmisi Polimedia</div>
+                                        <i
+                                            class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
+                                            <div id="info-akun"
+                                                class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
+                                                Pembina Komunitas Bidikmisi Polimedia</div>
+                                        </i>
+                                    </div>
+                                    <p class="w-fit text-neutral-900 font-medium Body2">
+                                        9 menit lalu</p>
+                                </div>
+                                <i class="w-fit text-2xl md:text-4xl ph ph-dots-three"></i>
+                            </div>
+                            {{-- Content --}}
+                            <div class="w-full h-fit flex-col justify-start items-start gap-4 flex">
+                                <div class="w-full text-neutral-900 font-normal Body1 md:Heading4">
+                                    Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
+                                    bisa
+                                    mengetahui rinciannya?</div>
+                                <div class="h-48 rounded-2xl overflow-clip">
+                                    <img class="h-full" src="{{ url('img/Kabinet/KOBRA/All-Team.png') }}"
+                                        alt="">
+                                </div>
+                                <div
+                                    class="w-fit h-fit px-4 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex">
+                                    <div class="text-neutral-900 font-medium Body2">
+                                        Pencairan KIPK</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div onclick="pageForumDiskusiPertanyaan()"
+                        class="w-full h-fit flex-col justify-center items-center gap-8 flex cursor-pointer">
+                        <div class="w-full h-fit flex-col justify-start items-center gap-6 flex">
+                            <div
+                                class="w-full py-2 border-b border-stone-300 justify-start items-center gap-1 inline-flex">
+                                <div class="h-fit justify-start items-start gap-1 flex">
+                                    <div class="text-neutral-900 font-semibold Heading4">3
+                                    </div>
+                                    <div class="text-neutral-900 font-semibold Heading4">
+                                        Jawaban</div>
                                 </div>
                             </div>
                         </div>

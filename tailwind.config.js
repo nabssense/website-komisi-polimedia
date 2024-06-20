@@ -62,6 +62,9 @@ export default {
         danger: {
           'base': '#ef4444',
         },
+        love: {
+          'base': '#ef4444',
+        },
       },
       fontFamily: {
         'display-montagu': ['Montagu Slab'],
@@ -146,7 +149,6 @@ export default {
         '1480': '1480px',
       },
       size: {
-        // '18': '72px',
         '128': '128px',
         '192': '192px',
         '348': '348px',
@@ -178,6 +180,9 @@ export default {
         'B3': '1rem',
         'B4': '.75rem',
         '120%': '120%',
+      },
+      spacing:{
+        '18': '72px',
       },
       // fontWeight:{
       //   '400': '400',

@@ -5,7 +5,7 @@
                 <div
                     class="carousel-container w-full h-full overflow-hidden relative flex-col justify-center items-center flex ">
                     {{-- Placeholder for carousel content --}}
-                    <div class="carousel-item px-8 md:px-32 xl:px-48 bg-primary-200 w-full h-fit pt-8 pb-24 lg:pt-24 lg:pb-48 flex flex-col justify-center items-center transition-transform duration-500 ease-in-out"
+                    <div class="carousel-item text18 px-8 md:px-32 xl:px-48 bg-primary-200 w-full h-fit pt-8 pb-24 lg:pt-24 lg:pb-48 flex flex-col justify-center items-center transition-transform duration-500 ease-in-out"
                         data-index="0">
                         <div
                             class="w-full max-w-1480 h-fit gap-4 xl:gap-24 flex flex-col md:flex-row justify-center items-center">
@@ -32,7 +32,7 @@
                                         feugiat mattis.
                                         Sed pulvinar id bibendum id vel consequat dui elementum auctor. </p>
                                     <button class="w-full h-fit justify-start items-center gap-2 md:gap-4 flex Heading4 flex-row"
-                                        href="/tentang-kabinet">
+                                        onclick="pageTentangKabinet()">
                                         <div class="text-center text-primary-base font-medium ">
                                             Lihat Kabinet
                                         </div>

@@ -1,17 +1,14 @@
 @extends('layouts.main')
 @section('container')
-<div id="divFull" class="w-screen h-screen  shadow justify-start items-start absolute pt-24 z-50 inline-flex flex-col">
-    <div id="navbar" class="w-full h-fit">@include('partials.navbar')</div>
-    <form method="POST" action="{{ route('auth.daftar.register') }}" class="w-full h-full flex flex-col">
+<div id="divFull" class="w-full h-screen bg-netral-100 shadow justify-start items-start pt-20 md:pt-32 flex flex-col">
+    @include('partials.navbar')
+    <form id="form-login" method="POST" action="{{ route('auth.daftar.register') }}" class="w-full h-full flex flex-col gap-8">
         @csrf
-        {{-- Main Content --}} <section id="MainContent"
-            class="w-full h-full self-stretch px-560 sm:px-16 flex-col justify-center items-center gap-8 inline-flex">
-            <div id="MainContent2"
-                class="w-full h-fit max-w-1480 grow shrink basis-0 py-12 flex-col justify-center items-center gap-4 flex">
-                <div
-                    class="w-full h-fit p-8 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-5 flex">
+        {{-- Main Content --}} <section id="MainContent" class="w-full h-full lg:h-fit px-4 md:px-8 lg:px-32 xl:px-72 flex-col justify-center items-center flex lg:flex-none">
+            <div id="MainContent2" class="w-full h-full max-w-1480 flex-col justify-center items-center gap-2 md:gap-4 flex">
+                <div class="w-full h-fit p-4 md:p-6 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-2 md:gap-4 flex">
                     <div class="w-full h-fit justify-start items-center flex flex-row gap-4">
-                        <button type="button" onclick="pageMasuk()"><i class="text-32 text-neutral-900 ph-bold ph-arrow-left"></i></button>
+                        <i type="button" onclick="pageMasuk()" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></i>
                         <div class="self-stretch  text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
                             Daftar Akun</div>
                     </div>
@@ -39,7 +36,6 @@
                                 <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">{{ $message }}</div>
                             @enderror
                         </div>
-                        
                         <div class="self-stretch h-fit flex-col justify-start items-start flex">
                             <div class="justify-start items-start inline-flex">
                                 <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Kata sandi
@@ -124,27 +120,27 @@
         </section>
 
         {{-- Button --}}
-        <button id="buttonAsli" type="submit" class="w-full h-full py-12 bg-primary-base rounded-tl-4xl rounded-tr-4xl flex-col justify-center items-center flex">
+        <button type="submit" id="buttonAsli" class="w-full h-fit lg:h-full py-8 lg:py-8 bg-primary-base rounded-t-5xl flex-col justify-center items-center flex">
             <div id="text-btn" class="justify-center items-center gap-8 flex flex-row">
                 <div 
-                class="text-center text-white text-5xl font-extrabold font-THICCCBOI leading-10">Daftar</div>
+                class="text-center text-white font-extrabold Heading1">Daftar</div>
                 <i class="text-5xl text-netral-100 ph-fill ph-pen"></i>
             </div>
             {{-- Animation Teks 1 --}}
             <div id="text-btn-content" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
-                <div id="text-btn-1" class="w-full h-full hidden  justify-center items-center gap-2 flex-col">
-                    <div class=" text-center text-white text-9xl font-extrabold font-THICCCBOI leading-10">Welcome To
-                    </div>
+                <div id="text-btn-1" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
+                    <div class=" text-center text-white text-5xl lg:text-9xl font-extrabold font-THICCCBOI">
+                        Welcome To</div>
                 </div>
                 {{-- Animation Teks 2 --}}
-                <div id="text-btn-2" class="w-full h-full hidden  justify-center items-center gap-2 flex-col">
-                    <div class=" text-center  text-white text-9xl font-extrabold font-THICCCBOI leading-10">Website
-                        Komisi Polimedia</div>
+                <div id="text-btn-2" class="w-full h-full hidden justify-center items-center gap-2 flex-col">
+                    <div class=" text-center  text-white text-32 lg:text-8xl font-extrabold font-THICCCBOI">
+                        Website Komisi Polimedia</div>
                 </div>
             </div>
             <div id="text-skip" class="grow shrink basis-0 bottom-0 hidden justify-end items-end gap-2 flex-col">
                 <a href="/beranda"
-                    class="text-center text-white text-opacity-20 text-base font-normal font-THICCCBOI leading-10 ">Lewati,
+                    class="text-center text-white text-opacity-60 font-normal Body1">Lewati,
                     Langsung ke beranda</a>
             </div>
         </button>
@@ -227,9 +223,11 @@
                 document.getElementById("text-btn").classList.add('body-opacity-0');
         
                 document.getElementById("text-btn").addEventListener("animationend", function() {
+                    document.getElementById("divFull").classList.remove('pt-20', 'md:pt-32');
+                    document.getElementById("form-login").classList.remove('gap-8');
                     document.getElementById("MainContent").classList.add('body-height-0');
                     document.getElementById("MainContent2").classList.add('body-height-0');
-                    document.getElementById("buttonAsli").classList.add('btn-Rounded');
+                    document.getElementById("buttonAsli").classList.add('btn-Rounded', 'h-full');
                     document.getElementById("navbar").classList.add('navbar-height-0');
         
                     document.getElementById("buttonAsli").addEventListener("animationend", function() {
@@ -240,13 +238,13 @@
                             document.getElementById("text-btn-1").classList.remove('hidden');
                             document.getElementById("text-skip").classList.add('show-btn-1');
                             document.getElementById("text-skip").classList.remove('hidden');
-                        }, 3000);
+                        }, 2400);
         
                         document.getElementById("text-btn-1").addEventListener("animationend", function() {
                             setTimeout(function() {
                                 document.getElementById("text-btn-1").classList.add('hide-btn-1');
                                 document.getElementById("text-skip-1").classList.add('hide-btn-1');
-                            }, 1000);
+                            }, 1200);
         
                             document.getElementById("text-btn-1").addEventListener("animationend", function() {
                                 setTimeout(function() {

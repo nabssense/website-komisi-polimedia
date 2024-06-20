@@ -1,6 +1,6 @@
-<footer class="w-full px-4 md:px-8 xl:px-16 pt-24 pb-12 bg-primary-base flex-col justify-center items-center gap-16 flex">
-    <div class="max-w-1480 h-fit w-full justify-center items-center gap-16 flex flex-col xl:flex-row">
-        <section class="w-full h-fit sm:order-2 xl:order-1 flex-col justify-center relative items-start gap-12 inline-flex">
+<footer class="w-full px-4 md:px-8 xl:px-16 pt-8 lg:pt-24 pb-20 lg:pb-12 bg-primary-base flex-col justify-center items-center gap-8 lg:gap-16 flex">
+    <div class="max-w-1480 h-fit w-full justify-center items-center gap-8 lg:gap-16 flex flex-col xl:flex-row">
+        <section class="w-full h-fit order-2 xl:order-1 flex-col justify-center relative items-start gap-8 lg:gap-12 inline-flex">
             <div class="w-full h-fit justify-start items-center gap-2 md:gap-8 flex flex-row">
                 @php
                     // Baca isi file SVG
@@ -35,27 +35,27 @@
                     </svg>
                 </div>
             </div>
-            <div class="self-stretch justify-start items-start gap-24 inline-flex flex-col md:flex-row">
-                <div class="flex-col justify-center items-start gap-4 inline-flex">
+            <div class="self-stretch justify-start items-start gap-8 lg:gap-24 inline-flex flex-col md:flex-row">
+                <div class="w-full flex-col lg:flex-none lg:w-fit items-start gap-2 lg:gap-4 inline-flex">
                     <div class="text-white font-bold Heading4">Menu</div>
-                    <button onclick="window.location.href='/beranda';" class="flex-col justify-start items-start flex cursor-pointer group/beranda">
-                        <div class="text-white font-medium Heading4">Beranda</div>
-                        <div class="opacity-0 w-1/2 h-1 bg-white group-hover/beranda:opacity-100"></div>
+                    <button onclick="pageBeranda()" class=" justify-start items-start cursor-pointer group/beranda">
+                        <div class="text-white font-medium Heading4 line-clamp-1">Beranda</div>
+                        <div class="opacity-0 w-1/2 h-1 bg-white rounded-sm group-hover/beranda:opacity-100"></div>
                     </button>
-                    <button onclick="window.location.href='/berita';" class="flex-col justify-start items-start flex cursor-pointer group/berita">
-                        <div class="text-white font-medium Heading4">Berita</div>
-                        <div class="opacity-0 w-1/2 h-1 bg-white group-hover/berita:opacity-100"></div>
+                    <button onclick="pageBerita()" class=" justify-start items-start cursor-pointer group/berita">
+                        <div class="text-white font-medium Heading4 line-clamp-1">Berita</div>
+                        <div class="opacity-0 w-1/2 h-1 bg-white rounded-sm group-hover/berita:opacity-100"></div>
                     </button>
-                    <button onclick="window.location.href='/tanya-jawab';" class="flex-col justify-start items-start flex cursor-pointer group/tanya">
-                        <div class="text-white font-medium Heading4">Tanya Jawab</div>
-                        <div class="opacity-0 w-1/2 h-1 bg-white group-hover/tanya:opacity-100"></div>
+                    <button onclick="pageForumDiskusi()" class=" justify-start items-start cursor-pointer group/tanya">
+                        <div class=" text-white font-medium Heading4 line-clamp-1">Forum Diskusi</div>
+                        <div class="opacity-0 w-1/2 h-1 bg-white rounded-sm group-hover/tanya:opacity-100"></div>
                     </button>
-                    <button onclick="window.location.href='/tentang-komisi';" class="flex-col justify-start items-start flex cursor-pointer group/tentang">
-                        <div class="text-white font-medium Heading4">Tentang Komisi</div>
-                        <div class="opacity-0 w-1/2 h-1 bg-white group-hover/tentang:opacity-100"></div>
+                    <button onclick="pageTentangKomisi()" class=" justify-start items-start cursor-pointer group/tentang">
+                        <div class="text-white font-medium Heading4 line-clamp-1">Tentang Komisi</div>
+                        <div class="opacity-0 w-1/2 h-1 bg-white rounded-sm group-hover/tentang:opacity-100"></div>
                     </button>
                 </div>
-                <div class="w-full flex-col justify-center items-start gap-4 inline-flex">
+                <div class="w-full flex-col justify-center items-start gap-2 lg:gap-4  inline-flex">
                     <div class="text-white font-bold Heading4">Terhubung dengan kami</div>
                     <div class="px-3 py-0 md:px-4 md:py-1 bg-rose-100 rounded-full justify-start items-center gap-2 md:gap-3 inline-flex">
                         <i class="text-lg text-netral-800 ph ph-instagram-logo"></i>
@@ -83,8 +83,8 @@
             </div>
         </section>
     </div>
-    <div class="self-stretch h-16 flex-col justify-start items-center gap-10 flex">
-        <div class="self-stretch h-1 bg-gray-200 rounded-2xl"></div>
+    <div class="w-full h-fit flex-col justify-start items-center gap-4 flex">
+        <div class="w-full h-0.5 lg:h-1 bg-gray-200 rounded-2xl"></div>
         <div class="text-center"><span class="text-white font-normal Body2 md:Heading4">• Membidik Prestasi Membangun Negeri • © 2022 Copyright Komisi Polimedia</span></div>
     </div>
 </footer>

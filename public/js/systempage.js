@@ -11,6 +11,9 @@ function pageBerita() {
 function pageTentangKomisi() {
   window.location.href = "tentang-komisi";
 }
+function pageTentangKabinet() {
+  window.location.href = "tentang-kabinet";
+}
 
 
 

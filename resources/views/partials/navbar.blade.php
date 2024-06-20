@@ -1,7 +1,7 @@
 {{-- Desktop Navbar --}} 
 <div id="navbar" class="w-full h-fit px-4 md:px-8 xl:px-16 py-2 md:py-4 bg-white shadow-navbar justify-center items-center inline-flex fixed inset-x-0 top-0 z-50 transform transition-transform duration-500">
     <div class="w-full max-w-1480 justify-between items-center gap-8 flex">
-        <div class="h-12 md:h-16 justify-start {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'justify-center w-full' : '' }} items-center gap-1 lg:gap-2 xl:gap-4 flex">
+        <div class="h-8 md:h-16 justify-start {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'justify-center w-full' : '' }} items-center gap-1 lg:gap-2 xl:gap-4 flex">
             <button onclick="pageBeranda()" class="w-fit h-full relative">
                 <img class="h-full w-fit aspect-square object-scale-down" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
             </button>
@@ -76,7 +76,7 @@
 @if ($active === 'Masuk Akun' || $active === 'Daftar Akun') 
         @else
 {{-- Mobile Navbar --}} 
-<div id="navbar-bottom-mobile" class="fixed bottom-0 bg-white w-full z-50 flex shadow-bottom-navbar justify-center items-center gap-2 py-1 px-2 sm:px-5 md:px-24 lg:hidden">
+<div id="navbar-bottom-mobile" class="fixed bottom-0 bg-white w-full z-50 flex shadow-bottom-navbar justify-center items-center gap-2 py-2 px-2 sm:px-5 md:px-24 lg:hidden">
     <button class="w-full flex-col justify-center {{ $active === 'Beranda' ? 'bg-primary-100' : '' }} rounded-lg items-start inline-flex py-1 sm:px-2" onclick="pageBeranda()">
         <div class="w-full">
             <i class="ph ph-house {{ $active === 'Beranda' ? 'text-primary-base ph-fill' : '' }} text-netral-900 text-2xl"></i>

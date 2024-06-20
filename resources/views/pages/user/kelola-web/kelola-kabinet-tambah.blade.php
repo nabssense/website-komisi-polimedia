@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     {{-- STEP 1 --}}
-    <section class="w-full h-full step p-8 bg-netral-100 shadow justify-start items-start absolute gap-12 flex" id="step1">
+    <section class="w-full h-screen step p-8 bg-netral-100 shadow justify-start items-start gap-12 flex" id="step1">
         
         {{-- Stepper --}}
         <div class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 flex">
@@ -34,7 +34,7 @@
             </div>
         </div>
         {{-- Main Content --}}
-        <div class="w-full h-full bg-netral-300 rounded-4xl self-stretch flex-col justify-start items-start gap-8 flex">
+        <div class="w-full h-fullrounded-4xl self-stretch flex-col justify-start items-start gap-8 flex">
             {{-- 1 --}}
             <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <button onclick="goBack()" class="ph ph-x text-32"></button>
@@ -42,7 +42,7 @@
             </div>
             {{-- 2 --}}
             <div
-                class="w-full h-full bg-lime-50 overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y justify-start items-start gap-8 flex flex-row flex-1">
+                class="w-full h-full overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y justify-start items-start gap-8 flex flex-row flex-1">
                 <div class="w-full h-full self-stretch flex-col justify-start items-start gap-4 inline-flex">
                     <div class="flex-col justify-start items-start gap-1 flex">
                         <div class="justify-start items-start inline-flex">
@@ -261,7 +261,7 @@
         </div>
     </section>
     {{-- STEP 2 --}}
-    <section class="w-full h-full step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12 " id="step2">
+    <section class="w-full h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12 " id="step2">
         {{-- Stepper --}}
         <div class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
             <div class="flex-col justify-start items-center flex">
@@ -347,7 +347,7 @@
 
 
      {{-- STEP 3 --}} 
-     <section class="w-screen h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12 " id="step3">
+     <section class="w-full h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12 " id="step3">
         {{-- Stepper --}}
         <div class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
             <div class="flex-col justify-start items-center flex">
@@ -1880,7 +1880,7 @@ document.getElementById('list-form-jabatan').addEventListener('click', function(
             
 </script>
 <script>
-            // Step Function
+    // Step Function
     function nextStep() {
         var currentStep = document.querySelector('.step:not(.hidden)');
         currentStep.classList.add('hidden');

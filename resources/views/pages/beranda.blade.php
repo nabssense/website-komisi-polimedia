@@ -1,70 +1,70 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-    <section class="w-full h-fit relative items-center justify-center pt-16 md:pt-24 lg:pt-32 pb-12 lg:px-8 xl:px-16 flex ">
+    <section class="w-full h-fit relative items-center justify-center pt-12 md:pt-24 lg:pt-32 pb-4 lg:pb-12 lg:px-8 xl:px-16 flex ">
         {{-- ISI BERITA --}}
-        <div class="headline-container w-1480 h-fit gap-4 relative flex-col justify-center items-center flex ">
+        <div class="headline-container w-1480 h-fit gap-1 lg:gap-4 flex-col justify-center items-center flex lg:px-48 relative">
             {{-- Placeholder for headline content --}}
-            <div class="headline-item z-30 w-full h-fit flex flex-col justify-center items-center transition-transform duration-500 ease-in-out"
+            <div class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer"
                 data-index="0">
-                <div class="w-full flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center relative">
+                <div class="w-full h-full aspect-video flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
                     <!-- Mengubah justify-center -->
-                    <img class="w-full h-full overflow-clip  lg:rounded-2xl" src="{{ url('img/Berita/test-headline-news.jpg') }}"
+                    <img class="w-full h-full lg:rounded-2xl" src="{{ url('img/Berita/Yonkou - Dekstop.png') }}"
                         alt="Image" />
                 </div>
             </div>
-            <div class="headline-item z-30 w-full h-fit flex flex-col justify-center items-center transition-transform duration-500 ease-in-out"
-                data-index="1">
-                <div class="w-full flex bg-netral-100 shadow-card rounded-2xl justify-center items-center relative">
+            <div class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer"
+                data-index="0">
+                <div class="w-full h-full aspect-video flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
                     <!-- Mengubah justify-center -->
-                    <img class="w-full h-full overflow-clip rounded-2xl"
-                        src="{{ url('img/Berita/test-headline-news-2.jpg') }}" alt="Image" />
+                    <img class="w-full h-full lg:rounded-2xl" src="{{ url('img/Berita/Straw Hat Pirates - Dekstop.png') }}"
+                        alt="Image" />
                 </div>
             </div>
-            <div class="headline-item z-30 w-full h-fit flex flex-col justify-center items-center transition-transform duration-500 ease-in-out"
-                data-index="2">
-                <div class="w-full flex bg-netral-100 shadow-card rounded-2xl justify-center items-center relative">
+            <div class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer"
+                data-index="0">
+                <div class="w-full h-full aspect-video flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
                     <!-- Mengubah justify-center -->
-                    <img class="w-full h-full overflow-clip rounded-2xl"
-                        src="{{ url('img/Berita/test-headline-news-2.jpg') }}" alt="Image" />
+                    <img class="w-full h-full lg:rounded-2xl" src="{{ url('img/Berita/Straw Hat Pirates (BG) - Dekstop.png') }}"
+                        alt="Image" />
                 </div>
             </div>
             {{-- End of headline content --}}
 
             {{-- Button nextnews & prevnewsious --}}
-            <div class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center lg:flex hidden">
+            <div class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center lg:flex hidden lg:pl-32">
                 <i
                     class="xs:text-xl  sm:text-3xl md:text-5xl ph ph-caret-left text-primary-base cursor-pointer prevnews-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
             </div>
-            <div class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center lg:flex hidden">
+            <div class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center lg:flex hidden lg:pr-32">
                 <i
                     class="xs:text-xl  sm:text-3xl md:text-5xl ph ph-caret-right text-primary-base cursor-pointer nextnews-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
             </div>
 
             {{-- Stepper --}}
-            <div class="w-full px-4 justify-center items-center gap-4 flex flex-row">
-                <div class="w-fit relative">
+            <div class="w-full px-4 justify-center items-center gap-1 lg:gap-2 flex flex-row">
+                <div class="w-fit ">
                     <div
-                        class=" z-10 md:w-32 md:h-2 xs:h-1 xs:w-16 bg-primary-base rounded-full flex-row justify-center items-center list-indicator hidden">
+                        class=" z-10 w-6 lg:w-16 h-1 lg:h-2  bg-primary-base rounded-full flex-row justify-center items-center list-indicator hidden">
                     </div>
                     <div
-                        class="inset-x-0 top-0 z-0 md:w-16 md:h-2 xs:h-1 xs:w-8 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default">
-                    </div>
-                </div>
-                <div class="w-fit flex flex-col relative">
-                    <div
-                        class="z-10 md:w-32 md:h-2 xs:h-1 xs:w-16 bg-primary-base rounded-full flex-row justify-center items-center list-indicator hidden">
-                    </div>
-                    <div
-                        class="inset-x-0 top-0 z-0 md:w-16 md:h-2 xs:h-1 xs:w-8 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default">
+                        class="w-2 lg:w-4 lg:h-2 h-1  bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default">
                     </div>
                 </div>
-                <div class="w-fit flex flex-col relative">
+                <div class="w-fit flex flex-col ">
                     <div
-                        class="z-10 md:w-32 md:h-2 xs:h-1 xs:w-16 bg-primary-base rounded-full flex-row justify-center items-center list-indicator hidden">
+                        class="z-10 w-6 lg:w-16 h-1 lg:h-2  bg-primary-base rounded-full flex-row justify-center items-center list-indicator hidden">
                     </div>
                     <div
-                        class="inset-x-0 top-0 z-0 md:w-16 md:h-2 xs:h-1 xs:w-8 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default">
+                        class="w-2 lg:w-4 lg:h-2 h-1 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default">
+                    </div>
+                </div>
+                <div class="w-fit flex flex-col ">
+                    <div
+                        class="z-10 w-6 lg:w-16 h-1 lg:h-2  bg-primary-base rounded-full flex-row justify-center items-center list-indicator hidden">
+                    </div>
+                    <div
+                        class="w-2 lg:w-4 lg:h-2 h-1 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default">
                     </div>
                 </div>
             </div>
