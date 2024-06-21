@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @include('partials.navbar')
+@include('partials.navbar-mobile')
 @section('container')
 <div class="w-full h-fit px-56 py-8 bg-white flex-col justify-center items-center gap-8 inline-flex">
     <div class="self-stretch text-netral-900 text-5xl font-extrabold font-THICCCBOI leading-10">Notifikasi</div>

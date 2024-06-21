@@ -1,6 +1,7 @@
 @extends('layouts.main-masuk-anim')
 @section('container')
 @include('partials.navbar')
+@include('partials.navbar-mobile')
     <div class="w-full flex-col gap-32 mt-24 justify-start items-start z-10 ">
         {{-- Section 1 Headline Berita --}}
         <div class="w-full xl:px-56 px-8 py-8 bg-red-600 justify-center items-center gap-16 flex">

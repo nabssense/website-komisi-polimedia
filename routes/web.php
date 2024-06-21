@@ -125,6 +125,7 @@ Route::middleware('auth')->group(function () {
         Route::namespace('App\Http\Controllers\User')->group(function() {
             // Route::resource('akun-profil', UserController::class)->only(['show']);
             Route::resource('user-profile', UserController::class)->only(['index']);
+            Route::get('user', 'UserController@indexUser')->name('user.index');
         });
 });
 

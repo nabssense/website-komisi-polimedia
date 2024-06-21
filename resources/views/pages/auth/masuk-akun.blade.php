@@ -172,8 +172,10 @@
                 document.getElementById("MainContent").classList.add("body-opacity-0");
                 document.getElementById("navbar").classList.add('body-opacity-0');
                 document.getElementById("text-btn").classList.add('body-opacity-0');
+                
         
                 document.getElementById("text-btn").addEventListener("animationend", function() {
+                    document.getElementById("buttonAsli").classList.add('h-0');
                     document.getElementById("divFull").classList.remove('pt-20', 'md:pt-32');
                     document.getElementById("form-login").classList.remove('gap-8');
                     document.getElementById("MainContent").classList.add('body-height-0');

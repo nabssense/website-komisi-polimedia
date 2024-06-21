@@ -47,6 +47,9 @@ function pageNotifikasi() {
 function pageUserProfile() {
   window.location.href = "user-profile";
 }
+function pageUser() {
+  window.location.href = "user";
+}
 
 
 

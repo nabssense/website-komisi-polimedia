@@ -63,7 +63,7 @@ export default {
           'base': '#ef4444',
         },
         love: {
-          'base': '#ef4444',
+          'base': '#ff005d',
         },
       },
       fontFamily: {
@@ -84,7 +84,7 @@ export default {
         // => @media (min-width: 640px) { ... }
 
         // Tablet
-        'md': '720px',
+        'md': '640px',
         // => @media (min-width: 768px) { ... }
   
         'lg': '1024px',
@@ -98,7 +98,7 @@ export default {
         // => @media (min-width: 1536px) { ... }
       },
       aspectRatio: {
-        '4/3': '4 / 3',
+        '21/9': '21 / 9',
       },
       // active: {
       //   'bar': border-primary-base,

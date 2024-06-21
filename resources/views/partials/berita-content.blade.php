@@ -1,5 +1,5 @@
 <div
-    class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:py-16' : '' }} py-16 md:py-32 bg-netral-100 flex-col justify-center items-center inline-flex ">
+    class="w-full h-fit {{ $active === 'Beranda' ? 'pt-8 lg:py-16' : '' }} px-4 md:px-8 xl:px-16 py-16 md:py-32 bg-netral-100 flex-col justify-center items-center inline-flex ">
     {{-- Button Fix --}}
     <button onclick="pageForumDiskusiAjukanPertanyaan()"
         class="{{ $active === 'Beranda' ? 'hidden' : '' }} btn-primary w-fit fixed bottom-18 right-2 z-50 lg:hidden drop-shadow-2xl">
@@ -8,7 +8,7 @@
     </button>
     <div class="w-full max-w-1480 h-fit flex-col justify-center items-center gap-4 lg:gap-8 flex ">
         <div
-            class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 flex-col md:flex-row lg:flex {{ $active === 'Beranda' ? 'flex' : 'hidden' }}">
+            class="w-full justify-start items-center gap-4 flex-col md:flex-row lg:flex {{ $active === 'Beranda' ? 'flex' : 'hidden' }}">
             <p class="w-full Heading1 font-extrabold {{ $active === 'Beranda' ? 'flex' : 'hidden' }} lg:flex">Berita
             </p>
             <button onclick="pageForumDiskusiAjukanPertanyaan()" class="btn-primary w-fit md:flex hidden">
@@ -21,7 +21,7 @@
         <div class="w-full max-w-1480 h-fit flex-col justify-start items-center gap-4 flex">
             @if ($active === 'Beranda')
             @else
-                <div class="w-full px-4 md:px-0 xl:px-0 justify-center items-start gap-4 flex flex-col md:flex-row ">
+                <div class="w-full justify-center items-start gap-4 flex flex-col md:flex-row ">
                     <div class="w-full h-fit flex justify-center relative">
                         <input id="searchText" oninput="toggleClearButton()" type="text" class="searchbar "
                             placeholder="Official Store">
@@ -133,7 +133,7 @@
                 </div>
             @endif
             {{-- Filter dll --}}
-            <div class="w-full h-fit px-4 md:px-0 xl:px-0 justify-start items-center gap-2 md:gap-8 inline-flex">
+            <div class="w-full h-fit justify-start items-center gap-2 md:gap-8 inline-flex">
                 <div class="py-1 rounded-full flex-col justify-center items-center gap-6 hidden lg:flex">
                     <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Filter
                     </div>
@@ -212,7 +212,7 @@
         </div>
         {{-- Content Berita --}}
         <section
-            class="w-full max-w-1480 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 flex-wrap gap-3 md:gap-8 px-4 md:px-0 justify-center">
+            class="w-full max-w-1480 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 flex-wrap gap-3 md:gap-8 justify-center">
             <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="aspect-square flex">

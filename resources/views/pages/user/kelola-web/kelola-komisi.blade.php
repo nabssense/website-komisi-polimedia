@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @include('partials.navbar')
+@include('partials.navbar-mobile')
 @section('container')
 <div class="w-full  h-fit px-56 py-8 bg-soft-base flex-col justify-center items-center gap-4 inline-flex">
     <div class="w-full max-w-1480 h-14 justify-start items-center gap-6 inline-flex">

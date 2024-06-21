@@ -1,42 +1,43 @@
 @extends('layouts.main')
 @include('partials.navbar')
+@include('partials.navbar-mobile')
 @section('container')
     <section class="w-full h-fit relative items-center justify-center pt-12 md:pt-24 lg:pt-32 pb-4 lg:pb-12 lg:px-8 xl:px-16 flex ">
         {{-- ISI BERITA --}}
-        <div class="headline-container w-1480 h-fit gap-1 lg:gap-4 flex-col justify-center items-center flex lg:px-48 relative">
+        <div class="headline-container w-1480 h-fit gap-1 lg:gap-4 flex-col justify-center items-center flex lg:px-16 relative">
             {{-- Placeholder for headline content --}}
             <div class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer"
                 data-index="0">
-                <div class="w-full h-full aspect-video flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
+                <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
                     <!-- Mengubah justify-center -->
-                    <img class="w-full h-full lg:rounded-2xl" src="{{ url('img/Berita/Yonkou - Dekstop.png') }}"
+                    <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ url('img/Berita/Yonkou - Dekstop.png') }}"
                         alt="Image" />
                 </div>
             </div>
             <div class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer"
                 data-index="0">
-                <div class="w-full h-full aspect-video flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
+                <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
                     <!-- Mengubah justify-center -->
-                    <img class="w-full h-full lg:rounded-2xl" src="{{ url('img/Berita/Straw Hat Pirates - Dekstop.png') }}"
+                    <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ url('img/Berita/Straw Hat Pirates - Dekstop.png') }}"
                         alt="Image" />
                 </div>
             </div>
             <div class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer"
                 data-index="0">
-                <div class="w-full h-full aspect-video flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
+                <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
                     <!-- Mengubah justify-center -->
-                    <img class="w-full h-full lg:rounded-2xl" src="{{ url('img/Berita/Straw Hat Pirates (BG) - Dekstop.png') }}"
+                    <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ url('img/Berita/Straw Hat Pirates (BG) - Dekstop.png') }}"
                         alt="Image" />
                 </div>
             </div>
             {{-- End of headline content --}}
 
             {{-- Button nextnews & prevnewsious --}}
-            <div class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center lg:flex hidden lg:pl-32">
+            <div class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center lg:flex hidden lg:pl-12">
                 <i
                     class="xs:text-xl  sm:text-3xl md:text-5xl ph ph-caret-left text-primary-base cursor-pointer prevnews-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
             </div>
-            <div class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center lg:flex hidden lg:pr-32">
+            <div class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center lg:flex hidden lg:pr-12">
                 <i
                     class="xs:text-xl  sm:text-3xl md:text-5xl ph ph-caret-right text-primary-base cursor-pointer nextnews-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
             </div>

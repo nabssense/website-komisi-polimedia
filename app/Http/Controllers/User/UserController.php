@@ -42,6 +42,15 @@ class UserController extends Controller
             // ->paginate($perPage, $columns, $questionsPageName, $answersPageName),
         ]);
     }
+     //
+     public function indexUser()
+     {
+         return view('pages.user.user', [
+             "title" => "Website Komisi | User",
+             "active" => "User",
+ 
+         ]);
+     }
     
     public function edit($email) 
     {

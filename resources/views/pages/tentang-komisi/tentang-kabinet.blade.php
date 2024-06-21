@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @include('partials.navbar')
+@include('partials.navbar-mobile')
 @section('container')
     <div class="w-full h-fit flex-col justify-center items-center gap-0 inline-flex">
         {{-- 1 Detail Kabinet --}}

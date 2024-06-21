@@ -2,6 +2,7 @@
 @section('container')
 <div id="divFull" class="w-full h-screen bg-netral-100 shadow justify-start items-start pt-20 md:pt-32 flex flex-col">
     @include('partials.navbar')
+
     <form id="form-login" method="POST" action="{{ route('auth.daftar.register') }}" class="w-full h-full flex flex-col gap-8">
         @csrf
         {{-- Main Content --}} <section id="MainContent" class="w-full h-full lg:h-fit px-4 md:px-8 lg:px-32 xl:px-72 flex-col justify-center items-center flex lg:flex-none">
