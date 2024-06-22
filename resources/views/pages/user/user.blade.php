@@ -78,7 +78,6 @@
 
         // Optionally, also check screen size on resize
         window.addEventListener('resize', redirectToUserPage);
-        window.addEventListener('DOMContentLoaded', redirectToUserPage);
     });
 </script>
 @endsection

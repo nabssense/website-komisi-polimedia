@@ -113,6 +113,14 @@
       opacity: 1;
   }
 }
+/* Animasi Beranda */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <=2.1.8 */ {
+  opacity: 0;
+}
+
 
 /* Animasi untuk muncul */
 .tutup-btn {
@@ -272,6 +280,7 @@
     border-bottom-right-radius: 32px;
     border-bottom-left-radius: 32px;
     overflow: clip;
+    height: 0;
   }
 
 }

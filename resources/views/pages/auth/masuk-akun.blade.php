@@ -1,8 +1,8 @@
 @extends('layouts.main')
 @section('container')
-        <div id="divFull" class="w-full h-screen bg-netral-100 shadow justify-start items-start pt-20 md:pt-32 flex flex-col">
+        <div id="divFull" class="w-full h-screen bg-netral-100 shadow justify-start items-start gap-0 relative  ">
                 @include('partials.navbar')
-            <form id="form-login" method="POST" action="{{ route('auth.masuk.login') }}" class="w-full h-full flex flex-col gap-8">
+            <form id="form-login" method="POST" action="{{ route('auth.masuk.login') }}" class="w-full h-full pt-20 md:pt-32 flex flex-col gap-8 z-50">
                 @csrf
                 {{-- Main Content --}} 
                 <div id="MainContent" class="w-full h-full lg:h-fit px-4 md:px-8 lg:px-32 xl:px-72 flex-col justify-center items-center flex lg:flex-none">
@@ -98,9 +98,20 @@
                     </div>
                 </button>
             </form>
+                        
             {{-- Page Beranda --}}
+            <div class="w-full h-full fixed flex flex-col">
+                @include('partials.beranda.headline-news-section')
+                {{-- Section 2 Logo --}}
+                @include('partials.beranda.logo-section')
+                {{-- Section 3 Berita --}}
+                @include('partials.berita-content')
+                {{-- Section 4 Forum Diskusi --}}
+                @include('partials.forum-diskusi-content')
+                {{-- Section 5 Tentang Komisi --}}
+            </div>
         </div>
-
+        
 
 
         <script>
@@ -176,8 +187,7 @@
         
                 document.getElementById("text-btn").addEventListener("animationend", function() {
                     document.getElementById("buttonAsli").classList.add('h-0');
-                    document.getElementById("divFull").classList.remove('pt-20', 'md:pt-32');
-                    document.getElementById("form-login").classList.remove('gap-8');
+                    document.getElementById("form-login").classList.remove('gap-8','pt-20', 'md:pt-32');
                     document.getElementById("MainContent").classList.add('body-height-0');
                     document.getElementById("MainContent2").classList.add('body-height-0');
                     document.getElementById("buttonAsli").classList.add('btn-Rounded', 'h-full');
@@ -209,10 +219,10 @@
                                     setTimeout(function() {
                                         document.getElementById("text-btn-2").classList.add('hide-btn-2');
                                         document.getElementById("text-skip").classList.add('hide-btn-2');
-                                        document.getElementById("divFull").classList.add('tutup-btn');
+                                        document.getElementById("form-login").classList.add('tutup-btn');
                                     }, 3300);
         
-                                    document.getElementById("divFull").addEventListener("animationend", function() {
+                                    document.getElementById("form-login").addEventListener("animationend", function() {
                                         // Setelah animasi selesai, redirect ke halaman beranda
                                         setTimeout(function() {
                                         window.location.href = "{{ route('beranda.index') }}";

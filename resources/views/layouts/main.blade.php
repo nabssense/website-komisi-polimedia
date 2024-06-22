@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/thin/style.css') }}"> --}}
 </head>
 
-<body class="m-0 p-0 w-full h-full">
+<body id="container" class="m-0 p-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out">
     @include('partials.alert-popup')
     @yield('container')
     <script src="js/animation.js"></script>
@@ -36,5 +36,15 @@
     <script src="js/touchdragscroll.js"></script>
     <script src="js/year-indicator.js"></script>
 </body>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const content = document.getElementById('container');
+        content.classList.add('opacity-100');
+    });
+    window.addEventListener("beforeunload", function() {
+        const content = document.getElementById('content');
+        content.classList.remove('opacity-100');
+        content.classList.add('opacity-0');
+    });
+</script>
 </html>
