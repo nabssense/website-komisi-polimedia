@@ -739,39 +739,39 @@
         function createFormAnggota(datainputId, addDivinputId) {
             const idInsideForm = insideFormAnggotaID();
 
-            const divisiButtons = document.querySelectorAll(`#button-divisi-text-2`);
-            console.log("buttons:", divisiButtons);
-            divisiButtons.forEach(button => {
-                // Ambil nilai nama divisi dari setiap elemen
-                const nameDivisi = button.textContent;
-                const selectdivisiButtons = document.querySelectorAll(
-                    `#button-divisi-text-2[data-input-field-id="${datainputId}"]`);
-                console.log("selectdivisiButtons:", datainputId);
-                // Tambahkan nilai nama divisi ke variabel
-                // Tambahkan nilai nama divisi ke variabel
-                if (selectdivisiButtons) {
-                    namaDivisiValues = nameDivisi
-                }
+            // const divisiButtons = document.querySelectorAll(`#button-divisi-text-2`);
+            // console.log("buttons:", divisiButtons);
+            // divisiButtons.forEach(button => {
+            //     // Ambil nilai nama divisi dari setiap elemen
+            //     const nameDivisi = button.textContent;
+            //     const selectdivisiButtons = document.querySelectorAll(
+            //         `#button-divisi-text-2[data-input-field-id="${datainputId}"]`);
+            //     console.log("selectdivisiButtons:", datainputId);
+            //     // Tambahkan nilai nama divisi ke variabel
+            //     // Tambahkan nilai nama divisi ke variabel
+            //     if (selectdivisiButtons) {
+            //         namaDivisiValues = nameDivisi
+            //     }
 
-            });
+            // });
 
-            // function updateOtherInputValue(addDivdatainputId){
-            const inputFieldContainer = document.querySelectorAll(`#inputfieldContainer`);
-            // Update division button text according to the value entered in the dynamic text field
-            inputFieldContainer.forEach(form => {
-                // Ambil nilai nama divisi dari setiap elemen
-                const nameDivisi = form.value;
-                const selectinputfieldDivisi = document.querySelector(
-                    `#inputfieldContainer[data-button-divisi-text-id="${addDivinputId}"]`);
+            // // function updateOtherInputValue(addDivdatainputId){
+            // const inputFieldContainer = document.querySelectorAll(`#inputfieldContainer`);
+            // // Update division button text according to the value entered in the dynamic text field
+            // inputFieldContainer.forEach(form => {
+            //     // Ambil nilai nama divisi dari setiap elemen
+            //     const nameDivisi = form.value;
+            //     const selectinputfieldDivisi = document.querySelector(
+            //         `#inputfieldContainer[data-button-divisi-text-id="${addDivinputId}"]`);
 
-                if (selectinputfieldDivisi) {
-                    selectinputfieldDivisi.addEventListener('input', function() {
-                        const inputValue = this.value;
-                        const selectforDivisi = document.querySelector(
-                            `#divisi-${datainputId}-${idInsideForm}`);
-                    });
-                }
-            });
+            //     if (selectinputfieldDivisi) {
+            //         selectinputfieldDivisi.addEventListener('input', function() {
+            //             const inputValue = this.value;
+            //             const selectforDivisi = document.querySelector(
+            //                 `#divisi-${datainputId}-${idInsideForm}`);
+            //         });
+            //     }
+            // });
 
 
             const formAnggota = document.createElement('form');
@@ -793,12 +793,12 @@
                         <div class="w-full flex flex-row gap-2 bg-netral-100">
                             <button class="radio-btn w-full p-4 has-[:checked]:bg-netral-900 has-[:checked]:text-netral-100  bg-neutral-100 border-2 flex-col border-neutral-900 flex items-center rounded-lg gap-1 Heading4">
                                 <i class="ph-fill ph-student text-5xl"></i>
-                                <input type="radio" name="mahasiswa" class="appearance-none" checked  />
+                                <input type="radio" class="appearance-none" checked  />
                                 Mahasiswa Aktif
                             </button>
                             <button class="radio-btn w-full p-4 has-[:checked]:bg-netral-900 has-[:checked]:text-netral-100 bg-neutral-100 border-2 flex-col border-neutral-900 flex items-center rounded-lg gap-1 Heading4">
                                 <i class="ph-fill ph-user text-5xl"></i>
-                                <input type="radio" name="mahasiswa" class="appearance-none" />
+                                <input type="radio" class="appearance-none" />
                                 Mahasiswa Baru
                             </button>
                         </div>
@@ -879,54 +879,7 @@
                             </div>
                             
                             
-                            <script>
-                                  function toggleOptions(optionsId) {
-                                        const options = document.getElementById(optionsId);
-                                        options.classList.toggle('hidden');
-                                        options.classList.toggle('flex'); // Ensure it toggles flex class appropriately
-                                    }
-
-                                    function updateInput(inputId, label) {
-                                        const input = document.getElementById(inputId);
-                                        input.value = label.querySelector('#name').innerText;
-
-                                        const radioInput = label.querySelector('input[type="radio"]');
-                                        radioInput.checked = true; // Set the radio button to checked
-
-                                        // Remove the fill class from all icons
-                                        const allIcons = document.querySelectorAll('#options i');
-                                        allIcons.forEach(icon => icon.classList.remove('ph-fill'));
-
-                                        // Add the fill class to the selected icon
-                                        const selectedIcon = label.querySelector('i');
-                                        selectedIcon.classList.add('ph-fill');
-
-                                        toggleOptions('options'); // Hide options after selection
-                                    }
-
-                                    function filterOptions(optionsId, searchInput) {
-                                        const filter = searchInput.value.toLowerCase();
-                                        const optionsContainer = document.getElementById(optionsId);
-                                        const studentList = optionsContainer.querySelector('#student-list');
-                                        const labels = studentList.getElementsByTagName('button');
-
-                                        Array.from(labels).forEach(label => {
-                                            const text = label.innerText.toLowerCase();
-                                            if (text.includes(filter)) {
-                                                label.style.display = '';
-                                            } else {
-                                                label.style.display = 'none';
-                                            }
-                                        });
-                                    }
-
-                                    // Close options if background outside options is clicked
-                                    document.querySelector('.close-button-bg').addEventListener('click', function(event) {
-                                        if (event.target === this) {
-                                            toggleOptions('options');
-                                        }
-                                    });
-                            </script>
+                            
                         </div>
                         {{-- Content MABA Mahasiswa Baru --}}
                         <div id="content-mahasiswa-baru" class="w-full h-full flex-col flex gap-4">
@@ -1024,34 +977,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- Fungsi Radio Mahasiswa Aktif & Baru --}}
-                        <script>
-                            document.addEventListener('DOMContentLoaded', () => {
-                                document.querySelectorAll('.radio-btn').forEach(button => {
-                                    button.addEventListener('click', () => {
-                                        button.querySelector('input[type="radio"]').checked = true;
-                                        
-                    
-                                        const isActive = button.textContent.includes('Mahasiswa Aktif');
-                                        const contentMaAktif = document.getElementById('content-mahasiswa-aktif');
-                                        const contentMaBa = document.getElementById('content-mahasiswa-baru');
-                                        
-                                        contentMaAktif.classList.toggle('hidden', !isActive);
-                                        contentMaBa.classList.toggle('hidden', isActive);
-                    
-                                        // Clear input values when hiding the element
-                                        if (isActive) {
-                                            contentMaBa.value = '';
-                                        } else {
-                                            contentMaAktif.value = '';
-                                        }
-                                    });
-                                });
-                    
-                                // Trigger click event on the checked radio button to ensure correct display
-                                document.querySelector('input[type="radio"]:checked').closest('.radio-btn').click();
-                            });
-                        </script>
+                        
                     </div>
                 </div>
                 
@@ -1061,14 +987,21 @@
                 </div>
             </div>
         `;
-
+            
             // handleRadioButton(datainputId, idInsideForm);
 
             return formAnggota;
 
         }
 
+        function showContent(contentId) {
+        // Semua konten di-hide terlebih dahulu
+        document.getElementById('content-mahasiswa-aktif').classList.add('hidden');
+        document.getElementById('content-mahasiswa-baru').classList.add('hidden');
 
+        // Tampilkan konten yang diinginkan
+        document.getElementById(contentId).classList.remove('hidden');
+    }
 
 
 
@@ -1302,7 +1235,13 @@
 
                 // const btnJabatanformAnggota = createBtnJabatanAndFormAnggota(inputId);
                 // document.getElementById('list-button-jabatan').appendChild(btnJabatanformAnggota);
-
+                 // Add event listener to button-divisi-text-2
+                buttonDivisiText2.addEventListener('click', function() {
+                    const inputField = document.getElementById(`divisi-${datainputId}-${idInsideForm}`);
+                    if (inputField) {
+                        inputField.value = dynamicTextDiv2.textContent;
+                    }
+                });
             }
             createButtonAndForm('Ketua');
             createButtonAndForm('Bendahara');
@@ -1355,7 +1294,7 @@
 
         // Fungsi untuk mengaktifkan atau menonaktifkan form dan mengubah warna tombol divisi
         function toggleFormAndButtonVisibility2(inputId, inputIdJabatanAnggota) {
-            console.log("Toggle form and button visibility for inputId:", inputId);
+            
             const form2 = document.getElementById(`formJabatan-${inputId}`);
             const buttonDivisi = document.querySelector(`#button-divisi-text-2[data-input-field-id="${inputId}"]`);
             const formAnggota = document.getElementById(`formAnggota-${inputIdJabatanAnggota}`);

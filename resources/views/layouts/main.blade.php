@@ -23,6 +23,11 @@
         <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/light/style.css') }}">
         <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/reguler/style.css') }}">
         <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/thin/style.css') }}"> --}}
+
+        <!-- include summernote css/js -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 
 <body id="container" class="m-0 p-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out">

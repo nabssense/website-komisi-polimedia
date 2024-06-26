@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\ForumDiscussion\DiscussionController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,18 +39,23 @@ use App\Http\Controllers\User\UserController;
 // }
 
 // Harus Login atau Sudah Login
-Route::middleware('auth.warning')->group(function () {
+// Route::middleware('auth.warning')->group(function () {
     
-    Route::namespace('App\Http\Controllers\ForumDiscussions')->group(function(){
+//     // Route::namespace('App\Http\Controllers\ForumDiscussions')->group(function(){
         
-        Route::get('forum-diskusi-ajukan-pertanyaan', 'ForumDiscussionsController@askQuestions')->name('forumdiscussions.askquestion.index');
-    });
-});
+//     //     // Route::get('ajukan-pertanyaan', 'ForumDiscussionsController@askQuestions')->name('forumdiscussions.askquestion.index');
+//     // });
+// });
 
 
 // Harus Login atau Sudah Login
 Route::middleware('auth')->group(function () {
-    // Akun
+    // DISKUSI
+    Route::namespace('App\Http\Controllers\ForumDiscussion')->group(function(){
+        Route::resource('forum-diskusi', DiscussionController::class)
+        ->only(['create', 'store', 'edit', 'update', 'destroy']);
+    });
+
         // Akun - Kelola Web
         Route::get('kelola-website', function () {
             return view('pages.user.kelola-web.index', [
@@ -127,6 +135,7 @@ Route::middleware('auth')->group(function () {
             Route::resource('user-profile', UserController::class)->only(['index']);
             Route::get('user', 'UserController@indexUser')->name('user.index');
         });
+        
 });
 
 
@@ -145,8 +154,10 @@ Route::middleware('guest')->group(function () {
     
 });
 
-Route::namespace('App\Http\Controllers\ForumDiscussions')->group(function(){
-    Route::get('forum-diskusi', 'ForumDiscussionsController@index')->name('forumdiscussions.index');
+Route::namespace('App\Http\Controllers\ForumDiscussion')->group(function(){
+    Route::resource('forum-diskusi', DiscussionController::class)
+    ->only(['index', 'show']);
+    
 });
     
 Route::namespace('App\Http\Controllers\Home')->group(function () {

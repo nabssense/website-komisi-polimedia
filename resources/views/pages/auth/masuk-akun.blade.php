@@ -14,32 +14,27 @@
 
                                 <div class="self-stretch h-fit flex-col justify-start items-start gap-2 md:gap-4 flex">
                                     <div class="self-stretch h-fit flex-col justify-start items-start flex">
-                                        <div class="justify-start items-start inline-flex">
-                                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                        <div class="label-input-text">
                                                 Email
-                                            </div>
                                         </div>
                                         <input type="email" id="email" name="email" placeholder="Masukkan email kamu"
                                             value="{{ old('email') }}" 
-                                            class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-font-normal Heading4
+                                            class="input-text
                                                     @error('email') border-red-500 @enderror @error('credentials') border-red-500 @enderror">
                                         @error('email')
                                             <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
                                         @enderror
-                                 @error('credentials')
-                                     <div id="credentials-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
-                                 @enderror
+                                        @error('credentials')
+                                            <div id="credentials-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="self-stretch h-fit flex-col justify-start items-start flex">
-                                        <div class="justify-start items-start inline-flex">
-                                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                                Kata
-                                                sandi
-                                            </div>
+                                        <div class="label-input-text">
+                                                Kata sandi
                                         </div>
                                         <div class="w-full justify-center items-center flex flex-row relative">
                                             <input type="password" id="password" name="password" placeholder="Masukkan kata sandi kamu" id="password" 
-                                                class="w-full pt-2 pb-3 @error('password') border-red-500 @enderror bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-font-normal Heading4">
+                                                class="input-text @error('password') border-red-500 @enderror">
                                             <div href="/berita" class="h-full justify-center items-center cursor-pointer"><i
                                                     id="showPassword"
                                                     class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
@@ -104,11 +99,6 @@
                 @include('partials.beranda.headline-news-section')
                 {{-- Section 2 Logo --}}
                 @include('partials.beranda.logo-section')
-                {{-- Section 3 Berita --}}
-                @include('partials.berita-content')
-                {{-- Section 4 Forum Diskusi --}}
-                @include('partials.forum-diskusi-content')
-                {{-- Section 5 Tentang Komisi --}}
             </div>
         </div>
         

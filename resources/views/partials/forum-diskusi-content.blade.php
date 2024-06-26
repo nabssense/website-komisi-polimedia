@@ -12,10 +12,23 @@
             <p class="w-full Heading1 font-extrabold {{ $active === 'Beranda' ? 'flex' : 'hidden' }}  lg:flex">Forum
                 Diskusi
             </p>
-            <button onclick="pageForumDiskusiAjukanPertanyaan()" class="btn-primary w-fit md:flex hidden">
-                <i class="ph ph-plus"></i>
-                <div class="before:content-['Pertanyaan'] md:before:content-['Ajukan_Pertanyaan']"></div>
-            </button>
+            {{-- <div>
+                {{ $discussions->total() . ' ' 
+                    . Str::plural('Discussion', $discussions->total()) }}
+            </div> --}}
+            
+            @auth
+                <button onclick="pageForumDiskusiAjukanPertanyaan()" class="btn-primary w-fit md:flex hidden">
+                    <i class="ph ph-plus"></i>
+                    <div class="before:content-['Pertanyaan'] md:before:content-['Ajukan_Pertanyaan']"></div>
+                </button>
+            @endauth
+            @guest
+                <button onclick="pageMasuk()" class="btn-primary w-fit md:flex hidden">
+                    <i class="ph ph-plus"></i>
+                    <div class="before:content-['Pertanyaan'] md:before:content-['Masuk_Untuk_Ajukan_Pertanyaan']"></div>
+                </button>
+            @endguest
         </div>
         {{-- Search Bar dll --}}
 
@@ -23,12 +36,30 @@
             @if ($active === 'Beranda')
             @else
                 <div class="w-full px-4 md:px-0 xl:px-0 justify-center items-start gap-4 flex flex-col md:flex-row ">
-                    <div class="w-full h-fit flex justify-center relative">
-                        <input id="searchText" oninput="toggleClearButton()" type="text" class="searchbar "
+                    <form method="GET" action="{{ route('forum-diskusi.index') }}" class="w-full h-fit flex justify-center relative">
+                        <input id="searchText" oninput="toggleClearButton()" type="text" class="searchbar" name="search" value="{{ $search ?? '' }}"
                             placeholder="Official Store">
-                        <button id="clearButton" onclick="clearSearchText()" type="reset"
+                        <button id="clearButton" onclick="clearSearchText()" type="button"
                             class="hidden px-4 lg:px-6 w-fit text-base lg:text-xl text-netral-900 ph ph-x absolute right-0 h-full"></button>
-                    </div>
+                    </form>
+                    {{-- Function Search --}}
+                    <script>
+                        function toggleClearButton() {
+                            var searchText = document.getElementById('searchText').value;
+                            var clearButton = document.getElementById('clearButton');
+                            if (searchText.length > 0) {
+                                clearButton.classList.remove('hidden');
+                            } else {
+                                clearButton.classList.add('hidden');
+                            }
+                        }
+                    
+                        function clearSearchText() {
+                            var searchText = document.getElementById('searchText');
+                            searchText.value = ''; // Reset input value to empty string
+                            toggleClearButton(); // Hide clear button
+                        }
+                    </script>
                     {{-- Urut & Kategori --}}
                     <div
                         class="w-full md:w-fit hidden lg:flex flex-none overflow-scroll overflow-x-scroll parent cursor-pointer scrollbar-hidden gap-4">
@@ -139,31 +170,13 @@
                     <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Filter
                     </div>
                 </div>
-
+                
                 <div
                     class="w-full h-fit justify-start items-center gap-2 lg:gap-4 flex overflow-scroll overflow-x-scroll parent cursor-pointer scrollbar-hidden ">
-                    <button class="btn-popup ">Pencairan KIPK
+                    @foreach ($categories as $category)
+                    <button class="btn-popup ">{{ $category->name }}
                     </button>
-                    <button class="btn-popup ">Beli
-                    </button>
-                    <button class="btn-popup ">Beli
-                    </button>
-                    <button class="btn-popup ">Beli
-                    </button>
-                    <button class="btn-popup ">Beli
-                    </button>
-                    <button class="btn-popup ">Beli
-                    </button>
-                    <button class="btn-popup ">Beli
-                    </button>
-                    <button class="btn-popup ">Beli
-                    </button>
-                    <button class="btn-popup ">Beli
-                    </button>
-                    <button class="btn-popup ">Beli
-                    </button>
-                    <button class="btn-popup ">Beli
-                    </button>
+                    @endforeach
                 </div>
                 {{-- Button Selection --}}
                 <div class="w-fit flex flex-row lg:hidden">
@@ -221,10 +234,12 @@
             <section class=" w-full h-fit self-stretch rounded-3xl flex-col justify-start items-start gap-4 flex">
                 <div
                     class="w-full py-2 px-4 md:px-8 bg-netral-100 md:rounded justify-start items-start flex text-netral-900 font-semibold Heading2">
-                    Pertanyaan
+                     @if (isset($search)) {{ "Hasil Pencarian \"$search\"" }} @else {{ 'Semua Pertanyaan' }} @endif
+                    <span>{{ isset($withCategory) ? ' About ' . $withCategory->name : '' }}</span>
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start gap-4 flex">
-                    {{-- 1 --}}
+                    @forelse ($discussions as $discussion)
+                        {{-- 1 --}}
                     <div
                         class="w-full h-fit px-4 lg:px-8 bg-white md:rounded-lg flex-col justify-start items-start flex">
                         <div
@@ -234,17 +249,17 @@
                                 <div class="w-full justify-start items-center gap-2 inline-flex">
                                     @auth
                                         <div class="flex-none" onclick="pageUserProfile()">
-                                            <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
-                                                ? auth()->user()->profile_picture
-                                                : Storage::url(auth()->user()->profile_picture) }}"
-                                                alt="{{ auth()->user()->fullname }}" class="rounded-full w-9 md:w-12">
+                                            <img src="{{ filter_var($discussion->user->profile_picture, FILTER_VALIDATE_URL)
+                                                ? $discussion->user->profile_picture
+                                                : Storage::url($discussion->user->profile_picture) }}"
+                                                alt="{{ $discussion->user->fullname }}" class="rounded-full w-9 md:w-12">
                                         </div>
                                     @endauth
                                     <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
                                         <div class="w-full justify-start items-center gap-2 inline-flex ">
                                             <div class="justify-start items-center gap-2 flex">
                                                 <p class="w-full text-netral-900 font-semibold line-clamp-1">
-                                                    Muhammad Alif</p>
+                                                    {{ $discussion->user->fullname }}</p>
                                                 <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
                                             </div>
                                             <div class="text-netral-900 font-semibold hidden md:flex">
@@ -262,7 +277,7 @@
                                             </i>
                                         </div>
                                         <p class="w-fit text-neutral-900 font-medium Body2">
-                                            9 menit lalu</p>
+                                            {{ $discussion->created_at->diffForHumans() }}</p>
                                     </div>
                                     <i class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three"></i>
                                 </div>
@@ -271,12 +286,10 @@
                                     <div class="w-full flex flex-col gap-2">
                                         <div
                                             class="w-fit h-fit px-2 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex flex-none text-neutral-900 font-medium Body2">
-                                            Pencairan KIPK
+                                            {{ $discussion->category->name }}
                                         </div>
                                         <div class="w-full text-neutral-900 font-normal Body1 md:Heading4">
-                                            Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
-                                            bisa
-                                            mengetahui rinciannya?</div>
+                                            {{ $discussion->title }}</div>
                                     </div>
                                     <div class="h-48 rounded-2xl overflow-clip">
                                         <img class="h-full" src="{{ url('img/Kabinet/KOBRA/All-Team.png') }}"
@@ -317,11 +330,10 @@
                                         {{-- Profil --}}
                                         @auth
                                             <div class="flex-none" onclick="pageUserProfile()">
-                                                <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
-                                                    ? auth()->user()->profile_picture
-                                                    : Storage::url(auth()->user()->profile_picture) }}"
-                                                    alt="{{ auth()->user()->fullname }}"
-                                                    class="rounded-full w-9 md:w-12">
+                                                <img src="{{ filter_var($discussion->user->profile_picture, FILTER_VALIDATE_URL)
+                                                ? $discussion->user->profile_picture
+                                                : Storage::url($discussion->user->profile_picture) }}"
+                                                alt="{{ $discussion->user->fullname }}" class="rounded-full w-9 md:w-12">
                                             </div>
                                         @endauth
                                         <div
@@ -329,7 +341,7 @@
                                             <div class="w-full justify-start items-center gap-2 inline-flex ">
                                                 <div class="justify-start items-center gap-2 flex">
                                                     <p class="w-full text-netral-900 font-semibold line-clamp-1">
-                                                        Bapak Muhammad Nabil Musyaffa Alif Muhammad</p>
+                                                        {{ $discussion->user->fullname }}</p>
                                                     <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
                                                 </div>
                                                 <div class="text-netral-900 font-semibold hidden md:flex">
@@ -349,7 +361,7 @@
                                                 </i>
                                             </div>
                                             <p class="w-fit text-neutral-900 font-medium Body2">
-                                                9 menit lalu</p>
+                                                {{ $discussion->created_at->diffForHumans() }}</p>
                                         </div>
                                         <i class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three"></i>
                                     </div>
@@ -363,285 +375,14 @@
                             </div>
                         </div>
                     </div>
-                    {{-- 2 --}}
-                    <div
-                        class="w-full h-fit px-4 lg:px-8 bg-white md:rounded-lg flex-col justify-start items-start flex">
-                        <div
-                            class="w-full h-fit flex-col justify-start items-start gap-8 py-4 lg:py-8 flex border-b-2 border-netral-200">
-                            <div class="w-full h-fit flex-col justify-center items-start gap-4 lg:gap-6 flex">
-                                {{-- Profil --}}
-                                <div class="w-full justify-start items-center gap-2 inline-flex">
-                                    @auth
-                                        <div class="flex-none" onclick="pageUserProfile()">
-                                            <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
-                                                ? auth()->user()->profile_picture
-                                                : Storage::url(auth()->user()->profile_picture) }}"
-                                                alt="{{ auth()->user()->fullname }}" class="rounded-full w-9 md:w-12">
-                                        </div>
-                                    @endauth
-                                    <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
-                                        <div class="w-full justify-start items-center gap-2 inline-flex ">
-                                            <div class="justify-start items-center gap-2 flex">
-                                                <p class="w-full text-netral-900 font-semibold line-clamp-1">
-                                                    Muhammad Alif</p>
-                                                <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
-                                            </div>
-                                            <div class="text-netral-900 font-semibold hidden md:flex">
-                                                -</div>
-                                            <div
-                                                class="w-fit text-netral-500 font-normal flex relative hidden lg:flex">
-                                                <p class="w-full line-clamp-1">Pembina Komisi
-                                                </p>
-                                            </div>
-                                            <i
-                                                class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
-                                                <div id="info-akun"
-                                                    class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
-                                                    Pembina Komisi</div>
-                                            </i>
-                                        </div>
-                                        <p class="w-fit text-neutral-900 font-medium Body2">
-                                            9 menit lalu</p>
-                                    </div>
-                                    <i class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three"></i>
-                                </div>
-                                {{-- Content --}}
-                                <div class="w-full h-fit flex-col justify-start items-start gap-4 flex">
-                                    <div class="w-full flex flex-col gap-2">
-                                        <div
-                                            class="w-fit h-fit px-2 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex flex-none text-neutral-900 font-medium Body2">
-                                            Pencairan KIPK
-                                        </div>
-                                        <div class="w-full text-neutral-900 font-normal Body1 md:Heading4">
-                                            Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
-                                            bisa
-                                            mengetahui rinciannya?</div>
-                                    </div>
-                                    <div class="h-48 rounded-2xl overflow-clip">
-                                        <img class="h-full" src="{{ url('img/Kabinet/KOBRA/All-Team.png') }}"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="w-full h-fit justify-start items-center gap-2 md:gap-4 inline-flex">
-                                    <button
-                                        class="w-fit h-fit rounded-full justify-start items-center gap-2 flex flex-none Body1">
-                                        <div class="w-fit flex flex-none items-center gap-1">
-                                            <i class="text-32 lg:text-4xl text-love-base ph ph-heart"></i>
-                                            <div class="text-love-base font-medium flex md:hidden">3</div>
-                                        </div>
-                                        <div
-                                            class="w-full text-nowrap rounded-full justify-start items-start text-love-base font-medium hidden md:flex">
-                                            30 org merasa terbantu
-                                        </div>
-                                    </button>
-                                    <div class="w-full rounded-full justify-start items-center gap-2 flex Body1">
-                                        <div class="w-fit flex flex-none items-center gap-1">
-                                            <i class="text-32 text-netral-900 lg:text-4xl ph ph-chat-teardrop-text"></i>
-                                            <div class="text-netral-900 font-medium flex">3</div>
-                                        </div>
-                                        <button onclick="pageForumDiskusiPertanyaan()" class="commentbar">
-                                            <div class="w-full line-clamp-1">Berikan jawaban atau tanggapan</div>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                    @empty
+                        <div class="w-full flex justify-center Heading4">
+                            Data Tidak Ditemukan
                         </div>
-                        {{-- Comment --}}
-                        <div onclick="pageForumDiskusiPertanyaan()"
-                            class="w-full h-fit flex-col justify-center items-center py-4 lg:py-8 gap-8 flex cursor-pointer">
-                            <div class="w-full h-fit flex-col justify-start items-center gap-6 flex">
+                    @endforelse
+                    
 
-                                <div class="w-full h-fit flex-col justify-center items-center gap-4 flex">
-                                    <div class="w-full justify-start items-center gap-2 inline-flex">
-                                        {{-- Profil --}}
-                                        @auth
-                                            <div class="flex-none" onclick="pageUserProfile()">
-                                                <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
-                                                    ? auth()->user()->profile_picture
-                                                    : Storage::url(auth()->user()->profile_picture) }}"
-                                                    alt="{{ auth()->user()->fullname }}"
-                                                    class="rounded-full w-9 md:w-12">
-                                            </div>
-                                        @endauth
-                                        <div
-                                            class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
-                                            <div class="w-full justify-start items-center gap-2 inline-flex ">
-                                                <div class="justify-start items-center gap-2 flex">
-                                                    <p class="w-full text-netral-900 font-semibold line-clamp-1">
-                                                        Bapak Muhammad Nabil Musyaffa Alif Muhammad</p>
-                                                    <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
-                                                </div>
-                                                <div class="text-netral-900 font-semibold hidden md:flex">
-                                                    -</div>
-                                                <div
-                                                    class="w-fit  text-netral-500 font-normal relative hidden lg:flex">
-                                                    <p class="w-full line-clamp-1">Pembina KOMISI</p>
-                                                    {{-- <div id="info-akun"
-                                                        class="w-fit h-fit p-4 lg:group-hover/info-akun:flex xl:group-hover/info-akun:hidden bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
-                                                        Pembina Komisi</div> --}}
-                                                </div>
-                                                <i
-                                                    class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
-                                                    <div id="info-akun"
-                                                        class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
-                                                        Pembina Komisi</div>
-                                                </i>
-                                            </div>
-                                            <p class="w-fit text-neutral-900 font-medium Body2">
-                                                9 menit lalu</p>
-                                        </div>
-                                        <i class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three"></i>
-                                    </div>
-                                    {{-- Content --}}
-                                    <div class="w-full text-neutral-900 font-normal Body1 md:Heading4 line-clamp-2">
-                                        Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
-                                        bisa
-                                        mengetahui rinciannya?</div>
-                                    <button class="btn-sm-tertiary p-0">Baca Selengkapnya</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- 1 --}}
-                    <div
-                        class="w-full h-fit px-4 lg:px-8 bg-white md:rounded-lg flex-col justify-start items-start flex">
-                        <div
-                            class="w-full h-fit flex-col justify-start items-start gap-8 py-4 lg:py-8 flex border-b-2 border-netral-200">
-                            <div class="w-full h-fit flex-col justify-center items-start gap-4 lg:gap-6 flex">
-                                {{-- Profil --}}
-                                <div class="w-full justify-start items-center gap-2 inline-flex">
-                                    @auth
-                                        <div class="flex-none" onclick="pageUserProfile()">
-                                            <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
-                                                ? auth()->user()->profile_picture
-                                                : Storage::url(auth()->user()->profile_picture) }}"
-                                                alt="{{ auth()->user()->fullname }}" class="rounded-full w-9 md:w-12">
-                                        </div>
-                                    @endauth
-                                    <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
-                                        <div class="w-full justify-start items-center gap-2 inline-flex ">
-                                            <div class="justify-start items-center gap-2 flex">
-                                                <p class="w-full text-netral-900 font-semibold line-clamp-1">
-                                                    Muhammad Alif</p>
-                                                <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
-                                            </div>
-                                            <div class="text-netral-900 font-semibold hidden md:flex">
-                                                -</div>
-                                            <div
-                                                class="w-fit text-netral-500 font-normal flex relative hidden lg:flex">
-                                                <p class="w-full line-clamp-1">Pembina Komisi
-                                                </p>
-                                            </div>
-                                            <i
-                                                class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
-                                                <div id="info-akun"
-                                                    class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
-                                                    Pembina Komisi</div>
-                                            </i>
-                                        </div>
-                                        <p class="w-fit text-neutral-900 font-medium Body2">
-                                            9 menit lalu</p>
-                                    </div>
-                                    <i class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three"></i>
-                                </div>
-                                {{-- Content --}}
-                                <div class="w-full h-fit flex-col justify-start items-start gap-4 flex">
-                                    <div class="w-full flex flex-col gap-2">
-                                        <div
-                                            class="w-fit h-fit px-2 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex flex-none text-neutral-900 font-medium Body2">
-                                            Pencairan KIPK
-                                        </div>
-                                        <div class="w-full text-neutral-900 font-normal Body1 md:Heading4">
-                                            Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
-                                            bisa
-                                            mengetahui rinciannya?</div>
-                                    </div>
-                                    <div class="h-48 rounded-2xl overflow-clip">
-                                        <img class="h-full" src="{{ url('img/Kabinet/KOBRA/All-Team.png') }}"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="w-full h-fit justify-start items-center gap-2 md:gap-4 inline-flex">
-                                    <button
-                                        class="w-fit h-fit rounded-full justify-start items-center gap-2 flex flex-none Body1">
-                                        <div class="w-fit flex flex-none items-center gap-1">
-                                            <i class="text-32 lg:text-4xl text-love-base ph ph-heart"></i>
-                                            <div class="text-love-base font-medium flex md:hidden">3</div>
-                                        </div>
-                                        <div
-                                            class="w-full text-nowrap rounded-full justify-start items-start text-love-base font-medium hidden md:flex">
-                                            30 org merasa terbantu
-                                        </div>
-                                    </button>
-                                    <div class="w-full rounded-full justify-start items-center gap-2 flex Body1">
-                                        <div class="w-fit flex flex-none items-center gap-1">
-                                            <i class="text-32 text-netral-900 lg:text-4xl ph ph-chat-teardrop-text"></i>
-                                            <div class="text-netral-900 font-medium flex">3</div>
-                                        </div>
-                                        <button onclick="pageForumDiskusiPertanyaan()" class="commentbar">
-                                            <div class="w-full line-clamp-1">Berikan jawaban atau tanggapan</div>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- Comment --}}
-                        <div onclick="pageForumDiskusiPertanyaan()"
-                            class="w-full h-fit flex-col justify-center items-center py-4 lg:py-8 gap-8 flex cursor-pointer">
-                            <div class="w-full h-fit flex-col justify-start items-center gap-6 flex">
-
-                                <div class="w-full h-fit flex-col justify-center items-center gap-4 flex">
-                                    <div class="w-full justify-start items-center gap-2 inline-flex">
-                                        {{-- Profil --}}
-                                        @auth
-                                            <div class="flex-none" onclick="pageUserProfile()">
-                                                <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
-                                                    ? auth()->user()->profile_picture
-                                                    : Storage::url(auth()->user()->profile_picture) }}"
-                                                    alt="{{ auth()->user()->fullname }}"
-                                                    class="rounded-full w-9 md:w-12">
-                                            </div>
-                                        @endauth
-                                        <div
-                                            class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
-                                            <div class="w-full justify-start items-center gap-2 inline-flex ">
-                                                <div class="justify-start items-center gap-2 flex">
-                                                    <p class="w-full text-netral-900 font-semibold line-clamp-1">
-                                                        Bapak Muhammad Nabil Musyaffa Alif Muhammad</p>
-                                                    <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
-                                                </div>
-                                                <div class="text-netral-900 font-semibold hidden md:flex">
-                                                    -</div>
-                                                <div
-                                                    class="w-fit  text-netral-500 font-normal relative hidden lg:flex">
-                                                    <p class="w-full line-clamp-1">Pembina KOMISI</p>
-                                                    {{-- <div id="info-akun"
-                                                        class="w-fit h-fit p-4 lg:group-hover/info-akun:flex xl:group-hover/info-akun:hidden bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
-                                                        Pembina Komisi</div> --}}
-                                                </div>
-                                                <i
-                                                    class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
-                                                    <div id="info-akun"
-                                                        class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
-                                                        Pembina Komisi</div>
-                                                </i>
-                                            </div>
-                                            <p class="w-fit text-neutral-900 font-medium Body2">
-                                                9 menit lalu</p>
-                                        </div>
-                                        <i class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three"></i>
-                                    </div>
-                                    {{-- Content --}}
-                                    <div class="w-full text-neutral-900 font-normal Body1 md:Heading4 line-clamp-2">
-                                        Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita
-                                        bisa
-                                        mengetahui rinciannya?</div>
-                                    <button class="btn-sm-tertiary p-0">Baca Selengkapnya</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {{ $discussions->links() }}
                 </div>
             </section>
 

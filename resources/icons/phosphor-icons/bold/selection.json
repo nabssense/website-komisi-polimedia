@@ -17242,15 +17242,15 @@
         "attrs": [{}],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "tags": ["graph-bold"]
+        "tags": ["graph"]
       },
       "attrs": [{}],
       "properties": {
         "id": 718,
         "order": 6767,
-        "name": "graph-bold",
+        "name": "graph",
         "code": 60248,
-        "ligatures": "graph-bold",
+        "ligatures": "graph",
         "prevSize": 16
       },
       "setIdx": 3,
@@ -24370,15 +24370,15 @@
         "attrs": [{}],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "tags": ["paragraph-bold"]
+        "tags": ["paragraph"]
       },
       "attrs": [{}],
       "properties": {
         "id": 1015,
         "order": 7064,
-        "name": "paragraph-bold",
+        "name": "paragraph",
         "code": 59744,
-        "ligatures": "paragraph-bold",
+        "ligatures": "paragraph",
         "prevSize": 16
       },
       "setIdx": 3,

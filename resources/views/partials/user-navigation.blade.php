@@ -19,7 +19,7 @@
                     </div>
                 </button>
                 <div class="w-full h-fit content-stretch self-stretch flex flex-col justify-start items-start gap-4">
-                    @if (auth()->user()->user_type === 'Mahasiswa')
+                    @if (auth()->user()->user_type === 'Mahasiswa' || auth()->user()->user_type === 'Admin')
                         <button onclick="pageKelolaWebsite()"
                             class="{{ $active === 'Kelola Website' ? 'bg-netral-200' : '' }} text-left self-stretch px-4 py-3 rounded-lg justify-start items-center gap-3 inline-flex">
                             <i class="text-4xl ph ph-kanban"></i>

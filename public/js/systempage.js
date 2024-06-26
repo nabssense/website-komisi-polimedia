@@ -23,10 +23,10 @@ function pageForumDiskusi() {
   window.location.href = "forum-diskusi";
 }
 function pageForumDiskusiPertanyaan() {
-  window.location.href = "forum-diskusi-pertanyaan";
+ location.href= "'{{ route('forum-diskusi.show', $discussion->slug) }}'"
 }
 function pageForumDiskusiAjukanPertanyaan() {
-  window.location.href = "forum-diskusi-ajukan-pertanyaan";
+  window.location.href = '/forum-diskusi/create';
 }
 
 
@@ -90,5 +90,5 @@ function pageUbahKomisi() {
 
 // Kelola Pengajuan
 function pageKelolaPengajuanPencairan() {
-  window.location.href = "/kelola-berita";
+  window.location.href = "/kelola-pengajuan-pencairan";
 }

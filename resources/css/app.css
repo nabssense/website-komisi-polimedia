@@ -328,6 +328,21 @@
     @apply w-full px-4 py-1 bg-netral-100 border-netral-900 border-2 rounded-full justify-center items-center flex line-clamp-1 text-start text-netral-800 Body1 focus:outline-none focus:border-primary-base;
   }
   
+   /* searchbar */
+   .label-input-text{
+    @apply justify-start items-start inline-flex text-stone-700 text-base font-normal Heading4;
+  }
+  /* searchbar */
+  .input-text{
+    @apply w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 Heading4;
+  }
+  /* searchbar */
+  .input-textarea{
+    @apply w-full h-32 py-3 text-wrap bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-start gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal Heading4;
+  }
+
+
+
 
   /* FONTS SYSTEM */
   .Heading1{

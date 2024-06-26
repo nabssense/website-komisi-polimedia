@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'fullname' => $fullname,
             'email' => 'admin@ad',
             'password' => 'admin',
-            'nim'=> 'Admin',
+            'nim'=> '0',
             'user_type' => 'Admin',
             'edu_program' => '',
             'status' => 'Active',

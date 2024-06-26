@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('container')
     {{-- STEP 1 --}}<div
-        class="w-full h-full step p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
+        class="w-screen h-screen step p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
         
         {{-- Main Content --}}
-        <div class="w-full max-w-960  h-full self-stretch px-8 flex-col justify-start items-start gap-8 inline-flex">
+        <div class="w-full max-w-960 h-full self-stretch px-8 flex-col justify-start items-start gap-8 inline-flex">
             {{-- 1 --}}
             <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <button onclick="goBack()" class="ph ph-x text-32"></button>
@@ -13,77 +13,125 @@
             {{-- 2 --}}
             <div
                 class="w-full h-full overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y grow shrink basis-0  justify-start items-start gap-8 flex flex-row flex-1">
-                <div class="w-full h-fit flex-col justify-start items-start gap-4 inline-flex">
-                
+                <div class="w-full h-fit self-stretch flex-col justify-start items-start gap-4 inline-flex">
+                    <div class="w-full h-fit  flex flex-row overflow-x-scroll parent cursor-pointer scrollbar-hidden gap-4">
+                        <div class="w-fit h-fit flex-col justify-start items-start gap-1 flex">
+                            <div class="justify-start items-start inline-flex">
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Gambar Utama
+                                </div>  
+                            </div>
+                            <div class="self-stretch justify-start items-start gap-1 inline-flex">
+                                <div class="w-fit self-stretch justify-start items-center flex">
+                                    <div
+                                        class="w-40 h-40  bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
+                                        <input class="w-full h-full bg-red-300 z-10 opacity-0 absolute cursor-pointer rounded-2xl"
+                                            type="file" name="" id="">
+                                        <img class="w-full h-full bg-red-300 z-0 opacity-0 absolute cursor-pointer rounded-2xl"
+                                            type="file" name="" id="">
+                                        <a href="/kelola-website" class="ph ph-plus text-7xl"></a>
+                                        <label for="fileinput"
+                                            class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pilih
+                                            Gambar</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="self-stretch h-fit flex-col justify-start items-start flex">
                         <div class="justify-start items-start inline-flex">
                             <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Nama Lengkap
                             </div>
                         </div>
-                        <input type="text" name="nama-kabinet" placeholder="Cth: Muhammad Nabil Musyaffa" id=""
+                        <input type="text" name="nama-kabinet" placeholder="Cth: KOBRA" id=""
                             class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                     </div>
                     <div class="self-stretch h-fit flex-col justify-start items-start flex">
                         <div class="justify-start items-start inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">NIM
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">NIM/NIP
                             </div>
                         </div>
-                        <input type="number" name="nama-kabinet" placeholder="Cth: 20240090" id=""
+                        <input type="number" name="nama-kabinet" placeholder="Cth: 9" id=""
                             class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                    </div>
+                    <div class="self-stretch justify-start items-start gap-4 inline-flex">
+                        <div class="w-full h-fit flex-col justify-start items-start inline-flex">
+                            <div class="justify-start items-start inline-flex">
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Prodi
+                                </div>
+                            </div>
+                            <!-- Input Field -->
+                            <div class="relative flex flex-row items-center w-full">
+                                <input type="text" name="nama-kabinet" placeholder="Pilih Kategori" id="kategori-input" onkeydown="return false;"
+                                onpaste="return false;"
+                                ondrop="return false;"
+                                class="w-full py-3 bg-white focus:outline-none focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                <i class="absolute right-0 text-32 ph ph-caret-down"></i>
+                            </div>
+                            
+                            <div id="kategori-dropdown" class="option-card-menu fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden" role="menu" aria-orientation="vertical" tabindex="-1">
+                                <div class="close-button-bg w-screen h-screen relative justify-center items-center flex ">
+                                    <div class="flex flex-col bg-netral-100 rounded-4xl w-480 h-fit justify-center items-center overflow-clip gap-4" role="none">
+                                        <div class="w-full flex flex-col">
+                                            <div class="grow shrink basis-0 m-4 h-fit bg-white rounded-full border justify-start items-center flex relative">
+                                                <input  id="searchText" oninput="toggleClearButton()" type="text" class="rounded-full grow shrink basis-0 px-6 py-2 border text-zinc-800 text-lg font-normal font-THICCCBOI leading-7 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800" placeholder="Cari Kategori">
+                                                <button id="clearButton" onclick="clearSearchText()" type="reset" class="hidden mx-6 w-fit text-xl text-netral-900 ph ph-x absolute right-0 "></button>
+                                            </div>
+                                            <button data-value="Kategori 1" class="flex flex-row items-center gap-3 w-full text-start px-4 py-3 h-fit border-b-2 border-netral-200 text-xl font-THICCCBOI text-netral-900 hover:bg-netral-200 hover:text-gray-900" role="menuitem">
+                                                <div class="ph ph-check-circle text-2xl"></div>Ubah
+                                            </button>
+                                            <button data-value="Kategori 2" class="flex flex-row items-center gap-3 w-full text-start px-4 py-3 h-fit border-b-2 border-netral-200 text-xl font-THICCCBOI text-netral-900 hover:bg-netral-200 hover:text-gray-900" role="menuitem">
+                                                <div class="ph ph-check-circle text-2xl"></div>Ubah
+                                            </button>
+                                            <button data-value="Kategori 3" class="flex flex-row items-center gap-3 w-full text-start px-4 py-3 h-fit border-b-2 border-netral-200 text-xl font-THICCCBOI text-netral-900 hover:bg-netral-200 hover:text-gray-900" role="menuitem">
+                                                <div class="ph ph-check-circle text-2xl"></div>Ubah
+                                            </button>
+                                        </div>
+                                        <div class="w-full flex flex-col p-4 gap-4">
+                                            <button class="close-button block w-full text-center px-4 py-3 text-xl font-THICCCBOI bg-primary-100 rounded-full text-netral-900 hover:bg-primary-200 hover:text-netral-900" role="menuitem">Batalkan</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="self-stretch h-fit flex-col justify-start items-start flex">
                         <div class="justify-start items-start inline-flex">
                             <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Email
                             </div>
                         </div>
-                        <input type="email" name="nama-kabinet" placeholder="Cth: 20240090@polimedia.ac.id" id=""
+                        <input type="email" name="email" placeholder="Cth: blabla@email.com" id="" 
                             class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                     </div>
                     <div class="self-stretch h-fit flex-col justify-start items-start flex">
                         <div class="justify-start items-start inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Program Pendidikan
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Password
                             </div>
                         </div>
-                        <input type="text" name="nama-kabinet" placeholder="Cth: Teknologi Rekayasa Multimedia" id=""
+                        <input type="password" name="password" placeholder="Masukkan password akunmu" id="" 
                             class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                     </div>
-                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
-                        <div class="justify-start items-start inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Angkatan
+                    <div class="self-stretch justify-start items-start gap-4 inline-flex flex-col">
+                        <div  id="toggle-button" class="w-full h-fit flex-col justify-start items-center inline-flex relative">
+                            <div class="w-full justify-start items-start inline-flex">
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Status</div>
+                            </div>
+                            <div class="relative flex flex-row items-center w-full cursor-pointer">
+                                <div id="toggle-text" class="w-full bg-white focus:outline-none focus:font-semibold font-semibold text-netral-800 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">Tidak Aktif</div>
+                            </div>
+                            <div id="toggle-icon" class="absolute right-0 items-center justify-center flex h-full">
+                                <i id="toggle-icon-inner" class="text-32 ph ph-toggle-left cursor-pointer"></i>
                             </div>
                         </div>
-                        <input type="number" name="nama-kabinet" placeholder="Cth: 2020" id=""
-                            class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                     </div>
-                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
-                        <div class="justify-start items-start inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Kata Sandi
-                            </div>
-                        </div>
-                        <input type="" name="nama-kabinet" placeholder="Default : KOMIS1Pol!Medi4" id=""
-                            class="w-full py-3 bg-netral-200  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-100 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-100 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                    </div>
-                    <div class="w-full h-fit px-4 py-3 bg-gray-200 rounded-xl justify-start items-center gap-4 inline-flex">
-                        <i class="text-2xl ph-fill ph-info"></i>
-                        <div class="grow shrink basis-0"><div class="text-neutral-950 text-lg font-normal font-THICCCBOI leading-7">Kata sandi bawaan sistem adalah K0M1S!PoliMedia. Setelah membuat akun ini, silahkan beritahu pengguna akun untuk masuk dengan akun ini dan wajib untuk segera mengganti katasandi bawaan dengan katasandi yang unik & aman dari pengguna akun.</div></div>
-                    </div>
-                    <div id="toggle-button" class="w-full h-fit flex-col justify-start items-center inline-flex relative">
-                        <div class="w-full justify-start items-start inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Status Akun</div>
-                        </div>
-                        <div class="relative flex flex-row items-center w-full cursor-pointer">
-                            <div id="toggle-text" class="w-full bg-white focus:outline-none focus:font-semibold font-semibold text-netral-800 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">Aktif</div>
-                        </div>
-                        <div id="toggle-icon" class="absolute right-0 items-center justify-center flex h-full">
-                            <i id="toggle-icon-inner" class="text-32 ph-fill ph-toggle-right cursor-pointer"></i>
-                        </div>
-                    </div>
+                    <script>
+                       
+                    </script>
                 </div>
             </div>
 
 
             {{-- 3 --}}
-            <div class="h-fit w-full  justify-start items-start gap-4 flex">
+            <div class="h-fit w-full justify-start items-start gap-4 flex">
                 {{-- <button onclick="previousStep()" class="w-fit h-fit px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 flex">
                         <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Sebelumnya</div>
                     </button> --}}

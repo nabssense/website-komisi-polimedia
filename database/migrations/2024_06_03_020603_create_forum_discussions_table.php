@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('forum_discussions', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('account_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
             $table->string('title');
             $table->string('slug');
-            $table->string('questions_preview');
-            $table->text('questions');
+            $table->string('question_preview');
+            $table->text('question');
             $table->datetimes();
             $table->softDeletes();
         });

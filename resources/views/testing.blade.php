@@ -7,7 +7,7 @@
                 <div 
                     class="w-full h-fit p-8 bg-white rounded-3xl shadow-card flex-col justify-start items-start gap-5 flex">
                     <div class="w-full h-fit justify-start items-center flex flex-row gap-4">
-                        <a href="/masuk-akun"><i class="text-32 text-neutral-900 ph-bold ph-arrow-left"></i></a>
+                        <a href="/masuk-akun"><i class="text-32 text-neutral-900 ph ph-arrow-left"></i></a>
                         <div class="self-stretch  text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
                         Daftar Akun</div>
                     </div>
