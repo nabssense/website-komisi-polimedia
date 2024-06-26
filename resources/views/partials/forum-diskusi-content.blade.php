@@ -1,8 +1,8 @@
 <div
     class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-16 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
     {{-- Button Fix --}}
-    <button onclick="pageForumDiskusiAjukanPertanyaan()"
-        class="{{ $active === 'Beranda' ? 'hidden' : '' }} btn-primary w-fit fixed bottom-18 right-2 z-50 lg:hidden drop-shadow-2xl">
+    <button 
+        class=" btn-primary w-fit fixed bottom-18 right-2 z-50 lg:hidden drop-shadow-2xl">
         <i class="ph ph-plus"></i>
         <div class="before:content-['Pertanyaan'] md:before:content-['Ajukan_Pertanyaan']"></div>
     </button>

@@ -34,173 +34,234 @@
             </div>
         </div>
         {{-- Main Content --}}
-        <div class="w-full h-fullrounded-4xl self-stretch flex-col justify-start items-start gap-8 flex">
-            {{-- Main Content --}}
-            <div class="w-full h-full flex-col justify-start items-start gap-4 flex">
-                <div class="text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Data Anggota</div>
-                <div
-                    class="w-full h-full overflow-scroll  overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y flex-col justify-start items-start gap-4 flex">
-                    <div class="self-stretch h-fit flex-col justify-center items-center gap-2 flex">
-                        <div class="w-full h-fit justify-between items-center inline-flex">
-                            <div class="grow shrink basis-0 text-netral-900 text-base font-normal font-THICCCBOI leading-7">
-                                Tipe Mahasiswa</div>
-                            <i class="ph-fill ph-info text-2xl"></i>
-                        </div>
-                        <div class="w-full flex flex-row gap-2 bg-netral-100">
-                            <button class="radio-btn w-full p-4 has-[:checked]:bg-netral-900 has-[:checked]:text-netral-100  bg-neutral-100 border-2 flex-col border-neutral-900 flex items-center rounded-lg gap-1 Heading4">
-                                <i class="ph-fill ph-student text-5xl"></i>
-                                <input type="radio" name="mahasiswa" class="appearance-none" checked  />
-                                Mahasiswa Aktif
-                            </button>
-                            <button class="radio-btn w-full p-4 has-[:checked]:bg-netral-900 has-[:checked]:text-netral-100 bg-neutral-100 border-2 flex-col border-neutral-900 flex items-center rounded-lg gap-1 Heading4">
-                                <i class="ph-fill ph-user text-5xl"></i>
-                                <input type="radio" name="mahasiswa" class="appearance-none" />
-                                Mahasiswa Baru
-                            </button>
-                        </div>
-                        
-                        <div id="nama-divisi" class="self-stretch h-fit flex flex-row gap-4 justify-center items-center">
-                            <div class="w-full h-fit flex-col justify-start items-start flex">
-                                <div class="justify-start items-start gap-2.5 inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                        Nama Divisi
-                                    </div>
-                                </div>
-                                <input id="divisi" type="text" name="nama-kabinet" value=""
-                                    placeholder="Masukkan Nama Lengkap"
-                                    class="select-divisi w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-neutral-800 text-neutral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-neutral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+        <div
+            class="w-full h-full bg-netral-100 rounded-4xl self-stretch flex-col justify-start items-start gap-8 inline-flex">
+            {{-- 1 --}}
+            <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
+                <button onclick="goBack()" class="ph ph-x text-32"></button>
+                <div class="w-80 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Kabinet</div>
+            </div>
+            {{-- 2 --}}
+            <div
+                class="w-full h-full overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y grow shrink basis-0justify-start items-start gap-8 flex flex-row flex-1">
+                <div class="grow shrink basis-0 self-stretch flex-col justify-start items-start gap-4 inline-flex">
+                    <div class="flex-col justify-start items-start gap-1 flex">
+                        <div class="justify-start items-start inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Logo Kabinet
+                                Horizontal
                             </div>
                         </div>
-                    
-                        <div id="foto-kabinet" class="self-stretch h-fit flex-col justify-start items-start gap-1 hidden">
+                        <div class="self-stretch justify-start items-start gap-1 inline-flex">
+                            <div
+                                class="w-96 h-36 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
+                                <input class="w-full h-full bg-red-300 z-10 opacity-0 absolute cursor-pointer rounded-2xl"
+                                    type="file" name="">
+                                <img class="w-full h-full bg-red-300 z-0 opacity-0 absolute cursor-pointer rounded-2xl"
+                                    type="file" name="">
+                                <a href="/kelola-website" class="ph ph-plus text-7xl"></a>
+                                <label for="fileinput"
+                                    class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pilih
+                                    Gambar</label>
+                            </div>
+                            <div class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
+                                <div
+                                    class="grow shrink basis-0 text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                    Masukkan logo dengan ukuran horizontal dan dengan format svg</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                        <div class="justify-start items-start gap-2.5 inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Nama Kabinet
+                            </div>
+                        </div>
+                        <input type="text" name="nama-kabinet" placeholder="Cth: KOBRA"
+                            class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                    </div>
+                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                        <div class="justify-start items-start gap-2.5 inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Angkatan Ke
+                            </div>
+                        </div>
+                        <input type="number" name="nama-kabinet" placeholder="Cth: 9"
+                            class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                    </div>
+                    <div class="self-stretch justify-start items-start gap-4 inline-flex">
+                        <div class="grow shrink basis-0 h-fit flex-col justify-start items-start inline-flex">
+                            <div class="justify-start items-start gap-2.5 inline-flex">
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Periode
+                                    Tahun Awal</div>
+                            </div>
+                            <input type="number" name="nama-kabinet" placeholder="Cth : 2021"
+                                class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                        </div>
+                        <div class="grow shrink basis-0 h-fit flex-col justify-start items-start inline-flex">
+                            <div class="justify-start items-start gap-2.5 inline-flex">
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Tahun Akhir
+                                </div>
+                            </div>
+                            <input type="number" name="nama-kabinet" placeholder="Cth : 2022"
+                                class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                        </div>
+                    </div>
+                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                        <div class="justify-start items-start gap-2.5 inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Deskripsi
+                                Singkat/Kepanjangan Kabinet</div>
+                        </div>
+                        <input
+                            class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7"
+                            type="text" name="nama-kabinet"
+                            placeholder="Cth : Kolaboratif, Optimisi, Berani, Rajin, & Akrab">
+                    </div>
+                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                        <div class="justify-start items-start gap-2.5 inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Visi Singkat
+                            </div>
+                        </div>
+                        <input
+                            class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7"
+                            type="text" name="nama-kabinet"
+                            placeholder="Cth : Kolaboratif, Optimisi, Berani, Rajin, & Akrab">
+                    </div>
+                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                        <div class="justify-start items-start gap-2.5 inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Misi Singkat
+                            </div>
+                        </div>
+                        <input
+                            class="w-full py-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7"
+                            type="text" name="nama-kabinet"
+                            placeholder="Cth : Kolaboratif, Optimisi, Berani, Rajin, & Akrab">
+                    </div>
+                </div>
+                {{-- section 2 --}}
+                <div class="grow shrink basis-0 self-stretch flex-col justify-start items-start gap-4 inline-flex">
+                    <div class="flex-col justify-start items-start gap-1 flex">
+                        <div class="justify-start items-start inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Logo Gram
+                                Kabinet | 1:1
+                            </div>
+                        </div>
+                        <div class="self-stretch justify-start items-start gap-1 inline-flex">
+                            <div
+                                class="h-36 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
+                                <input class="w-full h-full bg-red-300 z-10 opacity-0 absolute cursor-pointer rounded-2xl"
+                                    type="file" name="">
+                                <img class="w-full h-full bg-red-300 z-0 opacity-0 absolute cursor-pointer rounded-2xl"
+                                    type="file" name="">
+                                <a href="/kelola-website" class="ph ph-plus text-7xl"></a>
+                                <label for="fileinput"
+                                    class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pilih
+                                    Gambar</label>
+                            </div>
+                            <div class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
+                                <div
+                                    class="grow shrink basis-0 text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                    Masukkan logo berukuran kotak 1:1 dan dengan format svg</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="self-stretch h-fit flex-col justify-start items-start gap-1 flex">
+                        <div class="justify-start items-start inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Foto Full Tim
+                            </div>
+                        </div>
+                        <div
+                            class="w-full h-72 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
+                            <input class="w-full h-full bg-red-300 z-10 opacity-0 absolute cursor-pointer rounded-2xl"
+                                type="file" name="">
+                            <img class="w-full h-full bg-red-300 z-0 opacity-0 absolute cursor-pointer rounded-2xl"
+                                type="file" name="">
+                            <a href="/kelola-website" class="ph ph-plus text-7xl"></a>
+                            <label for="fileinput"
+                                class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pilih Gambar</label>
+                        </div>
+                    </div>
+                    <div class="self-stretch justify-start items-start gap-2 inline-flex">
+                        <div class="grow shrink basis-0 self-stretch flex-col justify-start items-start gap-1 inline-flex">
                             <div class="justify-start items-start inline-flex">
-                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                    Foto Kabinet Anggota
-                                </div>
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Foto Tim
+                                    Cowo</div>
                             </div>
-                            <div class="self-stretch justify-start items-start gap-1 inline-flex">
-                                <div class="h-44 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
-                                    <input id="img" class="w-full h-full bg-red-300 z-10 opacity-0 absolute cursor-pointer rounded-2xl"
-                                        type="file" name="">
-                                    <img class="w-full h-full bg-red-300 z-0 opacity-0 absolute cursor-pointer rounded-2xl"
-                                        type="file" name="">
-                                    <a href="/kelola-website" class="ph ph-plus text-7xl"></a>
-                                    <label for="fileinput" class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pilih Gambar</label>
-                                </div>
-                                <div class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
-                                    <div class="grow shrink basis-0 text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                        Masukkan foto kabinet anggota dengan latar belakang transparan dan format png
-                                    </div>
-                                </div>
+                            <div
+                                class="w-full h-48 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
+                                <input class="w-full h-full bg-red-300 z-10 opacity-0 absolute cursor-pointer rounded-2xl"
+                                    type="file" name="">
+                                <img class="w-full h-full bg-red-300 z-0 opacity-0 absolute cursor-pointer rounded-2xl"
+                                    type="file" name="">
+                                <a href="/kelola-website" class="ph ph-plus text-7xl"></a>
+                                <label for="fileinput"
+                                    class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pilih
+                                    Gambar</label>
                             </div>
                         </div>
-                    
-                        <script>
-                            document.addEventListener('DOMContentLoaded', () => {
-                                document.querySelectorAll('.radio-btn').forEach(button => {
-                                    button.addEventListener('click', () => {
-                                        button.querySelector('input[type="radio"]').checked = true;
-                                        
-                    
-                                        const isActive = button.textContent.includes('Mahasiswa Aktif');
-                                        const namaDivisi = document.getElementById('nama-divisi');
-                                        const fotoKabinet = document.getElementById('foto-kabinet');
-                                        
-                                        namaDivisi.classList.toggle('hidden', !isActive);
-                                        fotoKabinet.classList.toggle('hidden', isActive);
-                    
-                                        // Clear input values when hiding the element
-                                        if (isActive) {
-                                            fotoKabinet.value = '';
-                                        } else {
-                                            namaDivisi.value = '';
-                                        }
-                                    });
-                                });
-                    
-                                // Trigger click event on the checked radio button to ensure correct display
-                                document.querySelector('input[type="radio"]:checked').closest('.radio-btn').click();
-                            });
-                        </script>
-
-                        <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                            <div class="w-full h-fit flex-col justify-start items-start flex">
-                                <div class="justify-start items-start gap-2.5 inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                        Nama
-                                    </div>
-                                </div>
-                                <input id="fullname-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet"
-                                    placeholder="Masukkan Nama Lengkap"
-                                    class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                        <div class="grow shrink basis-0 flex-col justify-start items-start gap-1 inline-flex">
+                            <div class="justify-start items-start inline-flex">
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Foto Tim
+                                    Cewe</div>
                             </div>
-                        </div>
-                        <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                            <div class="w-full h-fit flex-col justify-start items-start flex">
-                                <div class="justify-start items-start gap-2.5 inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">NIM
-                                    </div>
-                                </div>
-                                <input id="nim-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet"
-                                    placeholder="Masukkan NIM"
-                                    class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                            </div>
-                        </div>
-                        <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                            <div class="w-full h-fit flex-col justify-start items-start flex">
-                                <div class="justify-start items-start gap-2.5 inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                        Program Pendidikan
-                                    </div>
-                                </div>
-                                <input id="prodi-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet"
-                                    placeholder="Masukkan Program Pendidikan"
-                                    class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                            </div>
-                        </div>
-                        <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                            <div class="w-full h-fit flex-col justify-start items-start flex">
-                                <div class="justify-start items-start gap-2.5 inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                        Angkatan
-                                    </div>
-                                </div>
-                                <input id="angkatan-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet"
-                                    placeholder="Cth : 2020"
-                                    class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                            </div>
-                        </div>
-                        <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                            <div class="w-full h-fit flex-col justify-start items-start flex">
-                                <div class="justify-start items-start gap-2.5 inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                        Kata Sandi
-                                    </div>
-                                </div>
-                                <input id="password-${datainputId}-${idInsideForm}" type="password" name="nama-kabinet"
-                                    placeholder="Katasandi adalah KOM1S1PoliMedia"
-                                    class="w-full py-3 pointer-events-none bg-netral-300 focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-100 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                            <div
+                                class="w-full h-48 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
+                                <input class="w-full h-full bg-red-300 z-10 opacity-0 absolute cursor-pointer rounded-2xl"
+                                    type="file" name="">
+                                <img class="w-full h-full bg-red-300 z-0 opacity-0 absolute cursor-pointer rounded-2xl"
+                                    type="file" name="">
+                                <a href="/kelola-website" class="ph ph-plus text-7xl"></a>
+                                <label for="fileinput"
+                                    class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pilih
+                                    Gambar</label>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
-                    <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
+                    <div class="self-stretch justify-start items-start gap-4 inline-flex">
+                        <div class="w-full h-fit flex-col justify-start items-start flex">
+                            <div class="w-full justify-start items-center gap-2 inline-flex">
+                                <div class="w-full text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                    Warna Utama Kabinet
+                                </div>
+                                <i class="ph-fill ph-info text-base"></i>
+                            </div>
+                            <input type="color" name="nama-kabinet" placeholder="Cth : FFFFFF"
+                                class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                        </div>
+                        <div class="w-full h-fit flex-col justify-start items-start flex">
+                            <div class="w-full justify-start items-center gap-2 inline-flex">
+                                <div class="w-full text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                    Warna Kedua Kabinet
+                                </div>
+                                <i class="ph-fill ph-info text-base"></i>
+                            </div>
+                            <input type="color" name="nama-kabinet" placeholder="Cth : FFFFFF"
+                                class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                        </div>
+                        <div class="w-full h-fit flex-col justify-start items-start flex">
+                            <div class="w-full justify-start items-center gap-2 inline-flex">
+                                <div class="w-full text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                    Warna Ketiga Kabinet
+                                </div>
+                                <i class="ph-fill ph-info text-base"></i>
+                            </div>
+                            <input type="color" name="nama-kabinet" placeholder="Cth : FFFFFF"
+                                class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                        </div>
                     </div>
+
                 </div>
-                {{--  --}}
-                <div class="w-full h-full rounded-4xl hidden self-stretch flex-col justify-start items-start gap-8 ">
+            </div>
 
 
-                    {{-- 3 --}}
-                    <div class="h-fit w-full pt-4 border-t-2 border-netral-800 justify-start items-start gap-4 flex">
-                        {{-- <button onclick="previousStep()" class="w-fit h-fit px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 flex">
-                        <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Sebelumnya</div>
-                    </button> --}}
-                        <button onclick="nextStep()" class="btn-primary w-full">Selanjutnya
-                        </button>
-                    </div>
-                </div>
+            {{-- 3 --}}
+            <div class="h-fit w-full pt-4 border-t-2 border-netral-800 justify-start items-start gap-4 flex">
+                {{-- <button onclick="previousStep()" class="w-fit h-fit px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 flex">
+                    <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Sebelumnya</div>
+                </button> --}}
+                <button onclick="nextStep()" class="btn-primary w-full">Selanjutnya
+                </button>
+            </div>
+
+        </div>
     </section>
     {{-- STEP 2 --}}
     <section class="w-full h-screen step hidden p-8 bg-netral-100 shadow justify-start items-start gap-12 "
@@ -353,7 +414,7 @@
                 </div>
             </div>
 
-
+            
 
             {{-- 3 --}}
             <div class="h-fit w-full pt-4 border-t-2 border-netral-800 justify-start items-start gap-4 flex">
@@ -595,7 +656,7 @@
                 'flex-col', 'justify-start', 'items-start', 'gap-8', 'inline-flex', 'overflow-scroll',
                 'overflow-x-hidden', 'scrollbar-hidden-vertikal', 'touch-pan-y');
             form2.innerHTML = `
-        <div class="w-full h-full bg-white flex-col justify-start items-start gap-8 inline-flex overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y">
+             <div class="w-full h-full bg-white flex-col justify-start items-start gap-8 inline-flex overflow-scroll overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y">
                 <div id="list-button-jabatan" class="self-stretch h-full flex-col justify-start items-start gap-4 flex">
                     <div class="text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Pilih Jabatan
                     </div>
@@ -718,129 +779,285 @@
             formAnggota.classList.add('w-full', 'h-full', 'hidden', 'w-basis-6/12', 'h-self-stretch', 'bg-netral-100',
                 'flex-col', 'justify-start', 'items-start', 'gap-8', 'inline-flex');
             formAnggota.innerHTML = `
-        <div class="w-full h-full flex-col justify-start items-start gap-4 flex">
-            <div class="text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Data Anggota</div>
-            <div
-                class="w-full h-full overflow-scroll  overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y flex-col justify-start items-start gap-4 flex">
-                <div class="self-stretch h-fit flex-col justify-center items-center gap-2 flex">
-                    <div class="w-full h-fit justify-between items-center inline-flex">
-                        <div
-                            class="grow shrink basis-0 text-netral-900 text-base font-normal font-THICCCBOI leading-7">
-                            Tipe Mahasiswa</div>
-                        <i class="ph-fill ph-info text-2xl"></i>
-                    </div>
-                    <div id="pilih-tipe-mahasiswa" class="w-full h-full border-2 rounded-2xl border-netral-900 justify-center items-center inline-flex">
-                        <input id="mahasiswaAktif-${datainputId}-${idInsideForm}" type="radio" name="jenisMahasiswa" class="">
-                        <label for="mahasiswaAktif" class="grow shrink basis-0 px-8 py-2 bg-white flex-col justify-center items-center inline-flex cursor-pointer">
-                            <i class="ph-fill ph-student text-netral-800 text-32"></i>
-                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
-                                Mahasiswa Aktif</div>
-                        </label>
-                        <input id="mahasiswaBaru-${datainputId}-${idInsideForm}" type="radio" name="jenisMahasiswa" class="">
-                        <label for="mahasiswaBaru" class="grow shrink basis-0 px-8 py-2 bg-netral-900 flex-col justify-center items-center inline-flex cursor-pointer">
-                            <i class="ph ph-user text-netral-100 text-32"></i>
-                            <div class="text-white text-lg font-semibold font-THICCCBOI leading-7">
-                                Mahasiswa Baru</div>
-                        </label>
-                    </div>
-                    <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                        <div class="w-full h-fit flex-col justify-start items-start flex">
-                            <div class="justify-start items-start gap-2.5 inline-flex">
-                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                    Nama Divisi
+            {{-- Main Content --}}
+            <div class="w-full h-full flex-col justify-start items-start gap-4 flex">
+                <div class="text-netral-900 text-2xl font-semibold font-THICCCBOI leading-9">Data Anggota</div>
+                <div
+                    class="w-full h-full overflow-scroll  overflow-x-hidden scrollbar-hidden-vertikal touch-pan-y flex-col justify-start items-start gap-4 flex">
+                    <div class="self-stretch h-fit flex-col justify-center items-center gap-2 flex">
+                        <div class="w-full h-fit justify-between items-center inline-flex">
+                            <div class="grow shrink basis-0 text-netral-900 text-base font-normal font-THICCCBOI leading-7">
+                                Tipe Mahasiswa</div>
+                            <i class="ph-fill ph-info text-2xl"></i>
+                        </div>
+                        <div class="w-full flex flex-row gap-2 bg-netral-100">
+                            <button class="radio-btn w-full p-4 has-[:checked]:bg-netral-900 has-[:checked]:text-netral-100  bg-neutral-100 border-2 flex-col border-neutral-900 flex items-center rounded-lg gap-1 Heading4">
+                                <i class="ph-fill ph-student text-5xl"></i>
+                                <input type="radio" name="mahasiswa" class="appearance-none" checked  />
+                                Mahasiswa Aktif
+                            </button>
+                            <button class="radio-btn w-full p-4 has-[:checked]:bg-netral-900 has-[:checked]:text-netral-100 bg-neutral-100 border-2 flex-col border-neutral-900 flex items-center rounded-lg gap-1 Heading4">
+                                <i class="ph-fill ph-user text-5xl"></i>
+                                <input type="radio" name="mahasiswa" class="appearance-none" />
+                                Mahasiswa Baru
+                            </button>
+                        </div>
+                        {{-- Content Mahasiswa Aktif --}}
+                        <div id="content-mahasiswa-aktif" class="w-full h-full flex-col flex gap-4">
+                            <div id="nama-divisi" class="w-full h-fit flex flex-row gap-4 justify-center items-center">
+                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                    <div class="justify-start items-start gap-2.5 inline-flex">
+                                        <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                            Nama Divisi
+                                        </div>
+                                    </div>
+                                    <input disabled id="divisi-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet" value=""
+                                        placeholder="Masukkan Nama Divisi"
+                                        class="select-divisi w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-neutral-800 text-neutral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-neutral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                 </div>
                             </div>
-                            <input id="divisi-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet" value="${namaDivisiValues}" placeholder="Masukkan Nama Lengkap"
-                                class="select-divisi w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                            <div id="pilih-divisi" class="w-full h-fit flex flex-row gap-4 justify-center items-center">
+                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                    <div class="justify-start items-start gap-2.5 inline-flex text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                        Pilih Mahasiswa 
+                                    </div>
+                                    <div class="w-full flex gap-4 relative">
+                                        <input id="student-input" type="text" readonly placeholder="Pilih Mahasiswa" class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-neutral-800 text-neutral-800 border-b border-neutral-900 placeholder:text-neutral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7 mb-4 cursor-pointer" onclick="toggleOptions('options')">
+                                        <i class="ph ph-caret-down text-32 absolute right-0 bottom-1/2"></i>
+                                    </div>
+                                    <div id="options" class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                        <div class="close-button-bg w-screen h-screen relative justify-center items-center flex">
+                                            <div class="flex flex-col bg-netral-100 rounded-xl w-480 h-fit justify-center items-center overflow-clip gap-4 p-4" role="none">
+                                                <input type="text" placeholder="Cari Student" class="searchbar" onkeyup="filterOptions('options', this)">
+                                                <div id="student-list" class="w-full flex flex-col gap-2">
+                                                    <button class="w-full flex flex-row cursor-pointer has-[input:checked]:bg-primary-100 has-[input:checked]:text-primary-base has-[input:checked]:border-primary-base p-2 gap-2 border rounded-2xl items-center justify-start" onclick="updateInput('student-input', this)">
+                                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
+                                                        <div class="w-full flex flex-col justify-center items-center">
+                                                            <div id="name" class="w-full text-netral-900 flex">Nama Mahasiswa 1</div>
+                                                            <div class="w-full flex Body2 text-netral-500">20240090</div>
+                                                        </div>
+                                                        <i class="ph ph-radio-button text-32"></i>
+                                                        <input type="radio" name="student" value="Nama Mahasiswa 1" class="checked:border-primary-base hidden">
+                                                    </button>
+                                                    <button class="w-full flex flex-row cursor-pointer has-[input:checked]:bg-primary-100 has-[input:checked]:text-primary-base has-[input:checked]:border-primary-base p-2 gap-2 border rounded-2xl items-center justify-start" onclick="updateInput('student-input', this)">
+                                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
+                                                        <div class="w-full flex flex-col justify-center items-center">
+                                                            <div id="name" class="w-full text-netral-900 flex">Nama Mahasiswa 2</div>
+                                                            <div class="w-full flex Body2 text-netral-500">20240090</div>
+                                                        </div>
+                                                        <i class="ph ph-radio-button text-32"></i>
+                                                        <input type="radio" name="student" value="Nama Mahasiswa 2" class="checked:border-primary-base hidden">
+                                                    </button>
+                                                    <button class="w-full flex flex-row cursor-pointer has-[input:checked]:bg-primary-100 has-[input:checked]:text-primary-base has-[input:checked]:border-primary-base p-2 gap-2 border rounded-2xl items-center justify-start" onclick="updateInput('student-input', this)">
+                                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
+                                                        <div class="w-full flex flex-col justify-center items-center">
+                                                            <div id="name" class="w-full text-netral-900 flex">Nama Mahasiswa 3</div>
+                                                            <div class="w-full flex Body2 text-netral-500">20240090</div>
+                                                        </div>
+                                                        <i class="ph ph-radio-button text-32"></i>
+                                                        <input type="radio" name="student" value="Nama Mahasiswa 3" class="checked:border-primary-base hidden">
+                                                    </button>
+                                                    <button class="w-full flex flex-row cursor-pointer has-[input:checked]:bg-primary-100 has-[input:checked]:text-primary-base has-[input:checked]:border-primary-base p-2 gap-2 border rounded-2xl items-center justify-start" onclick="updateInput('student-input', this)">
+                                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
+                                                        <div class="w-full flex flex-col justify-center items-center">
+                                                            <div id="name" class="w-full text-netral-900 flex">Nama Mahasiswa 4</div>
+                                                            <div class="w-full flex Body2 text-netral-500">20240090</div>
+                                                        </div>
+                                                        <i class="ph ph-radio-button text-32"></i>
+                                                        <input type="radio" name="student" value="Nama Mahasiswa 4" class="checked:border-primary-base hidden">
+                                                    </button>
+                                                </div>
+                                                {{-- Button CTA --}}
+                                                <div class="w-full flex flex-col gap-4">
+                                                    <button type="button" onclick="toggleOptions('options')" class="close-button block w-full text-center px-4 py-3 text-xl font-THICCCBOI bg-primary-100 rounded-full text-netral-900 hover:bg-primary-200 hover:text-netral-900" role="menuitem">Batalkan</button>
+                                                    <button type="submit" href="#" class="block w-full text-center px-4 py-3 bg-primary-base rounded-full text-xl font-THICCCBOI text-netral-100 hover:bg-primary-500" role="menuitem">Simpan</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <script>
+                                  function toggleOptions(optionsId) {
+                                        const options = document.getElementById(optionsId);
+                                        options.classList.toggle('hidden');
+                                        options.classList.toggle('flex'); // Ensure it toggles flex class appropriately
+                                    }
+
+                                    function updateInput(inputId, label) {
+                                        const input = document.getElementById(inputId);
+                                        input.value = label.querySelector('#name').innerText;
+
+                                        const radioInput = label.querySelector('input[type="radio"]');
+                                        radioInput.checked = true; // Set the radio button to checked
+
+                                        // Remove the fill class from all icons
+                                        const allIcons = document.querySelectorAll('#options i');
+                                        allIcons.forEach(icon => icon.classList.remove('ph-fill'));
+
+                                        // Add the fill class to the selected icon
+                                        const selectedIcon = label.querySelector('i');
+                                        selectedIcon.classList.add('ph-fill');
+
+                                        toggleOptions('options'); // Hide options after selection
+                                    }
+
+                                    function filterOptions(optionsId, searchInput) {
+                                        const filter = searchInput.value.toLowerCase();
+                                        const optionsContainer = document.getElementById(optionsId);
+                                        const studentList = optionsContainer.querySelector('#student-list');
+                                        const labels = studentList.getElementsByTagName('button');
+
+                                        Array.from(labels).forEach(label => {
+                                            const text = label.innerText.toLowerCase();
+                                            if (text.includes(filter)) {
+                                                label.style.display = '';
+                                            } else {
+                                                label.style.display = 'none';
+                                            }
+                                        });
+                                    }
+
+                                    // Close options if background outside options is clicked
+                                    document.querySelector('.close-button-bg').addEventListener('click', function(event) {
+                                        if (event.target === this) {
+                                            toggleOptions('options');
+                                        }
+                                    });
+                            </script>
                         </div>
+                        {{-- Content MABA Mahasiswa Baru --}}
+                        <div id="content-mahasiswa-baru" class="w-full h-full flex-col flex gap-4">
+                            <div id="nama-divisi" class="w-full h-fit flex flex-row gap-4 justify-center items-center">
+                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                    <div class="justify-start items-start gap-2.5 inline-flex">
+                                        <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                            Nama Divisi
+                                        </div>
+                                    </div>
+                                    <input disabled id="divisi-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet" value=""
+                                        placeholder="Masukkan Nama Divisi"
+                                        class="select-divisi w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-neutral-800 text-neutral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-neutral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                </div>
+                            </div>
+                            <div id="pilih-mahasiswa" class="w-full h-fit flex flex-col justify-start items-start gap-1">
+                                <div class="justify-start items-start inline-flex">
+                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                        Foto Kabinet Anggota
+                                    </div>
+                                </div>
+                                <div class="self-stretch justify-start items-start gap-1 inline-flex">
+                                    <div class="h-fit bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
+                                        <input id="img" class="w-full h-full bg-red-300 z-10 opacity-0 absolute cursor-pointer rounded-2xl"
+                                            type="file" name="">
+                                        <img class="w-full h-full bg-red-300 z-0 opacity-0 absolute cursor-pointer rounded-2xl"
+                                            type="file" name="">
+                                        <a href="/kelola-website" class="ph ph-plus text-7xl"></a>
+                                        <label for="fileinput" class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pilih Gambar</label>
+                                    </div>
+                                    <div class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
+                                        <div class="grow shrink basis-0 text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                            Masukkan foto kabinet anggota dengan latar belakang transparan dan format png
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full h-fit flex flex-row gap-4 justify-center items-center ">
+                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                    <div class="justify-start items-start gap-2.5 inline-flex">
+                                        <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                            Nama
+                                        </div>
+                                    </div>
+                                    <input id="fullname-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet"
+                                        placeholder="Masukkan Nama Lengkap"
+                                        class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                </div>
+                            </div>
+                            <div class="w-full h-fit flex flex-row gap-4 justify-center items-center ">
+                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                    <div class="justify-start items-start gap-2.5 inline-flex">
+                                        <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">NIM
+                                        </div>
+                                    </div>
+                                    <input id="nim-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet"
+                                        placeholder="Masukkan NIM"
+                                        class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                </div>
+                            </div>
+                            <div class="w-full h-fit flex flex-row gap-4 justify-center items-center ">
+                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                    <div class="justify-start items-start gap-2.5 inline-flex">
+                                        <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                            Program Pendidikan
+                                        </div>
+                                    </div>
+                                    <input id="prodi-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet"
+                                        placeholder="Masukkan Program Pendidikan"
+                                        class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                </div>
+                            </div>
+                            <div class="w-full h-fit flex flex-row gap-4 justify-center items-center ">
+                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                    <div class="justify-start items-start gap-2.5 inline-flex">
+                                        <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                            Angkatan
+                                        </div>
+                                    </div>
+                                    <input id="angkatan-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet"
+                                        placeholder="Cth : 2020"
+                                        class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                </div>
+                            </div>
+                            <div class="w-full h-fit flex flex-row gap-4 justify-center items-center ">
+                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                    <div class="justify-start items-start gap-2.5 inline-flex">
+                                        <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
+                                            Kata Sandi
+                                        </div>
+                                    </div>
+                                    <input id="password-${datainputId}-${idInsideForm}" type="password" name="nama-kabinet"
+                                        placeholder="Katasandi adalah KOM1S1PoliMedia"
+                                        class="w-full py-3 pointer-events-none bg-netral-300 focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-100 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                </div>
+                            </div>
+                        </div>
+                        {{-- Fungsi Radio Mahasiswa Aktif & Baru --}}
+                        <script>
+                            document.addEventListener('DOMContentLoaded', () => {
+                                document.querySelectorAll('.radio-btn').forEach(button => {
+                                    button.addEventListener('click', () => {
+                                        button.querySelector('input[type="radio"]').checked = true;
+                                        
+                    
+                                        const isActive = button.textContent.includes('Mahasiswa Aktif');
+                                        const contentMaAktif = document.getElementById('content-mahasiswa-aktif');
+                                        const contentMaBa = document.getElementById('content-mahasiswa-baru');
+                                        
+                                        contentMaAktif.classList.toggle('hidden', !isActive);
+                                        contentMaBa.classList.toggle('hidden', isActive);
+                    
+                                        // Clear input values when hiding the element
+                                        if (isActive) {
+                                            contentMaBa.value = '';
+                                        } else {
+                                            contentMaAktif.value = '';
+                                        }
+                                    });
+                                });
+                    
+                                // Trigger click event on the checked radio button to ensure correct display
+                                document.querySelector('input[type="radio"]:checked').closest('.radio-btn').click();
+                            });
+                        </script>
                     </div>
+                </div>
                 
-                <div class="self-stretch h-fit flex-col justify-start items-start gap-1 flex">
-                    <div class="justify-start items-start inline-flex">
-                        <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                            Foto Kabinet Anggota
-                        </div>
+                <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
+                    <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
                     </div>
-                    <div class="self-stretch justify-start items-start gap-1 inline-flex">
-                        <div
-                            class="h-44 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
-                            <input id="img-${datainputId}-${idInsideForm}"
-                                class="w-full h-full bg-red-300 z-10 opacity-0 absolute cursor-pointer rounded-2xl"
-                                type="file" name="" >
-                            <img class="w-full h-full bg-red-300 z-0 opacity-0 absolute cursor-pointer rounded-2xl"
-                                type="file" name="" >
-                            <a href="/kelola-website" class="ph ph-plus text-7xl"></a>
-                            <label for="fileinput"
-                                class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pilih
-                                Gambar</label>
-                        </div>
-                        <div
-                            class="grow shrink basis-0 self-stretch p-4 justify-start items-center gap-2.5 flex">
-                            <div
-                                class="grow shrink basis-0 text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                Masukkan foto kabinet anggota dengan latar belakang transparan dan format png
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                    <div class="w-full h-fit flex-col justify-start items-start flex">
-                        <div class="justify-start items-start gap-2.5 inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                Nama
-                            </div>
-                        </div>
-                        <input id="fullname-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet" placeholder="Masukkan Nama Lengkap"
-                            class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                    </div>
-                </div>
-                <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                    <div class="w-full h-fit flex-col justify-start items-start flex">
-                        <div class="justify-start items-start gap-2.5 inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">NIM
-                            </div>
-                        </div>
-                        <input id="nim-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet" placeholder="Masukkan NIM"
-                            class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                    </div>
-                </div>
-                <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                    <div class="w-full h-fit flex-col justify-start items-start flex">
-                        <div class="justify-start items-start gap-2.5 inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                Program Pendidikan
-                            </div>
-                        </div>
-                        <input id="prodi-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet" placeholder="Masukkan Program Pendidikan"
-                            class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                    </div>
-                </div>
-                <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                    <div class="w-full h-fit flex-col justify-start items-start flex">
-                        <div class="justify-start items-start gap-2.5 inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                Angkatan
-                            </div>
-                        </div>
-                        <input id="angkatan-${datainputId}-${idInsideForm}" type="text" name="nama-kabinet" placeholder="Cth : 2020"
-                            class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                    </div>
-                </div>
-                <div class="self-stretch h-fit flex flex-row gap-4 justify-center items-center ">
-                    <div class="w-full h-fit flex-col justify-start items-start flex">
-                        <div class="justify-start items-start gap-2.5 inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                Kata Sandi
-                            </div>
-                        </div>
-                        <input id="password-${datainputId}-${idInsideForm}"  type="password" name="nama-kabinet" placeholder="Katasandi adalah KOM1S1PoliMedia"
-                            class="w-full py-3 pointer-events-none bg-netral-300 focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-100 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
-                <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
                 </div>
             </div>
         `;
@@ -1220,7 +1437,7 @@
 
                         buttonDivisi.classList.remove('active', 'border-primary-base', 'bg-primary-100');
                         buttonDivisi.classList.add('border-netral-200',
-                        'bg-netral-100'); // Menghapus kelas untuk mengembalikan warna tombol menjadi putih
+                            'bg-netral-100'); // Menghapus kelas untuk mengembalikan warna tombol menjadi putih
                         // Menghapus tombol divisi yang sedang aktif
                         buttonJabatan.classList.remove('active', 'border-primary-base', 'bg-primary-100');
                         buttonJabatan.classList.add('border-netral-200', 'bg-netral-100');
@@ -1298,7 +1515,7 @@
                         // formAnggota.classList.remove('hidden');
                         buttonJabatan.classList.remove('border-netral-200', 'bg-netral-100');
                         buttonJabatan.classList.add('active', 'border-primary-base',
-                        'bg-primary-100'); // Menambahkan kelas untuk mengubah warna tombol menjadi merah
+                            'bg-primary-100'); // Menambahkan kelas untuk mengubah warna tombol menjadi merah
                         // Mengatur tombol divisi ini sebagai tombol divisi yang sedang aktif
                         activeButtonJabatanId = inputId;
                     } else {
@@ -1306,7 +1523,7 @@
                         // formAnggota.classList.add('hidden');
                         buttonJabatan.classList.remove('active', 'border-primary-base', 'bg-primary-100');
                         buttonJabatan.classList.add('border-netral-200',
-                        'bg-netral-100'); // Menghapus kelas untuk mengembalikan warna tombol menjadi putih
+                            'bg-netral-100'); // Menghapus kelas untuk mengembalikan warna tombol menjadi putih
                         // Menghapus tombol divisi yang sedang aktif
                         activeButtonJabatanId = null;
                     }
@@ -1489,7 +1706,7 @@
             removeButton.addEventListener('click', function(event) {
                 if (event.target.classList.contains('remove-btn')) {
                     const containerToRemove = event.target
-                    .parentNode; // Ambil container yang berisi input field dan tombol
+                        .parentNode; // Ambil container yang berisi input field dan tombol
                     removeItem(containerToRemove);
                 }
             });
@@ -1497,7 +1714,7 @@
             // Tambahkan event listener untuk ikon trashIcon
             trashIcon.addEventListener('click', function() {
                 const containerToRemove = this.parentNode
-                .parentNode; // Ambil container yang berisi input field dan tombol
+                    .parentNode; // Ambil container yang berisi input field dan tombol
                 removeItem(containerToRemove);
             });
 
@@ -1561,7 +1778,8 @@
 
             const form = createForm(addDivinputId);
             const formContainer = document.getElementById(
-            'list-form-tim'); // Ganti 'form-container' dengan ID dari elemen di mana Anda ingin menempatkan form
+                'list-form-tim'
+                ); // Ganti 'form-container' dengan ID dari elemen di mana Anda ingin menempatkan form
             formContainer.appendChild(form);
 
             const form2 = createForm2(addDivinputId);
