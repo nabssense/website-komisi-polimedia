@@ -23,10 +23,10 @@ function pageForumDiskusi() {
   window.location.href = "forum-diskusi";
 }
 function pageForumDiskusiPertanyaan() {
- location.href= "'{{ route('forum-diskusi.show', $discussion->slug) }}'"
+ location.href= "'{{ route('forum-diskusi.diskusi.kategori.show', $discussion->slug) }}'";
 }
 function pageForumDiskusiAjukanPertanyaan() {
-  window.location.href = '/forum-diskusi/create';
+  window.location.href = 'forum-diskusi/create';
 }
 
 

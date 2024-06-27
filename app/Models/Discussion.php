@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Discussion extends Model
 {
     use HasFactory;
-    
-    protected $table = 'forum_discussions';
 
     protected $fillable = [
         'user_id',
         'category_id',
         'title',
+        'image',
         'slug',
         'question_preview',
         'question',

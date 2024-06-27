@@ -157,26 +157,22 @@ Route::middleware('guest')->group(function () {
 Route::namespace('App\Http\Controllers\ForumDiscussion')->group(function(){
     Route::resource('forum-diskusi', DiscussionController::class)
     ->only(['index', 'show']);
+
+    Route::get('forum-diskusi/diskusi/kategori/{category}', 'CategoryController@show')
+    ->name('forum-diskusi.diskusi.kategori.show');
     
 });
     
 Route::namespace('App\Http\Controllers\Home')->group(function () {
+    Route::get('/', 'HomeController@index')->name('beranda.index');
     Route::get('beranda', 'HomeController@index')->name('beranda.index');
+    
 });
 
 Route::get('/testing', function () {
     return view('pages.auth.testing', [
         "title" => "Website Komisi | Testing",
         "active" => "Testing",
-    ]);
-});
-
-
-// Beranda 
-Route::get('/', function () {
-    return view('pages.beranda', [
-        "title" => "Website Komisi | Beranda",
-        "active" => "Beranda",
     ]);
 });
 

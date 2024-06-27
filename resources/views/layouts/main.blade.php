@@ -33,8 +33,10 @@
 <body id="container" class="m-0 p-0 w-full h-full opacity-0 transition-opacity duration-500 ease-in-out">
     @include('partials.alert-popup')
     @yield('container')
+    <script src="{{ asset('js/inputImage.js') }}"></script>
+    <script src="js/searchField.js"></script>
     <script src="js/animation.js"></script>
-    <script src="js/systempage.js"></script>
+    <script src="{{ asset('js/systempage.js') }}"></script>
     <script src="js/inputField.js"></script>
     <script src="js/toggleSwitch.js"></script>
     <script src="js/dropdownPopup.js"></script>

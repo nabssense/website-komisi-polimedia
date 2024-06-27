@@ -43,10 +43,13 @@ class DiscussionController extends Controller
     public function create()
     {
         //
+        
         return response()->view('pages.forum-diskusi.ajukan-pertanyaan', [
             "title" => "Website Komisi | Forum Diskusi",
             "active" => "Forum Diskusi",
             'categories' => CategoryDiscussion::all(),
+            
+                
         ]);
     }
 
@@ -56,10 +59,11 @@ class DiscussionController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        //
-        $validated = $request->validated();
-        $categoryId = CategoryDiscussion::where('slug', $validated['category_slug'])->first()->id;
+        
 
+        $validated = $request->validated();
+        
+        $categoryId = CategoryDiscussion::where('slug', $validated['category_slug'])->first()->id;
         $validated['category_id'] = $categoryId;
         $validated['user_id'] = auth()->id();
         $validated['slug'] = Str::slug($validated['title']) . '-' . time();
@@ -69,9 +73,18 @@ class DiscussionController extends Controller
         $validated['question_preview'] = $isContentLong 
             ? (substr($stripContent, 0, 120) . '...') : $stripContent;
 
-        $create = Discussion::create($validated);
+        // Handle the image upload
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('image/discussion', 'public');
+            $validated['image'] = $imagePath;
+             // Simpan path gambar sementara dalam sesi jika ada error
+        session()->put('image', $imagePath);
+        }
 
+        $create = Discussion::create($validated);
+        
         if ($create) {
+            session()->forget('image');
             session()->flash('notif.success', 'Discussion created successfully!');
             return redirect()->route('forum-diskusi.index');
         }

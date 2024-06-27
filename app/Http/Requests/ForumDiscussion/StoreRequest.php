@@ -26,7 +26,14 @@ class StoreRequest extends FormRequest
             'title' => 'required|string|max:255',
             'category_slug' => 'required|string|exists:App\Models\CategoryDiscussion,slug',
             'question' => 'required|string',
-            
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:16000',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'image.max' => 'Ukuran gambar maximal 15 MB.', // Custom message for max size
         ];
     }
 }
