@@ -6,7 +6,7 @@
         class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-16 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
         <div class="w-full max-w-1480 h-fit bg-soft-base flex-col justify-center items-center gap-4 lg:gap-8 flex ">
             <div class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 flex-col md:flex-row lg:flex ">
-                <button onclick="goBack()" class="w-fit py-2rounded-lg justify-start items-center gap-4 flex flex-row Heading2">
+                <button onclick="pageForumDiskusi()" class="w-fit py-2rounded-lg justify-start items-center gap-4 flex flex-row Heading2">
                     <i class=" ph ph-arrow-left"></i>
                     <div class=" text-neutral-900 font-semibold ">
                         Kembali</div>
@@ -227,14 +227,6 @@
     <script>
         $(document).ready(function() {
             $('#discussion-like').click(function() {
-                // dapatkan data apakah discussion ini sudah pernah dilike oleh user
-                // tentukan route like ajax, berdasarkan dengan apakah ini sudah dilike atau belum
-                // lakukan proses ajax
-                // jika ajax berhasil maka dapatkan status jsonnya
-                // jika statusnya success maka isi counter like dengan data counter like dari jsonnya
-                // lalu kita ganti icon likenya berdasarkan dengan nilai variabel point 1
-                // jika user sebelumnya sudah me-like, maka ganti icon jadi notLikedImage
-                // jika user sebelumnya belum me-like, maka ganti icon jadi likedImage
 
                 var isLiked = $(this).data('liked');
                 var likeRoute = isLiked ?

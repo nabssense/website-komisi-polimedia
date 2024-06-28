@@ -61,14 +61,18 @@
                             </div>
                         @endif
                     </div>
-                    <div class="w-full h-fit justify-start items-center gap-2 md:gap-4 inline-flex">
-                        <button id="discussion-like" type="button" data-liked="{{ $discussion->liked() }}"
-                            class="w-fit h-fit rounded-full justify-start items-center gap-2 flex flex-none Body1">
+                    {{-- Like & Comment --}}
+                    <div class="w-full h-fit justify-start items-center gap-2 md:gap-4 inline-flex"
+                        onclick="event.stopPropagation()">
+                        <button id="discussion-like-{{ $discussion->slug }}" type="button"
+                            data-discussion-slug="{{ $discussion->slug }}" data-liked="{{ $discussion->liked() }}"
+                            @guest onclick="pageMasuk()" @endguest
+                            class="like-button w-fit h-fit rounded-full justify-start items-center gap-2 flex flex-none Body1">
                             <div class="w-fit flex flex-none items-center gap-1">
                                 <i class="text-32 lg:text-4xl text-love-base ph-heart {{ $discussion->liked() ? 'ph-fill' : 'ph' }}"
-                                    alt="Like" id="discussion-like-icon"></i>
+                                    alt="Like" id="discussion-like-icon-{{ $discussion->slug }}"></i>
                             </div>
-                            <div id="discussion-like-count"
+                            <div id="discussion-like-count-{{ $discussion->slug }}"
                                 class="w-full text-nowrap rounded-full justify-start items-start text-love-base font-medium flex md:after:content-['\00A0_org_merasa_terbantu']">
                                 {{ $discussion->likeCount }}
                             </div>
@@ -131,6 +135,40 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $('.like-button').click(function() {
+                    var slug = $(this).data('discussion-slug');
+                    var isLiked = $(this).data('liked');
+                    var likeRoute = isLiked ?
+                        '{{ route('forum-diskusi.diskusi.unlike', '__slug__') }}' :
+                        '{{ route('forum-diskusi.diskusi.like', '__slug__') }}';
+        
+                    likeRoute = likeRoute.replace('__slug__', slug);
+        
+                    $.ajax({
+                        method: 'POST',
+                        url: likeRoute,
+                        data: {
+                            '_token': '{{ csrf_token() }}'
+                        }
+                    }).done(function(res) {
+                        if (res.status === 'success') {
+                            $('#discussion-like-count-' + slug).text(res.data.likeCount);
+        
+                            var likeIcon = $('#discussion-like-icon-' + slug);
+                            if (isLiked) {
+                                likeIcon.addClass('ph').removeClass('ph-fill');
+                            } else {
+                                likeIcon.removeClass('ph').addClass('ph-fill');
+                            }
+        
+                            $('.like-button').data('liked', !isLiked);
+                        }
+                    });
+                });
+            });
+        </script>
     @empty
         <div class="w-full flex justify-center Heading4 py-8">
             Data Tidak Ditemukan
@@ -192,5 +230,3 @@
         });
     });
 </script>
-
-

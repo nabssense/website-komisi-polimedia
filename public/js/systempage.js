@@ -1,6 +1,10 @@
 function goBack() {
     window.history.back();
 }
+function goBackReload() {
+  window.history.back();
+  window.location.reload(true);  // Merefresh halaman setelah navigasi mundur
+}
 // NAVBAR atau MENU UTAMA
 function pageBeranda() {
   window.location.href = "/beranda";
