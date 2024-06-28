@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Conner\Likeable\Likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Discussion extends Model
 {
-    use HasFactory;
+    use HasFactory, Likeable, SoftDeletes;
 
     protected $fillable = [
         'user_id',
@@ -31,6 +33,7 @@ class Discussion extends Model
         return $this->belongsTo(CategoryDiscussion::class);
     }
 
+    
     
 
 }

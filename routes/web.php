@@ -54,6 +54,14 @@ Route::middleware('auth')->group(function () {
     Route::namespace('App\Http\Controllers\ForumDiscussion')->group(function(){
         Route::resource('forum-diskusi', DiscussionController::class)
         ->only(['create', 'store', 'edit', 'update', 'destroy']);
+
+        Route::post('forum-diskusi/{discussion}/like', 'LikeController@discussionLike')
+            ->name('forum-diskusi.diskusi.like');
+
+        Route::post('forum-diskusi/{discussion}/unlike', 'LikeController@discussionUnLike')
+            ->name('forum-diskusi.diskusi.unlike');
+       
+
     });
 
         // Akun - Kelola Web
@@ -196,15 +204,6 @@ Route::get('/berita-detail', function () {
 
 
 // // Forum Diskusi
-
-
-Route::get('/forum-diskusi-pertanyaan', function () {
-    return view('pages.forum-diskusi.forum-diskusi-pertanyaan', [
-        "title" => "Website Komisi | Pertanyaan",
-        "active" => "Pertanyaan",
-    ]);
-});
-
 
 
 // Tentang Komisi

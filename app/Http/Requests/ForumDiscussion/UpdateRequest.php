@@ -4,7 +4,7 @@ namespace App\Http\Requests\ForumDiscussion;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,15 +21,14 @@ class StoreRequest extends FormRequest
      */
     public function rules(): array
     {
+        //
         return [
-            //
             'title' => 'required|string|max:200',
             'category_slug' => 'required|string|exists:App\Models\CategoryDiscussion,slug',
             'question' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:16000',
         ];
     }
-
     public function messages(): array
     {
         return [

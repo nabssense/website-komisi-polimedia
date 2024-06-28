@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forum_answer_discussions', function (Blueprint $table) {
+        Schema::create('discussions_answer', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('account_id')->unsigned();
             $table->bigInteger('discussion_id')->unsigned();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('forum_answer_discussions');
+        Schema::dropIfExists('discussions_answer');
     }
 };

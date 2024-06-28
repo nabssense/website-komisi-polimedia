@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::factory()->create([
             'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
-            'fullname' => $fullname,
+            'fullname' => 'Muhammad Alif',
             'email' => 'admin@ad',
             'password' => 'admin',
             'nim'=> '0',

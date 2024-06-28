@@ -2,315 +2,317 @@
 @include('partials.navbar')
 @include('partials.navbar-mobile')
 @section('container')
-<div class="w-full h-fit px-56 py-8 bg-soft-base flex-col justify-start items-center gap-8 inline-flex">
-    <div class="self-stretch justify-center items-start gap-16 inline-flex">
-        {{-- Left Content --}} <div class="w-full h-fit self-stretch flex-col justify-start items-start gap-6 inline-flex">
-            <button onclick="goBack()" class="w-fit py-2rounded-lg justify-start items-center gap-4 flex flex-row">
-                    <i class="text-4xl ph ph-arrow-left"></i>
-                    <div class="grow shrink basis-0 text-neutral-900 text-3xl font-semibold font-THICCCBOI leading-10">Kembali</div>
-            </button>
-            {{--  --}}
-            <div class="w-full h h-fit py-6 bg-white rounded-lg flex-col justify-start items-start gap-8 flex">
-                <div class="self-stretch h-fit px-6 flex-col justify-start items-start gap-8 flex">
-                    <div class="self-stretch h-fit flex-col justify-center items-start gap-4 flex">
-                        <div class="w-full justify-start items-center gap-2 inline-flex">
-                            <i class="text-5xl ph ph-user-circle"></i>
-                            <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
-                                <div class="self-stretch justify-start items-start gap-2 inline-flex">
-                                    <div class="text-neutral-900 text-base font-semibold font-THICCCBOI leading-normal">Muhammad Alif</div>
-                                    <div class="text-neutral-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
-                                    <div class="grow shrink basis-0 text-stone-600 text-base font-normal font-THICCCBOI leading-normal">Mahasiswa</div>
-                                </div>
-                                <div class="self-stretch text-neutral-900 text-base font-medium font-THICCCBOI leading-normal">9 menit lalu</div>
-                            </div>
-                            <div class="px-4 py-1 bg-blue-700 rounded-full justify-start items-start flex">
-                                <div class="text-white text-xs font-semibold font-THICCCBOI leading-none">Terjawab</div>
-                            </div>
-                            <div class="relative inline-block text-left">
-                                <button type="button" class="option-button inline-flex justify-center w-fit rounded-md focus:group/btntext-indigo-500 ">
-                                    <i class="text-32 ph ph-dots-three-vertical focus:text-indigo-500"></i>
-                                </button>
-                                <div class="option-card-menu fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden" role="menu" aria-orientation="vertical" tabindex="-1">
-                                    <div class="close-button-bg w-screen h-screen relative justify-center items-center flex ">
-                                        <div class="bg-netral-100 rounded-2xl w-480 h-fit justify-center items-center overflow-clip" role="none">
-                                            <button href="#" class="block w-full text-center px-4 py-3 border-b-2 border-netral-200 text-xl font-THICCCBOI text-gray-700 hover:bg-netral-200 hover:text-gray-900" role="menuitem">Ubah</button>
-                                            <button href="#" class="block w-full text-center px-4 py-3 border-b-2 border-netral-200 text-xl font-THICCCBOI text-red-700 hover:bg-red-100 hover:text-red-900" role="menuitem">Hapus</button>
-                                            <button class="close-button block w-full text-center px-4 py-3 text-xl font-THICCCBOI text-netral-900 hover:bg-netral-200 hover:text-netral-900" role="menuitem">Tutup</button>
+    <div
+        class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-16 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
+        <div class="w-full max-w-1480 h-fit bg-soft-base flex-col justify-center items-center gap-4 lg:gap-8 flex ">
+            <div class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 flex-col md:flex-row lg:flex ">
+                <button onclick="goBack()" class="w-fit py-2rounded-lg justify-start items-center gap-4 flex flex-row Heading2">
+                    <i class=" ph ph-arrow-left"></i>
+                    <div class=" text-neutral-900 font-semibold ">
+                        Kembali</div>
+                </button>
+            </div>
+            {{-- Main Content --}}
+            <div class="w-full h-fit self-stretch justify-center items-start gap-4 flex flex-col xl:flex-row ">
+                {{-- Left Content --}}
+                <section class=" w-full h-fit self-stretch rounded-3xl flex-col justify-start items-start gap-4 flex">
+                    <div class="self-stretch h-fit flex-col justify-start items-start gap-4 flex">
+                        {{-- Question --}}
+                        <div
+                            class="w-full h-fit px-4 lg:px-8 bg-white md:rounded-lg flex-col justify-start items-start flex">
+                            <div 
+                                class="w-full h-fit flex-col justify-start items-start gap-8 py-4 lg:py-8 flex border-b-2 border-netral-200 cursor-pointer">
+                                <div class="w-full h-fit flex-col justify-center items-start gap-4 lg:gap-6 flex">
+                                    {{-- Profil --}}
+                                    <div class="w-full justify-start items-center gap-2 inline-flex">
+                                        <div class="flex-none" onclick="pageUserProfile()">
+                                            <img src="{{ filter_var($discussion->user->profile_picture, FILTER_VALIDATE_URL)
+                                                ? $discussion->user->profile_picture
+                                                : Storage::url($discussion->user->profile_picture) }}"
+                                                alt="{{ $discussion->user->fullname }}" class="rounded-full w-9 md:w-12">
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="self-stretch h-fit flex-col justify-start items-start gap-8 flex">
-                            <div class="self-stretch text-neutral-900 text-3xl font-semibold font-THICCCBOI leading-H4">Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa mengetahui rinciannya?</div>
-                            <div class="h-96 rounded-2xl overflow-clip">
-                                <img class="h-full" src="{{ url('img/Kabinet/KOBRA/All-Team.png') }}" alt="">
-                            </div>
-                            <div class="w-fit h-fit px-4 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex">
-                                <div class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-B2">Pencairan KIPK</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="self-stretch h-fit flex-col justify-center items-center gap-8 flex">
-                    <div class="self-stretch h-fit flex-col justify-center items-center flex">
-                        <div class="self-stretch px-6 py-2 border-b border-stone-300 justify-start items-center gap-1 inline-flex">
-                            <div class="h-fit justify-start items-start gap-1 flex">
-                                <div class="text-neutral-900 text-lg font-semibold font-THICCCBOI leading-7">3</div>
-                                <div class="text-neutral-900 text-lg font-semibold font-THICCCBOI leading-7">Jawaban</div>
-                            </div>
-                        </div>
-                        <div class="self-stretch h-fit flex-col justify-start items-center flex divide-y-8">
-                            
-                            <div class="self-stretch h-fit px-6 py-6 flex-col justify-center items-center gap-4 flex">
-                                <div class="w-full justify-start items-center gap-2 inline-flex">
-                                    <i class="text-5xl ph ph-user-circle"></i>
-                                    <div class="w-full flex-col justify-center items-start inline-flex">
-                                        <div class="justify-start items-center gap-2 inline-flex">
-                                            <div class="w-fit justify-start items-center gap-2 flex">
-                                                <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">Bapak Suhaili</div>
-                                                <i class="text-xl ph-fill text-blue-700 ph-seal-check"></i>
+                                        <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
+                                            <div class="w-full justify-start items-center gap-2 inline-flex ">
+                                                <div class="justify-start items-center gap-2 flex">
+                                                    <p class="w-full text-netral-900 font-semibold line-clamp-1">
+                                                        {{ $discussion->user->fullname }}</p>
+                                                    <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                </div>
+                                                <div class="text-netral-900 font-semibold hidden md:flex">
+                                                    -</div>
+                                                <div class="w-fit text-netral-500 font-normal relative hidden lg:flex">
+                                                    <p class="w-full line-clamp-1">{{ $discussion->user->user_type }}
+                                                    </p>
+                                                </div>
+                                                <i
+                                                    class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
+                                                    <div id="info-akun"
+                                                        class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
+                                                        {{ $discussion->user->user_type }}</div>
+                                                </i>
                                             </div>
-                                            <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
-                                            <div class="grow shrink basis-0 text-stone-600 text-base font-normal font-THICCCBOI leading-normal">Pembina Komunitas Bidikmisi Polimedia</div>
+                                            <p class="w-fit text-neutral-900 font-medium Body2">
+                                                {{ $discussion->created_at->diffForHumans() }}</p>
                                         </div>
-                                        <div class="self-stretch justify-start items-start gap-4 inline-flex">
-                                            <div class="grow shrink basis-0 text-neutral-900 text-base font-medium font-THICCCBOI leading-normal">9 menit lalu</div>
+                                        {{-- Menu --}}
+                                        <i id="menuButton-{{ $discussion->slug }}"
+                                            onclick="toggleDropdownPopUp('{{ $discussion->slug }}')"
+                                            class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three relative cursor-pointer">
+                                        </i>
+                                        <div id="menuDropdown-{{ $discussion->slug }}"  
+                                            class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                            <div onclick="toggleDropdownPopUp('{{ $discussion->slug }}')" 
+                                                class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                                <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
+                                                    role="none" onclick="event.stopPropagation();">
+                                                    <div class="w-full flex flex-col gap-2">
+                                                        @if ($discussion->user_id === auth()->id())
+                                                        <button
+                                                            onclick="location.href='{{ route('forum-diskusi.edit', $discussion->slug) }}'"
+                                                            class="w-full flex btn-tertiary-sm px-4">
+                                                            Ubah
+                                                        </button>
+                                                        <form id="deleteForm-{{ $discussion->slug }}"
+                                                            action="{{ route('forum-diskusi.destroy', $discussion->slug) }}"
+                                                            class="w-full m-0" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="button" onclick="confirmDelete('{{ $discussion->slug }}')" class="w-full flex btn-tertiary-sm px-4">
+                                                                Hapus
+                                                            </button>
+                                                        </form>
+                                                        @endif
+                                                    </div>
+                                                    <button class="w-full flex btn-secondary-sm px-4" onclick="toggleDropdownPopUp('{{ $discussion->slug }}')">
+                                                        Tutup
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="relative inline-block text-left">
-                                        <button type="button" class="option-button inline-flex justify-center w-fit rounded-md focus:group/btntext-indigo-500 ">
-                                            <i class="text-32 ph ph-dots-three-vertical focus:text-indigo-500"></i>
-                                        </button>
-                                        <div class="option-card-menu fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden" role="menu" aria-orientation="vertical" tabindex="-1">
-                                            <div class="close-button-bg w-screen h-screen relative justify-center items-center flex ">
-                                                <div class="bg-netral-100 rounded-2xl w-480 h-fit justify-center items-center overflow-clip" role="none">
-                                                    <button href="#" class="block w-full text-center px-4 py-3 border-b-2 border-netral-200 text-xl font-THICCCBOI text-gray-700 hover:bg-netral-200 hover:text-gray-900" role="menuitem">Ubah</button>
-                                                    <button href="#" class="block w-full text-center px-4 py-3 border-b-2 border-netral-200 text-xl font-THICCCBOI text-red-700 hover:bg-red-100 hover:text-red-900" role="menuitem">Hapus</button>
-                                                    <button class="close-button block w-full text-center px-4 py-3 text-xl font-THICCCBOI text-netral-900 hover:bg-netral-200 hover:text-netral-900" role="menuitem">Tutup</button>
+                                        {{-- Alert Delete --}}
+                                        <div id="alertDelete-{{ $discussion->slug }}"
+                                            class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                            <div onclick="toggleDropdownPopUp('{{ $discussion->slug }}')"
+                                                class="close-button-bg w-screen h-screen relative justify-center items-center flex">
+                                                <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
+                                                    role="none" onclick="event.stopPropagation();">
+                                                    <div>Kamu yakin ingin menghapus ini?</div>
+                                                    <div class="w-full flex flex-row gap-2">
+                                                        <button id="confirm-delete-button" class="w-full flex btn-tertiary-sm px-4">
+                                                            Iya
+                                                        </button>
+                                                        <button id="cancel-delete-button" class="w-full flex btn-tertiary-sm px-4">
+                                                            Tidak
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="self-stretch text-netral-900 text-lg font-normal font-THICCCBOI leading-7">Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa mengetahui rinciannya?</div>
-                                <div class="self-stretch justify-start items-center gap-4 inline-flex">
-                                    <div class="rounded-full justify-start items-center gap-2 flex">
-                                        <i class="text-32 text-primary-base ph ph-heart"></i>
-                                        <div class="px-4 py-2 bg-rose-100 rounded-full justify-start items-start gap-2 flex">
-                                            <div class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-B2">30 org merasa terbantu</div>
+                                    {{-- Content --}}
+                                    <div class="w-full h-fit flex-col justify-start items-start gap-4 flex">
+                                        <div class="w-full flex flex-col gap-2">
+                                            <button
+                                                onclick="window.location.href='{{ route('forum-diskusi.diskusi.kategori.show', $discussion->category->slug) }}'"
+                                                class="w-fit h-fit px-2 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex flex-none text-neutral-900 font-medium Body2">
+                                                {{ $discussion->category->name }}
+                                            </button>
+                                            <div class="w-full text-neutral-900 font-normal Body1 md:Heading3">
+                                                {{ $discussion->title }}</div>
+                                            <div class="w-full text-neutral-900 font-normal Body1 md:Heading4">
+                                                {{ $discussion->question_preview }}</div>
+                                        </div>
+                                        @if (isset($discussion->image) && !empty($discussion->image))
+                                            <div class="h-48 rounded-2xl overflow-clip">
+                                                <img class="h-full" src="{{ asset('storage/' . $discussion->image) }}"
+                                                    alt="Gambar Diskusi">
+                                            </div>
+                                        @endif
+                                    </div>
+                                    {{-- Like & Comment --}}
+                                    <div class="w-full h-fit justify-start items-center gap-2 md:gap-4 inline-flex">
+                                        <button id="discussion-like" type="button" data-liked="{{ $discussion->liked() }}" 
+                                            @guest
+                                                onclick="pageMasuk()"
+                                            @endguest
+                                            class="w-fit h-fit rounded-full justify-start items-center gap-2 flex flex-none Body1">
+                                            <div class="w-fit flex flex-none items-center gap-1">
+                                                <i class="text-32 lg:text-4xl text-love-base ph-heart {{ $discussion->liked() ? 'ph-fill' : 'ph' }}"
+                                                    alt="Like" id="discussion-like-icon"></i>
+                                            </div>
+                                            <div id="discussion-like-count"
+                                                class="w-full text-nowrap rounded-full justify-start items-start text-love-base font-medium flex md:after:content-['\00A0_org_merasa_terbantu']">
+                                                {{ $discussion->likeCount }}
+                                            </div>
+                                        </button>
+                                        <div class="w-full rounded-full justify-start items-center gap-2 flex Body1">
+                                            <div class="w-fit flex flex-none items-center gap-1">
+                                                <i class="text-32 text-netral-900 lg:text-4xl ph ph-chat-teardrop-text"></i>
+                                                <div class="text-netral-900 font-medium flex">3</div>
+                                            </div>
+                                            <button onclick="pageForumDiskusiPertanyaan()" class="commentbar">
+                                                <div class="w-full line-clamp-1">Berikan jawaban atau tanggapan</div>
+                                            </button>
                                         </div>
                                     </div>
-                                    
                                 </div>
                             </div>
-                            <div class="self-stretch h-fit px-6 py-6 flex-col justify-center items-center gap-4 flex">
-                                <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                                    <i class="text-5xl ph ph-user-circle"></i>
-                                    <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
-                                        <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                                            <div class="justify-start items-center gap-2 flex">
-                                                <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">Muhammad Alif</div>
+                            {{-- Answer --}}
+                            <div 
+                                class="w-full h-fit flex-col justify-center items-center py-4 lg:py-8 gap-8 flex cursor-pointer">
+                                <div class="w-full h-fit flex-col justify-start items-center gap-6 flex">
+                                    <div class="w-full h-fit flex-col justify-center items-center gap-4 flex">
+                                        <div class="w-full justify-start items-center gap-2 inline-flex">
+                                            {{-- Profil --}}
+                                            <div class="flex-none" onclick="pageUserProfile()">
+                                                <img src="{{ filter_var($discussion->user->profile_picture, FILTER_VALIDATE_URL)
+                                                    ? $discussion->user->profile_picture
+                                                    : Storage::url($discussion->user->profile_picture) }}"
+                                                    alt="{{ $discussion->user->fullname }}"
+                                                    class="rounded-full w-9 md:w-12">
                                             </div>
-                                            <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
-                                            <div class="grow shrink basis-0 text-stone-600 text-base font-normal font-THICCCBOI leading-normal">Mahasiswa</div>
-                                        </div>
-                                        <div class="self-stretch justify-start items-start gap-4 inline-flex">
-                                            <div class="grow shrink basis-0 text-neutral-900 text-base font-medium font-THICCCBOI leading-normal">9 menit lalu</div>
-                                        </div>
-                                    </div>
-                                    <i class="text-32 ph ph-dots-three-vertical"></i>
-                                </div>
-                                <div class="self-stretch text-netral-900 text-lg font-normal font-THICCCBOI leading-7">Baik Terimakasih Pak</div>
-                                <div class="self-stretch justify-start items-center gap-4 inline-flex">
-                                    <div class="rounded-full justify-start items-center gap-2 flex">
-                                        <i class="text-32 text-primary-base ph ph-heart"></i>
-                                        <div class="px-4 py-2 bg-rose-100 rounded-full justify-start items-start gap-2 flex">
-                                            <div class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-B2">30 org merasa terbantu</div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="self-stretch h-fit px-6 py-6 flex-col justify-center items-center gap-4 flex">
-                                <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                                    <i class="text-5xl ph ph-user-circle"></i>
-                                    <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
-                                        <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                                            <div class="justify-start items-center gap-2 flex">
-                                                <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">Insan Hadid</div>
-                                                <i class="text-xl ph-fill text-blue-700 ph-seal-check"></i>
+                                            <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
+                                                <div class="w-full justify-start items-center gap-2 inline-flex ">
+                                                    <div class="justify-start items-center gap-2 flex">
+                                                        <p class="w-full text-netral-900 font-semibold line-clamp-1">
+                                                            {{ $discussion->user->fullname }}</p>
+                                                        <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                    </div>
+                                                    <div class="text-netral-900 font-semibold hidden md:flex">
+                                                        -</div>
+                                                    <div class="w-fit  text-netral-500 font-normal relative hidden lg:flex">
+                                                        <p class="w-full line-clamp-1">{{ $discussion->user->user_type }}
+                                                        </p>
+                                                    </div>
+                                                    <i
+                                                        class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
+                                                        <div id="info-akun"
+                                                            class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
+                                                            {{ $discussion->user->user_type }}</div>
+                                                    </i>
+                                                </div>
+                                                <p class="w-fit text-neutral-900 font-medium Body2">
+                                                    {{ $discussion->created_at->diffForHumans() }}</p>
                                             </div>
-                                            <div class="text-netral-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
-                                            <div class="grow shrink basis-0 text-stone-600 text-base font-normal font-THICCCBOI leading-normal">Ketua Komunitas Bidikmisi Polimedia Kabinet Sancaka</div>
+                                            <i id="menuButton" class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three relative">
+                                                <div id="menuDropdown"
+                                                    class="w-fit h-fit flex-col absolute top-10 right-0 p-4 bg-netral-100 gap-4 hidden rounded-lg shadow-card-m">
+                                                    <button onclick="location.href='{{ route('forum-diskusi.edit', $discussion->slug) }}'" class="w-full flex Body1">
+                                                        Ubah
+                                                    </button>
+                                                    <button class="w-full flex Body1">
+                                                        Hapus
+                                                    </button>
+                                                </div>
+                                            </i>
                                         </div>
-                                        <div class="self-stretch justify-start items-start gap-4 inline-flex">
-                                            <div class="grow shrink basis-0 text-neutral-900 text-base font-medium font-THICCCBOI leading-normal">9 menit lalu</div>
-                                        </div>
-                                    </div>
-                                    <i class="text-32 ph ph-dots-three-vertical"></i>
-                                </div>
-                                <div class="self-stretch text-netral-900 text-lg font-normal font-THICCCBOI leading-7">Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa mengetahui rinciannya?</div>
-                                <div class="self-stretch justify-start items-center gap-4 inline-flex">
-                                    <div class="rounded-full justify-start items-center gap-2 flex">
-                                        <i class="text-32 text-primary-base ph ph-heart"></i>
-                                        <div class="px-4 py-2 bg-rose-100 rounded-full justify-start items-start gap-2 flex">
-                                            <div class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-B2">30 org merasa terbantu</div>
-                                        </div>
+                                        {{-- Content --}}
+                                        <div class="w-full text-neutral-900 font-normal Body1 md:Heading4 line-clamp-2">
+                                            {{ $discussion->title }}</div>
+                                        <button class="btn-tertiary-sm p-0">Baca Selengkapnya</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                            <div class="px-4 py-2  rounded-full justify-start items-start gap-2 flex">
-                                <div class="text-primary-base text-base font-medium font-THICCCBOI leading-B2">Lihat 3 komentar lainnya</div>
-                            </div>
                     </div>
-                        
-                  
-                    <div class="w-full self-stretch px-6 rounded-full justify-start items-start inline-flex">
-                        <div class="w-full h-fit px-4 py-2 bg-gray-200 rounded-full justify-start items-start gap-2.5 flex">
-                            <div class="text-neutral-900 text-lg font-normal font-THICCCBOI leading-7">Berikan jawaban atau tanggapan anda</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </section>
 
-        {{-- Right Content --}} <div class="grow shrink basis-0 self-stretch rounded-3xl flex-col justify-start items-start gap-9 inline-flex">
-            <div class="self-stretch py-2 bg-rose-100 rounded justify-start items-start gap-4 inline-flex">
-                <div class="w-2 h-12 relative bg-primary-base rounded"></div>
-                <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Terpopuler</div>
-            </div>
-            
-            
-            <div class="h-fit py-6 bg-white rounded-lg flex-col justify-start items-start gap-8 flex">
-                <div class="self-stretch h-fit px-6 flex-col justify-start items-start gap-6 flex">
-                    <div class="self-stretch h-fit flex-col justify-center items-start gap-4 flex">
-                        <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                            <i class="text-5xl ph ph-user-circle"></i>
-                            <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
-                                <div class="self-stretch justify-start items-start gap-2 inline-flex">
-                                    <div class="text-neutral-900 text-base font-semibold font-THICCCBOI leading-normal">Muhammad Alif</div>
-                                    <div class="text-neutral-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
-                                    <div class="grow shrink basis-0 text-stone-600 text-base font-normal font-THICCCBOI leading-normal">Mahasiswa</div>
-                                </div>
-                                <div class="self-stretch text-neutral-900 text-base font-medium font-THICCCBOI leading-normal">9 menit lalu</div>
-                            </div>
-                            <i class="text-32 ph ph-dots-three-vertical"></i>
-                        </div>
-                        <div class="self-stretch h-fit flex-col justify-start items-start gap-2 flex">
-                            <div class="self-stretch text-neutral-900 text-lg font-normal font-THICCCBOI leading-7">Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa mengetahui rinciannya?</div>
-                            <div class="self-stretch justify-start items-center gap-4 inline-flex">
-                                <div class="w-fit h-fit px-4 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex">
-                                    <div class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-B2">Pencairan KIPK</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="h-fit py-6 bg-white rounded-lg flex-col justify-start items-start gap-8 flex">
-                <div class="self-stretch h-fit px-6 flex-col justify-start items-start gap-6 flex">
-                    <div class="self-stretch h-fit flex-col justify-center items-start gap-4 flex">
-                        <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                            <i class="text-5xl ph ph-user-circle"></i>
-                            <div class="grow shrink basis-0 flex-col justify-center items-start inline-flex">
-                                <div class="self-stretch justify-start items-start gap-2 inline-flex">
-                                    <div class="text-neutral-900 text-base font-semibold font-THICCCBOI leading-normal">Muhammad Alif</div>
-                                    <div class="text-neutral-900 text-base font-semibold font-THICCCBOI leading-normal">-</div>
-                                    <div class="grow shrink basis-0 text-stone-600 text-base font-normal font-THICCCBOI leading-normal">Mahasiswa</div>
-                                </div>
-                                <div class="self-stretch text-neutral-900 text-base font-medium font-THICCCBOI leading-normal">9 menit lalu</div>
-                            </div>
-                            <i class="text-32 ph ph-dots-three-vertical"></i>
-                        </div>
-                        <div class="self-stretch h-fit flex-col justify-start items-start gap-2 flex">
-                            <div class="self-stretch text-neutral-900 text-lg font-normal font-THICCCBOI leading-7">Bagaimana tahapan kipk bisa cair ke rekening tiap mahasiswa? dan apakah kita bisa mengetahui rinciannya?</div>
-                            <div class="self-stretch justify-start items-center gap-4 inline-flex">
-                                <div class="w-fit h-fit px-4 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex">
-                                    <div class="text-neutral-900 text-xs font-medium font-THICCCBOI leading-B2">Pencairan KIPK</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{-- Right Content/ POPULER --}}
+                @include('partials.forum-diskusi.diskusi-terbantu')
             </div>
         </div>
     </div>
-</div>
-{{-- Fungsi Option Card --}}
-<script>
-    const optionButtons = document.querySelectorAll('.option-button');
 
-    // Loop melalui setiap tombol opsi dan tambahkan event listener
-    optionButtons.forEach(function(optionButton) {
-        optionButton.addEventListener('click', function () {
-            // Dapatkan menu terkait
-            const optionMenu = this.nextElementSibling;
-            // Toggle tampilan menu
-            optionMenu.classList.toggle('hidden');
-            document.body.classList.toggle('overflow-hidden');
-        });
 
-        // Ambil tombol tutup terkait
-        const closeButton = optionButton.nextElementSibling.querySelector('.close-button');
-        if (closeButton) {
-            // Tambahkan event listener untuk tombol tutup
-            closeButton.addEventListener('click', function () {
-                // Dapatkan menu terkait
-                const optionMenu = this.parentNode.parentNode.parentNode;
-                // Sembunyikan menu
-                optionMenu.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
+    <script>
+        $(document).ready(function() {
+            $('#discussion-like').click(function() {
+                // dapatkan data apakah discussion ini sudah pernah dilike oleh user
+                // tentukan route like ajax, berdasarkan dengan apakah ini sudah dilike atau belum
+                // lakukan proses ajax
+                // jika ajax berhasil maka dapatkan status jsonnya
+                // jika statusnya success maka isi counter like dengan data counter like dari jsonnya
+                // lalu kita ganti icon likenya berdasarkan dengan nilai variabel point 1
+                // jika user sebelumnya sudah me-like, maka ganti icon jadi notLikedImage
+                // jika user sebelumnya belum me-like, maka ganti icon jadi likedImage
+
+                var isLiked = $(this).data('liked');
+                var likeRoute = isLiked ?
+                    '{{ route('forum-diskusi.diskusi.unlike', $discussion->slug) }}' :
+                    '{{ route('forum-diskusi.diskusi.like', $discussion->slug) }}';
+
+                $.ajax({
+                        method: 'POST',
+                        url: likeRoute,
+                        data: {
+                            '_token': '{{ csrf_token() }}'
+                        }
+                    })
+                    .done(function(res) {
+                        if (res.status === 'success') {
+                            $('#discussion-like-count').text(res.data.likeCount);
+
+                            if (isLiked) {
+                                $('#discussion-like-icon').addClass('ph').removeClass('ph-fill');
+                            } else {
+                                $('#discussion-like-icon').removeClass('ph').addClass('ph-fill');
+                            }
+
+                            $('#discussion-like').data('liked', !isLiked);
+                        }
+                    })
             });
-        }
-        // Tambahkan event listener untuk tombol "Batalkan 2"
-        document.addEventListener('click', function(event) {
-            // Cek apakah yang diklik adalah tombol "Batalkan 2"
-            if (event.target.classList.contains('close-button-bg')) {
-                // Dapatkan menu terkait dengan tombol "Batalkan 2"
-                const optionMenu = event.target.closest('.option-card-menu');
-                // Sembunyikan menu
-                optionMenu.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            }
-        });
-    });
-</script>
+        })
+    </script>
 
+
+    @include('partials.footer')
+@endsection
+@section('after-script')
+<script src="{{ asset('js/animation.js') }}"></script>
+<script src="{{ asset('js/dropdownPopup.js') }}"></script>
+<script src="{{ asset('js/touchdragscroll.js') }}"></script>
 <script>
-    let mouseDown = false;
-let startX, scrollLeft;
-const slider = document.querySelector('.parent');
+    function toggleDropdownPopUp(slug) {
+        const dropdown = document.getElementById(`menuDropdown-${slug}`);
+        if (dropdown.classList.contains('hidden')) {
+            dropdown.classList.remove('hidden');
+            dropdown.classList.add('flex');
+            // Add event listener for scrolling
+            window.addEventListener('scroll', () => hideDropdown(slug), { once: true });
+        } else {
+            dropdown.classList.add('hidden');
+            dropdown.classList.remove('flex');
+            // Remove event listener for scrolling
+            window.removeEventListener('scroll', () => hideDropdown(slug));
+        }
+    }
 
-const startDragging = (e) => {
-  mouseDown = true;
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-}
+    function hideDropdown(slug) {
+        const dropdown = document.getElementById(`menuDropdown-${slug}`);
+        dropdown.classList.add('hidden');
+        dropdown.classList.remove('flex');
+    }
 
-const stopDragging = (e) => {
-  mouseDown = false;
-}
+    function confirmDelete(slug) {
+        // Tampilkan pop-up konfirmasi penghapusan
+        const alertDelete = document.getElementById(`alertDelete-${slug}`);
+        alertDelete.classList.remove('hidden');
+        alertDelete.classList.add('flex');
 
-const move = (e) => {
-  e.preventDefault();
-  if(!mouseDown) { return; }
-  const x = e.pageX - slider.offsetLeft;
-  const scroll = x - startX;
-  slider.scrollLeft = scrollLeft - scroll;
-}
+        // Tambahkan event listener untuk tombol "Iya" pada pop-up konfirmasi
+        const confirmButton = alertDelete.querySelector('#confirm-delete-button');
+        confirmButton.addEventListener('click', () => {
+            const deleteForm = document.getElementById(`deleteForm-${slug}`);
+            deleteForm.submit();
+        });
 
-// Add the event listeners
-slider.addEventListener('mousemove', move, false);
-slider.addEventListener('mousedown', startDragging, false);
-slider.addEventListener('mouseup', stopDragging, false);
-slider.addEventListener('mouseleave', stopDragging, false);
-
+        // Tambahkan event listener untuk tombol "Tidak" pada pop-up konfirmasi
+        const cancelButton = alertDelete.querySelector('#cancel-delete-button');
+        cancelButton.addEventListener('click', () => {
+            alertDelete.classList.add('hidden');
+            alertDelete.classList.remove('flex');
+        });
+    }
 </script>
-
-
-
-@include('partials.footer')
 @endsection

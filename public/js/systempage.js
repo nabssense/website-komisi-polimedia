@@ -3,39 +3,40 @@ function goBack() {
 }
 // NAVBAR atau MENU UTAMA
 function pageBeranda() {
-  window.location.href = "beranda";
+  window.location.href = "/beranda";
 }
 function pageBerita() {
-  window.location.href = "berita";
+  window.location.href = "/berita";
+}
+function pageForumDiskusi() {
+  window.location.href = "/forum-diskusi";
 }
 function pageTentangKomisi() {
-  window.location.href = "tentang-komisi";
+  window.location.href = "/tentang-komisi";
 }
 function pageTentangKabinet() {
-  window.location.href = "tentang-kabinet";
+  window.location.href = "/tentang-kabinet";
 }
 
 
 
 
 // Forum
-function pageForumDiskusi() {
-  window.location.href = "forum-diskusi";
-}
+
 function pageForumDiskusiPertanyaan() {
  location.href= "'{{ route('forum-diskusi.diskusi.kategori.show', $discussion->slug) }}'";
 }
 function pageForumDiskusiAjukanPertanyaan() {
-  window.location.href = 'forum-diskusi/create';
+  window.location.href = '/forum-diskusi/create';
 }
 
 
 // Auth Login
 function pageMasuk() {
-  window.location.href = "masuk-akun";
+  window.location.href = "/masuk-akun";
 }
 function pageDaftar() {
-  window.location.href = "daftar-akun";
+  window.location.href = "/daftar-akun";
 }
 
 // Notifikasi

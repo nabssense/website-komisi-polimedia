@@ -61,7 +61,7 @@
                 @endauth
                 @guest
                 <div class="flex flex-row gap-2 ">
-                <button onclick="pageMasuk()" class="btn-sm-primary" >Masuk</button>
+                <button onclick="pageMasuk()" class="btn-primary-sm" >Masuk</button>
                 {{-- <button onclick="pageMasuk()" class="text-lg font-semibold font-THICCCBOI px-4 bg-primary-100  justify-start rounded-lg
                         items-center gap-2.5 flex" >
                         <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-9">Daftar</div>

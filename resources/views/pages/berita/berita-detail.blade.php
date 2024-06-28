@@ -93,3 +93,13 @@
 </div>
     @include('partials.footer')
 @endsection
+@section('after-script')
+    <script src="{{ asset('js/inputImage.js') }}"></script>
+    <script src="{{ asset('js/searchField.js') }}"></script>
+    <script src="{{ asset('js/animation.js') }}"></script>
+    <script src="{{ asset('js/inputField.js') }}"></script>
+    <script src="{{ asset('js/toggleSwitch.js') }}"></script>
+    <script src="{{ asset('js/dropdownPopup.js') }}"></script>
+    <script src="{{ asset('js/touchdragscroll.js') }}"></script>
+    <script src="{{ asset('js/year-indicator.js') }}"></script>
+@endsection

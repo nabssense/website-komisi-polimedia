@@ -19,3 +19,4 @@ function clearSearchText() {
     clearButton.classList.add('hidden');
     searchText.focus(); // Optional: refocus on the input field
 }
+

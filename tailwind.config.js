@@ -204,7 +204,11 @@ export default {
         '4xs': '8px',
         '32': '32px',
         '40': '40px',
-      }
+      },
+      scale: {
+        '98': '.98',
+        '99': '.99',
+      },
     },
     buttonPrimary: {
       'button-primary': 'px-4 py-2 lg:px-8 lg:py-4 bg-primary-base rounded-full justify-center items-center flex text-center text-netral-100 text-2xl font-medium font-THICCCBOI leading-9',

@@ -286,3 +286,10 @@
         });
     </script>
 @endsection
+@section('after-script')
+    <script src="{{ asset('js/inputImage.js') }}"></script>
+    <script src="{{ asset('js/animation.js') }}"></script>
+    <script src="{{ asset('js/inputField.js') }}"></script>
+    <script src="{{ asset('js/touchdragscroll.js') }}"></script>
+@endsection
+
