@@ -93,38 +93,8 @@
         </form>
 
     </div>
-    <script>
-        $(document).ready(function() {
-            $('#question').summernote({
-                placeholder: 'Tulis Pertanyaan dengan jelas',
-                tabSize: 2,
-                height: 256,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link']],
-                    ['view', ['codeview', 'help']],
-                ]
-            });
 
-            $('span.note-icon-caret').remove();
-
-            //  // Preview image when file input changes
-            //  $('#image-input').change(function() {
-            //     const file = this.files[0];
-            //     if (file) {
-            //         const reader = new FileReader();
-            //         reader.onload = function(e) {
-            //             $('#image-preview').attr('src', e.target.result).removeClass('hidden');
-            //         }
-            //         reader.readAsDataURL(file);
-            //     }
-            // });
-        })
-    </script>
+    <script src="{{ asset('js/inputTextArea.js') }}"></script>
 
     {{-- <script>
         function previewImage(){

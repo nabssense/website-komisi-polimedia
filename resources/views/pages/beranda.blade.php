@@ -13,5 +13,8 @@
     {{-- Section 5 Tentang Komisi --}}
     @include('partials.tentang-komisi-content')
     @include('partials.footer')
-    
+    <script src="{{ asset('js/animation.js') }}"></script>
+    <script src="{{ asset('js/dropdownPopup.js') }}"></script>
+    <script src="{{ asset('js/touchdragscroll.js') }}"></script>
+    <script src="{{ asset('js/year-indicator.js') }}"></script>
 @endsection

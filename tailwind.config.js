@@ -71,6 +71,7 @@ export default {
         'body-grotesk': ['Clash Grotesk'],
       },
       borderRadius: {
+        '20px': '20px',
         '4xl': '32px',
         '5xl': '48px',
         '6xl': '60px',
@@ -214,6 +215,11 @@ export default {
       'button-primary': 'px-4 py-2 lg:px-8 lg:py-4 bg-primary-base rounded-full justify-center items-center flex text-center text-netral-100 text-2xl font-medium font-THICCCBOI leading-9',
     },
   },
+  variants: {
+    extend: {
+        backgroundColor: ['group-focus'],
+    },
+},
   plugins: [
     // require
     // ('@tailwindcss/line-clamp'),

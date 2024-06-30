@@ -62,10 +62,10 @@
                             {{-- Pop Up --}}
                             <div id="menuDropdown"
                                 class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
-                                <div onclick="toggleDropdownPopUp()"
+                                <div onclick="toggleDropdownPopUp(); event.stopPropagation()" 
                                     class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                     <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
-                                        role="none" onclick="event.stopPropagation();">
+                                        role="none" >
                                         <div class="w-full flex flex-col gap-4">
                                             <div class="w-full text-start Heading3">Urutkan</div>
                                             <div class="w-full flex flex-col gap-2">
@@ -103,10 +103,10 @@
                             {{-- Pop Up --}}
                             <div id="menuDropdown"
                                 class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
-                                <div onclick="toggleDropdownPopUp()"
+                                <div onclick="; event.stopPropagation(); toggleDropdownPopUp()"
                                     class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                     <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
-                                        role="none" onclick="event.stopPropagation();">
+                                        role="none">
                                         <div class="w-full flex flex-col gap-4">
                                             <div class="w-full text-start Heading3">Kategori</div>
                                             <div class="w-full flex flex-wrap gap-2">
@@ -236,7 +236,7 @@
                                                 ? $discussion->user->profile_picture
                                                 : Storage::url($discussion->user->profile_picture) }}"
                                                 alt="{{ $discussion->user->fullname }}"
-                                                class="rounded-full w-9 md:w-12">
+                                                class="rounded-full w-9 lg:w-12">
                                         </div>
                                         <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1"
                                             onclick="event.stopPropagation();">
@@ -304,8 +304,8 @@
                                         <div id="alertDelete-{{ $discussion->slug }}"
                                             class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="hideAlertDelete('{{ $discussion->slug }}')"
-                                                class="close-button-bg w-screen h-screen relative justify-center items-center flex">
-                                                <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
+                                               class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                                    <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
                                                     role="none" onclick="event.stopPropagation();">
                                                     <div class="w-full Heading4 text-center">Kamu yakin ingin menghapus
                                                         ini?</div>
@@ -330,7 +330,7 @@
                                         onclick="window.location.href='{{ route('forum-diskusi.show', $discussion->slug) }}'">
                                         <div class="w-full flex flex-col gap-2">
                                             <button
-                                                onclick="window.location.href='{{ route('forum-diskusi.diskusi.kategori.show', $discussion->category->slug) }}'"
+                                                onclick="event.stopPropagation(); window.location.href='{{ route('forum-diskusi.diskusi.kategori.show', $discussion->category->slug) }}'"
                                                 class="w-fit h-fit px-2 bg-indigo-200 rounded-lg justify-start items-center gap-2 flex flex-none text-neutral-900 font-medium Body2">
                                                 {{ $discussion->category->name }}
                                             </button>
@@ -346,7 +346,7 @@
                                         @endif
                                     </div>
                                     {{-- Like & Comment --}}
-                                    <div class="w-full h-fit justify-start items-center gap-2 md:gap-4 inline-flex"
+                                    <div class="w-full h-fit justify-start items-center gap-2 md:gap-4 inline-flex cursor-default"
                                         onclick="event.stopPropagation()">
                                         <button id="discussion-like-{{ $discussion->slug }}" type="button"
                                             data-discussion-slug="{{ $discussion->slug }}"
@@ -355,22 +355,22 @@
                                             class="like-button w-fit h-fit rounded-full justify-start items-center gap-2 flex flex-none Body1">
                                             <div class="w-fit flex flex-none items-center gap-1">
                                                 <i class="text-32 lg:text-4xl text-love-base ph-heart {{ $discussion->liked() ? 'ph-fill' : 'ph' }}"
-                                                    alt="Like" id="discussion-like-icon-{{ $discussion->slug }}"></i>
+                                                    alt="Like"
+                                                    id="discussion-like-icon-{{ $discussion->slug }}"></i>
                                             </div>
                                             <div id="discussion-like-count-{{ $discussion->slug }}"
-                                                class="w-full text-nowrap rounded-full justify-start items-start text-love-base font-medium flex md:after:content-['\00A0_org_merasa_terbantu']">
+                                                class="w-full text-nowrap rounded-full justify-start items-start text-love-base font-medium flex md:after:content-['\00A0_Terbantu']">
                                                 {{ $discussion->likeCount }}
                                             </div>
                                         </button>
-                                        <div class="w-full rounded-full justify-start items-center gap-2 flex Body1">
-                                            <div class="w-fit flex flex-none items-center gap-1">
-                                                <i
-                                                    class="text-32 text-netral-900 lg:text-4xl ph ph-chat-teardrop-text"></i>
-                                                <div class="text-netral-900 font-medium flex">3</div>
+                                        <div class="w-fit flex flex-none items-center gap-1 Body1 cursor-pointer"
+                                            onclick="window.location.href='{{ route('forum-diskusi.show', $discussion->slug) }}'">
+                                            <i
+                                                class="text-32 text-netral-900 lg:text-4xl ph ph-chat-teardrop-text"></i>
+                                            <div id="discussion-like-count-{{ $discussion->slug }}"
+                                                class="w-full text-nowrap rounded-full justify-start items-start text-netral-900 font-medium flex md:after:content-['\00A0_Balasan']">
+                                                {{ $discussion->likeCount }}
                                             </div>
-                                            <button onclick="pageForumDiskusiPertanyaan()" class="commentbar">
-                                                <div class="w-full line-clamp-1">Berikan jawaban atau tanggapan</div>
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -388,7 +388,7 @@
                                                     ? $discussion->user->profile_picture
                                                     : Storage::url($discussion->user->profile_picture) }}"
                                                     alt="{{ $discussion->user->fullname }}"
-                                                    class="rounded-full w-9 md:w-12">
+                                                    class="rounded-full w-9 lg:w-12">
                                             </div>
                                             <div
                                                 class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
@@ -462,41 +462,8 @@
                                 </div>
                             </div>
                         </div>
-                        <script>
-                            $(document).ready(function() {
-                                $('.like-button').click(function() {
-                                    var slug = $(this).data('discussion-slug');
-                                    var isLiked = $(this).data('liked');
-                                    var likeRoute = isLiked ?
-                                        '{{ route('forum-diskusi.diskusi.unlike', '__slug__') }}' :
-                                        '{{ route('forum-diskusi.diskusi.like', '__slug__') }}';
                         
-                                    likeRoute = likeRoute.replace('__slug__', slug);
                         
-                                    $.ajax({
-                                        method: 'POST',
-                                        url: likeRoute,
-                                        data: {
-                                            '_token': '{{ csrf_token() }}'
-                                        }
-                                    }).done(function(res) {
-                                        if (res.status === 'success') {
-                                            $('#discussion-like-count-' + slug).text(res.data.likeCount);
-                        
-                                            var likeIcon = $('#discussion-like-icon-' + slug);
-                                            if (isLiked) {
-                                                likeIcon.addClass('ph').removeClass('ph-fill');
-                                            } else {
-                                                likeIcon.removeClass('ph').addClass('ph-fill');
-                                            }
-                        
-                                            $('.like-button').data('liked', !isLiked);
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
-                       
                     @empty
                         <div class="w-full flex justify-center Heading4 py-8">
                             Data Tidak Ditemukan
@@ -516,105 +483,7 @@
 </div>
 
 
-
-<script>
-    $(document).ready(function() {
-        // Preview image when file input changes
-        $('#image-input').change(function() {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#image-preview').attr('src', e.target.result).removeClass('hidden');
-                }
-                reader.readAsDataURL(file);
-            } else {
-                $('#image-preview').attr('src', '{{ asset('images/default-image.png') }}').removeClass(
-                    'hidden');
-            }
-        });
-    });
-</script>
-
-<script>
-    function toggleDropdownPopUp(slug) {
-        const dropdown = document.getElementById(`menuDropdown-${slug}`);
-        if (dropdown.classList.contains('hidden')) {
-            dropdown.classList.remove('hidden');
-            dropdown.classList.add('flex');
-            // Add event listener for scrolling
-            window.addEventListener('scroll', () => hideDropdown(slug), {
-                once: true
-            });
-        } else {
-            dropdown.classList.add('hidden');
-            dropdown.classList.remove('flex');
-            // Remove event listener for scrolling
-            window.removeEventListener('scroll', () => hideDropdown(slug));
-        }
-    }
-
-    function hideDropdown(slug) {
-        const dropdown = document.getElementById(`menuDropdown-${slug}`);
-        dropdown.classList.add('hidden');
-        dropdown.classList.remove('flex');
-    }
-
-    function confirmDelete(slug) {
-        // Tampilkan pop-up konfirmasi penghapusan
-        const alertDelete = document.getElementById(`alertDelete-${slug}`);
-        const dropdown = document.getElementById(`menuDropdown-${slug}`);
-
-        if (dropdown) {
-            dropdown.classList.add('hidden');
-            dropdown.classList.remove('flex');
-        }
-
-        alertDelete.classList.remove('hidden');
-        alertDelete.classList.add('flex');
-
-        // Tambahkan event listener untuk tombol "Iya" pada pop-up konfirmasi
-        const confirmButton = alertDelete.querySelector(`#confirm-delete-button-${slug}`);
-        confirmButton.addEventListener('click', () => {
-            const deleteForm = document.getElementById(`deleteForm-${slug}`);
-            deleteForm.submit();
-        });
-    }
-
-    function hideAlertDelete(slug) {
-        const alertDelete = document.getElementById(`alertDelete-${slug}`);
-        alertDelete.classList.add('hidden');
-        alertDelete.classList.remove('flex');
-    }
-</script>
-
-<script>
-    function sortDiscussions(orderBy) {
-        const urlParams = new URLSearchParams(window.location.search);
-        urlParams.set('order_by', orderBy);
-        window.location.search = urlParams.toString();
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const orderBy = urlParams.get('order_by');
-
-        if (orderBy) {
-            document.getElementById('sort-' + orderBy).classList.add('active');
-        }
-    });
-</script>
-
-{{-- FUNGSI CATEGORY BUTTON --}}
-<script>
-    function toggleCategory(categorySlug, allRoute, categoryRoute) {
-        const currentUrl = window.location.href;
-        const categoryUrl = categoryRoute;
-
-        if (currentUrl.includes(categorySlug)) {
-            window.location.href = allRoute;
-        } else {
-            window.location.href = categoryRoute;
-        }
-    }
-</script>
+<script src="{{ asset('js/discussionFunction.js') }}"></script>
+<script src="{{ asset('js/discussionCategory.js') }}"></script>
+<script src="{{ asset('js/discussionSort.js') }}"></script>
+<script src="{{ asset('js/inputImagePreview.js') }}"></script>

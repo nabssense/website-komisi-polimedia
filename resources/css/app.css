@@ -331,8 +331,18 @@
 
   /* searchbar */
   .commentbar{
-    @apply w-full px-4 py-1 bg-netral-100 border-netral-900 border-2 rounded-full justify-center items-center flex line-clamp-1 text-start text-netral-800 Body1 focus:outline-none focus:border-primary-base;
+    @apply w-full px-4 py-1 bg-soft-base  border-2 rounded-full justify-center items-center flex line-clamp-1 text-start text-netral-800 Body1 focus:outline-none focus:border-primary-base;
   }
+
+    /* searchbar */
+    .commentbar-long{
+      @apply w-full px-3 lg:px-4 py-0 h-fit overflow-y-scroll border-2 focus-within:border-red-500 bg-soft-base scrollbar-hidden rounded-3xl gap-2 lg:gap-3 flex flex-row items-center line-clamp-1 text-start text-netral-800 Body1 focus:outline-none ;
+    }
+    /* searchbar */
+    .commentbar-long-input{
+      @apply w-full py-2 lg:py-5 h-9 lg:h-16 max-h-32 lg:max-h-72 outline-none overflow-y-scroll scrollbar-hidden resize-y ease-in transition-all  transform  duration-75 bg-soft-base justify-center items-center flex line-clamp-1 text-start text-netral-800 Body1 focus:outline-none;
+    }
+
   
    /* searchbar */
    .label-input-text{
@@ -346,7 +356,6 @@
   .input-textarea{
     @apply w-full h-32 py-3 text-wrap bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-start gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal Heading4;
   }
-
 
 
 

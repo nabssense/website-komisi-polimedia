@@ -42,7 +42,8 @@
                                         <input type="password" id="password" name="password"
                                             placeholder="Masukkan kata sandi kamu" id="password"
                                             class="input-text @error('password') border-red-500 @enderror">
-                                        <div href="/berita" class="h-full justify-center items-center cursor-pointer"><i
+                                        <div href="/berita" class="h-full justify-center items-center cursor-pointer">
+                                            <i
                                                 id="showPassword"
                                                 class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
                                         </div>
