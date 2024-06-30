@@ -29,6 +29,7 @@
         
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+        
 </head>
 {{-- opacity-0 transition-opacity duration-500 ease-in-out --}}
 <body id="container" class="m-0 p-0 w-full h-full t">
