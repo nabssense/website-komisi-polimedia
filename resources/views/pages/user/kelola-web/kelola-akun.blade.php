@@ -7,10 +7,10 @@
         <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
             <i onclick="goBack()" class="text-32 text-netral-800 ph ph-arrow-left"></i>
             <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Daftar Akun</div>
-            <button onclick="pageKelolaAkunTambah()" class="py-3 rounded-full justify-center items-center gap-4 flex">
+            <a href="/kelola-akun/tambah"  class="py-3 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Tambah Akun</div>
                 <i class="text-32 text-primary-base ph ph-plus"></i>
-            </button>
+            </a>
         </div>
     </div>
     <div class="justify-start items-start gap-9 inline-flex">
@@ -26,6 +26,7 @@
         </div>
         
     </div>
+    {{-- Main Content --}}
     <div class="self-stretch h-fit p-4 bg-white rounded-2xl flex-col justify-start items-center gap-8 flex">
         <table class="w-full h-fit rounded-lg flex-col justify-start items-center flex">
             <thead class="w-full px-4 py-6 rounded-tl-lg rounded-tr-lg border-b-2 border-neutral-900 justify-start items-center gap-4 inline-flex">
@@ -88,23 +89,6 @@
     </div>
 </div>
 
-    <script>
-        function nextStep() {
-            var currentStep = document.querySelector('.step:not(.hidden)');
-            currentStep.classList.add('hidden');
-            var nextStep = currentStep.nextElementSibling;
-            nextStep.classList.remove('hidden');
-            nextStep.classList.add('inline-flex');
-        }
-
-        function previousStep() {
-            var currentStep = document.querySelector('.step:not(.hidden)');
-            currentStep.classList.add('hidden');
-            var previousStep = currentStep.previousElementSibling;
-            previousStep.classList.remove('hidden');
-            previousStep.classList.add('inline-flex');
-        }
-    </script>
 
 @include('partials.footer')
 @endsection

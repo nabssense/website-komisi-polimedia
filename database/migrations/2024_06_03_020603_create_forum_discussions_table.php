@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('title');
             $table->text('image')->nullable();
             $table->string('slug');
-            $table->string('question_preview');
             $table->text('question');
             $table->datetimes();
             $table->softDeletes();

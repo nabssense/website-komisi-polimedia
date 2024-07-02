@@ -4,17 +4,21 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Question;
+use App\Models\Discussion;
+use Conner\Likeable\Likeable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+
 class Answer extends Model
 {
-    use HasFactory;
-
+use HasFactory, Likeable;
+    protected $table = 'discussions_answer';
     protected $fillable = [
         'user_id',
         'discussion_id',
         'answer',
+        'image',
     ];
 
     public function user()
@@ -22,8 +26,8 @@ class Answer extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function question()
+    public function discussion()
     {
-        return $this->belongsTo(Question::class);
+        return $this->belongsTo(Discussion::class);
     }
 }

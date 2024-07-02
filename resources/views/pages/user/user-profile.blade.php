@@ -6,16 +6,65 @@
     <div class="w-full h-full col-span-9 p-8 flex-col justify-start items-start gap-8 hidden lg:flex">
         <div class="text-start text-neutral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Personal Info</div>
         <div class="w-full h-fit flex flex-row gap-8">
-            <div onclick="()"
+            <div
                 class="w-fit h-fit rounded-lg py-4 px-4 border-b border-netral-300 justify-start items-center gap-4 flex flex-col shadow-card-m">
                 <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
-                    alt="{{ auth()->user()->fullname }}" class="w-360 rounded-lg">
-                <button
-                    class="w-full h-full bg-primary-100 rounded-lg px-4 py-2 flex-col justify-center items-center flex gap-1">
-                    <div class="text-center self-stretch text-netral-900 text-xl font-normal font-THICCCBOI leading-B1">Ubah Gambar
-                    </div>
-                </button>
+                    alt="{{ auth()->user()->fullname }}" class="w-360 aspect-square object-cover rounded-full">
+                <button id="ubahPicProfilButton" onclick="togglePopUpShow('ubahPicProfilPopup')" type="button"
+                    class="w-full flex btn-secondary-sm px-4">Ubah</button>
             </div>
+            {{-- Ubah Pop Up --}}
+            <div id="ubahPicProfilPopup" onclick="event.stopPropagation();"
+                class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                <div
+                    class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                    <form action="{{ route('user.update.profile-picture') }}" method="POST" enctype="multipart/form-data"
+                        class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
+                        role="none">
+                        @csrf
+                        @method('PATCH')
+                        <div class="self-stretch h-fit flex-col justify-start items-start gap-4 flex">
+                            <div class="input-text-label">
+                                Ubah Foto Profil
+                            </div>
+                            <div class="w-full h-fit rounded-lg justify-start items-center gap-4 flex flex-col">
+                                <div
+                                    class="w-full aspect-square bg-white px-6 py-4 rounded-full border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
+                                    <input name="profile_picture"
+                                        class="w-full h-full z-10 opacity-0 absolute cursor-pointer " type="file"
+                                        id="image-input" accept="image/*">
+                                    <img id="image-preview"
+                                        src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? '' : Storage::url(auth()->user()->profile_picture) }}"
+                                        class="w-full h-full object-cover absolute top-0 bg-white rounded-full {{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? 'hidden' : '' }}">
+                                    <i href="#" class="ph ph-plus text-7xl"></i>
+                                    <label for="image-input" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
+                                </div>
+                                @error('profile_picture')
+                                    <div class="text-red-500 font-normal Heading4">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                                <button id="hapusGambarButton" class="w-full flex btn-secondary-sm px-4 {{  filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? 'hidden' : '' }}" type="button">
+                                    Hapus Gambar
+                                </button>
+                                <input type="hidden" id="remove-profile-picture" name="remove_profile_picture"
+                                    value="0">
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-row gap-2">
+                            <button class="w-full flex btn-secondary-sm px-4" type="button"
+                                onclick="togglePopUpShow('ubahPicProfilPopup')">
+                                Tutup
+                            </button>
+                            <button class="w-full flex btn-primary-sm px-4" type="submit"
+                                onsubmit="togglePopUpShow('ubahPicProfilPopup')">
+                                Simpan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="w-full   h-fit flex-col grid grid-cols-12 grid-rows-1 justify-start items-start gap-2">
                 <div class=" grid grid-cols-12 col-span-12 justify-start items-start gap-2">
                     <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
@@ -26,42 +75,46 @@
                             {{ auth()->user()->fullname }}</div>
                     </div>
                     <div class="w-fit py-1 justify-center items-center gap-3 flex">
-                        {{-- Pop Up Card --}}
-                        <div class="relative inline-block text-left">
-                            <button type="button"
+                        {{-- Ubah --}}
+                        <div class="w-fit flex flex-row">
+                            <button id="ubahNamaButton" onclick="togglePopUpShow('ubahNamaPopup')" type="button"
                                 class="option-button text-center text-rose-600 text-lg font-medium font-THICCCBOI leading-7">Ubah</button>
-                            <div class="option-card-menu fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden"
-                                role="menu" aria-orientation="vertical" tabindex="-1">
-                                <div class="close-button-bg w-screen h-screen relative justify-center items-center flex ">
-                                    <div class="flex flex-col bg-netral-100 rounded-2xl w-480 h-fit justify-center items-center overflow-clip"
+                            {{-- Pop Up --}}
+                            <div id="ubahNamaPopup"
+                                class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                <div
+                                    class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                    <form action="{{ route('update-fullname') }}" method="POST"
+                                        onclick="event.stopPropagation();"
+                                        class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
                                         role="none">
-                                        <div
-                                            class="text-start w-full  px-4 py-4 text-2xl font-bold font-THICCCBOI text-netral-900">
-                                            Ubah</div>
-                                        <form action="" method="POST" class="w-full flex flex-col px-4 gap-8">
-                                            @csrf
-                                            @method('PUT')
-                                            <div class="self-stretch h-fit flex-col justify-start items-start flex">
-                                                <div class="justify-start items-start inline-flex">
-                                                    <div
-                                                        class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                                        Nama Lengkap
-                                                    </div>
+                                        @csrf
+                                        <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                                            <div class="input-text-label">
+                                                Nama Lengkap
+                                            </div>
+                                            <input type="text" id="fullname" name="fullname"
+                                                placeholder="Masukkan nama kamu" value="{{ auth()->user()->fullname }}"
+                                                class="input-text
+                                                            @error('fullname') border-red-500 @enderror">
+                                            @error('fullname')
+                                                <div id="email-error" class="text-red-500 font-normal Heading4">
+                                                    {{ $message }}
                                                 </div>
-                                                <input type="text" name="fullname" placeholder="Masukkan nama lengkapmu"
-                                                    id="" value="{{ auth()->user()->fullname }}"
-                                                    class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                                            </div>
-                                            <div class="w-full flex flex-col gap-4">
-                                                <button type="button"
-                                                    class="close-button block w-full text-center px-4 py-3 text-xl font-THICCCBOI bg-primary-100 rounded-full text-netral-900 hover:bg-primary-200 hover:text-netral-900"
-                                                    role="menuitem">Batalkan</button>
-                                                <button type="submit" href="#"
-                                                    class="block w-full text-center px-4 py-3 bg-primary-base rounded-full text-xl font-THICCCBOI text-netral-100 hover:bg-primary-500"
-                                                    role="menuitem">Simpan</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                            @enderror
+                                        </div>
+                                        <div class="w-full flex flex-row gap-2">
+                                            <button class="w-full flex btn-secondary-sm px-4" type="reset"
+                                                onclick="togglePopUpShow('ubahNamaPopup')">
+                                                Tutup
+                                            </button>
+                                            <button class="w-full flex btn-primary-sm px-4" type="submit"
+                                                onclick="togglePopUpShow('ubahNamaPopup')">
+                                                Simpan
+                                            </button>
+                                        </div>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +125,8 @@
                         <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">NIM/NIP</div>
                     </div>
                     <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                        <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">{{ auth()->user()->nim }}
+                        <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
+                            {{ auth()->user()->nim }}
                         </div>
                     </div>
                 </div>
@@ -103,50 +157,72 @@
                         </div>
                     </div>
                     <div class="w-fit py-1 justify-center items-center gap-3 flex">
-                        {{-- Pop Up Card --}}
-                        <div class="relative inline-block text-left">
-                            <button type="button"
+                        {{-- Ubah --}}
+                        <div class="w-fit flex flex-row">
+                            <button id="ubahPasswordButton" onclick="togglePopUpShow('ubahPasswordPopup')" type="button"
                                 class="option-button text-center text-rose-600 text-lg font-medium font-THICCCBOI leading-7">Ubah</button>
-                            <div class="option-card-menu fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden"
-                                role="menu" aria-orientation="vertical" tabindex="-1">
-                                <div class="close-button-bg w-screen h-screen relative justify-center items-center flex ">
-                                    <div class="flex flex-col bg-netral-100 rounded-2xl w-480 h-fit justify-center items-center overflow-clip"
+                            {{-- Pop Up --}}
+                            <div id="ubahPasswordPopup"
+                                class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                <div
+                                    class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                    <form action="{{ route('update-password') }}" method="POST"
+                                        onclick="event.stopPropagation();"
+                                        class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
                                         role="none">
-                                        <div
-                                            class="text-start w-full px-4 py-4 text-2xl font-bold font-THICCCBOI text-netral-900">
-                                            Ubah</div>
-                                        <form class="w-full flex flex-col px-4 gap-8">
-                                            <div class="self-stretch h-fit flex-col justify-start items-start flex">
-                                                <div class="justify-start items-start inline-flex">
-                                                    <div
-                                                        class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">
-                                                        Kata sandi
+                                        @csrf
+                                        <div class="w-full flex flex-col gap-4">
+                                            <div class="w-full text-start Heading3">Ubah Kata Sandi</div>
+                                            <div class="w-full flex flex-wrap gap-2">
+                                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                                    <div class="input-text-label">Kata Sandi Baru</div>
+                                                    <div class="w-full justify-center items-center flex flex-row relative">
+                                                        <input type="password" id="passwordInput" name="password"
+                                                            placeholder="Masukkan kata sandi kamu"
+                                                            class="input-text @error('password') border-red-500 @enderror">
+                                                        <div class="h-full justify-center items-center cursor-pointer"
+                                                            onclick="togglePassword('passwordInput', 'showPassword')">
+                                                            <i id="showPassword"
+                                                                class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="w-full justify-center items-center flex flex-row relative">
-                                                    <input type="password" name="password"
-                                                        placeholder="Masukkan kata sandi kamu" id="password"
-                                                        class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                                                    <div href="/berita"
-                                                        class="h-full justify-center items-center cursor-pointer"><i
-                                                            id="showPassword"
-                                                            class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
-                                                    </div>
+                                                    @error('password')
+                                                        <div class="text-red-500 font-normal Heading4">{{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
-                                            <div class="w-full flex flex-col gap-4">
-                                                <button type="button"
-                                                    class="close-button block w-full text-center px-4 py-3 text-xl font-THICCCBOI bg-primary-100 rounded-full text-netral-900 hover:bg-primary-200 hover:text-netral-900"
-                                                    role="menuitem">Batalkan</button>
-                                                <button type="submit" href="#"
-                                                    class="block w-full text-center px-4 py-3 bg-primary-base rounded-full text-xl font-THICCCBOI text-netral-100 hover:bg-primary-500"
-                                                    role="menuitem">Simpan</button>
+                                            <div class="w-full flex flex-wrap gap-2">
+                                                <div class="w-full h-fit flex-col justify-start items-start flex">
+                                                    <div class="input-text-label">Ulang Kata Sandi Baru</div>
+                                                    <div class="w-full justify-center items-center flex flex-row relative">
+                                                        <input type="password" id="REpasswordInput"
+                                                            name="password_confirmation"
+                                                            placeholder="Masukkan kata sandi kamu"
+                                                            class="input-text @error('password') border-red-500 @enderror">
+                                                        <div class="h-full justify-center items-center cursor-pointer"
+                                                            onclick="togglePassword('REpasswordInput', 'REshowPassword')">
+                                                            <i id="REshowPassword"
+                                                                class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
+                                                        </div>
+                                                    </div>
+                                                    @error('password')
+                                                        <div class="text-red-500 font-normal Heading4">{{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <div class="w-full flex flex-row gap-2">
+                                            <button type="button" class="w-full flex btn-secondary-sm px-4"
+                                                onclick="togglePopUpShow('ubahPasswordPopup')">Tutup</button>
+                                            <button type="submit" class="w-full flex btn-primary-sm px-4">Simpan</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -160,7 +236,7 @@
     {{-- Mobile --}}
     <div class="w-full h-full flex-col justify-start items-start gap-4 p-4 flex lg:hidden">
         <div class="w-full flex flex-row items-center gap-4">
-            <i type="button" onclick="pageUser()" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></i>
+            <a type="button" href="/user" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></a>
             <div class="text-start text-neutral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Personal Info</div>
         </div>
         <div class="w-full h-fit flex flex-col gap-8">
@@ -168,9 +244,8 @@
                 class="w-full h-fit rounded-lg py-4 px-4 border-b border-netral-300 justify-start items-center gap-4 flex flex-col shadow-card-m">
                 <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
                     alt="{{ auth()->user()->fullname }}" class="w-32 rounded-lg">
-                <button
-                    class="btn-secondary w-full">
-                        Ubah Gambar
+                <button class="btn-secondary w-full">
+                    Ubah Gambar
                 </button>
             </div>
             {{-- Input Field --}}
@@ -188,9 +263,6 @@
                     @error('email')
                         <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
                     @enderror
-                    @error('credentials')
-                        <div id="credentials-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
-                    @enderror
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
                     <div class="justify-start items-start inline-flex">
@@ -204,9 +276,6 @@
                                 @error('email') border-red-500 @enderror @error('credentials') border-red-500 @enderror">
                     @error('email')
                         <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
-                    @enderror
-                    @error('credentials')
-                        <div id="credentials-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
@@ -222,9 +291,6 @@
                     @error('email')
                         <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
                     @enderror
-                    @error('credentials')
-                        <div id="credentials-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
-                    @enderror
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
                     <div class="justify-start items-start inline-flex">
@@ -239,24 +305,39 @@
                     @error('email')
                         <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
                     @enderror
-                    @error('credentials')
-                        <div id="credentials-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
                     <div class="justify-start items-start inline-flex">
                         <div class="text-stone-700 font-normal Body1">
-                            Kata
-                            sandi
+                            Kata Sandi Baru
                         </div>
                     </div>
                     <div class="w-full justify-center items-center flex flex-row relative">
-                        <input type="password" id="password" name="password" placeholder="Masukkan kata sandi kamu"
-                            id="password"
+                        <input type="password" id="passwordInput2" name="password_confirmation"
+                            placeholder="Masukkan kata sandi kamu" id="password"
                             class="w-full pt-2 pb-3 @error('password') border-red-500 @enderror bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-font-normal Heading4">
-                        <div href="/berita" class="h-full justify-center items-center cursor-pointer"><i
-                                id="showPassword"
+                        <div href="/berita" class="h-full justify-center items-center cursor-pointer"
+                            onclick="togglePassword('passwordInput2', 'showPassword2')"><i id="showPassword2"
+                                class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
+                        </div>
+                    </div>
+                    @error('password')
+                        <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                    <div class="justify-start items-start inline-flex">
+                        <div class="text-stone-700 font-normal Body1">
+                            Ulang Kata Sandi Baru
+                        </div>
+                    </div>
+                    <div class="w-full justify-center items-center flex flex-row relative">
+                        <input type="password" id="REpasswordInput2" name="password"
+                            placeholder="Masukkan kata sandi kamu" id="password"
+                            class="w-full pt-2 pb-3 @error('password') border-red-500 @enderror bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-font-normal Heading4">
+                        <div href="/berita" class="h-full justify-center items-center cursor-pointer"
+                            onclick="togglePassword('REpasswordInput2', 'showPassword2')"><i id="REshowPassword2"
                                 class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
                         </div>
                     </div>
@@ -267,68 +348,19 @@
             </div>
         </div>
     </div>
-@endsection
-{{-- Fungsi Option Card --}}
-<script>
-    const optionButtons = document.querySelectorAll('.option-button');
+    <script>
+        document.getElementById('hapusGambarButton').addEventListener('click', function() {
+            var imageInput = document.getElementById('image-input');
+            var imagePreview = document.getElementById('image-preview');
+            var hiddenInput = document.getElementById('remove-profile-picture');
 
-    // Loop melalui setiap tombol opsi dan tambahkan event listener
-    optionButtons.forEach(function(optionButton) {
-        optionButton.addEventListener('click', function() {
-            // Dapatkan menu terkait
-            const optionMenu = this.nextElementSibling;
-            // Toggle tampilan menu
-            optionMenu.classList.toggle('hidden');
-            document.body.classList.toggle('overflow-hidden');
+            imageInput.value = ''; // Clear the file input
+            imagePreview.src = ''; // Clear the image preview
+            imagePreview.classList.add('hidden'); // Hide the image preview
+            hiddenInput.value = '1'; // Set hidden input value to indicate image removal
         });
-
-        // Ambil tombol tutup terkait
-        const closeButton = optionButton.nextElementSibling.querySelector('.close-button');
-        if (closeButton) {
-            // Tambahkan event listener untuk tombol tutup
-            closeButton.addEventListener('click', function() {
-                // Dapatkan menu terkait
-                const optionMenu = this.parentNode.parentNode.parentNode.parentNode.parentNode;
-                // Sembunyikan menu
-                optionMenu.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            });
-        }
-        // Tambahkan event listener untuk tombol "Batalkan 2"
-        document.addEventListener('click', function(event) {
-            // Cek apakah yang diklik adalah tombol "Batalkan 2"
-            if (event.target.classList.contains('close-button-bg')) {
-                // Dapatkan menu terkait dengan tombol "Batalkan 2"
-                const optionMenu = event.target.closest('.option-card-menu');
-                // Sembunyikan menu
-                optionMenu.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-
-                function pageUserProfile();
-            }
-        });
-    });
-</script>
-
-<script>
-    // Show Password
-    const passwordField = document.getElementById('password');
-    const togglePasswordButton = document.getElementById('showPassword');
-
-    let passwordVisible = false;
-
-    togglePasswordButton.addEventListener('click', function() {
-        if (passwordVisible) {
-            passwordField.type = 'password'; // Sembunyikan password
-            togglePasswordButton.classList.remove('ph-fill');
-            togglePasswordButton.classList.remove('text-primary-base');
-
-        } else {
-            passwordField.type = 'text'; // Tampilkan password
-            togglePasswordButton.classList.add('text-primary-base');
-            togglePasswordButton.classList.add('ph-fill');
-        }
-        passwordVisible = !passwordVisible;
-    });
-</script>
+    </script>
+    <script src="{{ asset('js/togglePopUpShow.js') }}"></script>
+    <script src="{{ asset('js/inputImagePreview.js') }}"></script>
+    <script src="{{ asset('js/inputPassword.js') }}"></script>
 @endsection

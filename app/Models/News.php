@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Answer;
-use App\Models\CategoryDiscussion;
-use Illuminate\Foundation\Auth\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class News extends Model
 {
     use HasFactory;
 
@@ -16,23 +13,22 @@ class Question extends Model
         'user_id',
         'category_id',
         'title',
-        'slug',
-        'content_preview',
         'content',
+        'image',
+        'slug',
+        'headline_status',
+        'headline_image',
+        // tambahkan kolom lainnya sesuai kebutuhan
     ];
 
+    // Definisikan relasi 'user'
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
+    // Definisikan relasi 'category'
     public function category()
     {
         return $this->belongsTo(CategoryDiscussion::class);
-    }
-
-    public function answers()
-    {
-        return $this->hasMany(Answer::class);
     }
 }

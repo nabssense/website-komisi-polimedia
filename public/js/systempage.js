@@ -50,10 +50,10 @@ function pageNotifikasi() {
 
 // Akun
 function pageUserProfile() {
-  window.location.href = "user-profile";
+  window.location.href = "/user-profile";
 }
 function pageUser() {
-  window.location.href = "user";
+  window.location.href = "/user";
 }
 
 

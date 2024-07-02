@@ -31,13 +31,13 @@
                                         dolor sit amet, consectetur adipiscing elit. Volutpat metus sed lacus, ornare
                                         feugiat mattis.
                                         Sed pulvinar id bibendum id vel consequat dui elementum auctor. </p>
-                                    <button class="w-full h-fit justify-start items-center gap-2 md:gap-4 flex Heading4 flex-row"
-                                        onclick="pageTentangKabinet()">
+                                    <a class="w-full h-fit justify-start items-center gap-2 md:gap-4 flex Heading4 flex-row"
+                                        href="/tentang-kabinet">
                                         <div class="text-center text-primary-base font-medium ">
                                             Lihat Kabinet
                                         </div>
                                         <i class=" text-primary-base ph ph-caret-right"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

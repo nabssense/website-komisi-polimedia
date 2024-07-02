@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\ForumDiscussion;
 
+use App\Models\Answer;
 use App\Models\Discussion;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class DiscussionController extends Controller
 
         $discussions = Discussion::with('user', 'category');
         
+       
 
         $discussionsTerbantu = Discussion::with('user', 'category')
             ->withCount('likes')
@@ -103,10 +105,6 @@ class DiscussionController extends Controller
         $validated['user_id'] = auth()->id();
         $validated['slug'] = Str::slug($validated['title']) . '-' . time();
 
-        $stripContent = strip_tags($validated['question']);
-        $isContentLong = strlen($stripContent) > 120;
-        $validated['question_preview'] = $isContentLong
-            ? (substr($stripContent, 0, 120) . '...') : $stripContent;
 
         // Handle the image upload
         if ($request->hasFile('image')) {
@@ -138,7 +136,10 @@ class DiscussionController extends Controller
         // Ambil 5 diskusi terbanyak berdasarkan jumlah like
         
         $discussion = Discussion::with(['user', 'category'])->where('slug', $slug)->first();
-       
+        
+        $discussionAnswers = Answer::where('discussion_id', $discussion->id)
+        ->orderBy('created_at', 'desc')
+        ->paginate(5);
 
         $discussionsTerbantu = Discussion::with('user', 'category')
             ->withCount('likes')
@@ -148,11 +149,12 @@ class DiscussionController extends Controller
             
         return response()->view('pages.forum-diskusi.pertanyaan', [
             "title" => "Website Komisi | Pertanyaan",
-            "active" => "Pertanyaan",
+            "active" => "Forum Diskusi",
 
             'discussionsTerbantu' => $discussionsTerbantu,
             'discussion' => $discussion,
             'category' => CategoryDiscussion::all(),
+            'discussionAnswers' => $discussionAnswers,
         ]);
     }
 
@@ -204,20 +206,26 @@ class DiscussionController extends Controller
             return abort(404);
         }
 
+        
+        
         $validated = $request->validated();
         $categoryId = CategoryDiscussion::where('slug', $validated['category_slug'])->first()->id;
 
         $validated['category_id'] = $categoryId;
         $validated['user_id'] = auth()->id();
 
-        $stripQuestion = strip_tags($validated['question']);
-        $isQuestionLong = strlen($stripQuestion) > 120;
-        $validated['question_preview'] = $isQuestionLong
-            ? (substr($stripQuestion, 0, 120) . '...') : $stripQuestion;
+        // Handle the image upload
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('image/discussion', 'public');
+            $validated['image'] = $imagePath;
+            // Simpan path gambar sementara dalam sesi jika ada error
+            session()->put('image', $imagePath);
+        }
 
         $update = $discussion->update($validated);
 
         if ($update) {
+            session()->forget('image');
             session()->flash('notif.success', 'Discussion updated successfully!');
             return redirect()->route('forum-diskusi.show', $slug);
         }
@@ -237,7 +245,7 @@ class DiscussionController extends Controller
         if (!$discussion) {
             return abort(404);
         }
-
+        
         $isOwnedByUser = $discussion->user_id == auth()->id();
 
         if (!$isOwnedByUser) {

@@ -1,180 +1,170 @@
-@config "./tailwind.config.js";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer utilities {
-  .scrollbar-hidden {
-    overflow: scroll; /* Menyembunyikan scrollbar standar */
-  }
-  
-  /* Membuat scrollbar kustom */
-  
-  .scrollbar-hidden::-webkit-scrollbar {
-    width: 0; /* Menyembunyikan scrollbar horizontal */
-    height: 0; /* Menyembunyikan scrollbar vertikal */
-  }
-  
-  .scrollbar-hidden::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Menyembunyikan thumb scrollbar */
-  }
-  
-  .scrollbar-hidden::-webkit-scrollbar-track {
-    background-color: transparent; /* Menyembunyikan track scrollbar */
-  }
+    .scrollbar-hidden {
+        overflow: scroll; /* Menyembunyikan scrollbar standar */
+    }
+
+    /* Membuat scrollbar kustom */
+
+    .scrollbar-hidden::-webkit-scrollbar {
+        width: 0; /* Menyembunyikan scrollbar horizontal */
+        height: 0; /* Menyembunyikan scrollbar vertikal */
+    }
+
+    .scrollbar-hidden::-webkit-scrollbar-thumb {
+        background-color: transparent; /* Menyembunyikan thumb scrollbar */
+    }
+
+    .scrollbar-hidden::-webkit-scrollbar-track {
+        background-color: transparent; /* Menyembunyikan track scrollbar */
+    }
 }
 @layer utilities {
-  .scrollbar-hidden-vertikal {
-    overflow: scroll; /* Menyembunyikan scrollbar standar */
-  }
-  
-  /* Membuat scrollbar kustom */
-  
-  .scrollbar-hidden-vertikal::-webkit-scrollbar {
-    width: 0; /* Menyembunyikan scrollbar horizontal */
-    height: 0; /* Menyembunyikan scrollbar vertikal */
-  }
-  
-  .scrollbar-hidden-vertikal::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Menyembunyikan thumb scrollbar */
-  }
-  
-  .scrollbar-hidden-vertikal::-webkit-scrollbar-track {
-    background-color: transparent; /* Menyembunyikan track scrollbar */
-  }
+    .scrollbar-hidden-vertikal {
+        overflow: scroll; /* Menyembunyikan scrollbar standar */
+    }
+
+    /* Membuat scrollbar kustom */
+
+    .scrollbar-hidden-vertikal::-webkit-scrollbar {
+        width: 0; /* Menyembunyikan scrollbar horizontal */
+        height: 0; /* Menyembunyikan scrollbar vertikal */
+    }
+
+    .scrollbar-hidden-vertikal::-webkit-scrollbar-thumb {
+        background-color: transparent; /* Menyembunyikan thumb scrollbar */
+    }
+
+    .scrollbar-hidden-vertikal::-webkit-scrollbar-track {
+        background-color: transparent; /* Menyembunyikan track scrollbar */
+    }
 }
 @keyframes moveText {
-  0% {
-    transform: translateY(0%);
-    width: 396px;
-    animation-delay: 9s;
-  }
-  33.33% {
-    transform: translateY(-100%);
-    width: 372px;
-    animation-delay: 3s;
-  }
-  66.66% {
-    transform: translateY(-200%);
-    width: 472px;
-    animation-delay: 6s;
-  }
-  100% {
-    transform: translateY(0%);
-    width: 396px;
-    animation-delay: 9s;
-}
+    0% {
+        transform: translateY(0%);
+        width: 396px;
+        animation-delay: 9s;
+    }
+    33.33% {
+        transform: translateY(-100%);
+        width: 372px;
+        animation-delay: 3s;
+    }
+    66.66% {
+        transform: translateY(-200%);
+        width: 472px;
+        animation-delay: 6s;
+    }
+    100% {
+        transform: translateY(0%);
+        width: 396px;
+        animation-delay: 9s;
+    }
 }
 
 .movingText {
-  animation: moveText 6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-  animation-delay: 00ms;
+    animation: moveText 6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+    animation-delay: 00ms;
 }
 
 @keyframes buttonToFullClicked {
-  0% {
-    
-    background-color: #FFFFFF;
-    border-radius: 0px;
-    animation-delay: 3s;
-  }
-  33.33% {
-    
-    border-radius: 0px;
-    animation-delay: 3s;
-  }
-  66.66% {
-    
-    border-radius: 0px;
-    animation-delay: 3s;
-  }
-  100% {
-    
-    border-radius: 0px;
-    animation-delay: 3s;
+    0% {
+        background-color: #ffffff;
+        border-radius: 0px;
+        animation-delay: 3s;
+    }
+    33.33% {
+        border-radius: 0px;
+        animation-delay: 3s;
+    }
+    66.66% {
+        border-radius: 0px;
+        animation-delay: 3s;
+    }
+    100% {
+        border-radius: 0px;
+        animation-delay: 3s;
+    }
 }
-}
-
 
 @keyframes slideIn {
-  from {
-      transform: translateY(-40%);
-      opacity: 1;
-  }
-  to {
-      transform: translateY(-100%);
-      opacity: 1;
-  }
+    from {
+        transform: translateY(-40%);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
 }
 
 @keyframes fadeIn {
-  from {
-      opacity: 1;
-  }
-  to {
-      opacity: 1;
-  }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
 }
 /* Animasi Beranda */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s ease;
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active in <=2.1.8 */ {
-  opacity: 0;
+    opacity: 0;
 }
-
 
 /* Animasi untuk muncul */
 .tutup-btn {
-  animation: tutupBtn 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: tutupBtn 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .btn-rounded-tutup {
-  animation: btnTutupRounded 0.1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: btnTutupRounded 0.1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .show-btn-1 {
-  animation: showBtn1 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-
+    animation: showBtn1 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .show-btn-2 {
-  animation: showBtn2 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; 
+    animation: showBtn2 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .hide-btn-1 {
-  animation: hideBtn1 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-
+    animation: hideBtn1 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .hide-btn-2 {
-  animation: hideBtn2 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: hideBtn2 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
-
 .body-opacity-0 {
-  animation: opacity0 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: opacity0 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .btn-Rounded {
-  animation: btnRounded 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-  animation-delay: 1s;
+    animation: btnRounded 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation-delay: 1s;
 }
 
 .body-height-0 {
-  animation: height0 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-
+    animation: height0 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 .navbar-height-0 {
-  animation: navbarheight0 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: navbarheight0 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 @keyframes opacity0 {
-  from {
-      opacity: 1;
-  }
-  to {
-      opacity: 0;
-  }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 /* @keyframes btnTutupRounded {
@@ -188,201 +178,199 @@
 } */
 
 @keyframes btnRounded {
-  from {
-    
-  }
-  to {
-    border-radius :0;
-  }
+    from {
+    }
+    to {
+        border-radius: 0;
+    }
 }
-
 
 @keyframes height0 {
-  from {
-      opacity:  0;
-      height: 100%;
-  }
-  to {
-      opacity: 0;
-      height: 0;
-}
+    from {
+        opacity: 0;
+        height: 100%;
+    }
+    to {
+        opacity: 0;
+        height: 0;
+    }
 }
 
 @keyframes navbarheight0 {
-  from {
-    opacity:  0;
-    
-
-  }
-  to {
-      opacity: 0;
-      height: 0;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+        height: 0;
+    }
 }
 
 @keyframes showBtn1 {
-  from {
-    opacity:  0;
-    display: none;
-  }
+    from {
+        opacity: 0;
+        display: none;
+    }
 
-  to {
-    opacity: 1;
-   
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes showBtn2 {
-  from {
-    opacity:  0;
-    display: none;
-  }
+    from {
+        opacity: 0;
+        display: none;
+    }
 
-  to {
-    opacity: 1;
-    
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes hideBtn1 {
-
-  from {
-    opacity: 1;
-    
-  }
-  to {
-    opacity:  0;
-    display: none;
-  }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
 }
 
 @keyframes hideBtn2 {
-
-  from {
-    opacity: 1;
-   
-  }
-  to {
-    opacity:  0;
-    display: none;
-  }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
 }
 
 @keyframes tutupBtn {
-
-  from {
-    transform: translateY(0);
-    border-bottom-right-radius: 32px;
-    border-bottom-left-radius: 32px;
-    overflow: clip;
-  }
-  to {
-    transform: translateY(-100%);
-    border-bottom-right-radius: 32px;
-    border-bottom-left-radius: 32px;
-    overflow: clip;
-    height: 0;
-  }
-
+    from {
+        transform: translateY(0);
+        border-bottom-right-radius: 32px;
+        border-bottom-left-radius: 32px;
+        overflow: clip;
+    }
+    to {
+        transform: translateY(-100%);
+        border-bottom-right-radius: 32px;
+        border-bottom-left-radius: 32px;
+        overflow: clip;
+        height: 0;
+    }
 }
 
 @layer components {
-  .btn-primary{
-    @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 bg-primary-base focus:bg-primary-500 focus:scale-98 focus:transform focus:ease-in focus:transition-transform focus:duration-75 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-100 font-medium;
-  }
-  
-  .btn-secondary{
-    @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 bg-primary-100 focus:bg-primary-200 focus:scale-98 focus:transform focus:ease-in focus:transition-transform focus:duration-75 rounded-full justify-center items-center flex Heading4 text-nowrap text-primary-base font-medium;
-  }
-  
-  .btn-tertiary{
-    @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-900 font-medium;
-  }
-
-  .btn-popup{
-    @apply w-fit h-fit px-4 py-1.5 lg:px-6 lg:py-2 gap-3 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 Body1 lg:Heading4 font-medium ;
-  }
-  .btn-popup-sm{
-    @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-3 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 Heading4 font-medium ;
-  }
-  
- 
-
-  .btn-primary-sm{
-    @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 bg-primary-base focus:bg-primary-500 focus:scale-98 focus:transform focus:ease-in focus:transition-transform focus:duration-75 rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 Heading4 font-medium ;
-  }
-  .btn-secondary-sm{
-    @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 bg-primary-100 focus:bg-primary-200 focus:scale-98 focus:transform focus:ease-in focus:transition-transform focus:duration-75 rounded-full justify-center items-center flex text-nowrap text-center text-primary-base Heading4 font-medium ;
-  }
-  .btn-tertiary-sm{
-    @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-3 lg:gap-4 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-900 font-medium;
-  }
-
-  .btn-navbar{
-    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium leading-H1-H2-H3;
-  }
-  .btn-navbar-active{
-    @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium leading-H1-H2-H3;
-  }
-  
-/* searchbar */
-  .searchbar{
-    @apply w-full px-4 py-1.5 md:px-6 md:py-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center line-clamp-1 flex text-nowrap text-start text-netral-800 Body1 md:Heading4 placeholder:font-normal placeholder:line-clamp-1 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800;
-  }
-
-  /* searchbar */
-  .commentbar{
-    @apply w-full px-4 py-1 bg-soft-base  border-2 rounded-full justify-center items-center flex line-clamp-1 text-start text-netral-800 Body1 focus:outline-none focus:border-primary-base;
-  }
-
-    /* searchbar */
-    .commentbar-long{
-      @apply w-full px-3 lg:px-4 py-0 h-fit overflow-y-scroll border-2 focus-within:border-red-500 bg-soft-base scrollbar-hidden rounded-3xl gap-2 lg:gap-3 flex flex-row items-center line-clamp-1 text-start text-netral-800 Body1 focus:outline-none ;
-    }
-    /* searchbar */
-    .commentbar-long-input{
-      @apply w-full py-2 lg:py-5 h-9 lg:h-16 max-h-32 lg:max-h-72 outline-none overflow-y-scroll scrollbar-hidden resize-y ease-in transition-all  transform  duration-75 bg-soft-base justify-center items-center flex line-clamp-1 text-start text-netral-800 Body1 focus:outline-none;
+    .btn-primary {
+        @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 bg-primary-base focus:bg-primary-500 focus:scale-98 focus:transform focus:ease-in focus:transition-transform focus:duration-75 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-100 font-medium;
     }
 
-  
-   /* searchbar */
-   .label-input-text{
-    @apply justify-start items-start inline-flex text-stone-700 text-base font-normal Heading4;
-  }
-  /* searchbar */
-  .input-text{
-    @apply w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 Heading4;
-  }
-  /* searchbar */
-  .input-textarea{
-    @apply w-full h-32 py-3 text-wrap bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-start gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal Heading4;
-  }
+    .btn-secondary {
+        @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 bg-primary-100 focus:bg-primary-200 focus:scale-98 focus:transform focus:ease-in focus:transition-transform focus:duration-75 rounded-full justify-center items-center flex Heading4 text-nowrap text-primary-base font-medium;
+    }
 
+    .btn-tertiary {
+        @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-900 font-medium;
+    }
+    .btn-tertiary-primary {
+        @apply w-fit h-fit px-5 py-2 lg:px-6 lg:py-3 gap-3 lg:gap-4 rounded-full justify-center items-center flex Heading4 text-nowrap text-primary-base font-medium;
+    }
 
+    .btn-popup {
+        @apply w-fit h-fit px-4 py-1.5 lg:px-6 lg:py-2 gap-3 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 Body1 lg:Heading4 font-medium;
+    }
+    .btn-popup-sm {
+        @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 Heading4 font-medium;
+    }
 
-  /* FONTS SYSTEM */
-  .Heading1{
-    @apply text-32 lg:text-5xl font-THICCCBOI leading-H2 lg:leading-H1;
-  }
-  .Heading2{
-    @apply text-2xl lg:text-32 font-THICCCBOI leading-H3 lg:leading-H2;
-  }
-  .Heading3{
-    @apply text-xl lg:text-2xl font-THICCCBOI leading-H4 lg:leading-H3;
-  }
-  .Heading4{
-    @apply text-base lg:text-lg font-THICCCBOI leading-B1 lg:leading-H4;
-  }
-  .Body1{
-    @apply text-sm lg:text-base font-THICCCBOI leading-B2 lg:leading-B1;
-  }
-  .Body2{
-    @apply text-xs lg:text-sm font-THICCCBOI leading-B3 lg:leading-B2;
-  }
-  .Body3{
-    @apply text-3xs lg:text-2xs font-THICCCBOI leading-B3;
-  }
-  .Body4{
-    @apply text-4xs lg:text-3xs font-THICCCBOI leading-B4;
-  }
+    .btn-primary-sm {
+        @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-2 lg:gap-3 bg-primary-base focus:bg-primary-500 focus:scale-98 focus:transform focus:ease-in focus:transition-transform focus:duration-75 rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 Heading4 font-medium;
+    }
+    .btn-secondary-sm {
+        @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-2 lg:gap-3 bg-primary-100 focus:bg-primary-200 focus:scale-98 focus:transform focus:ease-in focus:transition-transform focus:duration-75 rounded-full justify-center items-center flex text-nowrap text-center text-primary-base Heading4 font-medium;
+    }
+    .btn-tertiary-sm {
+        @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-2 lg:gap-3 rounded-full justify-center items-center flex Heading4 text-nowrap text-netral-900 font-medium;
+    }
+    .btn-tertiary-sm-primary {
+        @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-2 lg:gap-3 rounded-full justify-center items-center flex Heading4 text-nowrap text-primary-base font-medium;
+    }
+
+    .btn-navbar {
+        @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium leading-H1-H2-H3;
+    }
+    .btn-navbar-active {
+        @apply w-fit h-fit px-6 py-2 lg:px-6 lg:py-3  bg-primary-base rounded-full justify-center items-center flex text-nowrap text-center text-netral-100 text-xl lg:text-2xl font-medium leading-H1-H2-H3;
+    }
+
+    /* searchbar */
+    .searchbar {
+        @apply w-full px-4 py-1.5 md:px-6 md:py-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center line-clamp-1 flex text-nowrap text-start text-netral-800 Body1 md:Heading4 placeholder:font-normal placeholder:line-clamp-1 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800;
+    }
+
+    /* searchbar */
+    .commentbar {
+        @apply w-full px-4 py-1 bg-soft-base  border-2 rounded-full justify-center items-center flex line-clamp-1 text-start text-netral-800 Body1 focus:outline-none focus:border-primary-base;
+    }
+
+    /* searchbar */
+    .commentbar-long {
+        @apply w-full px-3 lg:px-4 py-0 h-fit overflow-y-scroll border-2 focus-within:border-primary-base bg-soft-base scrollbar-hidden rounded-3xl gap-2 lg:gap-3 flex flex-row items-center line-clamp-1 text-start text-netral-800 Body1 focus:outline-none;
+    }
+    /* searchbar */
+    .commentbar-long-input {
+        @apply w-full py-2 lg:py-5 h-9 lg:h-16 max-h-32 lg:max-h-72 outline-none overflow-y-scroll scrollbar-hidden resize-y ease-in transition-all  transform  duration-75 bg-soft-base justify-center items-center flex line-clamp-1 text-start text-netral-800 Body1 focus:outline-none;
+    }
+
+    /* searchbar */
+    .input-textarea {
+        @apply w-full py-0 h-fit overflow-y-scroll border-b focus:border-b-2 focus-within:border-primary-base bg-netral-100 border-netral-900 scrollbar-hidden gap-2 lg:gap-3 flex flex-row items-center Heading4 focus:outline-none;
+    }
+    /* searchbar */
+    .input-textarea-input {
+        @apply w-full py-2 lg:py-5 h-9 lg:h-16 max-h-32 border-b focus-within:border-primary-base lg:max-h-72 outline-none overflow-y-scroll scrollbar-hidden resize-y ease-in transition-all  transform  duration-75 bg-netral-100 justify-center items-center flex line-clamp-1 text-start text-netral-800 Heading4 font-medium focus:outline-none;
+    }
+
+    /* searchbar */
+    .input-text-label {
+        @apply justify-start items-start inline-flex text-stone-700 text-base font-normal Heading4;
+    }
+    /* searchbar */
+    .input-text {
+        @apply w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-netral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 Heading4;
+    }
+    /* searchbar */
+    /* .input-textarea {
+        @apply w-full h-32 py-3 text-wrap bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-start gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal Heading4;
+    } */
+
+    /* FONTS SYSTEM */
+    .Heading1 {
+        @apply text-32 lg:text-5xl font-THICCCBOI leading-H2 lg:leading-H1;
+    }
+    .Heading2 {
+        @apply text-2xl lg:text-32 font-THICCCBOI leading-H3 lg:leading-H2;
+    }
+    .Heading3 {
+        @apply text-xl lg:text-2xl font-THICCCBOI leading-H4 lg:leading-H3;
+    }
+    .Heading4 {
+        @apply text-base lg:text-lg font-THICCCBOI leading-B1 lg:leading-H4;
+    }
+    .Body1 {
+        @apply text-sm lg:text-base font-THICCCBOI leading-B2 lg:leading-B1;
+    }
+    .Body2 {
+        @apply text-xs lg:text-sm font-THICCCBOI leading-B3 lg:leading-B2;
+    }
+    .Body3 {
+        @apply text-3xs lg:text-2xs font-THICCCBOI leading-B3;
+    }
+    .Body4 {
+        @apply text-4xs lg:text-3xs font-THICCCBOI leading-B4;
+    }
 }

@@ -7,10 +7,10 @@
         <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
             <button onclick="goBack()" class="text-32 text-netral-800 ph ph-arrow-left"></button>
             <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kelola Tentang Komisi</div>
-            <button onclick="pageUbahKomisi()" class="py-3 rounded-full justify-center items-center gap-4 flex">
+            <a href="/kelola-komisi-ubah" class="py-3 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Ubah</div>
                 <i class="text-32 text-primary-base ph ph-pencil"></i>
-            </button>
+            </a>
         </div>
     </div>
     @include('partials.tentang-komisi-content')

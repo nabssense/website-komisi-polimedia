@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('discussions_answer', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('account_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('discussion_id')->unsigned();
-            $table->bigInteger('answer')->unsigned();
+            $table->text('answer');
+            $table->text('image')->nullable();
             $table->datetimes();
             $table->softDeletes();
         });

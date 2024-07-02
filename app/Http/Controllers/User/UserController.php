@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\User;
 
+
 use App\Models\User;
-use App\Models\Answer;
-use App\Models\Question;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\User\UserUpdateRequest;
-
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\User\UpdateFullnameRequest;
+use App\Http\Requests\User\UpdatePasswordRequest;
+use App\Http\Requests\User\UpdateProfilePictureRequest;
 
 class UserController extends Controller
 {
@@ -42,86 +42,62 @@ class UserController extends Controller
             // ->paginate($perPage, $columns, $questionsPageName, $answersPageName),
         ]);
     }
-     //
-     public function indexUser()
-     {
-         return view('pages.user.user', [
-             "title" => "Website Komisi | User",
-             "active" => "User",
- 
-         ]);
-     }
-    
-    public function edit($email) 
+    public function indexUser()
     {
-        // get user berdasarkan username
-        // jika user tidak ada atau user id tidak sama dengan id milik user yg sedang login 
-        // maka return page not found
-        // return view
-
-        $user = User::where('email', $email)->first();
-        if (!$user || $user->id !== auth()->id()) {
-            return abort(404);
-        }
-
-        $picture = filter_var($user->picture, FILTER_VALIDATE_URL)
-            ? $user->picture : Storage::url($user->picture);
-
-        return view('pages.users.form', [
-            'user' => $user,
-            'picture' => $picture,
+        return view('pages.user.user', [
+            "title" => "Website Komisi | User Profile",
+            "active" => "User Profile",
         ]);
     }
 
-    public function update(UserUpdateRequest $request, $email)
+    public function updateFullname(UpdateFullnameRequest $request)
     {
-        // get user berdasarkan username
-        // cek jika user tidak ada atau user id tidak sama dengan id milik user yg sedang login 
-        // maka return page not found
-        // get request yg sudah tervalidasi
-        // cek apakah password diisi
-        // jika iya maka nilainya dibiarkan dan hash password tsb
-        // jika tidak maka hapus password di validated
-        // cek apakah nilai picture tidak kosong
-        //  jika iya maka 
-        //   cek apakah nilai picture di tabel itu bukan url
-        //   jika memang bukan maka hapus dulu picture tsb dari disk storage kita
-        //  kita masukkan picture tsb ke disk storage kita dan get url nya
-        //  masukkan url tsb ke variabel validated
-        // update record
-        // jika update berhasil maka kirim notif success dan redirect ke user profile kita
-        // jika tidak maka abort 500
+        /** @var \App\Models\User $user **/
+        $user = Auth::user();
 
-        $user = User::where('email', $email)->first();
-        if (!$user || $user->id !== auth()->id()) {
-            return abort(404);
-        }
+        // Update fullname
+        $user->fullname = $request->fullname;
 
-        $validated = $request->validated();
+        // Simpan perubahan
+        $user->save();
 
-        if (isset($validated['password'])) {
-            $validated['password'] = bcrypt($validated['password']);
-        }
-        else {
-            unset($validated['password']);
-        }
+        return redirect()->back()->with('notif.success', 'Profil berhasil diperbarui.');
+    }
 
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        /** @var \App\Models\User $user **/
+        $user = auth()->user();
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        return redirect()->back()->with('notif.success', 'Kata sandi berhasil diperbarui!');
+    }
+
+    public function editProfilePicture()
+    {
+        return view('pages.user.edit-profile-picture', [
+            "title" => "Website Komisi | Edit Profile Picture",
+            "active" => "User Profile",
+        ]);
+    }
+
+    public function updateProfilePicture(UpdateProfilePictureRequest $request)
+    {
+        /** @var \App\Models\User $user **/
+        $user = Auth::user();
+        
+        // Simpan gambar baru jika diunggah
         if ($request->hasFile('profile_picture')) {
-            if (filter_var($user->profile_picture, FILTER_VALIDATE_URL) === false) {
-                Storage::disk('public')->delete($user->profile_picture);
-            }
-
-            $filePath = Storage::disk('public')->put('img/users/profile-picture', request()->file('profile_picture'));
-            $validated['profile_picture'] = $filePath;
+            $profilePicturePath = $request->file('profile_picture')->store('profile-pictures', 'public');
+            $user->profile_picture = $profilePicturePath;
+        } else {
+            $modifiedFullname = str_replace(' ', '%20', $user->fullname);
+            $user->profile_picture = config('app.avatar_generator_url') . $modifiedFullname;
         }
-
-        $update = $user->update($validated);
-
-        if ($update) {
-            session()->flash('notif.success', 'User profile updated successfully!');
-            return redirect()->route('users.show', $validated['email']);
-        }
-
-        return abort(500);
+    
+        $user->save();
+    
+        return redirect()->back()->with('notif.success', 'Gambar profil berhasil diubah.');
     }
 }

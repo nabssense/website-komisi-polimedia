@@ -38,22 +38,22 @@
             <div class="self-stretch justify-start items-start gap-8 lg:gap-24 inline-flex flex-col md:flex-row">
                 <div class="w-full flex-col lg:flex-none lg:w-fit items-start gap-2 lg:gap-4 inline-flex">
                     <div class="text-white font-bold Heading4">Menu</div>
-                    <button onclick="pageBeranda()" class=" justify-start items-start cursor-pointer group/beranda">
+                    <a href="/beranda" class=" justify-start items-start cursor-pointer group/beranda">
                         <div class="text-white font-medium Heading4 line-clamp-1">Beranda</div>
                         <div class="opacity-0 w-1/2 h-1 bg-white rounded-sm group-hover/beranda:opacity-100"></div>
-                    </button>
-                    <button onclick="pageBerita()" class=" justify-start items-start cursor-pointer group/berita">
+                    </a>
+                    <a href="/berita" class=" justify-start items-start cursor-pointer group/berita">
                         <div class="text-white font-medium Heading4 line-clamp-1">Berita</div>
                         <div class="opacity-0 w-1/2 h-1 bg-white rounded-sm group-hover/berita:opacity-100"></div>
-                    </button>
-                    <button onclick="pageForumDiskusi()" class=" justify-start items-start cursor-pointer group/tanya">
+                    </a>
+                    <a href="/forum-diskusi" class=" justify-start items-start cursor-pointer group/tanya">
                         <div class=" text-white font-medium Heading4 line-clamp-1">Forum Diskusi</div>
                         <div class="opacity-0 w-1/2 h-1 bg-white rounded-sm group-hover/tanya:opacity-100"></div>
-                    </button>
-                    <button onclick="pageTentangKomisi()" class=" justify-start items-start cursor-pointer group/tentang">
+                    </a>
+                    <a href="/tentang-komisi" class=" justify-start items-start cursor-pointer group/tentang">
                         <div class="text-white font-medium Heading4 line-clamp-1">Tentang Komisi</div>
                         <div class="opacity-0 w-1/2 h-1 bg-white rounded-sm group-hover/tentang:opacity-100"></div>
-                    </button>
+                    </a>
                 </div>
                 <div class="w-full flex-col justify-center items-start gap-2 lg:gap-4  inline-flex">
                     <div class="text-white font-bold Heading4">Terhubung dengan kami</div>

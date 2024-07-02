@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'nim'=> '20240090',
             'user_type' => 'Mahasiswa',
             'edu_program' => 'Teknologi Rekayasa Multimedia',
-            'status' => 'Active',
+            'status' => 'Aktif',
         ]);
 
         \App\Models\User::factory()->create([
@@ -36,11 +36,14 @@ class DatabaseSeeder extends Seeder
             'nim'=> '0',
             'user_type' => 'Admin',
             'edu_program' => '',
-            'status' => 'Active',
+            'status' => 'Aktif',
         ]);
 
         $this->call([
             CategoryDiscussionsSeeder::class,
+        ]);
+        $this->call([
+            CategoryNewsSeeder::class,
         ]);
     }
 }

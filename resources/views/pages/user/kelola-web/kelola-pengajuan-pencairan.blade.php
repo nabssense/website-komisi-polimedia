@@ -7,11 +7,11 @@
         <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
             <a href="/kelola-website" class="text-32 text-netral-800 ph ph-arrow-left"></a>
             <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kelola Pengajuan Pencairan</div>
-            <button onclick="window.location.href='/kelola-berita-tambah'" class="py-3 rounded-full justify-center items-center gap-4 flex">
+            <button onclick="window.location.href='/kelola-berita/tambah'" class="py-3 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Eksport Excel</div>
                 <i class="text-32 text-primary-base ph ph-plus"></i>
             </button>
-            <button onclick="window.location.href='/kelola-berita-tambah'" class="py-3 rounded-full justify-center items-center gap-4 flex">
+            <button onclick="window.location.href='/kelola-berita/tambah'" class="py-3 rounded-full justify-center items-center gap-4 flex">
                 <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Atur Periode</div>
                 <i class="text-32 text-primary-base ph ph-plus"></i>
             </button>

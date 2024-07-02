@@ -10,7 +10,7 @@
             <div id="MainContent2" class="w-full h-full max-w-1480 flex-col justify-center items-center gap-2 md:gap-4 flex">
                 <div class="w-full h-fit p-4 md:p-6 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-2 md:gap-4 flex">
                     <div class="w-full h-fit justify-start items-center flex flex-row gap-4">
-                        <i type="button" onclick="pageMasuk()" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></i>
+                        <i type="button" href="/masuk-akun" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></i>
                         <div class="self-stretch  text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
                             Daftar Akun</div>
                     </div>
@@ -46,7 +46,24 @@
                             <div class="w-full justify-center items-center flex flex-row relative">
                                 <input type="password" name="password" placeholder="Masukkan kata sandi kamu" id="password"
                                     class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                                <div href="/berita" class="h-full justify-center items-center cursor-pointer"><i
+                                <div class="h-full justify-center items-center cursor-pointer"><i
+                                        id="showPassword"
+                                        class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center cursor-pointer"></i>
+                                </div>
+                            </div>
+                            @error('password')
+                                <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                            <div class="justify-start items-start inline-flex">
+                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Kata sandi 
+                                </div>
+                            </div>
+                            <div class="w-full justify-center items-center flex flex-row relative">
+                                <input type="password" name="password" placeholder="Masukkan kata sandi kamu" id="password"
+                                    class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                <div class="h-full justify-center items-center cursor-pointer"><i
                                         id="showPassword"
                                         class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center cursor-pointer"></i>
                                 </div>
@@ -91,30 +108,11 @@
                                 </div>
                             </div>
                             <div class="w-full justify-center items-center flex flex-row relative">
-                                <input type="hidden" name="status" placeholder="Masukkan kata sandi kamu" id="status" value="Active"
+                                <input type="hidden" name="status" placeholder="Masukkan kata sandi kamu" id="status" value="Aktif"
                                     class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                             </div>
                         </div>
                         
-                        {{-- <div class="self-stretch h-fit flex-col justify-start items-start flex">
-                            <div class="justify-start items-start inline-flex">
-                                <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Konfirmasi
-                                    kata sandi
-                                </div>
-                            </div>
-                            <div class="w-full justify-center items-center bg-emerald-300 flex flex-row relative">
-                                <input type="password" name="confirmPassword" placeholder="Ketik ulang kata sandi kamu"
-                                    id="password2"
-                                    class="w-full pt-2 pb-3 bg-white  focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                                <div href="/berita" class="h-full justify-center items-center cursor-pointer"><i
-                                        id="showPassword2"
-                                        class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
-                                </div>
-                            </div>
-                        </div>
-                        @error('password')
-                            <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">{{ $message }}</div>
-                        @enderror --}}
                     </div>
 
                 </div>

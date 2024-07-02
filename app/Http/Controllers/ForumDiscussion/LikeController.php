@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\ForumDiscussion;
 
-use App\Http\Controllers\Controller;
+use App\Models\Answer;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class LikeController extends Controller
 {
@@ -40,5 +41,31 @@ class LikeController extends Controller
                 'likeCount' => $discussion->likeCount,
             ],
         ]); 
+    }
+
+    public function answerLike(string $answerId)
+    {
+        $answer = Answer::find($answerId);
+        $answer->like();
+        
+        return response()->json([
+            'status' => 'success',
+            'data' => [
+                'likeCount' => $answer->likeCount,
+            ]
+        ]);
+    }
+
+    public function answerUnlike(string $answerId)
+    {
+        $answer = Answer::find($answerId);
+        $answer->unlike();
+
+        return response()->json([
+            'status' => 'success',
+            'data' => [
+                'likeCount' => $answer->likeCount,
+            ]
+        ]);
     }
 }

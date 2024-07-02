@@ -17,7 +17,6 @@ class Discussion extends Model
         'title',
         'image',
         'slug',
-        'question_preview',
         'question',
     ];
 
@@ -34,6 +33,10 @@ class Discussion extends Model
     }
 
     
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
     
 
 }

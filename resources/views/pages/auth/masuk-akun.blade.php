@@ -18,13 +18,13 @@
 
                             <div class="self-stretch h-fit flex-col justify-start items-start gap-2 md:gap-4 flex">
                                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
-                                    <div class="label-input-text">
+                                    <div class="input-text-label">
                                         Email
                                     </div>
                                     <input type="email" id="email" name="email" placeholder="Masukkan email kamu"
                                         value="{{ old('email') }}"
                                         class="input-text
-                                                    @error('email') border-red-500 @enderror @error('credentials') border-red-500 @enderror">
+                                                    @error('email') border-red-500 @enderror">
                                     @error('email')
                                         <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}
                                         </div>
@@ -35,14 +35,14 @@
                                     @enderror
                                 </div>
                                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
-                                    <div class="label-input-text">
+                                    <div class="input-text-label">
                                         Kata sandi
                                     </div>
                                     <div class="w-full justify-center items-center flex flex-row relative">
                                         <input type="password" id="password" name="password"
                                             placeholder="Masukkan kata sandi kamu" id="password"
                                             class="input-text @error('password') border-red-500 @enderror">
-                                        <div href="/berita" class="h-full justify-center items-center cursor-pointer">
+                                        <div class="h-full justify-center items-center cursor-pointer">
                                             <i
                                                 id="showPassword"
                                                 class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
@@ -65,10 +65,10 @@
                     <div class="self-stretch justify-center items-center gap-2  md:gap-12 flex flex-col md:flex-row">
                         <div class="w-full text-center md:text-start text-netral-900 font-normal Heading4 line-clamp-2">
                             Belum punya akun?</div>
-                        <button type="button" onclick="pageDaftar()"
+                        <a type="button" href="/daftar-akun"
                             class="btn-tertiary w-fit text-right text-rose-900 font-semibold Heading4">Daftar
                             Dulu
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

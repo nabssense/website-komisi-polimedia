@@ -1,5 +1,5 @@
 {{-- Right Content/ POPULER --}}
-<section class="w-full xl:w-fit lg:max-w-480 flex-col justify-start items-start gap-4 flex">
+<section class="w-full xl:w-fit lg:max-w-480 flex-col justify-start items-start gap-4 flex flex-none">
     <div
         class="w-full py-2 px-4 md:py-2 md:px-6 bg-love-base md:rounded-lg  justify-start items-start flex text-netral-100 font-semibold Heading2">
         Sangat Terbantu
@@ -13,7 +13,7 @@
                 <div class="w-full h-fit flex-col justify-center items-start gap-4 lg:gap-6 flex">
                     {{-- Profil --}}
                     <div class="w-full justify-start items-center gap-2 inline-flex">
-                        <div class="flex-none" onclick="pageUserProfile()">
+                        <div class="flex-none" href="/user-profile">
                             <img src="{{ filter_var($discussion->user->profile_picture, FILTER_VALIDATE_URL)
                                 ? $discussion->user->profile_picture
                                 : Storage::url($discussion->user->profile_picture) }}"
@@ -128,7 +128,7 @@
                         onclick="event.stopPropagation()">
                         <button id="discussion-like-{{ $discussion->slug }}" type="button"
                             data-discussion-slug="{{ $discussion->slug }}" data-liked="{{ $discussion->liked() }}"
-                            @guest onclick="pageMasuk()" @endguest
+                            @guest href="/masuk-akun" @endguest
                             class="like-button w-fit h-fit rounded-full justify-start items-center gap-2 flex flex-none Body1">
                             <div class="w-fit flex flex-none items-center gap-1">
                                 <i class="text-32 lg:text-4xl text-love-base ph-heart {{ $discussion->liked() ? 'ph-fill' : 'ph' }}"
@@ -151,14 +151,14 @@
                 </div>
             </div>
             {{-- Comment --}}
-            <div onclick="pageForumDiskusiPertanyaan()"
+            <a href="{{ route('forum-diskusi.diskusi.kategori.show', $discussion->slug) }}"
                 class="w-full h-fit flex-col justify-center items-center py-4 lg:py-8 gap-8 flex cursor-pointer">
                 <div class="w-full h-fit flex-col justify-start items-center gap-6 flex">
 
                     <div class="w-full h-fit flex-col justify-center items-center gap-4 flex">
                         <div class="w-full justify-start items-center gap-2 inline-flex">
                             {{-- Profil --}}
-                            <div class="flex-none" onclick="pageUserProfile()">
+                            <div class="flex-none" href="/user-profile">
                                 <img src="{{ filter_var($discussion->user->profile_picture, FILTER_VALIDATE_URL)
                                     ? $discussion->user->profile_picture
                                     : Storage::url($discussion->user->profile_picture) }}"
@@ -257,7 +257,7 @@
                         <button class="btn-tertiary-sm p-0">Baca Selengkapnya</button>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         
     @empty

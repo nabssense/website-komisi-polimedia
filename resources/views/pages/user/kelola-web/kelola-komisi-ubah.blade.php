@@ -4,7 +4,7 @@
         class="w-screen h-screen step p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
         
         {{-- Main Content --}}
-        <div class="w-full max-w-960  h-full self-stretch px-8 flex-col justify-start items-start gap-8 inline-flex">
+        <div class="w-full max-w-960 h-full self-stretch px-8 flex-col justify-start items-start gap-8 inline-flex">
             {{-- 1 --}}
             <div class="self-stretch h-fit justify-start items-center gap-4 inline-flex">
                 <button onclick="goBack()" class="ph ph-x text-32"></button>

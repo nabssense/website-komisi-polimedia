@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('nim');
-            $table->string('edu_program');
+            $table->string('nim')->nullable();
+            $table->string('edu_program')->nullable();
             $table->enum('user_type', ['Mahasiswa', 'Umum', 'Admin', 'Pembina Komisi']);
             // $table->string('kabinet_active');
-            $table->enum('status', ['Active', 'Non Active']);
+            $table->enum('status', ['Aktif', 'Tidak Aktif']);
             $table->timestamps('');
         });
     }
