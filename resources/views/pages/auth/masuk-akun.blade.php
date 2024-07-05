@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-    <div id="divFull" class="w-full h-screen bg-netral-100 shadow justify-start items-start gap-0 relative  ">
+    <div id="divFull" class="w-full h-full bg-netral-100 shadow justify-start items-start gap-0 relative  ">
         
         <form id="form-login" method="POST" action="{{ route('auth.masuk.login') }}"
             class="w-full h-full pt-20 md:pt-32 flex flex-col gap-8 z-50">

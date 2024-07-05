@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-<div id="divFull" class="w-full h-screen bg-netral-100 shadow justify-start items-start gap-0">
+<div id="divFull" class="w-full h-full bg-netral-100 shadow justify-start items-start gap-0">
     <form id="form-login" method="POST" action="{{ route('auth.daftar.register') }}" class="w-full h-full pt-20 md:pt-32 flex flex-col gap-8 z-50">
         @csrf
         {{-- Main Content --}} 
@@ -9,7 +9,7 @@
             <div id="MainContent2" class="w-full h-full max-w-1480 flex-col justify-center items-center gap-2 md:gap-4 flex">
                 <div class="w-full h-fit p-4 md:p-6 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-2 md:gap-4 flex">
                     <div class="w-full h-fit justify-start items-center flex flex-row gap-4">
-                        <i type="button" href="/masuk-akun" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></i>
+                        <a type="button" href="{{ route('auth.masuk.index') }}" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></a>
                         <div class="self-stretch  text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
                             Daftar Akun</div>
                     </div>
