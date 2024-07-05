@@ -366,7 +366,7 @@
 
     /* searchbar */
     .searchbar {
-        @apply w-full px-4 py-1.5 md:px-6 md:py-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center line-clamp-1 flex text-nowrap text-start text-netral-800 Body1 md:Heading4 placeholder:font-normal placeholder:line-clamp-1 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800;
+        @apply w-full px-6 py-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center line-clamp-1 flex text-nowrap text-start text-netral-800 Heading4 placeholder:font-normal placeholder:line-clamp-1 focus:outline-none focus:border-primary-base focus:font-semibold focus:text-netral-800;
     }
 
     /* searchbar */

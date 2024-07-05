@@ -124,9 +124,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             function redirectToUserPage() {
                 if (window.innerWidth <= 640) { // Tailwind's 'sm' breakpoint is 640px
-                    pageUser(); // Redirect to the user page
+                    window.location.href="{{ route('user') }}"; // Redirect to the user page
                 } else {
-                    pageUserProfile(); // Redirect to the user profile page
+                    window.location.href="{{ route('user.profile') }}"; // Redirect to the user profile page
                 }
             }
 

@@ -61,7 +61,7 @@
                             </button>
                             {{-- Pop Up --}}
                             <div id="menuDropdown"
-                                class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                 <div onclick="toggleDropdownPopUp(); event.stopPropagation()" 
                                     class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                     <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
@@ -90,8 +90,8 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+                        
                         {{-- Kategori --}}
                         <div class="w-fit flex flex-row">
                             <button id="menuButton" onclick="toggleDropdownPopUp()" type="button"
@@ -102,7 +102,7 @@
                             </button>
                             {{-- Pop Up --}}
                             <div id="menuDropdown"
-                                class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                 <div onclick="; event.stopPropagation(); toggleDropdownPopUp()"
                                     class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                     <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
@@ -158,48 +158,42 @@
                     @endforeach
                 </div>
 
-                {{-- Button Selection --}}
-                <div class="w-fit flex flex-row lg:hidden">
-                    <button type="button" class="btn-popup option-button">
-                        <div class="justify-start items-center gap-3 flex">
-                            <div class="">Urutkan</div>
-                        </div>
-                        <i class=" ph ph-caret-down"></i>
+                 {{-- Button Urutkan --}}
+                 <div class="w-fit flex flex-row">
+                    <button id="menuButton" onclick="toggleDropdownPopUp()" type="button"
+                        class="btn-popup option-button">
+                        <i class="ph ph-funnel-simple"></i>
+                        <div class="">Urutkan</div>
+                        <i class="ph ph-caret-down"></i>
                     </button>
                     {{-- Pop Up --}}
-                    <div class="option-card-menu fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden"
-                        role="menu" aria-orientation="vertical" tabindex="-1">
-                        <div class="close-button-bg w-screen h-screen relative justify-center items-center flex ">
-                            <div class="flex flex-col bg-netral-100 rounded-4xl w-480 h-fit justify-center items-center overflow-clip gap-4"
-                                role="none">
-                                <div class="text-start w-full px-4 py-8 text-2xl font-THICCCBOI text-netral-900">
-                                    Urutkan
+                    <div id="menuDropdown"
+                        class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                        <div onclick="toggleDropdownPopUp(); event.stopPropagation()" 
+                            class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                            <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
+                                role="none" >
+                                <div class="w-full flex flex-col gap-4">
+                                    <div class="w-full text-start Heading3">Urutkan</div>
+                                    <div class="w-full flex flex-col gap-2">
+                                        <button onclick="sortDiscussions('az')"
+                                            class="btn-popup-sm">A-Z</button>
+                                        <button onclick="sortDiscussions('za')"
+                                            class="btn-popup-sm">Z-A</button>
+                                        <button onclick="sortDiscussions('newest')"
+                                            class="btn-popup-sm">Terbaru</button>
+                                        <button onclick="sortDiscussions('oldest')"
+                                            class="btn-popup-sm">Terlama</button>
+                                        <button onclick="sortDiscussions('most_liked')"
+                                            class="btn-popup-sm">Like Terbanyak</button>
+                                        <button onclick="sortDiscussions('least_liked')"
+                                            class="btn-popup-sm">Like Terdikit</button>
+                                    </div>
                                 </div>
-                                <div class="w-full flex flex-col">
-                                    <button href="#"
-                                        class="flex flex-row justify-between items-center gap-3 w-full text-start px-4 py-3 h-fit border-b-2 border-netral-200 text-xl font-THICCCBOI text-netral-900 hover:bg-netral-200 hover:text-gray-900"
-                                        role="menuitem">
-                                        Ubah<div class="ph ph-radio-button text-2xl"></div>
-                                    </button>
-                                    <button href="#"
-                                        class="flex flex-row justify-between items-center gap-3 w-full text-start px-4 py-3 h-fit border-b-2 border-netral-200 text-xl font-THICCCBOI text-netral-900 hover:bg-netral-200 hover:text-gray-900"
-                                        role="menuitem">
-                                        Ubah<div class="ph ph-radio-button text-2xl"></div>
-                                    </button>
-                                    <button href="#"
-                                        class="flex flex-row justify-between items-center gap-3 w-full text-start px-4 py-3 h-fit border-b-2 border-netral-200 text-xl font-THICCCBOI text-netral-900 hover:bg-netral-200 hover:text-gray-900"
-                                        role="menuitem">
-                                        Ubah<div class="ph ph-radio-button text-2xl"></div>
-                                    </button>
-                                </div>
-                                <div class="w-full flex flex-col p-4 gap-4">
-                                    <button
-                                        class="close-button flex w-full text-center px-4 py-3 text-xl font-THICCCBOI bg-primary-100 rounded-full text-netral-900 hover:bg-primary-200 hover:text-netral-900"
-                                        role="menuitem">Batalkan</button>
-                                    <button href="#"
-                                        class="flex w-full text-center px-4 py-3 bg-primary-base rounded-full text-xl font-THICCCBOI text-netral-100 hover:bg-primary-500"
-                                        role="menuitem">Simpan</button>
-                                </div>
+                                <button class="w-full flex btn-secondary-sm px-4"
+                                    onclick="toggleDropdownPopUp()">
+                                    Tutup
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -268,7 +262,7 @@
                                             class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three relative cursor-pointer">
                                         </i>
                                         <div id="menuDropdown-{{ $discussion->slug }}"
-                                            class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
+                                            class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="toggleDropdownPopUp('{{ $discussion->slug }}'); event.stopPropagation()"
                                                 class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                 <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
@@ -302,7 +296,7 @@
                                         </div>
                                         {{-- Alert Delete --}}
                                         <div id="alertDelete-{{ $discussion->slug }}"
-                                            class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                            class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="hideAlertDelete('{{ $discussion->slug }}')"
                                                class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                     <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
