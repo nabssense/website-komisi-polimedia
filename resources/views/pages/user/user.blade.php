@@ -3,7 +3,7 @@
 @section('container')
     {{-- Mobile Akun --}}
     <div
-        class="w-full h-full p-4 relative bg-netral-100 rounded-2xl lg:hidden flex flex-col justify-start items-start overflow-clip gap-4 pt-16">
+        class="w-full h-full relative bg-netral-100 rounded-2xl lg:hidden flex flex-col justify-start items-start overflow-clip gap-4 pt-16">
         <a href="{{ route('user.profile') }}"
             class="{{ $active === 'User' ? 'bg-netral-200 rounded-lg' : '' }} w-full h-fit  py-4 px-4 border-b bg-netral-100 justify-start items-center gap-4 inline-flex ">
             <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
