@@ -49,7 +49,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
     public static function getUserTypes()
     {
         return [
