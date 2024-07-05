@@ -11,7 +11,7 @@
                             class="w-full max-w-1480 h-fit gap-4 xl:gap-24 flex flex-col md:flex-row justify-center items-center">
                             <!-- Menambahkan justify-center dan items-center -->
                             <div class=" w-fit md:w-72 p-8 object-center bg-yellow-400 rounded-full">
-                                <img class="" src="{{ url('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
+                                <img class="" src="{{ asset('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                                     alt="Image" />
                             </div>
                             <div
@@ -49,7 +49,7 @@
                             class="w-full max-w-1480 h-fit gap-12 xl:gap-24 flex flex-col lg:flex-row justify-center items-center">
                             <!-- Menambahkan justify-center dan items-center -->
                             <div class="w-96 h-96  p-8 justify-center items-center flex bg-white rounded-2xl">
-                                <img class="w-full h-full" src="{{ url('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
+                                <img class="w-full h-full" src="{{ asset('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                                     alt="Image" />
                             </div>
                             <div
@@ -205,7 +205,7 @@
                     <div class=" text-netral-900 Heading1 lg:text-7xl font-extrabold">
                         Membidik Prestasi Membangun Negeri</div>
                     <div class="w-full h-full">
-                        <img class="w-full h-full " src="{{ url('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
+                        <img class="w-full h-full " src="{{ asset('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                             alt="Image" />
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                         <div class=" text-netral-900 Heading1  lg:text-5xl xl:text-7xl  font-extrabold">
                             Membidik Prestasi Membangun Negeri</div>
                         <div class="w-full h-full lg:flex hidden">
-                            <img class="w-full h-full " src="{{ url('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
+                            <img class="w-full h-full " src="{{ asset('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                                 alt="Image" />
                         </div>
                     </div>
@@ -255,7 +255,7 @@
                                     alt="Image" />
                             </div>
                             <div class="h-full">
-                                <img class=" h-full " src="{{ url('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
+                                <img class=" h-full " src="{{ asset('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                                     alt="Image" />
                             </div>
                         </div>

@@ -9,7 +9,7 @@
                 <img class=" h-full object-fill" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
             </div>
             <div class="h-full">
-                <img class=" h-full " src="{{ url('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
+                <img class=" h-full " src="{{ asset('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
             </div>
         </div>
     </section>
