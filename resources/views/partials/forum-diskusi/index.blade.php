@@ -1,5 +1,5 @@
 <div
-    class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-16 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
+    class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-20 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
     {{-- Button Fix --}}
 
     @auth
@@ -43,7 +43,7 @@
                     <form method="GET" action="{{ route('forum-diskusi.index') }}"
                         class="w-full h-fit m-0 flex justify-center relative">
                         <input id="searchText" oninput="toggleClearButton()" type="text" class="searchbar"
-                            name="search" value="{{ $search }}" placeholder="Official Store">
+                            name="search" value="{{ $search }}" placeholder="Cari Pertanyaan">
                         <button id="clearButton" onclick="clearSearchText()" type="button"
                             class="hidden px-4 lg:px-6 w-fit text-base lg:text-xl text-netral-900 ph ph-x absolute right-0 h-full"></button>
                     </form>
