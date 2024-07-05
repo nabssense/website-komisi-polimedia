@@ -2,17 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: "THICCCBOI";
-    src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-Black.ttf") format("truetype");
-    font-weight: 900;
-}
-@font-face {
-    font-family: "THICCCBOI";
-    src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-BlackItalic.ttf") format("truetype");
-    font-weight: 900;
-    font-style: italic;
-}
+
 @font-face {
     font-family: "THICCCBOI";
     src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-ExtraBold.ttf") format("truetype");
@@ -22,27 +12,27 @@
     font-family: "THICCCBOI";
     src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-ExtraBoldItalic.ttf") format("truetype");
     font-weight: 800;
-    font-style: italic;
-}
-@font-face {
-    font-family: "THICCCBOI";
-    src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-ExtraBold.ttf") format("truetype");
-    font-weight: 700;
-}
-@font-face {
-    font-family: "THICCCBOI";
-    src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-ExtraBoldItalic.ttf") format("truetype");
-    font-weight: 700;
     font-style: italic;
 }
 @font-face {
     font-family: "THICCCBOI";
     src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-Bold.ttf") format("truetype");
-    font-weight: 600;
+    font-weight: 700;
 }
 @font-face {
     font-family: "THICCCBOI";
     src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: "THICCCBOI";
+    src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "THICCCBOI";
+    src: url("/resources/font/THICCCBOI-font/TTF/THICCCBOI-SemiBoldItalic.ttf") format("truetype");
     font-weight: 600;
     font-style: italic;
 }

@@ -3,7 +3,7 @@
     class="w-full h-fit px-4 md:px-8 xl:px-16 py-2 md:py-4 bg-white shadow-navbar justify-center items-center inline-flex fixed inset-x-0 top-0 z-50 transform transition-transform duration-500">
     <div class="w-full max-w-1480 justify-between items-center gap-8 flex">
         <div
-            class="h-8 md:h-16 justify-start {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'justify-center w-full' : '' }} items-center gap-1 lg:gap-2 xl:gap-4 flex">
+            class="h-12 md:h-16 justify-start {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'justify-center w-full' : '' }} items-center gap-1 lg:gap-2 xl:gap-4 flex">
             <a href="/beranda" class="w-fit h-full relative">
                 <img class="h-full w-fit aspect-square object-scale-down" src="{{ url('img/Logo-Komisi.svg') }}"
                     alt="Image" />
@@ -53,23 +53,23 @@
                 <div class="justify-end items-center gap-4 xl:gap-8 flex flex-none">
                     @auth
                         <a href="/notifikasi"
-                            class="{{ $active === 'Notifikasi' ? 'ph-fill text-primary-base ' : '' }} ph ph-notification text-2xl md:text-32"></a>
-                        <a class="w-fit h-fit lg:flex hidden" href="/user-profile">
+                            class="{{ $active === 'Notifikasi' ? 'ph-fill text-primary-base ' : '' }} ph ph-notification text-4xl md:text-32"></a>
+                        <a class="w-fit h-fit lg:flex hidden" href="{{ route('user.profile')}}">
                             <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
                                 ? auth()->user()->profile_picture
                                 : Storage::url(auth()->user()->profile_picture) }}"
-                                alt="{{ auth()->user()->fullname }}" class="rounded-full w-8 md:w-12  aspect-square object-cover">
+                                alt="{{ auth()->user()->fullname }}" class="rounded-full w-12  aspect-square object-cover">
                         </a>
                         <a class="w-fit h-fit lg:hidden flex" href="/user">
                             <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
                                 ? auth()->user()->profile_picture
                                 : Storage::url(auth()->user()->profile_picture) }}"
-                                alt="{{ auth()->user()->fullname }}" class="rounded-full w-8 md:w-12  aspect-square object-cover">
+                                alt="{{ auth()->user()->fullname }}" class="rounded-full w-12  aspect-square object-cover">
                         </a>
                     @endauth
                     @guest
                         <div class="flex flex-row gap-2 ">
-                            <a href="/masuk-akun" class="btn-primary-sm">Masuk</a>
+                            <a href="/masuk-akun" class="btn-primary">Masuk</a>
                         </div>
                     @endguest
                 </div>

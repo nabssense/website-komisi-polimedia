@@ -26,7 +26,7 @@
                                 <div class="w-full h-fit flex-col justify-center items-start gap-4 lg:gap-6 flex">
                                     {{-- Profil --}}
                                     <div class="w-full justify-start items-center gap-2 inline-flex">
-                                        <div class="flex-none" href="/user-profile">
+                                        <div class="flex-none" href="{{ route('user.profile')}}">
                                             <img src="{{ filter_var($discussion->user->profile_picture, FILTER_VALIDATE_URL)
                                                 ? $discussion->user->profile_picture
                                                 : Storage::url($discussion->user->profile_picture) }}"
@@ -202,7 +202,7 @@
                                         <div class="w-full h-fit flex-col justify-center items-center gap-4 flex">
                                             <div class="w-full justify-start items-center gap-2 inline-flex">
                                                 {{-- Profil --}}
-                                                <div class="flex-none" href="/user-profile">
+                                                <div class="flex-none" href="{{ route('user.profile')}}">
                                                     <img src="{{ filter_var($answer->user->profile_picture, FILTER_VALIDATE_URL)
                                                         ? $answer->user->profile_picture
                                                         : Storage::url($answer->user->profile_picture) }}"

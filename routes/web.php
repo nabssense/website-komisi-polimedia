@@ -93,13 +93,16 @@ Route::middleware('auth')->group(function () {
     Route::namespace('App\Http\Controllers\User')->group(function () {
         // Route::resource('akun-profil', UserController::class)->only(['show']);
 
-        Route::resource('user-profile', UserController::class)->only(['index']);
-        Route::get('user', [UserController::class, 'indexUser'])->name('index.user');
-        Route::post('update-fullname', [UserController::class, 'updateFullname'])->name('update-fullname');
-        Route::post('update-password', [UserController::class, 'updatePassword'])->name('update-password');
+        Route::prefix('user')->group(function () {
+            Route::get('/', [UserController::class, 'indexUser'])->name('user');
+            Route::get('user-profile',[UserController::class, 'index'])->name('user.profile');
 
-        Route::get('edit-profile-picture', [UserController::class, 'editProfilePicture'])->name('user.edit.profile-picture');
-        Route::patch('update-profile-picture', [UserController::class, 'updateProfilePicture'])->name('user.update.profile-picture')->middleware('auth');
+            Route::post('update-fullname', [UserController::class, 'updateFullname'])->name('update-fullname');
+            Route::post('update-password', [UserController::class, 'updatePassword'])->name('update-password');
+
+            Route::get('edit-profile-picture', [UserController::class, 'editProfilePicture'])->name('user.edit.profile-picture');
+            Route::patch('update-profile-picture', [UserController::class, 'updateProfilePicture'])->name('user.update.profile-picture')->middleware('auth');
+        });
     });
 
 
@@ -144,7 +147,7 @@ Route::middleware('auth')->group(function () {
                 // DISKUSI
                 Route::post('/form/store', [ScholarshipFundingController::class, 'store'])->name('kelola.pencairan.store');
             });
-           
+
 
 
             Route::get('/export-excel', [ExportController::class, 'exportExcel'])->name('export.excel');
@@ -203,7 +206,6 @@ Route::get('/testing', function () {
 Route::namespace('berita')->group(function () {
     Route::get('/berita', [NewsController::class, 'index'])->name('berita.index');
     Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('berita.show');
-    
 });
 
 Route::get('/berita-detail', function () {
@@ -245,35 +247,35 @@ Route::get('/notifikasi', function () {
 });
 
 
-    Route::get('/kelola-kabinet-tambah', function () {
-        return view('pages.user.kelola-web.kelola-kabinet-tambah', [
-            "title" => "Website Komisi | Tambah Kabinet",
-            "active" => "Tambah Kabinet",
-        ]);
-    });
-    Route::get('/kelola-kabinet', function () {
-        return view('pages.user.kelola-web.kelola-kabinet', [
-            "title" => "Website Komisi | Kelola Kabinet",
-            "active" => "Kelola Kabinet",
-        ]);
-    });
-    Route::get('/kelola-kabinet-pilih', function () {
-        return view('pages.user.kelola-web.kelola-kabinet-pilih', [
-            "title" => "Website Komisi | Kelola Kabinet",
-            "active" => "Kelola Kabinet",
-        ]);
-    });
+Route::get('/kelola-kabinet-tambah', function () {
+    return view('pages.user.kelola-web.kelola-kabinet-tambah', [
+        "title" => "Website Komisi | Tambah Kabinet",
+        "active" => "Tambah Kabinet",
+    ]);
+});
+Route::get('/kelola-kabinet', function () {
+    return view('pages.user.kelola-web.kelola-kabinet', [
+        "title" => "Website Komisi | Kelola Kabinet",
+        "active" => "Kelola Kabinet",
+    ]);
+});
+Route::get('/kelola-kabinet-pilih', function () {
+    return view('pages.user.kelola-web.kelola-kabinet-pilih', [
+        "title" => "Website Komisi | Kelola Kabinet",
+        "active" => "Kelola Kabinet",
+    ]);
+});
 
 
-    Route::get('/kelola-komisi', function () {
-        return view('pages.user.kelola-web.kelola-komisi', [
-            "title" => "Website Komisi | Kelola Komisi",
-            "active" => "Kelola Komisi",
-        ]);
-    });
-    Route::get('/kelola-komisi-ubah', function () {
-        return view('pages.user.kelola-web.kelola-komisi-ubah', [
-            "title" => "Website Komisi | Ubah Komisi",
-            "active" => "Ubah Komisi",
-        ]);
-    });
+Route::get('/kelola-komisi', function () {
+    return view('pages.user.kelola-web.kelola-komisi', [
+        "title" => "Website Komisi | Kelola Komisi",
+        "active" => "Kelola Komisi",
+    ]);
+});
+Route::get('/kelola-komisi-ubah', function () {
+    return view('pages.user.kelola-web.kelola-komisi-ubah', [
+        "title" => "Website Komisi | Ubah Komisi",
+        "active" => "Ubah Komisi",
+    ]);
+});

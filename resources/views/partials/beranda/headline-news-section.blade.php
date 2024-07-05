@@ -4,7 +4,7 @@
 @endphp
 
 
-<section class="w-full h-fit relative items-center justify-center pt-12 md:pt-24 lg:pt-32 pb-4 lg:pb-12 lg:px-8 xl:px-16 flex">
+<section class="w-full h-fit relative items-center justify-center pt-16 md:pt-24 lg:pt-32 pb-4 lg:pb-12 lg:px-8 xl:px-16 flex">
     {{-- ISI BERITA --}}
     @if ($itemCount > 0)
         <div class="headline-container w-1480 h-fit gap-1 lg:gap-4 flex-col justify-center items-center flex lg:px-16 relative">

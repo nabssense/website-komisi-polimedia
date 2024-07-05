@@ -50,7 +50,7 @@
                                     </div>
                                     {{-- Profil --}}
                                     <div class="w-full px-4 lg:px-8 justify-start items-center gap-2 inline-flex">
-                                        <div class="flex-none" href="/user-profile">
+                                        <div class="flex-none" href="{{ route('user.profile')}}">
                                             <img src="{{ filter_var($news->user->profile_picture, FILTER_VALIDATE_URL)
                                                 ? $news->user->profile_picture
                                                 : Storage::url($news->user->profile_picture) }}"

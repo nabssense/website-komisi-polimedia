@@ -50,7 +50,7 @@ function pageNotifikasi() {
 
 // Akun
 function pageUserProfile() {
-  window.location.href = "/user-profile";
+  window.location.href = "{{ route('user.profile')}}";
 }
 function pageUser() {
   window.location.href = "/user";

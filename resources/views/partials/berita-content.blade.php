@@ -1,5 +1,5 @@
 <div
-    class="w-full h-fit {{ $active === 'Beranda' ? 'pt-8 lg:py-16' : '' }} px-4 md:px-8 xl:px-16 py-16 md:py-32 bg-netral-100 flex-col justify-center items-center inline-flex ">
+    class="w-full h-fit {{ $active === 'Beranda' ? 'pt-8 lg:py-16' : '' }} px-4 md:px-8 xl:px-16 py-20 md:py-32 bg-netral-100 flex-col justify-center items-center inline-flex ">
     <div class="w-full max-w-1480 h-fit flex-col justify-center items-center gap-4 lg:gap-8 flex ">
         <div
             class="w-full justify-start items-center gap-4 {{ $active === 'Beranda' ? 'flex' : 'hidden' }} flex-col md:flex-row lg:flex ">

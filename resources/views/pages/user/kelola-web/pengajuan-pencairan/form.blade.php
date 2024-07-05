@@ -17,7 +17,7 @@
             <input type="hidden" name="period_id" value="{{ $periodId }}">
             {{-- Profil --}}
             <div class="w-full justify-start items-center gap-2 bg-soft-base p-2 rounded-lg inline-flex relative">
-                <div class="flex-none" href="/user-profile">
+                <div class="flex-none" href="{{ route('user.profile')}}">
                     <img src="{{ filter_var($user->profile_picture, FILTER_VALIDATE_URL)
                         ? $user->profile_picture
                         : Storage::url($user->profile_picture) }}"
