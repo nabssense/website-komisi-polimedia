@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $fullname = 'Muhammad Nabil Musyaffa';
         $modifiedFullname = str_replace(' ', '%20', $fullname);
         
-        User::factory()->create([
+        User::create([
             'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
             'fullname' => $fullname,
             'email' => 'nabil723@admin.com',
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'admin' => 'Tidak',
         ]);
 
-        User::factory()->create([
+        User::create([
             'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
             'fullname' => 'Muhammad Alif',
             'email' => 'admin@ad',
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
             'admin' => 'Iya',
         ]);
 
-        User::factory()->create([
+        User::create([
             'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
             'fullname' => 'Suhaili',
             'email' => 'Suhaili@gmail.com',
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        // User::factory()->create([
+        // User::create([
         //     'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
         //     'fullname' => 'Muhammad Alif',
         //     'email' => '20240082@polimedia.ac.id',
@@ -82,7 +82,7 @@ class DatabaseSeeder extends Seeder
         //     'admin' => 'Tidak',
         // ]);
 
-        // User::factory()->create([
+        // User::create([
         //     'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
         //     'fullname' => 'Rifki Herdandi',
         //     'email' => '21330095@polimedia.ac.id',
@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
         //     'admin' => 'Tidak',
         // ]);
 
-        // User::factory()->create([
+        // User::create([
         //     'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
         //     'fullname' => 'ASTRIANI DEVITASARI',
         //     'email' => '21330112@polimedia.ac.id',
@@ -112,7 +112,7 @@ class DatabaseSeeder extends Seeder
         //     'admin' => 'Tidak',
         // ]);
 
-        // User::factory()->create([
+        // User::create([
         //     'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
         //     'fullname' => 'Sabrina Choirunnisa',
         //     'email' => '21330099@polimedia.ac.id',
@@ -126,7 +126,7 @@ class DatabaseSeeder extends Seeder
         //     'status' => 'Aktif',
         //     'admin' => 'Tidak',
         // ]);
-        // User::factory()->create([
+        // User::create([
         //     'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
         //     'fullname' => 'Dundi Ichsan Perlambang Utama',
         //     'email' => '21300040@polimedia.ac.id',
@@ -140,7 +140,7 @@ class DatabaseSeeder extends Seeder
         //     'status' => 'Aktif',
         //     'admin' => 'Tidak',
         // ]);
-        // User::factory()->create([
+        // User::create([
         //     'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
         //     'fullname' => 'Aulia Choirunisa ',
         //     'email' => '20240032@polimedia.ac.id',
