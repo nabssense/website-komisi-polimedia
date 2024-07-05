@@ -53,8 +53,16 @@
 
 <script src="{{ asset('js/systempage.js') }}"></script>
 </html>
-
-{{-- <script src="{{ asset('js/inputImage.js') }}"></script>
+{{-- <script src="{{ asset('js/inputTextArea.js') }}"></script>
+<script src="{{ asset('js/inputImagePreview.js') }}"></script>
+<script src="{{ asset('js/inputTextArea.js') }}"></script>
+<script src="{{ asset('js/inputPassword.js') }}"></script>
+<script src="{{ asset('js/discussionPopup.js') }}"></script>
+<script src="{{ asset('js/discussionCategory.js') }}"></script>
+<script src="{{ asset('js/discussionFunction.js') }}"></script>
+<script src="{{ asset('js/discussionLike.js') }}"></script>
+<script src="{{ asset('js/discussionSort.js') }}"></script>
+<script src="{{ asset('js/inputImage.js') }}"></script>
 <script src="{{ asset('js/searchField.js') }}"></script>
 <script src="{{ asset('js/animation.js') }}"></script>
 <script src="{{ asset('js/systempage.js') }}"></script>

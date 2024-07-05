@@ -322,8 +322,7 @@
                         </div>
                     </div>
                     <input type="text" disabled placeholder="Masukkan nomor whatsapp kamu"
-                        value="{{ auth()->user( )->number_wa }}"
-                        class="input-text">
+                        value="{{ auth()->user()->number_wa }}" class="input-text">
                     @error('email')
                         <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
                     @enderror
@@ -334,7 +333,7 @@
                             Email
                         </div>
                     </div>
-                    <input type="email" disabled  placeholder="Masukkan email kamu" value="{{ auth()->user()->email }}"
+                    <input type="email" disabled placeholder="Masukkan email kamu" value="{{ auth()->user()->email }}"
                         class="input-text
                                ">
                     @error('email')
@@ -347,8 +346,8 @@
                             Program Pendidikan
                         </div>
                     </div>
-                    <input type="text" disabled placeholder="Masukkan program pendidikan kamu" value="{{ auth()->user()->email }}"
-                        class="input-text
+                    <input type="text" disabled placeholder="Masukkan program pendidikan kamu"
+                        value="{{ auth()->user()->email }}" class="input-text
                                ">
                     @error('email')
                         <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
@@ -408,7 +407,70 @@
             hiddenInput.value = '1'; // Set hidden input value to indicate image removal
         });
     </script>
-    <script src="{{ asset('js/togglePopUpShow.js') }}"></script>
-    <script src="{{ asset('js/inputImagePreview.js') }}"></script>
-    <script src="{{ asset('js/inputPassword.js') }}"></script>
+    <script>
+        function togglePopUpShow(popupId) {
+            var popup = document.getElementById(popupId);
+            if (popup.classList.contains('hidden')) {
+                popup.classList.remove('hidden');
+            } else {
+
+                popup.classList.add('hidden');
+            }
+        }
+    </script>
+    <script>
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function() {
+                const imgPreviewId = this.getAttribute('id').replace('image-input-',
+                ''); // Get unique ID suffix
+                const imgPreview = document.querySelector('#image-preview-' + imgPreviewId);
+                const file = this.files[0];
+
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imgPreview.src = e.target.result;
+                        imgPreview.classList.remove('hidden');
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    imgPreview.src = '';
+                    imgPreview.classList.add('hidden');
+                }
+            });
+
+            input.addEventListener('click', function() {
+                if (this.value) {
+                    this.value = null; // Reset input value to allow the same file to be selected again
+                    const imgPreviewId = this.getAttribute('id').replace('image-input-',
+                    ''); // Get unique ID suffix
+                    const imgPreview = document.querySelector('#image-preview-' + imgPreviewId);
+                    imgPreview.src = '';
+                    imgPreview.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    <script>
+        function togglePassword(passwordFieldId, toggleButtonId) {
+            var passwordField = document.getElementById(passwordFieldId);
+            var togglePasswordButton = document.getElementById(toggleButtonId);
+            var passwordVisible = passwordField.type === 'text'; // Tentukan status visibility berdasarkan jenis input
+
+            if (passwordVisible) {
+                passwordField.type = 'password'; // Sembunyikan password
+                togglePasswordButton.classList.remove('ph-fill');
+                togglePasswordButton.classList.remove('text-primary-base');
+            } else {
+                passwordField.type = 'text'; // Tampilkan password
+                togglePasswordButton.classList.add('text-primary-base');
+                togglePasswordButton.classList.add('ph-fill');
+            }
+        }
+        togglePassword('passwordInput', 'showPassword');
+        togglePassword('passwordInput2', 'showPassword2');
+        togglePassword('REpasswordInput', 'REshowPassword');
+        togglePassword('REpasswordInput2', 'REshowPassword2');
+    </script>
+
 @endsection

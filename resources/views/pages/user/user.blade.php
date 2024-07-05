@@ -98,9 +98,8 @@
             });
         });
     </script>
-
+    {{-- // Show Password --}}
     <script>
-        // Show Password
         const passwordField = document.getElementById('password');
         const togglePasswordButton = document.getElementById('showPassword');
 
@@ -120,6 +119,7 @@
             passwordVisible = !passwordVisible;
         });
     </script>
+    {{--  --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             function redirectToUserPage() {
@@ -134,5 +134,17 @@
             window.addEventListener('resize', redirectToUserPage);
         });
     </script>
-    <script src="{{ asset('js/togglePopUpShow.js') }}"></script>
+    {{-- toogle --}}
+    <script>
+        function togglePopUpShow(popupId) {
+    var popup = document.getElementById(popupId);
+    if (popup.classList.contains('hidden')) {
+        popup.classList.remove('hidden');
+    } else {
+
+        popup.classList.add('hidden');
+    }
+}
+    </script>
+    
 @endsection
