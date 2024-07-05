@@ -2,7 +2,7 @@
 @include('partials.navbar')
 @include('partials.navbar-mobile')
 @section('container')
-    @include('partials.forum-diskusi.index-content')
+    @include('partials.forum-diskusi.index')
     @include('partials.footer')
 @endsection
 @section('after-script')

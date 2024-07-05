@@ -26,6 +26,7 @@ class User extends Authenticatable
         'edu_program',
         'user_type',
         'status',
+        'admin',
     ];
 
     /**
@@ -47,12 +48,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
     public static function getUserTypes()
     {
         return [
             'Mahasiswa',
-            'Admin',
             'Pembina Komisi',
         ];
+    }
+
+    public function isActive()
+    {
+        return $this->status === 'Aktif'; // Sesuaikan dengan logika status aktif pada model Anda
     }
 }

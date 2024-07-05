@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\News;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
+use App\Models\PeriodFunding;
+use Illuminate\Support\Carbon;
 use App\Models\CategoryDiscussion;
 use App\Http\Controllers\Controller;
 
@@ -11,23 +14,40 @@ class HomeController extends Controller
 {
     //
     public function index()
-    {
-        $discussions = Discussion::with('user', 'category');
-        
-        $discussionsTerbantu = Discussion::with('user', 'category')
-            ->withCount('likes')
-            ->orderBy('likes_count', 'desc')
-            ->paginate(5);
+{
+    $news = News::all();
+    $discussions = Discussion::with('user', 'category');
+    $activeNews = News::where('headline_status', 'Aktif')->get();
+    $activePeriods = PeriodFunding::where('start_date', '<=', Carbon::now())
+    ->where('end_date', '>=', Carbon::now())
+    ->get();
 
-        return view('pages.beranda', [
-            "title" => "Website Komisi | Beranda",
-            "active" => "Beranda",
-            
-            'discussionsTerbantu' => $discussionsTerbantu,
-            'discussions' => $discussions->orderBy('created_at', 'desc')->paginate(3)->withQueryString(),
-            'categories' => CategoryDiscussion::all(),
-        ]);
-        
+    $firstImages = [];
+    foreach ($news as $item) {
+        $images = json_decode($item->image, true);
+        if (!empty($images)) {
+            $firstImages[$item->id] = $images[0];
+        } else {
+            $firstImages[$item->id] = null;
+        }
     }
+    
+    $discussionsTerbantu = Discussion::with('user', 'category')
+        ->withCount('likes')
+        ->orderBy('likes_count', 'desc')
+        ->paginate(5);
+
+    return view('pages.beranda', [
+        "title" => "Website Komisi | Beranda",
+        "active" => "Beranda",
+        'news' => $news,
+        'discussionsTerbantu' => $discussionsTerbantu,
+        'discussions' => $discussions->orderBy('created_at', 'desc')->paginate(3)->withQueryString(),
+        'categories' => CategoryDiscussion::all(),
+        'firstImages' => $firstImages,
+        'activeHeadlineNews' => $activeNews,
+        'activePeriods' => $activePeriods 
+    ]);
+}
     
 }

@@ -9,7 +9,7 @@
             <div class="w-full text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kelola
                 Website</div>
         </div>
-        {{-- Info Dashboard --}}
+        {{-- Info Dashboard
         <div class="w-full justify-start items-start gap-8 inline-flex flex-wrap">
             <div class="p-4 bg-red-200 rounded-2xl flex-col justify-start items-start inline-flex">
                 <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Kabinet saat ini</div>
@@ -38,11 +38,11 @@
                 <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">Pertanyaan Belum Dijawab
                 </div>
             </div>
-        </div>
+        </div> --}}
         {{-- Content --}}
         <div class="w-full h-fit grid grid-cols-1 sm:grid-cols-2 justify-center items-start gap-8 ">
             {{-- Card Kelola Kabinet --}}
-            <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
+            {{-- <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
                 <div class="w-full pl-4 justify-start items-center gap-4 inline-flex">
                     <div class="w-full text-netral-900 font-semibold Heading4">
                         Kelola Kabinet</div>
@@ -65,22 +65,21 @@
                             Selengkapnya</div>
                     </button>
                 </a>
-            </div>
+            </div> --}}
             {{-- Card Kelola Berita --}}
             <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
                 <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
                     <div class="w-full text-netral-900 font-semibold Heading4">
                         Kelola Berita</div>
-                    <a href="/kelola-berita/tambah" class="btn-tertiary p-0">Tambah Berita
+                    <a href="{{ route('kelola.berita.create') }}" class="btn-tertiary p-0">Tambah Berita
                         <i class=" text-rose-600 ph ph-plus text-3xl"></i>
                     </a>
                 </div>
-                <a href="/kelola-berita"
+                <a href="{{ route('kelola.berita.index') }}"
                     class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
-                            <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
-                                alt="Image" />
+                            <i class="  ph-fill ph-newspaper text-netral-900 text-9xl"></i>
                         </div>
                     </div>
                     <button
@@ -96,16 +95,15 @@
                 <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
                     <div class="w-full text-netral-900 font-semibold Heading4">
                         Kelola Akun</div>
-                    <a href="/kelola-akun-tambah" class="btn-tertiary p-0">Tambah Akun
+                    <a href="{{ route('kelola.akun.create') }}" class="btn-tertiary p-0">Tambah Akun
                         <i class=" text-rose-600 ph ph-plus text-3xl"></i>
                     </a>
                 </div>
-                <a href="/kelola-akun"
+                <a href="{{ route('kelola.akun.index') }}"
                     class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
-                            <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
-                                alt="Image" />
+                            <i class="  ph-fill ph-user text-netral-900 text-9xl"></i>
                         </div>
                     </div>
                     <button
@@ -127,8 +125,7 @@
                     class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
-                            <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
-                                alt="Image" />
+                            <img class="h-fit w-48 aspect-square" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />  
                         </div>
                     </div>
                     <button
@@ -145,12 +142,12 @@
                     <div class="w-full text-netral-900 font-semibold Heading4">
                         Kelola Pengajuan Pencairan</div>
                 </div>
-                <a href="/kelola-pengajuan-pencairan"
+                <a href="{{ route('kelola.pencairan.index') }}"
                     class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
                     <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
                         <div class="w-fit h-fit justify-center items-center inline-flex">
-                            <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
-                                alt="Image" />
+                            <i class="ph-fill ph-student text-netral-900 text-9xl"></i>
+                            <i class="ph-fill ph-bank text-netral-900 text-9xl"></i>
                         </div>
                     </div>
                     <button
@@ -176,7 +173,7 @@
                 Web</div>
         </div>
         <div class="w-full h-fit flex flex-col gap-8">
-            {{-- Content --}}
+            {{-- Content
             <div class="w-full justify-start items-start gap-8 inline-flex flex-wrap">
                 <div class="p-4 bg-red-200 rounded-2xl flex-col justify-start items-start inline-flex">
                     <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Kabinet saat ini
@@ -211,183 +208,129 @@
                         Dijawab
                     </div>
                 </div>
-            </div>
+            </div> --}}
             {{-- Content --}}
             <div class="w-full h-fit justify-center items-start gap-8 inline-flex flex-wrap">
                 {{-- Card Kelola Web --}}
-                <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
+                {{-- <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
                     <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
                         <div class="w-full text-netral-900 text-2xl font-semibold font-THICCCBOI leading-btn-tertiary p-0kabinet-tambah"
-                            class="w-fit py-1 rounded-full justify-center items-center gap-4 flex                                Tambah
-                                Kabinet</div>
-                            <i class="
-                            text-rose-600 ph ph-plus text-3xl"></i>
-                            </a>
-                        </div>
-                        <a href="/kelola-kabinet"
-                            class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex relative">
-                            <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
-                                <div class="w-fit h-fit justify-center items-center inline-flex">
-                                    <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
-                                        alt="Image" />
-                                </div>
-                            </div>
-                            <button onclick="window.location.href='/kelola-kabinet'"
-                                class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                                <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
-                                    Lihat
-                                    Selengkapnya</div>
-                            </button>
+                            class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">Tambah Kabinet</div>
+                        <i class="text-rose-600 ph ph-plus text-3xl"></i>
                         </a>
                     </div>
-                    {{-- Card Kelola Berita --}}
-                    <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
-                        <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
-                            <div class="w-full text-netral-900 text-2xl font-semibold font-THICCCBOI leading-btn-tertiary p-0berita-tambah"
-                                class="w-fit py-1 rounded-full justify-center items-center gap-4 flex                                Tambah
-                                Berita</div>
-                            <i class="
+                    <a href="/kelola-kabinet"
+                        class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex relative">
+                        <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
+                            <div class="w-fit h-fit justify-center items-center inline-flex">
+                                <img class="h-fit w-96 " src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
+                                    alt="Image" />
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='/kelola-kabinet'"
+                            class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
+                            <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                                Lihat
+                                Selengkapnya</div>
+                        </button>
+                    </a>
+                </div> --}}
+                {{-- Card Kelola Berita --}}
+                <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
+                    <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
+                        <div class="w-full text-netral-900 text-2xl font-semibold font-THICCCBOI leading-btn-tertiary p-0berita-tambah"
+                            class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">Tambah Berita</div>
+                        <i class="
                                 text-rose-600 ph ph-plus text-3xl"></i>
-                                </button>
+                        </button>
+                    </div>
+                    <a href="{{ route('kelola.berita.index') }}"
+                        class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
+                        <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
+                            <div class="w-fit h-fit justify-center items-center inline-flex">
+                                <i class="  ph-fill ph-newspaper text-netral-900 text-9xl"></i>
                             </div>
-                            <a href="/kelola-berita"
-                                class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
-                                <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
-                                    <div class="w-fit h-fit justify-center items-center inline-flex">
-                                        <img class="h-fit w-96 "
-                                            src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
-                                    </div>
-                                </div>
-                                <button
-                                    class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                                    <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
-                                        Lihat
-                                        Selengkapnya</div>
-                                </button>
-                            </a>
                         </div>
-                        {{-- Card Kelola Akun --}}
-                        <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
-                            <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
-                                <div class="w-full text-netral-900 text-2xl font-semibold font-THICCCBOI leading-btn-tertiary p-0akun-tambah"
-                                    class="w-fit py-1 rounded-full justify-center items-center gap-4 flex                                Tambah
-                                Akun</div>
-                            <i class="
-                                    text-rose-600 ph ph-plus text-3xl"></i>
-                                    </a>
-                                </div>
-                                <a href="/kelola-akun"
-                                    class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
-                                    <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
-                                        <div class="w-fit h-fit justify-center items-center inline-flex">
-                                            <img class="h-fit w-96 "
-                                                src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
-                                                alt="Image" />
-                                        </div>
-                                    </div>
-                                    <button
-                                        class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                                        <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
-                                            Lihat
-                                            Selengkapnya</div>
-                                    </button>
-                                </a>
+                        <button
+                            class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
+                            <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                                Lihat
+                                Selengkapnya</div>
+                        </button>
+                    </a>
+                </div>
+                {{-- Card Kelola Akun --}}
+                <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
+                    <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
+                        <div class="w-full text-netral-900 text-2xl font-semibold font-THICCCBOI leading-btn-tertiary p-0akun-tambah"
+                            class="w-fit py-1 rounded-full justify-center items-center gap-4 flex">Tambah Akun
+                        </div>
+                        <i class=" text-rose-600 ph ph-plus text-3xl"></i>
+                        </a>
+                    </div>
+                    <a href="{{ route('kelola.akun.index') }}"
+                        class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
+                        <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
+                            <div class="w-fit h-fit justify-center items-center inline-flex">
+                                <i class="  ph-fill ph-newspaper text-netral-900 text-9xl"></i>
+                                
                             </div>
-                            {{-- Card Kelola Web --}}
-                            <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
-                                <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
-                                    <div class="w-full text-netral-900 font-semibold Heading4">
-                                        Kelola Komisi</div>
+                        </div>
+                        <button
+                            class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
+                            <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                                Lihat
+                                Selengkapnya</div>
+                        </button>
+                    </a>
+                </div>
+                {{-- Card Kelola Web --}}
+                <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
+                    <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
+                        <div class="w-full text-netral-900 font-semibold Heading4">
+                            Kelola Komisi</div>
 
-                                </div>
-                                <div onclick="window.location.href='/kelola-komisi'"
-                                    class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
-                                    <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
-                                        <div class="w-fit h-fit justify-center items-center inline-flex">
-                                            <img class="h-fit w-96 "
-                                                src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
-                                                alt="Image" />
-                                        </div>
-                                    </div>
-                                    <button
-                                        class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                                        <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
-                                            Lihat
-                                            Selengkapnya</div>
-                                    </button>
-                                </div>
-                            </div>
-                            {{-- Card Kelola Daftar Ulang --}}
-                            <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
-                                <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
-                                    <div class="w-full text-netral-900 font-semibold Heading4">
-                                        Kelola Pengajuan Pencairan</div>
-                                </div>
-                                <a href="/kelola-pengajuan-pencairan"
-                                    class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
-                                    <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
-                                        <div class="w-fit h-fit justify-center items-center inline-flex">
-                                            <img class="h-fit w-96 "
-                                                src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
-                                                alt="Image" />
-                                        </div>
-                                    </div>
-                                    <button
-                                        class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                                        <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
-                                            Lihat
-                                            Selengkapnya</div>
-                                    </button>
-                                </a>
+                    </div>
+                    <div onclick="window.location.href='/kelola-komisi'"
+                        class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
+                        <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
+                            <div class="w-fit h-fit justify-center items-center inline-flex">
+                                <img class="h-fit w-32 " src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
                             </div>
                         </div>
-                        {{-- Card Kelola Web --}}
-                        <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
-                            <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
-                                <div class="w-full text-netral-900 font-semibold Heading4">
-                                    Kelola Komisi</div>
-
-                            </div>
-                            <a href="/kelola-komisi"
-                                class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
-                                <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
-                                    <div class="w-fit h-fit justify-center items-center inline-flex">
-                                        <img class="h-fit w-96 "
-                                            src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
-                                    </div>
-                                </div>
-                                <button
-                                    class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                                    <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
-                                        Lihat
-                                        Selengkapnya</div>
-                                </button>
-                            </a>
-                        </div>
-                        {{-- Card Kelola Daftar Ulang --}}
-                        <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
-                            <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
-                                <div class="w-full text-netral-900 font-semibold Heading4">
-                                    Kelola Pengajuan Pencairan</div>
-                            </div>
-                            <a href="/kelola-pengajuan-pencairan"
-                                class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
-                                <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
-                                    <div class="w-fit h-fit justify-center items-center inline-flex">
-                                        <img class="h-fit w-96 "
-                                            src="{{ url('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
-                                    </div>
-                                </div>
-                                <button
-                                    class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                                    <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
-                                        Lihat
-                                        Selengkapnya</div>
-                                </button>
-                            </a>
-                        </div>
+                        <button
+                            class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
+                            <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                                Lihat
+                                Selengkapnya</div>
+                        </button>
                     </div>
                 </div>
-            @endsection
+                {{-- Card Kelola Daftar Ulang --}}
+                <div class="w-full h-fit min-w-360 flex flex-col justify-start items-center gap-4">
+                    <div class="w-full h-fit pl-4 justify-start items-center gap-4 inline-flex">
+                        <div class="w-full text-netral-900 font-semibold Heading4">
+                            Kelola Pengajuan Pencairan</div>
+                    </div>
+                    <a href="{{ route('kelola.pencairan.index') }}"
+                        class="w-full h-fit p-4 bg-white cursor-pointer rounded-3xl shadow-card flex-col justify-start items-center gap-4 flex">
+                        <div class="h-64 flex-col justify-center items-center gap-2.5 flex">
+                            <div class="w-fit h-fit justify-center gap-2 items-center inline-flex">
+                                <i class="ph-fill ph-student text-netral-900 text-9xl"></i>
+                                <i class="ph-fill ph-bank text-netral-900 text-9xl"></i>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
+                            <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                                Lihat
+                                Selengkapnya</div>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 
-        @endsection
+@endsection

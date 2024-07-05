@@ -1,14 +1,8 @@
 <div
     class="w-full h-fit {{ $active === 'Beranda' ? 'pt-8 lg:py-16' : '' }} px-4 md:px-8 xl:px-16 py-16 md:py-32 bg-netral-100 flex-col justify-center items-center inline-flex ">
-    {{-- Button Fix --}}
-    <a href="/forum-diskusi/create"
-        class="{{ $active === 'Beranda' ? 'hidden' : '' }} btn-primary w-fit fixed bottom-18 right-2 z-50 lg:hidden drop-shadow-2xl">
-        <i class="ph ph-plus"></i>
-        <div class="before:content-['Pertanyaan'] md:before:content-['Ajukan_Pertanyaan']"></div>
-    </a>
     <div class="w-full max-w-1480 h-fit flex-col justify-center items-center gap-4 lg:gap-8 flex ">
         <div
-            class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 {{ $active === 'Beranda' ? 'flex' : 'hidden' }} flex-col md:flex-row lg:flex ">
+            class="w-full justify-start items-center gap-4 {{ $active === 'Beranda' ? 'flex' : 'hidden' }} flex-col md:flex-row lg:flex ">
             <p class="w-full Heading1 font-extrabold {{ $active === 'Beranda' ? 'flex' : 'hidden' }}  lg:flex">Berita
             </p>
         </div>
@@ -17,105 +11,47 @@
         <div class="w-full max-w-1480 h-fit flex-col justify-start items-center gap-4 flex">
             @if ($active === 'Beranda')
             @else
-                <div class="w-full px-4 md:px-0 xl:px-0 justify-center items-start gap-4 flex flex-col md:flex-row ">
-                    <form method="GET" action="{{ route('forum-diskusi.index') }}"
-                        class="w-full h-fit m-0 flex justify-center relative">
-                        <input id="searchText" oninput="toggleClearButton()" type="text" class="searchbar"
-                            name="search" value="{{ $search }}" placeholder="Official Store">
-                        <button id="clearButton" onclick="clearSearchText()" type="button"
-                            class="hidden px-4 lg:px-6 w-fit text-base lg:text-xl text-netral-900 ph ph-x absolute right-0 h-full"></button>
+                <div class="w-full justify-center items-start gap-4 flex flex-col md:flex-row ">
+                    <form method="GET" action="{{ route('berita.index') }}" class="w-full h-fit m-0 flex justify-center relative">
+                        <input id="searchText" oninput="toggleClearButton()" type="text" class="searchbar" name="search" value="{{ $search }}" placeholder="Cari berita">
+                        <button id="clearButton" onclick="clearSearchText()" type="button" class="hidden lg:px-6 w-fit text-base lg:text-xl text-netral-900 ph ph-x absolute right-0 h-full"></button>
                     </form>
-
-                    {{-- Urut & Kategori --}}
-                    <div
-                        class="w-full md:w-fit hidden lg:flex flex-none overflow-scroll overflow-x-scroll parent cursor-pointer scrollbar-hidden gap-4">
-                        {{-- Button Urutkan --}}
-                        <div class="w-fit flex flex-row">
-                            <button id="menuButton" onclick="toggleDropdownPopUp()" type="button"
-                                class="btn-popup option-button">
-                                <i class="ph ph-funnel-simple"></i>
-                                <div class="">Urutkan</div>
-                                <i class="ph ph-caret-down"></i>
-                            </button>
-                            {{-- Pop Up --}}
-                            <div id="menuDropdown"
-                                class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
-                                <div onclick="toggleDropdownPopUp(); event.stopPropagation()"
-                                    class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
-                                    <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
-                                        role="none">
-                                        <div class="w-full flex flex-col gap-4">
-                                            <div class="w-full text-start Heading3">Urutkan</div>
-                                            <div class="w-full flex flex-col gap-2">
-                                                <button onclick="sortDiscussions('az')"
-                                                    class="btn-popup-sm">A-Z</button>
-                                                <button onclick="sortDiscussions('za')"
-                                                    class="btn-popup-sm">Z-A</button>
-                                                <button onclick="sortDiscussions('newest')"
-                                                    class="btn-popup-sm">Terbaru</button>
-                                                <button onclick="sortDiscussions('oldest')"
-                                                    class="btn-popup-sm">Terlama</button>
-                                                <button onclick="sortDiscussions('most_liked')"
-                                                    class="btn-popup-sm">Like Terbanyak</button>
-                                                <button onclick="sortDiscussions('least_liked')"
-                                                    class="btn-popup-sm">Like Terdikit</button>
-                                            </div>
-                                        </div>
-                                        <button class="w-full flex btn-secondary-sm px-4"
-                                            onclick="toggleDropdownPopUp()">
-                                            Tutup
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        {{-- Kategori --}}
-                        <div class="w-fit flex flex-row">
-                            <button id="menuButton" onclick="toggleDropdownPopUp()" type="button"
-                                class="btn-popup option-button">
-                                <i class="ph ph-square-half"></i>
-                                <div class="">Kategori</div>
-                                <i class=" text-netral-900 ph ph-caret-down"></i>
-                            </button>
-                            {{-- Pop Up --}}
-                            <div id="menuDropdown"
-                                class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
-                                <div onclick="; event.stopPropagation(); toggleDropdownPopUp()"
-                                    class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
-                                    <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
-                                        role="none">
-                                        <div class="w-full flex flex-col gap-4">
-                                            <div class="w-full text-start Heading3">Kategori</div>
-                                            <div class="w-full flex flex-wrap gap-2">
-                                                <button
-                                                    onclick="window.location.href='{{ route('forum-diskusi.index') }}'"
-                                                    class="btn-popup-sm {{ !isset($withCategory) ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}">
-                                                    Semua
+                    
+                    {{-- Kategori --}}
+                    <div class="w-fit flex flex-row">
+                        <button id="menuButton" onclick="toggleDropdownPopUp()" type="button" class="btn-popup option-button">
+                            <i class="ph ph-square-half"></i>
+                            <div class="">Kategori</div>
+                            <i class=" text-netral-900 ph ph-caret-down"></i>
+                        </button>
+                        {{-- Pop Up --}}
+                        <div id="menuDropdown" class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                            <div onclick="; event.stopPropagation(); toggleDropdownPopUp()" class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4" role="none">
+                                    <div class="w-full flex flex-col gap-4">
+                                        <div class="w-full text-start Heading3">Kategori</div>
+                                        <div class="w-full flex flex-wrap gap-2">
+                                            <button onclick="window.location.href='{{ route('berita.index') }}'" class="btn-popup-sm {{ !isset($withCategory) ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}">
+                                                Semua
+                                            </button>
+                                            @foreach ($categories as $category)
+                                                <button onclick="window.location.href='{{ route('berita.index', ['category' => $category->slug]) }}'" class="btn-popup-sm {{ isset($withCategory) && $withCategory->id === $category->id ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}">
+                                                    {{ $category->name }}
                                                 </button>
-                                                @foreach ($categories as $category)
-                                                    <button
-                                                        onclick="toggleCategory('{{ $category->slug }}', '{{ route('forum-diskusi.index') }}', '{{ route('forum-diskusi.diskusi.kategori.show', $category->slug) }}')"
-                                                        class="btn-popup-sm {{ isset($withCategory) && $withCategory->id === $category->id ? 'border-primary-base bg-primary-100 text-primary-base' : '' }} ">
-                                                        {{ $category->name }}
-                                                    </button>
-                                                @endforeach
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <button class="w-full flex btn-secondary-sm px-4"
-                                            onclick="toggleDropdownPopUp()">
-                                            Tutup
-                                        </button>
                                     </div>
+                                    <button class="w-full flex btn-secondary-sm px-4" onclick="toggleDropdownPopUp()">
+                                        Tutup
+                                    </button>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             @endif
             {{-- Filter dll --}}
-            <div class="w-full h-fit px-4 md:px-0 xl:px-0 justify-start items-center gap-2 md:gap-8 inline-flex">
+            <div class="w-full h-fit justify-start items-center gap-2 md:gap-8 inline-flex">
                 <div class="py-1 rounded-full flex-col justify-center items-center gap-6 hidden lg:flex">
                     <div class="text-center text-neutral-900 text-2xl font-medium font-THICCCBOI leading-9">Filter
                     </div>
@@ -188,7 +124,7 @@
         <section
             class="w-full max-w-1480 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 flex-wrap gap-3 md:gap-8 justify-center">
             @forelse($news as $oneNews)
-                <button onclick="" class="flex w-full flex-col justify-start items-start gap-2">
+                <a href="{{ route('berita.show', $oneNews->slug) }}" class="flex w-full flex-col justify-start items-start gap-2">
                     <div class="w-full h-fit flex-col justify-start items-start flex">
                         <div class="w-full h-fit aspect-square flex">
                             @if (!empty($firstImages[$oneNews->id]))
@@ -207,7 +143,7 @@
                         <div class="grow shrink basis-0 text-right text-stone-500 font-normal font-THICCCBOI Body2">
                             {{ $oneNews->category->name }}</div>
                     </div>
-                </button>
+                </a>
             @empty
             @endforelse
         </section>

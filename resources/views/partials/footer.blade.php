@@ -57,14 +57,14 @@
                 </div>
                 <div class="w-full flex-col justify-center items-start gap-2 lg:gap-4  inline-flex">
                     <div class="text-white font-bold Heading4">Terhubung dengan kami</div>
-                    <div class="px-3 py-0 md:px-4 md:py-1 bg-rose-100 rounded-full justify-start items-center gap-2 md:gap-3 inline-flex">
+                    <a href="instagram.com/komisipolimedia" class="px-3 py-0 md:px-4 md:py-1 bg-rose-100 rounded-full justify-start items-center gap-2 md:gap-3 inline-flex">
                         <i class="text-lg text-netral-800 ph ph-instagram-logo"></i>
                         <div class="text-neutral-900 font-medium Body1 md:Heading4">@komisipolimedia</div>
-                    </div>
-                    <div class="px-3 py-0 md:px-4 md:py-1 bg-rose-100 rounded-full justify-start items-center gap-2 md:gap-3 inline-flex">
+                    </a>
+                    <a href="https://www.youtube.com/@KOMISIPolimedia" class="px-3 py-0 md:px-4 md:py-1 bg-rose-100 rounded-full justify-start items-center gap-2 md:gap-3 inline-flex">
                         <i class="text-lg text-netral-800 ph ph-youtube-logo"></i>
                         <div class="text-neutral-900 font-medium Body1 md:Heading4">Komisi Polimedia</div>
-                    </div>
+                    </a>
                     <div class="text-white font-bold Heading4">Hubungi kami</div>
                     <div class="w-full sm:w-fit px-3 py-0 md:px-4 md:py-1 bg-rose-100 rounded-full justify-start items-center gap-2 md:gap-3 flex">
                         <i class="text-lg text-netral-800 ph ph-envelope-simple"></i>

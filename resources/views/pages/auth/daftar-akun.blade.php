@@ -1,8 +1,7 @@
 @extends('layouts.main')
+@include('partials.navbar')
 @section('container')
 <div id="divFull" class="w-full h-screen bg-netral-100 shadow justify-start items-start gap-0">
-    @include('partials.navbar')
-
     <form id="form-login" method="POST" action="{{ route('auth.daftar.register') }}" class="w-full h-full pt-20 md:pt-32 flex flex-col gap-8 z-50">
         @csrf
         {{-- Main Content --}} 
@@ -154,8 +153,7 @@
         {{-- Section 3 Berita --}}
         @include('partials.berita-content')
         {{-- Section 4 Forum Diskusi --}}
-        @include('partials.forum-diskusi-content')
-        {{-- Section 5 Tentang Komisi --}}
+            {{-- Section 5 Tentang Komisi --}}
     </div>
 </div>
     

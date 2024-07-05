@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->string('title');
             $table->text('content');
-            $table->string('image')->nullable();
+            $table->text('image')->nullable();
             $table->enum('headline_status', ['Aktif', 'Tidak Aktif']);
             $table->string('headline_image')->nullable();
             $table->string('slug')->unique();

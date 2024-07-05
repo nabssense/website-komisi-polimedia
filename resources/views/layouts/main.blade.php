@@ -34,7 +34,7 @@
 </head>
 {{-- opacity-0 transition-opacity duration-500 ease-in-out --}}
 <body id="container" class="m-0 p-0 w-full h-full t">
-    @include('partials.alert-popup')
+    @include('partials.pop-up.alert')
     @yield('container')
     @yield('after-script')
 

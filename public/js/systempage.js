@@ -74,10 +74,10 @@ function pageKelolaKabinetTambah() {
 
 // Kelola Akun
 function pageKelolaAkun() {
-  window.location.href = "/kelola-akun";
+  window.location.href = "{{ route('kelola.akun.index') }}";
 }
 function pageKelolaAkunTambah() {
-  window.location.href = "/kelola-akun-tambah";
+  window.location.href = "{{ route('kelola.akun.create') }}";
 }
 
 
@@ -95,5 +95,5 @@ function pageUbahKomisi() {
 
 // Kelola Pengajuan
 function pageKelolaPengajuanPencairan() {
-  window.location.href = "/kelola-pengajuan-pencairan";
+  window.location.href = "{{ route('kelola.pengajuan-pencairan.index')}}";
 }

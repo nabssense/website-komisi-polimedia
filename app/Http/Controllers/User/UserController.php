@@ -61,7 +61,7 @@ class UserController extends Controller
         // Simpan perubahan
         $user->save();
 
-        return redirect()->back()->with('notif.success', 'Profil berhasil diperbarui.');
+        return redirect()->back()->with('success', 'Profil berhasil diperbarui.');
     }
 
     public function updatePassword(UpdatePasswordRequest $request)
@@ -71,7 +71,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-        return redirect()->back()->with('notif.success', 'Kata sandi berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Kata sandi berhasil diperbarui!');
     }
 
     public function editProfilePicture()
@@ -98,6 +98,6 @@ class UserController extends Controller
     
         $user->save();
     
-        return redirect()->back()->with('notif.success', 'Gambar profil berhasil diubah.');
+        return redirect()->back()->with('success', 'Gambar profil berhasil diubah.');
     }
 }

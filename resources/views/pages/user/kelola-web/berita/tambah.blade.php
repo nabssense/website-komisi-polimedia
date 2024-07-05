@@ -13,7 +13,7 @@
             </div>
             {{-- 2 --}}
             <div
-                class="w-full h-full justify-start items-start gap-8 flex flex-col flex-1  overflow-x-scroll parent cursor-pointer scrollbar-hidden ">
+                class="w-full h-full justify-start items-start gap-8 flex flex-col flex-1  overflow-x-scroll cursor-pointer scrollbar-hidden ">
                 <div class="w-full h-fit flex flex-row items-end gap-4">
                     <div class="w-fit h-fit flex-col justify-start items-start gap-1 flex">
                         <div class="input-text-label">
@@ -30,6 +30,7 @@
                         @error('image')
                             <div id="image-error" class="text-danger-base font-normal Heading4">{{ $message }}</div>
                         @enderror
+                        
                     </div>
 
                     {{-- Image Tampil taruh disini --}}
@@ -37,10 +38,10 @@
                         class="w-fit parent flex flex-row gap-4 scrollbar-hidden-vertikal touch-pan-y" class="flex gap-4">
                         {{-- Preview gambar akan ditambahkan secara dinamis di sini --}}
                     </div>
-
-
+                    
                 </div>
-
+                <div class="w-full flex text-stone-700 font-normal Body1">Masukkan gambar dengan ratio 1:1 atau 4:3 agar sesuai. MAKS 3MB
+                </div>
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="input-text-label">Judul Berita
                     </div>
@@ -62,6 +63,7 @@
                         <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">
                             {{ $message }}</div>
                     @enderror
+                    
                 </div>
 
                 <div class="w-full h-fit flex-col justify-start items-start inline-flex">
@@ -122,8 +124,7 @@
                             @error('headline_image')
                                 <div id="image-error" class="text-danger-base font-normal Heading4">{{ $message }}</div>
                             @enderror
-                            <div class="w-full flex text-stone-700 font-normal Body1">Masukkan gambar dengan ukuran 21:9
-                                agar sesuai.
+                            <div class="w-full flex text-stone-700 font-normal Body1">Masukkan gambar dengan ukuran 21:9 agar sesuai. MAKS 4MB
                             </div>
                         </div>
                     </div>

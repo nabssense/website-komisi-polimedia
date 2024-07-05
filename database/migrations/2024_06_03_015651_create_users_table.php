@@ -16,13 +16,17 @@ return new class extends Migration
             $table->string('profile_picture');
             $table->string('fullname');
             $table->string('email')->unique();
+            $table->string('nim')->nullable();
+            $table->string('nik')->nullable();
+            $table->string('number_wa')->nullable();
+            $table->string('regional_campus')->nullable();
+            $table->string('edu_program')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('nim')->nullable();
-            $table->string('edu_program')->nullable();
             $table->enum('user_type', ['Mahasiswa', 'Umum', 'Admin', 'Pembina Komisi']);
             // $table->string('kabinet_active');
             $table->enum('status', ['Aktif', 'Tidak Aktif']);
+            $table->enum('admin', ['Iya', 'Tidak']);
             $table->timestamps('');
         });
     }

@@ -10,12 +10,23 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     //
-    public function index(Request $request){
+    public function index(Request $request)
+    {
+        // Mengambil semua data berita dengan kueri builder
+        $query = News::query();
 
-        $news = News::all();
+        // Menerapkan pencarian jika ada
+        if ($request->search) {
+            $query->where('title', 'like', "%$request->search%")
+                  ->orWhere('question', 'like', "%$request->search%");
+        }
 
-        // Mengambil semua data berita
+        // Menjalankan kueri untuk mendapatkan hasil
+        $news = $query->get();
+
+        // Mengambil semua kategori
         $categories = CategoryNews::all();
+
         // Initialize an array to store image paths
         $firstImages = [];
 
@@ -33,23 +44,29 @@ class NewsController extends Controller
                 $firstImages[$item->id] = null;
             }
         }
-        if ($request->search) {
-            $news->where('title', 'like', "%$request->search%")
-                ->orWhere('question', 'like', "%$request->search%");
-                
-        }
-        // Mengatur urutan berdasarkan parameter
-        
 
-        return view('pages.berita.berita', [
+        return view('pages.berita.index', [
             "title" => "Website Komisi | Berita",
             "active" => "Berita",
-
             'news' => $news,
             'categories' => $categories,
             "search" => $request->search,
-            'firstImages' => $firstImages, 
+            'firstImages' => $firstImages,
         ]);
+    }
 
+    public function show($slug)
+    {
+        $news = News::where('slug', $slug)->firstOrFail();
+
+        // Decode the JSON field 'image' into an array
+        $images = json_decode($news->image, true);
+
+        return view('pages.berita.show', [
+            "title" => "Website Komisi | Berita Detail",
+            "active" => "Berita",
+            'news' => $news,
+            'images' => $images,
+        ]);
     }
 }

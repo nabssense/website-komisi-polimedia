@@ -1,5 +1,6 @@
 @extends('layouts.main')
-@extends('partials.navbar')
+@include('partials.navbar')
+@include('partials.navbar-mobile')
 @section('container')
     @extends('partials.user-navigation')
 @section('user-content')
@@ -122,6 +123,15 @@
                 </div>
                 <div class="grid grid-cols-12 col-span-12 justify-start items-start gap-2">
                     <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">Email</div>
+                    </div>
+                    <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
+                            {{ auth()->user()->email }}</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-12 col-span-12 justify-start items-start gap-2">
+                    <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
                         <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">NIM/NIP</div>
                     </div>
                     <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
@@ -130,13 +140,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-12 col-span-12 justify-start items-start gap-2">
+                
+                <div class="h-fit grid grid-cols-12 col-span-12 justify-start items-start gap-2">
                     <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
-                        <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">Email</div>
+                        <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">NIK</div>
                     </div>
                     <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
                         <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
-                            {{ auth()->user()->email }}</div>
+                            {{ auth()->user()->nik }}</div>
+                    </div>
+                </div>
+                <div class="h-fit grid grid-cols-12 col-span-12 justify-start items-start gap-2">
+                    <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">Nomor Whatsapp</div>
+                    </div>
+                    <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
+                            {{ auth()->user()->number_wa }}</div>
+                    </div>
+                </div>
+                <div class="h-fit grid grid-cols-12 col-span-12 justify-start items-start gap-2">
+                    <div class="col-span-4 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-stone-600 text-lg font-normal font-THICCCBOI leading-7">Domisili Kampus</div>
+                    </div>
+                    <div class="col-span-7 h-fit py-1 bg-white justify-start items-center gap-4 flex">
+                        <div class="text-neutral-900 text-lg font-medium font-THICCCBOI leading-7">
+                            {{ auth()->user()->regional_campus }}</div>
                     </div>
                 </div>
                 <div class="h-fit grid grid-cols-12 col-span-12 justify-start items-start gap-2">

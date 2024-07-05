@@ -118,7 +118,7 @@ class DiscussionController extends Controller
 
         if ($create) {
             session()->forget('image');
-            session()->flash('notif.success', 'Discussion created successfully!');
+            session()->flash('success', 'Discussion created successfully!');
             return redirect()->route('forum-diskusi.index');
             
         }
@@ -226,7 +226,7 @@ class DiscussionController extends Controller
 
         if ($update) {
             session()->forget('image');
-            session()->flash('notif.success', 'Discussion updated successfully!');
+            session()->flash('success', 'Discussion updated successfully!');
             return redirect()->route('forum-diskusi.show', $slug);
         }
 
@@ -255,7 +255,7 @@ class DiscussionController extends Controller
         $delete = $discussion->delete();
 
         if ($delete) {
-            session()->flash('notif.success', 'Discussion deleted successfully');
+            session()->flash('success', 'Discussion deleted successfully');
             return redirect()->route('forum-diskusi.index');
         }
 

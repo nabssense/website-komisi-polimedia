@@ -9,7 +9,7 @@
     {{-- Section 3 Berita --}}
     @include('partials.berita-content')
     {{-- Section 4 Forum Diskusi --}}
-    @include('partials.forum-diskusi.index-content')
+    @include('partials.forum-diskusi.index')
     {{-- Section 5 Tentang Komisi --}}
     @include('partials.tentang-komisi-content')
     @include('partials.footer')

@@ -1,14 +1,18 @@
 <?php
 
+use App\Models\PeriodsFunding;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\ForumDiscussion\AnswerController;
+use App\Http\Controllers\ManageWebsite\ManageNewsController;
 use App\Http\Controllers\ManageWebsite\ManageUserController;
 use App\Http\Controllers\ForumDiscussion\DiscussionController;
 use App\Http\Controllers\ManageWebsite\ManageBeritaController;
-use App\Http\Controllers\ManageWebsite\ManageNewsController;
-use App\Http\Controllers\News\NewsController;
-
+use App\Http\Controllers\ManageWebsite\ScholarshipFunding\ExportController;
+use App\Http\Controllers\ScholarshipFunding\PeriodFundingController;
+use App\Http\Controllers\ManageWebsite\ScholarshipFunding\ScholarshipFundingController;
+use App\Http\Controllers\ManageWebsite\ScholarshipFunding\PeriodFundingController as ScholarshipFundingPeriodFundingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,7 +57,8 @@ use App\Http\Controllers\News\NewsController;
 
 // Harus Login atau Sudah Login
 Route::middleware('auth')->group(function () {
-    // DISKUSI
+
+
     Route::namespace('App\Http\Controllers\ForumDiscussion')->group(function () {
         Route::resource('forum-diskusi', DiscussionController::class)
             ->only(['create', 'store', 'edit', 'update', 'destroy']);
@@ -74,66 +79,20 @@ Route::middleware('auth')->group(function () {
         Route::post('jawab/{answer}/unlike', 'LikeController@answerUnlike')->name('jawab.like.unlike');
     });
 
-    // Akun - Kelola Web
-    Route::get('kelola-website', function () {
-        return view('pages.user.kelola-web.index', [
-            "title" => "Website Komisi | Kelola Website",
-            "active" => "Kelola Website",
-        ]);
-    });
-    Route::get('/kelola-kabinet-tambah', function () {
-        return view('pages.user.kelola-web.kelola-kabinet-tambah', [
-            "title" => "Website Komisi | Tambah Kabinet",
-            "active" => "Tambah Kabinet",
-        ]);
-    });
-    Route::get('/kelola-kabinet', function () {
-        return view('pages.user.kelola-web.kelola-kabinet', [
-            "title" => "Website Komisi | Kelola Kabinet",
-            "active" => "Kelola Kabinet",
-        ]);
-    });
-    Route::get('/kelola-kabinet-pilih', function () {
-        return view('pages.user.kelola-web.kelola-kabinet-pilih', [
-            "title" => "Website Komisi | Kelola Kabinet",
-            "active" => "Kelola Kabinet",
-        ]);
-    });
-   
-    
-    Route::get('/kelola-akun-tambah', function () {
-        return view('pages.user.kelola-web.kelola-akun-tambah', [
-            "title" => "Website Komisi | Tambah Akun",
-            "active" => "Tambah Akun",
-        ]);
-    });
-    Route::get('/kelola-komisi', function () {
-        return view('pages.user.kelola-web.kelola-komisi', [
-            "title" => "Website Komisi | Kelola Komisi",
-            "active" => "Kelola Komisi",
-        ]);
-    });
-    Route::get('/kelola-komisi-ubah', function () {
-        return view('pages.user.kelola-web.kelola-komisi-ubah', [
-            "title" => "Website Komisi | Ubah Komisi",
-            "active" => "Ubah Komisi",
-        ]);
-    });
-    Route::get('/kelola-pengajuan-pencairan', function () {
-        return view('pages.user.kelola-web.kelola-pengajuan-pencairan', [
-            "title" => "Website Komisi | kelola-pengajuan-pencairan",
-            "active" => "Kelola Pengajuan Pencairan",
-        ]);
-    });
+
+
+
 
     // Logout 
     Route::namespace('App\Http\Controllers\Auth')->group(function () {
         Route::post('keluar-akun', 'LoginController@logout')->name('auth.masuk.logout');
     });
 
-    // User
+    // User // Akun - Kelola Web
+
     Route::namespace('App\Http\Controllers\User')->group(function () {
         // Route::resource('akun-profil', UserController::class)->only(['show']);
+
         Route::resource('user-profile', UserController::class)->only(['index']);
         Route::get('user', [UserController::class, 'indexUser'])->name('index.user');
         Route::post('update-fullname', [UserController::class, 'updateFullname'])->name('update-fullname');
@@ -144,22 +103,64 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::get('kelola-akun', [ManageUserController::class, 'index'])->name('manage-web.manage-users.index');
-    Route::get('kelola-akun/tambah', [ManageUserController::class, 'create'])->name('manage-web.manage-users.create');
-    Route::post('kelola-akun/tambah/store', [ManageUserController::class, 'store'])->name('manage-web.manage-users.store');
+    Route::prefix('kelola-website')->group(function () {
+        Route::get('/', function () {
+            return view('pages.user.kelola-web.index', [
+                "title" => "Website Komisi | Kelola Website",
+                "active" => "Kelola Website",
+            ]);
+        })->name('kelola.website.index');
+        // Kelola Akun
+        Route::prefix('kelola-akun')->group(function () {
+            Route::get('/', [ManageUserController::class, 'index'])->name('kelola.akun.index');
+            Route::get('akun/tambah', [ManageUserController::class, 'create'])->name('kelola.akun.create');
+            Route::post('akun/tambah/store', [ManageUserController::class, 'store'])->name('kelola.akun.store');
+            Route::get('akun/ubah/{user}', [ManageUserController::class, 'edit'])->name('kelola.akun.edit');
+            Route::put('akun/ubah/{user}', [ManageUserController::class, 'update'])->name('kelola.akun.update');
+            Route::post('akun/ubah/{user}/toggle-status', [ManageUserController::class, 'toggleStatus'])->name('kelola.berita.edit.toggleStatus');
+            Route::delete('akun/hapus/{user}', [ManageUserController::class, 'destroy'])->name('kelola.akun.destroy');
+        });
 
-    Route::prefix('kelola-berita')->group(function () {
-        Route::get('/', [ManageNewsController::class, 'index'])->name('kelola.berita.index');
-        Route::get('/tambah', [ManageNewsController::class, 'create'])->name('kelola.berita.create');
-        Route::post('/store', [ManageNewsController::class, 'store'])->name('kelola.berita.store');
-        Route::get('/ubah/{id}', [ManageNewsController::class, 'edit'])->name('kelola.berita.edit');
-        Route::put('/update/{id}', [ManageNewsController::class, 'update'])->name('kelola.berita.update');
-        Route::delete('/delete/{id}', [ManageNewsController::class, 'destroy'])->name('kelola.berita.destroy');
-        Route::post('/berita/{id}/toggle-headline', [ManageNewsController::class, 'toggleHeadline'])->name('kelola.berita.toggleHeadline');    
+        // Kelola Berita
+        Route::prefix('kelola-berita')->group(function () {
+            Route::get('/', [ManageNewsController::class, 'index'])->name('kelola.berita.index');
+            Route::get('berita/tambah', [ManageNewsController::class, 'create'])->name('kelola.berita.create');
+            Route::post('berita/store', [ManageNewsController::class, 'store'])->name('kelola.berita.store');
+            Route::get('berita/ubah/{id}', [ManageNewsController::class, 'edit'])->name('kelola.berita.edit');
+            Route::post('berita/ubah/{id}/toggle-headline', [ManageNewsController::class, 'toggleHeadline'])->name('kelola.berita.edit.toggleHeadline');
+            Route::put('berita/update/{id}', [ManageNewsController::class, 'update'])->name('kelola.berita.update');
+            Route::delete('berita/hapus/{id}', [ManageNewsController::class, 'destroy'])->name('kelola.berita.destroy');
+        });
+
+        // 
+        Route::prefix('kelola-pengajuan-pencairan')->group(function () {
+            Route::get('/', [ScholarshipFundingController::class, 'index'])->name('kelola.pencairan.index');
+            Route::get('/kategori/{category}', [ScholarshipFundingController::class, 'kategori'])->name('kelola.pencairan.kategori');
+
+
+            Route::resource('scholarship_funding', ScholarshipFundingController::class)->middleware(['auth', 'role:mahasiswa']);
+            Route::get('/form/{period}', [ScholarshipFundingController::class, 'form'])->name('kelola.pencairan.form');
+            Route::middleware(['RedirectUserNonActive'])->group(function () {
+                // DISKUSI
+                Route::post('/form/store', [ScholarshipFundingController::class, 'store'])->name('kelola.pencairan.store');
+            });
+           
+
+
+            Route::get('/export-excel', [ExportController::class, 'exportExcel'])->name('export.excel');
+
+
+            Route::prefix('periode')->group(function () {
+                Route::get('/', [ScholarshipFundingPeriodFundingController::class, 'index'])->name('kelola.pencairan.periode.index');
+                Route::get('/tambah', [ScholarshipFundingPeriodFundingController::class, 'create'])->name('kelola.pencairan.periode.show');
+                Route::post('/tambah/store', [ScholarshipFundingPeriodFundingController::class, 'store'])->name('kelola.pencairan.periode.store');
+                Route::get('/ubah', [ScholarshipFundingPeriodFundingController::class, 'edit'])->name('kelola.pencairan.periode.edit');
+                Route::put('ubah/{id}', [ScholarshipFundingPeriodFundingController::class, 'update'])->name('kelola.pencairan.periode.update');
+                Route::get('/hapus/{id}', [ScholarshipFundingPeriodFundingController::class, 'destroy'])->name('kelola.pencairan.periode.destroy');
+            });
+        });
     });
 });
-
-
 
 
 
@@ -201,6 +202,7 @@ Route::get('/testing', function () {
 // Berita
 Route::namespace('berita')->group(function () {
     Route::get('/berita', [NewsController::class, 'index'])->name('berita.index');
+    Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('berita.show');
     
 });
 
@@ -241,3 +243,37 @@ Route::get('/notifikasi', function () {
         "active" => "Notifikasi",
     ]);
 });
+
+
+    Route::get('/kelola-kabinet-tambah', function () {
+        return view('pages.user.kelola-web.kelola-kabinet-tambah', [
+            "title" => "Website Komisi | Tambah Kabinet",
+            "active" => "Tambah Kabinet",
+        ]);
+    });
+    Route::get('/kelola-kabinet', function () {
+        return view('pages.user.kelola-web.kelola-kabinet', [
+            "title" => "Website Komisi | Kelola Kabinet",
+            "active" => "Kelola Kabinet",
+        ]);
+    });
+    Route::get('/kelola-kabinet-pilih', function () {
+        return view('pages.user.kelola-web.kelola-kabinet-pilih', [
+            "title" => "Website Komisi | Kelola Kabinet",
+            "active" => "Kelola Kabinet",
+        ]);
+    });
+
+
+    Route::get('/kelola-komisi', function () {
+        return view('pages.user.kelola-web.kelola-komisi', [
+            "title" => "Website Komisi | Kelola Komisi",
+            "active" => "Kelola Komisi",
+        ]);
+    });
+    Route::get('/kelola-komisi-ubah', function () {
+        return view('pages.user.kelola-web.kelola-komisi-ubah', [
+            "title" => "Website Komisi | Ubah Komisi",
+            "active" => "Ubah Komisi",
+        ]);
+    });

@@ -1,165 +1,121 @@
- <section class="w-full h-fit relative items-center justify-center pt-12 md:pt-24 lg:pt-32 pb-4 lg:pb-12 lg:px-8 xl:px-16 flex">
-        {{-- ISI BERITA --}}
-        <div class="headline-container w-1480 h-fit gap-1 lg:gap-4 flex-col justify-center items-center flex lg:px-16 relative">
-            {{-- Placeholder for headline content --}}
-            <div class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer"
-                data-index="0">
-                <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
-                    <!-- Mengubah justify-center -->
-                    <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ url('img/Berita/Yonkou - Dekstop.png') }}"
-                        alt="Image" />
-                </div>
-            </div>
-            <div class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer"
-                data-index="0">
-                <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
-                    <!-- Mengubah justify-center -->
-                    <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ url('img/Berita/Straw Hat Pirates - Dekstop.png') }}"
-                        alt="Image" />
-                </div>
-            </div>
-            <div class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer"
-                data-index="0">
-                <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
-                    <!-- Mengubah justify-center -->
-                    <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ url('img/Berita/Straw Hat Pirates (BG) - Dekstop.png') }}"
-                        alt="Image" />
-                </div>
-            </div>
-            {{-- End of headline content --}}
+@php
+    $combinedItems = $activePeriods->concat($activeHeadlineNews); // Gabungkan periode aktif dan berita headline news
+    $itemCount = $combinedItems->count();
+@endphp
 
-            {{-- Button nextnews & prevnewsious --}}
-            <div class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center lg:flex hidden lg:pl-12">
-                <i
-                    class="xs:text-xl  sm:text-3xl md:text-5xl ph ph-caret-left text-primary-base cursor-pointer prevnews-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
-            </div>
-            <div class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center lg:flex hidden lg:pr-12">
-                <i
-                    class="xs:text-xl  sm:text-3xl md:text-5xl ph ph-caret-right text-primary-base cursor-pointer nextnews-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
-            </div>
+
+<section class="w-full h-fit relative items-center justify-center pt-12 md:pt-24 lg:pt-32 pb-4 lg:pb-12 lg:px-8 xl:px-16 flex">
+    {{-- ISI BERITA --}}
+    @if ($itemCount > 0)
+        <div class="headline-container w-1480 h-fit gap-1 lg:gap-4 flex-col justify-center items-center flex lg:px-16 relative">
+            @foreach ($combinedItems as $index => $item)
+                @if ($item instanceof \App\Models\PeriodFunding)
+                    <a href="{{ route('kelola.pencairan.form', $item->slug) }}"
+                        class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer {{ $index === 0 ? '' : 'hidden' }}"
+                        data-index="{{ $index }}">
+                        <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
+                            <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ $item->getImagePathAttribute() }}" alt="{{ $item->name }}" />
+                        </div>
+                    </a>
+                @elseif ($item instanceof \App\Models\News)
+                    <a href="{{ route('berita.show', $item->slug) }}"
+                        class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer {{ $index === 0 ? '' : 'hidden' }}"
+                        data-index="{{ $index }}">
+                        <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
+                            <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ asset('storage/' . $item->headline_image) }}" alt="{{ $item->title }}" />
+                        </div>
+                    </a>
+                @endif
+            @endforeach
+
+            {{-- Button next & prev --}}
+            @if ($itemCount > 1)
+                <div class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center lg:flex hidden lg:pl-12">
+                    <i class="xs:text-xl sm:text-3xl md:text-5xl ph ph-caret-left text-primary-base cursor-pointer prev-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
+                </div>
+                <div class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center lg:flex hidden lg:pr-12">
+                    <i class="xs:text-xl sm:text-3xl md:text-5xl ph ph-caret-right text-primary-base cursor-pointer next-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
+                </div>
+            @endif
 
             {{-- Stepper --}}
             <div class="w-full px-4 justify-center items-center gap-1 lg:gap-2 flex flex-row">
-                <div class="w-fit ">
-                    <div
-                        class=" z-10 w-6 lg:w-16 h-1 lg:h-2  bg-primary-base rounded-full flex-row justify-center items-center list-indicator hidden">
+                @foreach ($combinedItems as $index => $item)
+                    <div class="w-fit">
+                        <div class="z-10 w-6 lg:w-16 h-1 lg:h-2 bg-primary-base rounded-full flex-row justify-center items-center list-indicator {{ $index === 0 ? '' : 'hidden' }}"></div>
+                        <div class="w-2 lg:w-4 lg:h-2 h-1 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default {{ $index === 0 ? 'hidden' : '' }}"></div>
                     </div>
-                    <div
-                        class="w-2 lg:w-4 lg:h-2 h-1  bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default">
-                    </div>
-                </div>
-                <div class="w-fit flex flex-col ">
-                    <div
-                        class="z-10 w-6 lg:w-16 h-1 lg:h-2  bg-primary-base rounded-full flex-row justify-center items-center list-indicator hidden">
-                    </div>
-                    <div
-                        class="w-2 lg:w-4 lg:h-2 h-1 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default">
-                    </div>
-                </div>
-                <div class="w-fit flex flex-col ">
-                    <div
-                        class="z-10 w-6 lg:w-16 h-1 lg:h-2  bg-primary-base rounded-full flex-row justify-center items-center list-indicator hidden">
-                    </div>
-                    <div
-                        class="w-2 lg:w-4 lg:h-2 h-1 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default">
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </section>
+    @endif
+</section>
 
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const prevnewsBtn = document.querySelector('.prevnews-btn');
-    const nextnewsBtn = document.querySelector('.nextnews-btn');
-    const headlineItems = document.querySelectorAll('.headline-item');
-    const listIndicators = document.querySelectorAll('.list-indicator');
-    const defaultlistIndicators = document.querySelectorAll('.list-indicator-default');
-    let currentIndex = 0;
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const headlineItems = document.querySelectorAll('.headline-item');
+        const listIndicators = document.querySelectorAll('.list-indicator');
+        const defaultListIndicators = document.querySelectorAll('.list-indicator-default');
+        let currentIndex = 0;
 
-    let startX = 0;
-    let endX = 0;
-
-    function showheadlineItem(index) {
-        headlineItems.forEach((item, i) => {
-            if (i === index) {
-                item.classList.remove('hidden');
-            } else {
-                item.classList.add('hidden');
-            }
-        });
-        updatelistIndicators(index);
-    }
-
-    function showprevnewsItem() {
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            currentIndex = headlineItems.length - 1; // Mengarah ke item headline terakhir jika saat ini di awal
+        function showHeadlineItem(index) {
+            headlineItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            updateListIndicators(index);
         }
-        showheadlineItem(currentIndex);
-        updatelistIndicators(currentIndex);
-    }
 
-    function shownextnewsItem() {
-        if (currentIndex < headlineItems.length - 1) {
-            currentIndex++;
-        } else {
-            currentIndex = 0; // Mengarah ke item headline pertama jika saat ini di akhir
-        }
-        showheadlineItem(currentIndex);
-        updatelistIndicators(currentIndex);
-    }
-
-    function updatelistIndicators(index) {
-        listIndicators.forEach((indicator, i) => {
-            if (i === index) {
-                indicator.classList.remove('hidden');
+        function showPrevItem() {
+            if (currentIndex > 0) {
+                currentIndex--;
             } else {
-                indicator.classList.add('hidden');
+                currentIndex = headlineItems.length - 1;
             }
-        });
-        defaultlistIndicators.forEach((indicator, i) => {
-            if (i === index) {
-                indicator.classList.add('hidden');
-            } else {
-                indicator.classList.remove('hidden');
-            }
-        });
-    }
-
-    function handleTouchStart(event) {
-        startX = event.touches[0].clientX;
-    }
-
-    function handleTouchMove(event) {
-        endX = event.touches[0].clientX;
-    }
-
-    function handleTouchEnd() {
-        if (startX > endX) {
-            shownextnewsItem();
-        } else if (startX < endX) {
-            showprevnewsItem();
+            showHeadlineItem(currentIndex);
         }
-    }
 
-    prevnewsBtn.addEventListener('click', showprevnewsItem);
-    nextnewsBtn.addEventListener('click', shownextnewsItem);
+        function showNextItem() {
+            if (currentIndex < headlineItems.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            showHeadlineItem(currentIndex);
+        }
 
-    headlineItems.forEach(item => {
-        item.addEventListener('touchstart', handleTouchStart);
-        item.addEventListener('touchmove', handleTouchMove);
-        item.addEventListener('touchend', handleTouchEnd);
+        function updateListIndicators(index) {
+            listIndicators.forEach((indicator, i) => {
+                if (i === index) {
+                    indicator.classList.remove('hidden');
+                } else {
+                    indicator.classList.add('hidden');
+                }
+            });
+            defaultListIndicators.forEach((indicator, i) => {
+                if (i === index) {
+                    indicator.classList.add('hidden');
+                } else {
+                    indicator.classList.remove('hidden');
+                }
+            });
+        }
+
+        prevBtn.addEventListener('click', showPrevItem);
+        nextBtn.addEventListener('click', showNextItem);
+
+        showHeadlineItem(currentIndex);
+
+        // Auto-slide functionality
+        const formLogin = document.getElementById('form-login');
+        if (!formLogin) {
+            // Auto-slide functionality if not on login page
+            autoSlideInterval = setInterval(showNextItem, 8000);
+        }
     });
-
-    showheadlineItem(currentIndex);
-
-    // Auto-slide functionality
-    const formLogin = document.getElementById('form-login');
-    if (!formLogin) {
-        // Auto-slide functionality if not on login page
-        autoSlideInterval = setInterval(shownextnewsItem, 8000);
-    }
-});
-    </script>
+</script>

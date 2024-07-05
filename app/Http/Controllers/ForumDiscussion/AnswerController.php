@@ -39,7 +39,7 @@ class AnswerController extends Controller
 
         if ($create) {
             session()->forget('image');
-            session()->flash('notif.success', 'Your answer posted successfully');
+            session()->flash('success', 'Your answer posted successfully');
             return redirect()->route('forum-diskusi.show', $slug);
         }
 
@@ -122,7 +122,7 @@ class AnswerController extends Controller
 
         if ($update) {
             session()->forget('image');
-            session()->flash('notif.success', 'Answer updated successfully!');
+            session()->flash('success', 'Answer updated successfully!');
             return redirect()->route('forum-diskusi.show', $answer->discussion->slug);
         }
 
@@ -159,7 +159,7 @@ class AnswerController extends Controller
         $delete = $answer->delete();
 
         if ($delete) {
-            session()->flash('notif.success', 'Answer deleted successfully!');
+            session()->flash('success', 'Answer deleted successfully!');
             return redirect()->route('forum-diskusi.show', $answer->discussion->slug);
         }
 

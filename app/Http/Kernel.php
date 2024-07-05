@@ -13,6 +13,7 @@ class Kernel extends HttpKernel
      *
      * @var array<int, class-string|string>
      */
+    
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -69,6 +70,8 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         // Middleware lainnya
         'auth.warning' => \App\Http\Middleware\EnsureUserIsAuthenticatedWithWarning::class,
+        'checkUserStatus' => \App\Http\Middleware\CheckUserStatus::class,
+        'RedirectUserNonActive' => \App\Http\Middleware\RedirectUserNonActive::class,
         // Middleware lainnya
     ];
     
