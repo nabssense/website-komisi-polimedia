@@ -29,7 +29,7 @@
         <div class="xl:px-56 px-8 py-12 xl:justify-center justify-start bg-primary-100 items-center gap-12 flex flex-wrap">
             <img class="w-fit h-32" src="{{ url('img/Logo-Polimedia.png') }}" alt="" />
             <img class="aspect-square" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
-            <img class="w-fit h-32" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
+            <img class="w-fit h-32" src="{{ url('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
         </div>
         {{-- Section 3 Berita --}}
         <div class="w-full h-fit xl:px-56 px-4 py-16 bg-white flex-col justify-center items-center gap-12 flex flex-wrap">

@@ -9,7 +9,7 @@
                     alt="Image" />
             </a>
             <a href="/beranda" class="w-fit h-full relative">
-                <img class="w-fit h-full object-scale-down" src="{{ url('img/Kabinet/Kobra/Logo-Kabinet-Kobra.svg') }}"
+                <img class="w-fit h-full object-scale-down" src="{{ url('img/kabinet/KOBRA/Logo-Kabinet-Kobra.svg') }}"
                     alt="Image" />
             </a>
         </div>
