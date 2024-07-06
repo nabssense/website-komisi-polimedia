@@ -4,13 +4,13 @@
 
     @auth
         <a href="/forum-diskusi/create"
-            class="btn-primary w-fit {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'hidden' : '' }} fixed bottom-20 right-2 z-50 lg:hidden drop-shadow-2xl">
+            class="btn-primary {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'hidden' : '' }} fixed bottom-20 right-2 z-50 lg:hidden drop-shadow-2xl">
             <i class="ph ph-plus"></i>
             <div class="before:content-['Pertanyaan'] md:before:content-['Mulai_Bertanya']"></div>
         </a>
     @endauth
     @guest
-        <a href="/masuk-akun" class="btn-primary w-fit {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'hidden' : '' }} fixed bottom-20 right-2 z-50 lg:hidden drop-shadow-2xl">
+        <a href="/masuk-akun" class="btn-primary {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'hidden' : '' }} fixed bottom-20 right-2 z-50 lg:hidden drop-shadow-2xl">
             <i class="ph ph-plus"></i>
             <div class="before:content-['Pertanyaan'] md:before:content-['Mulai_Bertanya']"></div>
         </a>
@@ -61,9 +61,9 @@
                             </button>
                             {{-- Pop Up --}}
                             <div id="menuDropdown"
-                                class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                                 <div onclick="toggleDropdownPopUp(); event.stopPropagation()" 
-                                    class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                    class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                     <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
                                         role="none" >
                                         <div class="w-full flex flex-col gap-4">
@@ -102,9 +102,9 @@
                             </button>
                             {{-- Pop Up --}}
                             <div id="menuDropdown"
-                                class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                                 <div onclick="; event.stopPropagation(); toggleDropdownPopUp()"
-                                    class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                    class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                     <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
                                         role="none">
                                         <div class="w-full flex flex-col gap-4">
@@ -168,9 +168,9 @@
                     </button>
                     {{-- Pop Up --}}
                     <div id="menuDropdown"
-                        class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                        class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                         <div onclick="toggleDropdownPopUp(); event.stopPropagation()" 
-                            class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                            class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                             <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
                                 role="none" >
                                 <div class="w-full flex flex-col gap-4">
@@ -264,7 +264,7 @@
                                         <div id="menuDropdown-{{ $discussion->slug }}"
                                             class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="toggleDropdownPopUp('{{ $discussion->slug }}'); event.stopPropagation()"
-                                                class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                                class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                 <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
                                                     role="none" onclick="event.stopPropagation();">
                                                     <div class="w-full flex flex-col gap-2">
@@ -296,9 +296,9 @@
                                         </div>
                                         {{-- Alert Delete --}}
                                         <div id="alertDelete-{{ $discussion->slug }}"
-                                            class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                            class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="hideAlertDelete('{{ $discussion->slug }}')"
-                                               class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                               class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                     <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
                                                     role="none" onclick="event.stopPropagation();">
                                                     <div class="w-full Heading4 text-center">Kamu yakin ingin menghapus

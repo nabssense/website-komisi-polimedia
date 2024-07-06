@@ -37,9 +37,9 @@
 
                     {{-- Pop Up --}}
                     <div id="keluarAkunAlert"
-                        class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                        class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                         <div
-                            class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                            class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                             <form action="{{ route('auth.masuk.logout') }}" method="POST"
                                 onclick="event.stopPropagation();"
                                 class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4">

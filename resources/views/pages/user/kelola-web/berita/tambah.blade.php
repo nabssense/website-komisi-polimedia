@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <div class="w-full h-screen step p-4 md:p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
+    <div class="w-full h-screen  p-4 md:p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" >
 
         {{-- Main Content --}}
         <form action="{{ route('kelola.berita.store') }}" method="POST" enctype="multipart/form-data"

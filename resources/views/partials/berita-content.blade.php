@@ -28,9 +28,9 @@
                         </button>
                         {{-- Pop Up --}}
                         <div id="menuDropdownSort"
-                            class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                            class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                             <div onclick="toggleDropdownPopUp('sort'); event.stopPropagation()"
-                                class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                 <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
                                     role="none">
                                     <div class="w-full flex flex-col gap-4">
@@ -65,9 +65,9 @@
                         </button>
                         {{-- Pop Up --}}
                         <div id="menuDropdownCategory"
-                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                             <div onclick="toggleDropdownPopUp('category'); event.stopPropagation()"
-                                class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                 <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
                                     role="none">
                                     <div class="w-full flex flex-col gap-4">
@@ -124,9 +124,9 @@
                     </button>
                     {{-- Pop Up --}}
                     <div id="menuDropdownSort"
-                        class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                        class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                         <div onclick="toggleDropdownPopUp('sort'); event.stopPropagation()"
-                            class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                            class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                             <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
                                 role="none">
                                 <div class="w-full flex flex-col gap-4">
