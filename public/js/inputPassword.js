@@ -13,7 +13,3 @@ function togglePassword(passwordFieldId, toggleButtonId) {
         togglePasswordButton.classList.add('ph-fill');
     }
 }
-togglePassword('passwordInput', 'showPassword');
-togglePassword('passwordInput2', 'showPassword2');
-togglePassword('REpasswordInput', 'REshowPassword');
-togglePassword('REpasswordInput2', 'REshowPassword2');

@@ -10,7 +10,9 @@ use App\Models\PeriodFunding;
 use App\Models\CategoryDiscussion;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Auth\RegisterRequest;
+use Illuminate\Http\JsonResponse;
 
 
 class RegisterController extends Controller
@@ -61,16 +63,8 @@ class RegisterController extends Controller
             'activePeriods' => $activePeriods
         ]);
     }
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request): JsonResponse
     {
-        // dapatkan dulu request dari form request
-        // tambahkan password dengan method bcrypt / hash password 
-        // tambahkan picture dummy sesuai dengan usernamenya 
-        // create user berdasarkan request yg sudah tervalidasi dan yg sudah kita proses
-        // jika create berhasil maka loginkan user lalu redirect ke list discussion
-        // jika tidak berhasil maka return 500
-
-
         $validated = $request->validated();
         $validated['password'] = bcrypt($validated['password']);
         $modifiedFullname = str_replace(' ', '%20', $validated['fullname']);
@@ -83,6 +77,6 @@ class RegisterController extends Controller
             return response()->json(['success' => true]);
         }
 
-        return abort(500);
+        return response()->json(['errors' => ['general' => 'Gagal membuat akun.']], 422);
     }
 }

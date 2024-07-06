@@ -33,4 +33,28 @@ class RegisterRequest extends FormRequest
             'status' => '',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'fullname.required' => 'Nama lengkap harus diisi.',
+            'email.required' => 'Email harus diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'email.unique' => 'Email sudah digunakan.',
+            'email.min' => 'Email minimal :min karakter.',
+            'email.max' => 'Email maksimal :max karakter.',
+            'password.required' => 'Password harus diisi.',
+            'password.min' => 'Password minimal :min karakter.',
+            'password.mixed_case' => 'Password harus mengandung huruf besar dan kecil.',
+            'password.numbers' => 'Password harus mengandung angka.',
+            'password.symbols' => 'Password harus mengandung simbol.'
+        ];
+    }
+
+    public function response(array $errors)
+    {
+        if ($this->expectsJson()) {
+            return response()->json(['errors' => $errors], 422);
+        }
+    }
 }

@@ -2,7 +2,7 @@
 @include('partials.navbar')
 @section('container')
     <div id="divFull" class="w-full h-full bg-netral-100 shadow justify-start items-start gap-0 relative  ">
-        
+
         <form id="form-login" method="POST" action="{{ route('auth.masuk.login') }}"
             class="w-full h-full pt-20 md:pt-32 flex flex-col gap-8 z-50">
             @csrf
@@ -44,8 +44,7 @@
                                             placeholder="Masukkan kata sandi kamu" id="password"
                                             class="input-text @error('password') border-red-500 @enderror">
                                         <div class="h-full justify-center items-center cursor-pointer">
-                                            <i
-                                                id="showPassword"
+                                            <i id="showPassword"
                                                 class="py-3 text-2xl text-neutral-900 ph ph-eye absolute top-0 right-0 items-center"></i>
                                         </div>
                                     </div>
@@ -164,17 +163,20 @@
                                 "{{ route('beranda.index') }}"; // Redirect after animation
                             }, 13500); // Adjust timing based on your animation duration
                         } else {
-                            // Handle errors here, display appropriate message
-                            if (data.error) {
-                                alert('Login gagal: ' + data.error);
-                            } else {
-                                alert('Login gagal, silakan cek kembali informasi login Anda.');
-                            }
+                            // Handle validation errors
+                            Object.keys(data.errors).forEach(key => {
+                                const errorContainer = document.getElementById(`${key}Error`);
+                                if (errorContainer) {
+                                    errorContainer.textContent = data.errors[key][
+                                    0]; // Display first error message
+                                }
+                            });
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
                     });
+
             });
 
             function runButtonAnimation() {
@@ -203,9 +205,9 @@
                             document.getElementById("text-btn-1").classList.add(
                                 'show-btn-1', 'flex');
                             document.getElementById("text-btn-1").classList.remove(
-                            'hidden');
+                                'hidden');
                             document.getElementById("text-skip").classList.add(
-                            'show-btn-1');
+                                'show-btn-1');
                             document.getElementById("text-skip").classList.remove('hidden');
                         }, 2400);
 
@@ -224,7 +226,7 @@
                                         setTimeout(function() {
                                             document.getElementById("text-btn-2")
                                                 .classList.add('show-btn-2',
-                                                'flex');
+                                                    'flex');
                                             document.getElementById("text-btn-2")
                                                 .classList.remove('hidden');
                                         }, 800);
