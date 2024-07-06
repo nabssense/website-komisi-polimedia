@@ -447,8 +447,6 @@
                                 
                             </div>
                         </div>
-                        
-                        
                     @empty
                         <div class="w-full flex justify-center Heading4 py-8">
                             Data Tidak Ditemukan

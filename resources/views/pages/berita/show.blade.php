@@ -3,10 +3,10 @@
 @include('partials.navbar-mobile')
 @section('container')
     <div
-        class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-16 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
+        class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-20 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
         <div class="w-full max-w-1480 h-fit bg-soft-base flex-col justify-center items-center gap-4 lg:gap-8 flex ">
             <div class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 flex-col md:flex-row lg:flex ">
-                <a href="/berita" class="w-fit py-2rounded-lg justify-start items-center gap-4 flex flex-row Heading2">
+                <a href="/berita" class="w-fit rounded-lg justify-start items-center gap-4 flex flex-row Heading2">
                     <i class=" ph ph-arrow-left"></i>
                     <div class=" text-neutral-900 font-semibold ">
                         Kembali</div>
@@ -50,6 +50,7 @@
                                                 @endforeach
                                             </div>
                                         @endif
+
                                         <div class="w-full px-4 lg:px-8 flex flex-col gap-2">
                                             <button
                                                 onclick="window.location.href='{{ route('forum-diskusi.diskusi.kategori.show', $news->category->slug) }}'"
@@ -169,10 +170,7 @@
     @include('partials.footer')
 @endsection
 @section('after-script')
-
-
-
-<script src="{{ asset('js/imageZoom.js') }}"></script>
+    <script src="{{ asset('js/imageZoom.js') }}"></script>
     <script src="{{ asset('js/inputImage.js') }}"></script>
     <script src="{{ asset('js/searchField.js') }}"></script>
     <script src="{{ asset('js/animation.js') }}"></script>

@@ -282,7 +282,7 @@
                             Nama Lengkap
                         </div>
                     </div>
-                    <input type="text" onclick="togglePopUpShow('ubahNamaPopup')"
+                    <input disabled type="text" onclick="togglePopUpShow('ubahNamaPopup')"
                         placeholder="Masukkan nama lengkap kamu" value="{{ auth()->user()->fullname }}"
                         class="input-text ">
                     @error('email')
