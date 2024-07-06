@@ -4,10 +4,14 @@
     {{-- Mobile Akun --}}
     <div
         class="w-full h-full relative bg-netral-100 rounded-2xl lg:hidden flex flex-col justify-start items-start overflow-clip gap-4 pt-16">
+        {{-- <div class="w-full p-4 flex flex-row items-center gap-4">
+            <a type="button" href="/" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></a>
+            <div class="text-start text-neutral-900 Heading3 font-extrabold">Kembali</div>
+        </div> --}}
         <a href="{{ route('user.profile') }}"
             class="{{ $active === 'User' ? 'bg-netral-200 rounded-lg' : '' }} w-full h-fit  py-4 px-4 border-b bg-netral-100 justify-start items-center gap-4 inline-flex ">
             <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
-                alt="{{ auth()->user()->fullname }}" class="rounded-full w-12">
+                alt="{{ auth()->user()->fullname }}" class="rounded-full w-12 aspect-square object-cover">
             <div class="w-full h-fit flex-col justify-start items-start inline-flex overflow-hidden">
                 <div class="truncate text-left self-stretch text-neutral-900 text-lg font-bold font-THICCCBOI leading-H4">
                     {{ auth()->user()->fullname }}</div>
@@ -16,7 +20,7 @@
             </div>
         </a>
         <div class="w-full h-fit content-stretch self-stretch flex flex-col justify-start items-start gap-2">
-            @if (auth()->user()->user_type === 'Mahasiswa')
+            @if (auth()->user()->user_type === 'Pembina Komisi' || auth()->user()->user_type === 'Admin')
                 <a href="/kelola-website"
                     class="{{ $active === 'Kelola Website' ? 'bg-netral-200' : '' }} bg-netral-100 text-left self-stretch px-4 py-3 rounded-lg justify-start items-center gap-3 inline-flex">
                     <i class="text-2xl ph ph-kanban"></i>
@@ -32,7 +36,7 @@
             </button>
             {{-- Pop Up --}}
             <div id="keluarAkunAlert"
-                class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                 <div
                     class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                     <form action="{{ route('auth.masuk.logout') }}" method="POST" onclick="event.stopPropagation();"

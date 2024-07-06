@@ -18,21 +18,24 @@
     {{-- Phosphor Icons --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
-     {{-- <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/bold/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/bold/style.css') }}">
         <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/doutone/style.css') }}">
         <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/fill/style.css') }}">
         <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/light/style.css') }}">
         <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/reguler/style.css') }}">
         <link rel="stylesheet" href="{{ asset('icons/phosphor-icons/thin/style.css') }}"> --}}
 
-        <!-- include summernote css/js -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
-        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-        
+    <!-- include summernote css/js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
 </head>
 {{-- opacity-0 transition-opacity duration-500 ease-in-out --}}
+
 <body id="container" class="m-0 p-0 w-full h-full t">
     @include('partials.pop-up.alert')
     @yield('container')
@@ -52,6 +55,7 @@
 </script> --}}
 
 <script src="{{ asset('js/systempage.js') }}"></script>
+
 </html>
 {{-- <script src="{{ asset('js/inputTextArea.js') }}"></script>
 <script src="{{ asset('js/inputImagePreview.js') }}"></script>

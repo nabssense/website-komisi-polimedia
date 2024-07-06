@@ -6,8 +6,7 @@
         class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-16 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
         <div class="w-full max-w-1480 h-fit bg-soft-base flex-col justify-center items-center gap-4 lg:gap-8 flex ">
             <div class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 flex-col md:flex-row lg:flex ">
-            <a href="/forum-diskusi"
-                    class="w-fit py-2rounded-lg justify-start items-center gap-4 flex flex-row Heading2">
+                <a href="/forum-diskusi" class="w-fit py-2rounded-lg justify-start items-center gap-4 flex flex-row Heading2">
                     <i class=" ph ph-arrow-left"></i>
                     <div class=" text-neutral-900 font-semibold ">
                         Kembali</div>
@@ -26,7 +25,7 @@
                                 <div class="w-full h-fit flex-col justify-center items-start gap-4 lg:gap-6 flex">
                                     {{-- Profil --}}
                                     <div class="w-full justify-start items-center gap-2 inline-flex">
-                                        <div class="flex-none" href="{{ route('user.profile')}}">
+                                        <div class="flex-none" href="{{ route('user.profile') }}">
                                             <img src="{{ filter_var($discussion->user->profile_picture, FILTER_VALIDATE_URL)
                                                 ? $discussion->user->profile_picture
                                                 : Storage::url($discussion->user->profile_picture) }}"
@@ -61,7 +60,7 @@
                                             class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three relative cursor-pointer">
                                         </i>
                                         <div id="menuDropdown-{{ $discussion->slug }}"
-                                            class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="toggleDropdownPopUp('{{ $discussion->slug }}'); event.stopPropagation()"
                                                 class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                 <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
@@ -95,7 +94,7 @@
                                         </div>
                                         {{-- Alert Delete --}}
                                         <div id="alertDelete-{{ $discussion->slug }}"
-                                            class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="hideAlertDelete('{{ $discussion->slug }}')"
                                                 class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                 <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
@@ -132,9 +131,23 @@
                                                 {{ $discussion->question }}</div>
                                         </div>
                                         @if (isset($discussion->image) && !empty($discussion->image))
-                                            <div class="h-48 rounded-2xl overflow-clip">
-                                                <img class="h-full" src="{{ asset('storage/' . $discussion->image) }}"
-                                                    alt="Gambar Diskusi">
+                                            <div
+                                                class="relative h-48 rounded-2xl overflow-hidden cursor-pointer zoomable-image">
+                                                <img class="h-full object-cover"
+                                                    src="{{ asset('storage/' . $discussion->image) }}" alt="Gambar Diskusi"
+                                                    onclick="openZoom({{ $discussion->id }})">
+                                                <div id="overlay-{{ $discussion->id }}"
+                                                    class="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 transition-opacity duration-300 bg-neutral-900 opacity-0 pointer-events-none">
+                                                    <div class="w-full flex justify-center items-center lg:p-4">
+                                                        <img class="w-11/12 h-full object-scale-down"
+                                                            src="{{ asset('storage/' . $discussion->image) }}"
+                                                            alt="Gambar Diskusi Zoom">
+                                                        <button onclick="closeZoom({{ $discussion->id }})"
+                                                            class="absolute top-4 right-4 text-white focus:outline-none">
+                                                            <i class="Heading1 ph text-white ph-x"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         @endif
                                     </div>
@@ -170,15 +183,17 @@
                                 class="w-full h-fit flex-col justify-center items-center py-4 lg:py-8 gap-8 flex cursor-pointer">
                                 {{-- Comment Field --}}
 
-                                <form method="POST" action="{{ route('forum-diskusi.diskusi.jawab', $discussion->slug) }}"
-                                    enctype="multipart/form-data" class="w-full h-fit m-0 flex flex-row gap-4 items-center">
+                                <form method="POST"
+                                    action="{{ route('forum-diskusi.diskusi.jawab', $discussion->slug) }}"
+                                    enctype="multipart/form-data"
+                                    class="w-full h-fit m-0 flex flex-row gap-4 items-center">
                                     @csrf
                                     <div class="commentbar-long" focus>
                                         <div class="flex relative">
-                                            <input name="image" id="image-input"
+                                            <input name="image" id="image-input-1"
                                                 class="w-fit h-full z-10 right-0 absolute opacity-0 cursor-pointer rounded-2xl"
                                                 type="file" accept="image/*" value="{{ old('image') }}">
-                                            <img id="image-preview"
+                                            <img id="image-preview-1"
                                                 src="{{ isset($answer) ? asset('storage/' . $answer->image) : '' }}"
                                                 class="w-full h-full object-cover absolute top-0 bg-white rounded-xl {{ isset($answer) ? '' : 'hidden' }}">
                                             <i href="#" class="ph ph-image Heading3 lg:Heading2 leading-none"></i>
@@ -202,7 +217,7 @@
                                         <div class="w-full h-fit flex-col justify-center items-center gap-4 flex">
                                             <div class="w-full justify-start items-center gap-2 inline-flex">
                                                 {{-- Profil --}}
-                                                <div class="flex-none" href="{{ route('user.profile')}}">
+                                                <div class="flex-none" href="{{ route('user.profile') }}">
                                                     <img src="{{ filter_var($answer->user->profile_picture, FILTER_VALIDATE_URL)
                                                         ? $answer->user->profile_picture
                                                         : Storage::url($answer->user->profile_picture) }}"
@@ -241,7 +256,7 @@
                                                     class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three relative cursor-pointer">
                                                 </i>
                                                 <div id="menuDropdown-{{ $answer->id }}"
-                                                    class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                                    class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                                     <div onclick="toggleDropdownPopUp('{{ $answer->id }}'); event.stopPropagation()"
                                                         class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                         <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
@@ -256,7 +271,7 @@
 
                                                                     <form id="deleteForm-{{ $answer->id }}"
                                                                         action="{{ route('answers.destroy', $answer->id) }}"
-                                                                       f class="w-full m-0" method="POST">
+                                                                        f class="w-full m-0" method="POST">
                                                                         @csrf
                                                                         @method('DELETE')
                                                                         <button type="button"
@@ -276,7 +291,7 @@
                                                 </div>
                                                 {{-- Alert Delete --}}
                                                 <div id="alertDelete-{{ $answer->id }}"
-                                                    class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                                    class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                                     <div onclick="hideAlertDelete('{{ $answer->id }}')"
                                                         class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                         <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
@@ -448,6 +463,7 @@
     @include('partials.footer')
 @endsection
 @section('after-script')
+    <script src="{{ asset('js/imageZoom.js') }}"></script>
     <script src="{{ asset('js/inputTextArea.js') }}"></script>
     <script src="{{ asset('js/inputImagePreview.js') }}"></script>
     <script src="{{ asset('js/animation.js') }}"></script>

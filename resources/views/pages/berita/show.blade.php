@@ -18,20 +18,34 @@
                 <section class=" w-full h-fit self-stretch rounded-3xl flex-col justify-start items-start gap-4 flex">
                     <div class="self-stretch h-fit flex-col justify-start items-start gap-4 flex">
                         {{-- Question --}}
-                        <div
-                            class="w-full h-fit  bg-white md:rounded-lg flex-col justify-start items-start flex">
+                        <div class="w-full h-fit  bg-white md:rounded-lg flex-col justify-start items-start flex">
                             <div
                                 class="w-full h-fit flex-col justify-start items-start gap-8 py-4 lg:py-8 flex border-b-2 border-netral-200 cursor-pointer">
                                 <div class="w-full h-fit flex-col justify-center items-start gap-4 lg:gap-6 flex">
                                     {{-- Content --}}
                                     <div class="w-full h-fit flex-col justify-start items-start gap-4 flex">
-                                        
+
                                         @if (isset($images) && !empty($images))
-                                            <div class="w-fit flex px-4 lg:px-8 parent flex-row overflow-scroll scrollbar-hidden gap-4">
-                                                @foreach ($images as $image)
-                                                    <div class="flex-col h-72 flex-none aspect-auto rounded-lg overflow-clip">
-                                                        <img class="h-full aspect-auto object-fill" src="{{ asset('storage/' . $image) }}"
-                                                            alt="Gambar Diskusi">
+                                            <div
+                                                class="w-fit flex px-4 lg:px-8 parent flex-row overflow-scroll scrollbar-hidden gap-4">
+                                                @foreach ($images as $index => $image)
+                                                    <div
+                                                        class="relative flex-col h-72 flex-none aspect-auto rounded-lg overflow-clip zoomable-image">
+                                                        <img class="h-full aspect-auto object-cover cursor-pointer"
+                                                            src="{{ asset('storage/' . $image) }}" alt="Gambar Diskusi"
+                                                            onclick="openZoom({{ $index }})">
+                                                        <div id="overlay-{{ $index }}"
+                                                            class="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 transition-opacity duration-300 bg-neutral-900 opacity-0 pointer-events-none">
+                                                            <div class="w-full flex justify-center items-center lg:p-4">
+                                                                <img class="w-11/12 object-scale-down"
+                                                                    src="{{ asset('storage/' . $image) }}"
+                                                                    alt="Gambar Diskusi Zoom">
+                                                                <button onclick="closeZoom({{ $index }})"
+                                                                    class="absolute top-4 right-4 text-white focus:outline-none">
+                                                                    <i class="Heading1 ph text-white ph-x"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -50,7 +64,7 @@
                                     </div>
                                     {{-- Profil --}}
                                     <div class="w-full px-4 lg:px-8 justify-start items-center gap-2 inline-flex">
-                                        <div class="flex-none" href="{{ route('user.profile')}}">
+                                        <div class="flex-none" href="{{ route('user.profile') }}">
                                             <img src="{{ filter_var($news->user->profile_picture, FILTER_VALIDATE_URL)
                                                 ? $news->user->profile_picture
                                                 : Storage::url($news->user->profile_picture) }}"
@@ -85,7 +99,7 @@
                                             class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three relative cursor-pointer">
                                         </i>
                                         <div id="menuDropdown-{{ $news->slug }}"
-                                            class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="toggleDropdownPopUp('{{ $news->slug }}'); event.stopPropagation()"
                                                 class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                 <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
@@ -155,6 +169,10 @@
     @include('partials.footer')
 @endsection
 @section('after-script')
+
+
+
+<script src="{{ asset('js/imageZoom.js') }}"></script>
     <script src="{{ asset('js/inputImage.js') }}"></script>
     <script src="{{ asset('js/searchField.js') }}"></script>
     <script src="{{ asset('js/animation.js') }}"></script>

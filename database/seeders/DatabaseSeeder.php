@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'edu_program' => 'D4 Teknologi Rekayasa Multimedia',
             'user_type' => 'Mahasiswa',
             'status' => 'Aktif',
-            'admin' => 'Tidak',
+            'admin' => 'Tidak Aktif',
         ]);
 
         User::create([
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
             'edu_program' => '',
             'user_type' => 'Admin',
             'status' => 'Aktif',
-            'admin' => 'Iya',
+            'admin' => 'Aktif',
         ]);
 
         User::create([
@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
             'edu_program' => '',
             'user_type' => 'Pembina Komisi',
             'status' => 'Aktif',
-            'admin' => 'Iya',
+            'admin' => 'Aktif',
         ]);
 
 

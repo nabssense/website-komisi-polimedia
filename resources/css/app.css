@@ -338,10 +338,10 @@
     }
 
     .btn-popup {
-        @apply w-fit h-fit px-4 py-1.5 lg:px-6 lg:py-2 gap-3 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 Body1 lg:Heading4 font-medium;
+        @apply w-fit h-fit px-4 py-1.5 lg:px-6 lg:py-2 gap-3 bg-netral-100 active:bg-primary-100 active:border-primary-base active:text-primary-base border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 Body1 lg:Heading4 font-medium;
     }
     .btn-popup-sm {
-        @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-2 bg-netral-100 border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 Heading4 font-medium;
+        @apply w-fit h-fit px-3 py-1 lg:px-5 lg:py-1 gap-2 bg-netral-100 active:bg-primary-100 active:border-primary-base active:text-primary-base border-netral-300 border rounded-full justify-center items-center flex text-nowrap text-center text-netral-800 Heading4 font-medium;
     }
 
     .btn-primary-sm {

@@ -1,8 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="w-screen h-screen step p-4 md:p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex"
-        id="step1">
+    <div class="w-screen h-screen p-4 md:p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex">
         {{-- Main Content --}}
         <form action="{{ route('kelola.akun.store', $user) }}" method="POST" enctype="multipart/form-data"
             class="w-full max-w-960 h-full self-stretch flex-col justify-start items-start gap-8 inline-flex">
@@ -45,12 +44,12 @@
                             <div
                                 class="w-40 aspect-square bg-white px-6 py-4 rounded-full border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
                                 <input name="profile_picture" class="w-full h-full z-10 opacity-0 absolute cursor-pointer "
-                                    type="file" value="" id="image-input" accept="image/*">
-                                <img id="image-preview"
+                                    type="file" value="" id="image-input-1" accept="image/*">
+                                <img id="image-preview-1"
                                     src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? '' : Storage::url(auth()->user()->profile_picture) }}"
                                     class="w-full h-full object-cover absolute top-0 bg-white rounded-full {{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? 'hidden' : '' }}">
                                 <i href="#" class="ph ph-plus text-7xl"></i>
-                                <label for="image-input" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
+                                <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
                             </div>
                             @error('profile_picture')
                                 <div class="text-red-500 font-normal Heading4">
@@ -143,48 +142,93 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    {{-- Status --}}
-                    <div id="status" class="self-stretch h-fit flex-col justify-start items-start hidden ">
-                        <div class="input-text-label">
-                            Status
-                        </div>
-                        <input type="text" name="status" value="Aktif" readonly class="input-text bg-gray-200"
-                            disabled>
-                        <input type="hidden" name="status" value="Aktif">
-                    </div>
-                    @error('status')
-                        <div class="text-red-500 font-normal Heading4">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    {{-- Status --}}
-                    <div id="status" class="self-stretch h-fit flex-col justify-start items-start hidden ">
-                        <div class="input-text-label">
-                            Status
-                        </div>
-                        <input type="text" name="admin" value="Tidak" readonly class="input-text bg-gray-200"
-                            disabled>
-                        <input type="hidden" name="status" value="Tidak">
-                    </div>
-                    @error('admin')
-                        <div class="text-red-500 font-normal Heading4">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-            </div>
 
+                    {{-- Status --}}
+                    <div id="toggle-btn1"
+                        class="toggle-btn w-full h-fit flex-col justify-start items-center inline-flex relative">
+                        <div class="w-full justify-start items-start inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Status</div>
+                        </div>
+                        <div class="relative flex flex-row items-center w-full cursor-pointer">
+                            <div id="toggle-status1"
+                                class="toggle-status w-full bg-white focus:outline-none focus:font-semibold font-semibold text-netral-800 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                Tidak Aktif
+                            </div>
+                            <input type="hidden" name="status" id="toggle-value1" class="toggle-value"
+                                value="Tidak Aktif">
+                        </div>
+                        <div class="toggle-icon absolute right-0 items-center justify-center flex h-full">
+                            <i id="toggle-icon-inner1" class="text-32 ph ph-toggle-left cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    {{-- Admin --}}
+                    <div id="toggle-btn2"
+                        class="toggle-btn w-full h-fit flex-col justify-start items-center inline-flex relative">
+                        <div class="w-full justify-start items-start inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Akses Admin</div>
+                        </div>
+                        <div class="relative flex flex-row items-center w-full cursor-pointer">
+                            <div id="toggle-status2"
+                                class="toggle-status w-full bg-white focus:outline-none focus:font-semibold font-semibold text-netral-800 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                Tidak Aktif
+                            </div>
+                            <input type="hidden" name="admin" id="toggle-value2" class="toggle-value"
+                                value="Tidak Aktif">
+                        </div>
+                        <div class="toggle-icon absolute right-0 items-center justify-center flex h-full">
+                            <i id="toggle-icon-inner2" class="text-32 ph ph-toggle-left cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             {{-- Submit Button --}}
             <div class="h-fit w-full justify-start items-start gap-4 flex">
                 <button type="submit" class="btn-primary w-full">Simpan</button>
             </div>
         </form>
     </div>
+
+    <script>
+        // Ambil elemen toggle dan tambahkan event listener pada saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn1 = document.getElementById('toggle-btn1');
+            const toggleBtn2 = document.getElementById('toggle-btn2');
+
+            toggleBtn1.addEventListener('click', function() {
+                toggleSwitch(toggleBtn1);
+            });
+
+            toggleBtn2.addEventListener('click', function() {
+                toggleSwitch(toggleBtn2);
+            });
+        });
+
+        // Fungsi untuk melakukan toggle switch
+        function toggleSwitch(toggleContainer) {
+            const toggleText = toggleContainer.querySelector('.toggle-status');
+            const toggleValue = toggleContainer.querySelector('.toggle-value');
+            const toggleIcon = toggleContainer.querySelector('.toggle-icon i');
+
+            if (toggleText.textContent.trim() === 'Tidak Aktif') {
+                toggleValue.value = 'Aktif';
+                toggleText.textContent = 'Aktif';
+                toggleIcon.classList.remove('ph-toggle-left', 'ph');
+                toggleIcon.classList.add('ph-toggle-right', 'ph-fill');
+            } else {
+                toggleValue.value = 'Tidak Aktif';
+                toggleText.textContent = 'Tidak Aktif';
+                toggleIcon.classList.remove('ph-toggle-right', 'ph-fill');
+                toggleIcon.classList.add('ph-toggle-left', 'ph');
+            }
+        }
+    </script>
     <script>
         document.querySelectorAll('input[type="file"]').forEach(input => {
             input.addEventListener('change', function() {
                 const imgPreviewId = this.getAttribute('id').replace('image-input-',
-                ''); // Get unique ID suffix
+                    ''); // Get unique ID suffix
                 const imgPreview = document.querySelector('#image-preview-' + imgPreviewId);
                 const file = this.files[0];
 
@@ -205,7 +249,7 @@
                 if (this.value) {
                     this.value = null; // Reset input value to allow the same file to be selected again
                     const imgPreviewId = this.getAttribute('id').replace('image-input-',
-                    ''); // Get unique ID suffix
+                        ''); // Get unique ID suffix
                     const imgPreview = document.querySelector('#image-preview-' + imgPreviewId);
                     imgPreview.src = '';
                     imgPreview.classList.add('hidden');

@@ -4,13 +4,13 @@
 
     @auth
         <a href="/forum-diskusi/create"
-            class=" btn-primary w-fit {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'hidden' : '' }} fixed bottom-18 right-2 z-50 lg:hidden drop-shadow-2xl">
+            class="btn-primary w-fit {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'hidden' : '' }} fixed bottom-20 right-2 z-50 lg:hidden drop-shadow-2xl">
             <i class="ph ph-plus"></i>
             <div class="before:content-['Pertanyaan'] md:before:content-['Mulai_Bertanya']"></div>
         </a>
     @endauth
     @guest
-        <a href="/masuk-akun" class=" btn-primary w-fit {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'hidden' : '' }} fixed bottom-18 right-2 z-50 lg:hidden drop-shadow-2xl">
+        <a href="/masuk-akun" class="btn-primary w-fit {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'hidden' : '' }} fixed bottom-20 right-2 z-50 lg:hidden drop-shadow-2xl">
             <i class="ph ph-plus"></i>
             <div class="before:content-['Pertanyaan'] md:before:content-['Mulai_Bertanya']"></div>
         </a>
@@ -30,7 +30,7 @@
             @guest
                 <a href="/masuk-akun" class="btn-primary w-fit md:flex hidden">
                     <i class="ph ph-plus"></i>
-                    <div class="before:content-['Pertanyaan'] md:before:content-['Masuk_Bertanya']"></div>
+                    <div class="before:content-['Pertanyaan'] md:before:content-['Mulai_Untuk_Bertanya']"></div>
                 </a>
             @endguest
         </div>
@@ -159,7 +159,7 @@
                 </div>
 
                  {{-- Button Urutkan --}}
-                 <div class="w-fit flex flex-row">
+                 <div class="w-fit flex flex-row lg:hidden">
                     <button id="menuButton" onclick="toggleDropdownPopUp()" type="button"
                         class="btn-popup option-button">
                         <i class="ph ph-funnel-simple"></i>

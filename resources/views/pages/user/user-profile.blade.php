@@ -3,7 +3,7 @@
 @section('container')
     @extends('partials.user-navigation')
 @section('user-content')
-    <div class="w-full h-full col-span-9 py-8 flex-col justify-start items-start gap-8 hidden lg:flex">
+    <div class="w-full h-full col-span-9 p-8 flex-col justify-start items-start gap-8 hidden lg:flex">
         <div class="text-start text-neutral-900 Heading3 font-extrabold">Personal Info</div>
         <div class="w-full h-fit flex flex-row gap-8">
             <div
@@ -114,7 +114,7 @@
 
 {{-- Ubah Pop Up --}}
 <div id="ubahPicProfilPopup" onclick="event.stopPropagation();"
-    class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+    class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
     <div class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
         <form action="{{ route('user.update.profile-picture') }}" method="POST" enctype="multipart/form-data"
             class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
@@ -129,12 +129,12 @@
                     <div
                         class="w-full aspect-square bg-white px-6 py-4 rounded-full border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
                         <input name="profile_picture" class="w-full h-full z-10 opacity-0 absolute cursor-pointer "
-                            type="file" id="image-input" accept="image/*">
-                        <img id="image-preview"
+                            type="file" id="image-input-1" accept="image/*">
+                        <img id="image-preview-1"
                             src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? '' : Storage::url(auth()->user()->profile_picture) }}"
                             class="w-full h-full object-cover absolute top-0 bg-white rounded-full {{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? 'hidden' : '' }}">
                         <i href="#" class="ph ph-plus text-7xl"></i>
-                        <label for="image-input" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
+                        <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
                     </div>
                     @error('profile_picture')
                         <div class="text-red-500 font-normal Heading4">
@@ -164,7 +164,7 @@
 </div>
 {{-- Pop Up --}}
 <div id="ubahPasswordPopup"
-    class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+    class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
     <div class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
         <form action="{{ route('update-password') }}" method="POST" onclick="event.stopPropagation();"
             class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
@@ -222,7 +222,7 @@
 
 {{-- Pop Up --}}
 <div id="ubahNamaPopup"
-    class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+    class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
     <div class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
         <form action="{{ route('update-fullname') }}" method="POST" onclick="event.stopPropagation();"
             class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
@@ -263,13 +263,13 @@
     <div class="w-full h-full flex-col justify-start items-start gap-4 px-4 py-8 flex lg:hidden">
         <div class="w-full flex flex-row items-center gap-4">
             <a type="button" href="/user" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></a>
-            <div class="text-start text-neutral-900 Heading3 font-extrabold">Personal Info</div>
+            <div class="text-start text-neutral-900 Heading2 font-extrabold">Personal Info</div>
         </div>
         <div class="w-full h-fit flex flex-col gap-8">
-            <div onclick="()"
+            <div
                 class="w-full h-fit rounded-lg py-4 px-4 border-b border-netral-300 justify-start items-center gap-4 flex flex-col shadow-card-m">
                 <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
-                    alt="{{ auth()->user()->fullname }}" class="w-32 rounded-lg">
+                    alt="{{ auth()->user()->fullname }}" class="w-32 rounded-full aspect-square object-cover">
                 <button class="btn-secondary w-full" onclick="togglePopUpShow('ubahPicProfilPopup')">
                     Ubah Gambar
                 </button>
@@ -451,26 +451,6 @@
             });
         });
     </script>
-    <script>
-        function togglePassword(passwordFieldId, toggleButtonId) {
-            var passwordField = document.getElementById(passwordFieldId);
-            var togglePasswordButton = document.getElementById(toggleButtonId);
-            var passwordVisible = passwordField.type === 'text'; // Tentukan status visibility berdasarkan jenis input
-
-            if (passwordVisible) {
-                passwordField.type = 'password'; // Sembunyikan password
-                togglePasswordButton.classList.remove('ph-fill');
-                togglePasswordButton.classList.remove('text-primary-base');
-            } else {
-                passwordField.type = 'text'; // Tampilkan password
-                togglePasswordButton.classList.add('text-primary-base');
-                togglePasswordButton.classList.add('ph-fill');
-            }
-        }
-        togglePassword('passwordInput', 'showPassword');
-        togglePassword('passwordInput2', 'showPassword2');
-        togglePassword('REpasswordInput', 'REshowPassword');
-        togglePassword('REpasswordInput2', 'REshowPassword2');
-    </script>
+    <script src="{{ asset('js/inputPassword.js') }}"></script>
 
 @endsection

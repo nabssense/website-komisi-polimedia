@@ -23,14 +23,20 @@ class ManageUserUpdateRequest extends FormRequest
     {
         $userId = $this->route('user')->id;
         return [
-            'user_type' => 'required|string|max:255',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'fullname' => 'required|string|max:255',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'remove_profile_picture' => 'nullable|boolean', // Ubah max:2048 sesuai dengan kebutuhan ukuran file
+            'fullname' => 'required',
+            'email' => 'required|email|min:8|max:50|unique:users,email,' . $userId,
             'nim' => 'required|numeric|unique:users,user_type,nim,'. $userId,
-            'edu_program' => 'nullable|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $userId,
-            'password' => 'nullable',
+            'user_type' => 'required|in:Mahasiswa,Admin,Pembina Komisi',
             'status' => 'required',
         ];
+        // Jika user_type bukan "Mahasiswa", buat edu_program menjadi opsional
+        if ($this->input('user_type') !== 'Mahasiswa') {
+            $rules['edu_program'] = 'nullable';
+        } else {
+            $rules['edu_program'] = 'required';
+        }
     }
+    
 }

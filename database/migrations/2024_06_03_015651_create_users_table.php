@@ -26,7 +26,7 @@ return new class extends Migration
             $table->enum('user_type', ['Mahasiswa', 'Umum', 'Admin', 'Pembina Komisi']);
             // $table->string('kabinet_active');
             $table->enum('status', ['Aktif', 'Tidak Aktif']);
-            $table->enum('admin', ['Iya', 'Tidak']);
+            $table->enum('admin', ['Aktif', 'Tidak Aktif']);
             $table->timestamps('');
         });
     }

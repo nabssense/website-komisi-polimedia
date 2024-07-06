@@ -12,19 +12,50 @@ class NewsController extends Controller
     //
     public function index(Request $request)
     {
-        // Mengambil semua data berita dengan kueri builder
+        
+        // Initialize query builder for News
         $query = News::query();
 
-        // Menerapkan pencarian jika ada
+        // Apply search filter if 'search' parameter is present
         if ($request->search) {
-            $query->where('title', 'like', "%$request->search%")
-                  ->orWhere('question', 'like', "%$request->search%");
+            $query->where(function ($query) use ($request) {
+                $query->where('title', 'like', "%$request->search%")
+                      ->orWhere('content', 'like', "%$request->search%");
+            });
         }
 
-        // Menjalankan kueri untuk mendapatkan hasil
+        // Apply category filter if 'category' parameter is present
+        if ($request->category) {
+            $category = CategoryNews::where('slug', $request->category)->firstOrFail();
+            $query->where('category_id', $category->id);
+        }
+
+        // Apply sorting based on 'sort' parameter
+        $sortField = $request->sort_field ?? 'created_at';
+        $sortOrder = $request->sort_order ?? 'desc';
+
+        switch ($sortField) {
+            case 'az':
+                $query->orderBy('title', 'asc');
+                break;
+            case 'za':
+                $query->orderBy('title', 'desc');
+                break;
+            case 'newest':
+                $query->orderBy('created_at', 'desc');
+                break;
+            case 'oldest':
+                $query->orderBy('created_at', 'asc');
+                break;
+            default:
+                $query->orderBy($sortField, $sortOrder);
+                break;
+        }
+
+        // Retrieve all news items
         $news = $query->get();
 
-        // Mengambil semua kategori
+        // Retrieve all categories
         $categories = CategoryNews::all();
 
         // Initialize an array to store image paths
@@ -48,10 +79,13 @@ class NewsController extends Controller
         return view('pages.berita.index', [
             "title" => "Website Komisi | Berita",
             "active" => "Berita",
+
+            
             'news' => $news,
             'categories' => $categories,
             "search" => $request->search,
             'firstImages' => $firstImages,
+            'withCategory' => isset($category) ? $category : null, // Pass selected category for highlighting
         ]);
     }
 

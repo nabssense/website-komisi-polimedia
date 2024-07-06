@@ -41,7 +41,7 @@ class ManageUserController extends Controller
     public function store(ManageUserStoreRequest $request, User $user)
     {
         /** @var \App\Models\User $user **/
-        
+
         $validated = $request->validated();
         $validated['password'] = Hash::make($validated['password']);
         $modifiedFullname = str_replace(' ', '%20', $validated['fullname']);
@@ -61,7 +61,7 @@ class ManageUserController extends Controller
     }
     public function edit(User $user)
     {
-        
+
         $userTypes = User::getUserTypes();
         return view('pages.user.kelola-web.akun.ubah', [
             "title" => "Website Komisi | Kelola Akun",
@@ -75,12 +75,15 @@ class ManageUserController extends Controller
     public function update(ManageUserUpdateRequest $request, User $user)
     {
         $validated = $request->validated();
-        if ($request->filled('password')) {
-            $validated['password'] = Hash::make($validated['password']);
-        } else {
-            unset($validated['password']);
-        }
 
+        $modifiedFullname = str_replace(' ', '%20', $validated['fullname']);
+        if ($request->hasFile('profile_picture')) {
+            $profilePicturePath = $request->file('profile_picture')->store('profile-pictures', 'public');
+            $user->profile_picture = $profilePicturePath;
+        } else {
+            $user->profile_picture = config('app.avatar_generator_url') . $modifiedFullname;
+        }
+        
         if ($request->hasFile('profile_picture')) {
             $profilePicturePath = $request->file('profile_picture')->store('profile-pictures', 'public');
             $validated['profile_picture'] = $profilePicturePath;
@@ -99,10 +102,25 @@ class ManageUserController extends Controller
 
     public function toggleStatus($id)
     {
-        $users = User::findOrFail($id);
-        $users->status = $users->status === 'Aktif' ? 'Tidak Aktif' : 'Aktif';
-        $users->save();
+        // Ambil data pengguna berdasarkan ID
+        $user = User::findOrFail($id);
 
-        return response()->json(['status' => $users->status]);
+        // Toggle status
+        $user->status = $user->status === 'Aktif' ? 'Tidak Aktif' : 'Aktif';
+        $user->save();
+
+        return response()->json(['status' => $user->status]);
+    }
+
+    public function toggleAdminStatus($id)
+    {
+        // Ambil data pengguna berdasarkan ID
+        $user = User::findOrFail($id);
+
+        // Toggle status
+        $user->admin = $user->admin === 'Aktif' ? 'Tidak Aktif' : 'Aktif';
+        $user->save();
+
+        return response()->json(['admin' => $user->admin]);
     }
 }

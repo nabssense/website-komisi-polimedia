@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('container')
-    <div class="w-screen h-screen step p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
+    <div class="w-full h-screen step p-4 md:p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
 
         {{-- Main Content --}}
         <form action="{{ route('kelola.berita.store') }}" method="POST" enctype="multipart/form-data"
-            class="w-full max-w-960 h-full px-8 flex-col justify-start items-start gap-8 inline-flex">
+            class="w-full max-w-960 h-full flex-col justify-start items-start gap-8 inline-flex">
             {{-- 1 --}}
             @csrf
             <div class="h-fit justify-start items-center gap-4 inline-flex">
@@ -40,7 +40,7 @@
                     </div>
                     
                 </div>
-                <div class="w-full flex text-stone-700 font-normal Body1">Masukkan gambar dengan ratio 1:1 atau 4:3 agar sesuai. MAKS 3MB
+                <div class="w-full flex text-stone-700 font-normal Body1">Masukkan gambar dengan ratio 1:1 atau 4:5 agar sesuai. MAKS 3MB
                 </div>
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="input-text-label">Judul Berita
@@ -85,7 +85,7 @@
                         </div>
                     @enderror
                 </div>
-
+                
                 <div class="w-full h-full justify-start items-start gap-4 inline-flex flex-col">
                     <div id="toggle-btn1"
                         onclick="toggleSwitch('toggle-btn1', 'toggle-status1', 'toggle-value1', 'toggle-icon-inner1', 'gambar-headline1');"
@@ -115,11 +115,11 @@
                                 class="h-40 aspect-21/9 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
                                 <input name="headline_image"
                                     class="w-full  h-full z-10 opacity-0 absolute cursor-pointer rounded-2xl" type="file"
-                                    id="image-input" accept="image/*">
-                                <img id="image-preview" src="{{ isset($news) ? asset('storage/' . $news->image) : '' }}"
+                                    id="image-input-1" accept="image/*">
+                                <img id="image-preview-1" src="{{ isset($news) ? asset('storage/' . $news->image) : '' }}"
                                     class="w-full h-full  object-cover absolute top-0 bg-white rounded-2xl {{ isset($news->image) ? '' : 'hidden' }}">
                                 <i href="#" class="ph ph-plus text-7xl"></i>
-                                <label for="image-input" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
+                                <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
                             </div>
                             @error('headline_image')
                                 <div id="image-error" class="text-danger-base font-normal Heading4">{{ $message }}</div>
@@ -128,6 +128,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="w-full bg-netral-200 rounded Body1 font-medium flex flex-row px-4 py-2 items-center gap-4">
+                    <i class="ph-fill ph-info cursor-pointer"></i>
+                    <p class="w-full">
+                        Headline News adalah berita yang akan ditampilkan dihalaman awal dipaling atas.
+                    </p>
                 </div>
                 <script></script>
 
@@ -141,29 +147,28 @@
         </form>
     </div>
     <script>
-        document.querySelector('#image-input-multiple').addEventListener('change', function() {
+       document.querySelector('#image-input-multiple').addEventListener('change', function() {
             const previewContainer = document.querySelector('#image-preview-container');
             previewContainer.innerHTML = ''; // Bersihkan preview sebelum menambahkan gambar baru
 
-            const files = this.files;
-            if (files) {
-                for (let i = 0; i < files.length; i++) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const imgPreview = document.createElement('img');
-                        imgPreview.src = e.target.result;
-                        imgPreview.classList.add('w-fit', 'h-40', 'aspect-auto', 'rounded-2xl');
-                        previewContainer.appendChild(imgPreview);
-                    }
-                    reader.readAsDataURL(files[i]);
-                }
-            }
+            const files = Array.from(this.files);
+
+            files.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgPreview = document.createElement('img');
+                    imgPreview.src = e.target.result;
+                    imgPreview.classList.add('w-40', 'h-40', 'aspect-auto', 'rounded-2xl', 'object-cover');
+                    previewContainer.appendChild(imgPreview);
+                };
+                reader.readAsDataURL(file);
+            });
         });
 
         document.querySelector('#image-input-multiple').addEventListener('click', function() {
             this.value = null; // Reset input value to allow the same file to be selected again
             const previewContainer = document.querySelector('#image-preview-container');
-            previewContainer.innerHTML = ''; // Bersihkan preview saat input diklik kembali
+            previewContainer.innerHTML = ''; // Bersihkan preview ketika input file diklik
         });
     </script>
 

@@ -825,7 +825,7 @@
                                         <input id="student-input" type="text" readonly placeholder="Pilih Mahasiswa" class="w-full py-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-neutral-800 text-neutral-800 border-b border-neutral-900 placeholder:text-neutral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7 mb-4 cursor-pointer" onclick="toggleOptions('options')">
                                         <i class="ph ph-caret-down text-32 absolute right-0 bottom-1/2"></i>
                                     </div>
-                                    <div id="options" class="flex-col Body1 gap-2 fixed inset-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                    <div id="options" class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
                                         <div class="close-button-bg w-screen h-screen relative justify-center items-center flex">
                                             <div class="flex flex-col bg-netral-100 rounded-xl w-480 h-fit justify-center items-center overflow-clip gap-4 p-4" role="none">
                                                 <input type="text" placeholder="Cari Student" class="searchbar" onkeyup="filterOptions('options', this)">

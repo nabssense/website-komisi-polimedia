@@ -110,12 +110,12 @@
                                 class="h-40 aspect-21/9 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
                                 <input name="headline_image"
                                     class="w-full h-full z-10 opacity-0 absolute cursor-pointer rounded-2xl" type="file"
-                                    id="image-input" accept="image/*">
-                                <img id="image-preview"
+                                    id="image-input-1" accept="image/*">
+                                <img id="image-preview-1"
                                     src="{{ $news->headline_image ? asset('storage/' . $news->headline_image) : '' }}"
                                     class="w-full h-full object-cover absolute top-0 bg-white rounded-2xl {{ $news->headline_image ? '' : 'hidden' }}">
                                 <i href="#" class="ph ph-plus text-7xl"></i>
-                                <label for="image-input" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
+                                <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
                             </div>
                             @error('headline_image')
                                 <div id="image-error" class="text-danger-base font-normal Heading4">{{ $message }}</div>

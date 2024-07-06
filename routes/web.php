@@ -120,7 +120,8 @@ Route::middleware('auth')->group(function () {
             Route::post('akun/tambah/store', [ManageUserController::class, 'store'])->name('kelola.akun.store');
             Route::get('akun/ubah/{user}', [ManageUserController::class, 'edit'])->name('kelola.akun.edit');
             Route::put('akun/ubah/{user}', [ManageUserController::class, 'update'])->name('kelola.akun.update');
-            Route::post('akun/ubah/{user}/toggle-status', [ManageUserController::class, 'toggleStatus'])->name('kelola.berita.edit.toggleStatus');
+            Route::post('akun/ubah/{user}/toggle-status', [ManageUserController::class, 'toggleStatus'])->name('kelola.akun.toggleStatus');
+            Route::post('akun/ubah/{user}/toggle-admin', [ManageUserController::class, 'toggleAdminStatus'])->name('kelola.akun.toggle-admin');
             Route::delete('akun/hapus/{user}', [ManageUserController::class, 'destroy'])->name('kelola.akun.destroy');
         });
 

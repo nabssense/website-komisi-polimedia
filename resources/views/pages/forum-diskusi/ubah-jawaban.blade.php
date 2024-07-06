@@ -27,12 +27,12 @@
                     </div>
                     <div class="w-40 h-40 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
                         <input name="image" class="w-full h-full z-10 opacity-0 absolute cursor-pointer rounded-2xl"
-                            type="file" id="image-input" accept="image/*">
-                        <img id="image-preview"
+                            type="file" id="image-input-1" accept="image/*">
+                        <img id="image-preview-1"
                             src="{{ isset($answer) ? asset('storage/' . $answer->image) : '' }}"
                             class="w-full h-full object-cover absolute top-0 bg-white rounded-2xl {{ isset($answer->image) ? '' : 'hidden' }}">
                         <i href="#" class="ph ph-plus text-7xl"></i>
-                        <label for="image-input" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
+                        <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
                     </div>
                 </div>
                 @error('image')

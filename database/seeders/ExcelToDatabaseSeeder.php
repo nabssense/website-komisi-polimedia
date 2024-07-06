@@ -41,7 +41,7 @@ class ExcelToDatabaseSeeder extends Seeder
                 'edu_program' => $row[5],
                 'user_type' => 'Mahasiswa',
                 'status' => 'Aktif',
-                'admin' => 'Tidak',
+                'admin' => 'Tidak Aktif',
             ];
         }
 

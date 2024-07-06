@@ -62,7 +62,7 @@
                             src="{{ isset($discussion) ? asset('storage/' . $discussion->image) : '' }}"
                             class="w-full h-full object-cover absolute top-0 bg-white rounded-2xl {{ isset($discussion->image) ? '' : 'hidden' }}">
                         <i href="#" class="ph ph-plus text-7xl"></i>
-                        <label for="image-input" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
+                        <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
                     </div>
                 </div>
                 @error('image')
