@@ -7,13 +7,13 @@
             <button onclick="goBack()" class="text-32 text-netral-800 ph ph-arrow-left"></button>
             <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kelola Kabinet</div>
             <div class="py-3 rounded-full justify-center items-center gap-4 flex">
-                <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Tambah Kabinet</div>
-                <i class="text-32 text-primary-base ph ph-plus"></i>
+                <div class="text-center text-2xl font-medium font-THICCCBOI leading-9">Tambah Kabinet</div>
+                <i class="text-32 ph ph-plus"></i>
             </div>
         </div>
     </div>
     <div class="justify-start items-start gap-9 inline-flex">
-        <div class="p-4 bg-red-200 rounded-2xl flex-col justify-start items-start inline-flex">
+        <div class="p-4 bg-primary-100 rounded-2xl flex-col justify-start items-start inline-flex">
             <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Kabinet saat ini</div>
             <div class="justify-end items-end gap-4 inline-flex">
                 <div class="text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">KOBRA</div>

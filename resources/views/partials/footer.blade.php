@@ -79,7 +79,7 @@
         </section>
         <section class="w-full h-fit rounded-2xl xl:order-2 flex  overflow-clip justify-center items-center">
             <div class="w-full h-full justify-center items-center flex bg-lime-400">
-                <img class="bg-cover rounded-2xl relative" src="{{ url('img/Berita/test-headline-news.jpg') }}" alt="Image" />
+                <img class="bg-cover rounded-2xl relative" src="{{ url('img/Banner_Footer.png') }}" alt="Image" />
             </div>
         </section>
     </div>

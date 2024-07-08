@@ -78,7 +78,7 @@
                             oninput="autoResize(this)">{{ $discussion->question ?? old('question') }}</textarea>
                     </div>
                     @error('question')
-                        <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">
+                        <div class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                             {{ $message }}</div>
                     @enderror
                 </div>

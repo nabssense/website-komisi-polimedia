@@ -10,7 +10,7 @@
         </div>
         {{-- Info Dashboard
         <div class="w-full justify-start items-start gap-8 inline-flex flex-wrap">
-            <div class="p-4 bg-red-200 rounded-2xl flex-col justify-start items-start inline-flex">
+            <div class="p-4 bg-primary-100 rounded-2xl flex-col justify-start items-start inline-flex">
                 <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Kabinet saat ini</div>
                 <div class="justify-end items-end gap-4 inline-flex">
                     <div class="text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">KOBRA</div>
@@ -57,9 +57,7 @@
                                 alt="Image" />
                         </div>
                     </div>
-                    <button
-                        class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                        <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                    <button class="btn-primary">
                             Lihat
                             Selengkapnya</div>
                     </button>
@@ -71,7 +69,7 @@
                     <div class="w-full text-netral-900 font-semibold Heading4">
                         Kelola Berita</div>
                     <a href="{{ route('kelola.berita.create') }}" class="btn-tertiary p-0">Tambah Berita
-                        <i class=" text-rose-600 ph ph-plus text-3xl"></i>
+                        <i class="ph ph-plus text-3xl"></i>
                     </a>
                 </div>
                 <a href="{{ route('kelola.berita.index') }}"
@@ -81,11 +79,9 @@
                             <i class="  ph-fill ph-newspaper text-netral-900 text-9xl"></i>
                         </div>
                     </div>
-                    <button
-                        class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                        <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                    <button class="w-full btn-secondary">
                             Lihat
-                            Selengkapnya</div>
+                            Selengkapnya
                     </button>
                 </a>
             </div>
@@ -95,7 +91,7 @@
                     <div class="w-full text-netral-900 font-semibold Heading4">
                         Kelola Akun</div>
                     <a href="{{ route('kelola.akun.create') }}" class="btn-tertiary p-0">Tambah Akun
-                        <i class=" text-rose-600 ph ph-plus text-3xl"></i>
+                        <i class="ph ph-plus text-3xl"></i>
                     </a>
                 </div>
                 <a href="{{ route('kelola.akun.index') }}"
@@ -105,11 +101,9 @@
                             <i class="ph-fill ph-user text-netral-900 text-9xl"></i>
                         </div>
                     </div>
-                    <button
-                        class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                        <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                    <button class="w-full btn-secondary">
                             Lihat
-                            Selengkapnya</div>
+                            Selengkapnya
                     </button>
                 </a>
             </div>
@@ -127,11 +121,9 @@
                             <img class="h-fit w-48 aspect-square" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
                         </div>
                     </div>
-                    <button
-                        class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                        <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                    <button class="w-full btn-secondary">
                             Lihat
-                            Selengkapnya</div>
+                            Selengkapnya
                     </button>
                 </a>
             </div>
@@ -149,11 +141,9 @@
                             <i class="ph-fill ph-bank text-netral-900 text-9xl"></i>
                         </div>
                     </div>
-                    <button
-                        class="w-full h-fit px-6 py-1 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                        <div class="w-fit h-fit text-center text-neutral-900 font-medium Heading4">
+                    <button class="w-full btn-secondary">
                             Lihat
-                            Selengkapnya</div>
+                            Selengkapnya
                     </button>
                 </a>
             </div>
@@ -174,7 +164,7 @@
         <div class="w-full h-fit flex flex-col gap-8">
             {{-- Content
             <div class="w-full justify-start items-start gap-8 inline-flex flex-wrap">
-                <div class="p-4 bg-red-200 rounded-2xl flex-col justify-start items-start inline-flex">
+                <div class="p-4 bg-primary-100 rounded-2xl flex-col justify-start items-start inline-flex">
                     <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Kabinet saat ini
                     </div>
                     <div class="justify-end items-end gap-4 inline-flex-900 text-3xl font-extrabold font-THICCCBOI leading-10">KOBRA
@@ -212,7 +202,7 @@
                 {{-- Card Kelola Web --}}
                 {{-- <div class="w-full h-fit  flex flex-col justify-start items-center gap-4">
                     <div class="w-full h-fit justify-start items-center gap-4 inline-flex text-netral-900 Heading3 font-semibold line-clamp-1 rounded-full justify-center items-center gap-4 flex">Tambah Kabinet</div>
-                        <i class="text-rose-600 ph ph-plus text-3xl"></i>
+                        <i class=ph ph-plus text-3xl"></i>
                         </a>
                     </div>
                     <a href="/kelola-kabinet"

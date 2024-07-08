@@ -137,12 +137,12 @@
                         <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
                     </div>
                     @error('profile_picture')
-                        <div class="text-red-500 font-normal Heading4">
+                        <div class="text-primary-base font-normal Heading4">
                             {{ $message }}
                         </div>
                     @enderror
                     <button id="hapusGambarButton"
-                        class="w-full flex btn-secondary-sm px-4 {{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? 'hidden' : '' }}"
+                        class="w-full flex btn-secondary px-4 {{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? 'hidden' : '' }}"
                         type="button">
                         Hapus Gambar
                     </button>
@@ -150,11 +150,11 @@
                 </div>
             </div>
             <div class="w-full flex flex-row gap-2">
-                <button class="w-full flex btn-secondary-sm px-4" type="button"
+                <button class="w-full flex btn-secondary px-4" type="button"
                     onclick="togglePopUpShow('ubahPicProfilPopup')">
                     Tutup
                 </button>
-                <button class="w-full flex btn-primary-sm px-4" type="submit"
+                <button class="w-full flex btn-primary px-4" type="submit"
                     onsubmit="togglePopUpShow('ubahPicProfilPopup')">
                     Simpan
                 </button>
@@ -186,7 +186,7 @@
                             </div>
                         </div>
                         @error('password')
-                            <div class="text-red-500 font-normal Heading4">{{ $message }}
+                            <div class="text-primary-base font-normal Heading4">{{ $message }}
                             </div>
                         @enderror
                     </div>
@@ -205,16 +205,16 @@
                             </div>
                         </div>
                         @error('password')
-                            <div class="text-red-500 font-normal Heading4">{{ $message }}
+                            <div class="text-primary-base font-normal Heading4">{{ $message }}
                             </div>
                         @enderror
                     </div>
                 </div>
             </div>
             <div class="w-full flex flex-row gap-2">
-                <button type="button" class="w-full flex btn-secondary-sm px-4"
+                <button type="button" class="w-full flex btn-secondary px-4"
                     onclick="togglePopUpShow('ubahPasswordPopup')">Tutup</button>
-                <button type="submit" class="w-full flex btn-primary-sm px-4">Simpan</button>
+                <button type="submit" class="w-full flex btn-primary px-4">Simpan</button>
             </div>
         </form>
     </div>
@@ -237,17 +237,17 @@
                     class="input-text
                             @error('fullname') border-red-500 @enderror">
                 @error('fullname')
-                    <div id="email-error" class="text-red-500 font-normal Heading4">
+                    <div id="email-error" class="text-primary-base font-normal Heading4">
                         {{ $message }}
                     </div>
                 @enderror
             </div>
             <div class="w-full flex flex-row gap-2">
-                <button class="w-full flex btn-secondary-sm px-4" type="reset"
+                <button class="w-full flex btn-secondary px-4" type="reset"
                     onclick="togglePopUpShow('ubahNamaPopup')">
                     Tutup
                 </button>
-                <button class="w-full flex btn-primary-sm px-4" type="submit"
+                <button class="w-full flex btn-primary px-4" type="submit"
                     onclick="togglePopUpShow('ubahNamaPopup')">
                     Simpan
                 </button>
@@ -260,7 +260,7 @@
 {{-- MOBILE SCREEN --}}
 @section('user-content-mobile')
     {{-- Mobile --}}
-    <div class="w-full h-full flex-col justify-start items-start gap-4 px-4 py-8 flex lg:hidden">
+    <div class="w-full h-full flex-col justify-start items-start gap-4 px-4 py-8 md:py-12 flex lg:hidden">
         <div class="w-full flex flex-row items-center gap-4">
             <a type="button" href="/user" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></a>
             <div class="text-start text-neutral-900 Heading2 font-extrabold">Personal Info</div>
@@ -282,11 +282,11 @@
                             Nama Lengkap
                         </div>
                     </div>
-                    <input disabled type="text" onclick="togglePopUpShow('ubahNamaPopup')"
+                    <input readonly type="text" onclick="togglePopUpShow('ubahNamaPopup')"
                         placeholder="Masukkan nama lengkap kamu" value="{{ auth()->user()->fullname }}"
                         class="input-text ">
                     @error('email')
-                        <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                        <div id="email-error" class="text-primary-base font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
@@ -299,7 +299,7 @@
                         class="input-text
                                ">
                     @error('email')
-                        <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                        <div id="email-error" class="text-primary-base font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
@@ -312,7 +312,7 @@
                         class="input-text
                                ">
                     @error('email')
-                        <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                        <div id="email-error" class="text-primary-base font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
@@ -324,7 +324,7 @@
                     <input type="text" disabled placeholder="Masukkan nomor whatsapp kamu"
                         value="{{ auth()->user()->number_wa }}" class="input-text">
                     @error('email')
-                        <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                        <div id="email-error" class="text-primary-base font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
@@ -337,7 +337,7 @@
                         class="input-text
                                ">
                     @error('email')
-                        <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                        <div id="email-error" class="text-primary-base font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
@@ -350,7 +350,7 @@
                         value="{{ auth()->user()->email }}" class="input-text
                                ">
                     @error('email')
-                        <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                        <div id="email-error" class="text-primary-base font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -370,7 +370,7 @@
                         </div>
                     </div>
                     @error('password')
-                        <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                        <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start flex">
@@ -389,7 +389,7 @@
                         </div>
                     </div>
                     @error('password')
-                        <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                        <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
             </div>

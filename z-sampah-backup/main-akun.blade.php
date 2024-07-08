@@ -84,7 +84,7 @@
         {{-- <div class="left-0 top-0 z-40  justify-center items-center inline-flex bg-emerald-400">
             <div class="w-fit h-fit pl-4 pr-6 py-3 bg-komisi-orange-base rounded-full justify-center items-center gap-2 flex flex-row">
                 <img class="h-11 aspect-square" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
-                <div class="w-fit h-fit bg-red-500  text-right text-white text-2xl font-extrabold font-THICCCBOI leading-9">2021-2022</div>
+                <div class="w-fit h-fit bg-primary-base  text-right text-white text-2xl font-extrabold font-THICCCBOI leading-9">2021-2022</div>
             </div>
         </div> --}}
     </div>

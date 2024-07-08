@@ -2,74 +2,78 @@
 @include('partials.navbar')
 @include('partials.navbar-mobile')
 @section('container')
-    <div class="w-full h-fit px-32 py-32 bg-soft-base flex-col justify-center items-center gap-8 flex">
+    <div class="w-full h-fit py-20 md:py-32 bg-soft-base flex-col justify-center items-center gap-8 flex">
         <div class="w-full max-w-1480 flex-col justify-center items-center gap-4 lg:gap-8 flex">
-            <div class="w-full h-fit  justify-start items-center gap-6 inline-flex">
-                <a href="/kelola-website" class="text-32 text-netral-800 ph ph-arrow-left"></a>
-                <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kelola
-                    Pengajuan Pencairan</div>
-                    {{-- Kategori --}}
-                <div class="w-fit flex flex-row">
-                    <button id="menuButton" onclick="toggleDropdownPopUp()" type="button" class="btn-popup option-button">
-                        <i class="ph ph-square-half"></i>
-                        <div class="">Periode</div>
-                        <i class=" text-netral-900 ph ph-caret-down"></i>
-                    </button>
-                    {{-- Pop Up --}}
-                    <div id="menuDropdown"
-                        class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
-                        <div onclick="toggleDropdownPopUp() "
-                            class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
-                            <div class="flex flex-col max-w-480 bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
-                                role="none" onclick="; event.stopPropagation(); ">
-                                <div class="w-full flex flex-col gap-4">
-                                    <div class="w-full text-start Heading3">Periode</div>
-                                    <div class="w-full flex flex-col gap-2 overflow-scroll">
-                                        <button
-                                            class="btn-popup-sm {{ !isset($withCategory) ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}"
-                                            onclick="window.location.href='{{ route('kelola.pencairan.index') }}'">
-                                            Semua
-                                        </button>
-                                        @if (!empty($categories))
-                                            @foreach ($categories as $category)
-                                                <button
-                                                    class="btn-popup-sm {{ isset($withCategory) && $withCategory->slug === $category->slug ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}"
-                                                    onclick="location.href='{{ route('kelola.pencairan.kategori', $category->slug) }}'">
-                                                    {{ $category->name }}
-                                                </button>
-                                            @endforeach
-                                        @endif
+            <div class="w-full h-fit px-4 lg:px-0 flex-col lg:flex-row justify-start items-center gap-6 flex">
+                <div class="w-full flex lg:flex-row gap-4 justify-center items-center">
+                    <a href="/kelola-website" class="text-32 text-netral-800 ph ph-arrow-left"></a>
+                    <div
+                        class="w-full text-netral-900 Heading2 before:content-['Pencairan'] md:before:content-['Kelola_Pencairan'] font-extrabold">
+                    </div>
+                </div>
+                {{-- Kategori --}}
+                <div class="w-full lg:w-fit h-fit flex flex-wrap lg:flex-none gap-2">
+                    <div class="w-fit flex flex-row">
+                        <button id="menuButton" onclick="toggleDropdownPopUp()" type="button"
+                            class="btn-popup option-button">
+                            <i class="ph ph-square-half"></i>
+                            <div class="">Periode</div>
+                            <i class=" text-netral-900 ph ph-caret-down"></i>
+                        </button>
+                        {{-- Pop Up --}}
+                        <div id="menuDropdown"
+                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                            <div onclick="toggleDropdownPopUp() "
+                                class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                <div class="flex flex-col max-w-480 bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
+                                    role="none" onclick="; event.stopPropagation(); ">
+                                    <div class="w-full flex flex-col gap-4">
+                                        <div class="w-full text-start Heading3">Periode</div>
+                                        <div class="w-full flex flex-col gap-2 overflow-scroll">
+                                            <button
+                                                class="btn-popup-sm {{ !isset($withCategory) ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}"
+                                                onclick="window.location.href='{{ route('kelola.pencairan.index') }}'">
+                                                Semua
+                                            </button>
+                                            @if (!empty($categories))
+                                                @foreach ($categories as $category)
+                                                    <button
+                                                        class="btn-popup-sm {{ isset($withCategory) && $withCategory->slug === $category->slug ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}"
+                                                        onclick="location.href='{{ route('kelola.pencairan.kategori', $category->slug) }}'">
+                                                        {{ $category->name }}
+                                                    </button>
+                                                @endforeach
+                                            @endif
+                                        </div>
                                     </div>
+                                    <button class="w-full flex btn-secondary-sm px-4" onclick="toggleDropdownPopUp()">
+                                        Tutup
+                                    </button>
                                 </div>
-                                <button class="w-full flex btn-secondary-sm px-4" onclick="toggleDropdownPopUp()">
-                                    Tutup
-                                </button>
                             </div>
                         </div>
                     </div>
+                    <button onclick="window.location.href='{{ route('export.excel') }}'" class="btn-secondary">
+                        Eksport Excel <i class="ph-fill ph-file-xls"></i>
+                    </button>
+                    <a href="{{ route('kelola.pencairan.periode.index') }}" class="btn-primary">Atur Periode
+                        <i class=" ph ph-plus"></i>
+                    </a>
                 </div>
-                <button onclick="window.location.href='{{ route('export.excel') }}'" class="btn-secondary">
-                    Eksport Excel <i class="ph-fill ph-file-xls"></i>
-                </button>
-                <a href="{{ route('kelola.pencairan.periode.index') }}" class="btn-primary">Atur Periode
-                    <i class=" ph ph-plus"></i>
-                </a>
+
             </div>
-            <div class="w-full justify-start items-start gap-9 inline-flex">
-                
-                
-                <div class="p-4 bg-red-200 rounded-2xl flex-col justify-start items-start inline-flex">
-                    <div class="text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Total Pengajuan</div>
-                    <div class="justify-end items-end gap-4 inline-flex">
-                        <div class="text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
+            <div class="w-full justify-start items-start px-4 lg:px-0 gap-4 flex">
+                <div class="p-4 bg-primary-100 rounded-2xl flex-col justify-start items-start flex">
+                    <div class="text-netral-900 Body1 font-medium">Total Pengajuan</div>
+                    <div class="justify-end items-end gap-4 flex">
+                        <div class="text-netral-900 Heading2 font-extrabold">
                             {{ $scholarshipFundings->count() }}</div>
                     </div>
                 </div>
             </div>
-
-            <div class="self-stretch h-fit p-4 bg-white rounded-2xl flex-col justify-start items-center gap-8 flex">
+            {{-- Main --}}
+            <div class="self-stretch h-fit p-4 bg-white lg:rounded-2xl flex-col justify-start items-center gap-8 flex">
                 <!-- Loop through scholarship fundings -->
-
                 <div class="self-stretch h-fit p-4 bg-white rounded-2xl flex-col justify-start items-center gap-8 flex">
                     <table class="w-full h-fit rounded-lg flex-col justify-start items-center flex">
                         <thead
@@ -94,11 +98,13 @@
                                 </th>
                             </tr>
                         </thead>
-                        @forelse ($scholarshipFundings ?? [] as $funding)
-                            <tbody
-                                class="self-stretch px-4 h-fit rounded-bl-lg rounded-br-lg flex-col justify-start items-start flex gap-8">
+
+                        <tbody
+                            class="self-stretch px-4 h-fit rounded-bl-lg rounded-br-lg flex-col justify-start items-start flex gap-8">
+                            @forelse ($scholarshipFundings ?? [] as $funding)
                                 <tr
                                     class="w-full h-fit flex-row justify-start items-start gap-8 py-8 flex cursor-pointer border-b-2 border-netral-200">
+
                                     <td
                                         class="w-full h-full grow shrink basis-3/12 flex flex-row gap-4 justify-start items-start">
                                         <div class="w-full h-full flex flex-col gap-4">
@@ -206,24 +212,21 @@
                                                 {{ $funding->competition_certificate }}</div>
                                         </div>
                                     </td>
+
                                 </tr>
-                            </tbody>
-                        @empty
-                            <div
-                                class="self-stretch h-fit p-4 bg-white rounded-2xl flex-col justify-start items-center gap-8 flex">
-                                <!-- Tampilkan pesan jika tidak ada data -->
-                                <p>Tidak ada pengajuan pencairan yang tersedia.</p>
-                            </div>
-                        @endforelse
+                            @empty
+                                <tr
+                                    class="self-stretch h-fit p-4 bg-white rounded-2xl flex-col justify-start items-center gap-8 flex">
+                                    <!-- Tampilkan pesan jika tidak ada data -->
+                                    <p>Tidak ada pengajuan pencairan yang tersedia.</p>
+                                </tr>
+                            @endforelse
+                        </tbody>
                     </table>
                 </div>
-
-
-                <div class="h-14 px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                    <div class="text-center text-netral-900 text-2xl font-medium font-THICCCBOI leading-9">Lihat
-                        Selengkapnya
-                    </div>
-                </div>
+                <button class="btn-secondary">Lihat
+                    Selengkapnya
+                </button>
             </div>
         </div>
     </div>

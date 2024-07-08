@@ -3,7 +3,7 @@
 @section('container')
     {{-- Mobile Akun --}}
     <div
-        class="w-full h-full relative bg-netral-100 rounded-2xl lg:hidden flex flex-col justify-start items-start overflow-clip gap-4 pt-16">
+        class="w-full h-full py-20 md:py-28 lg:py-32 relative bg-netral-100 rounded-2xl lg:hidden flex flex-col justify-start items-start overflow-clip gap-4 pt-16">
         {{-- <div class="w-full p-4 flex flex-row items-center gap-4">
             <a type="button" href="/" class="text-32 text-neutral-900 ph ph-arrow-left cursor-pointer"></a>
             <div class="text-start text-neutral-900 Heading3 font-extrabold">Kembali</div>

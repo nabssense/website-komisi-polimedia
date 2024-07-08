@@ -55,7 +55,7 @@
                                 <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
                             </div>
                             @error('profile_picture')
-                                <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                                <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                             @enderror
                             <button id="hapusGambarButton"
                                 class="w-full flex btn-secondary-sm px-4 {{ filter_var($user->profile_picture, FILTER_VALIDATE_URL) ? 'hidden' : '' }}"
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     @error('profile_picture')
-                        <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                        <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                     @enderror
 
                     {{-- Full Name --}}
@@ -75,7 +75,7 @@
                         <input type="text" name="fullname" placeholder="Cth: KOBRA" id="fullname" class="input-text"
                             value="{{ old('fullname') ?? $user->fullname }}">
                         @error('fullname')
-                            <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                            <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -85,7 +85,7 @@
                         <input type="number" name="nim" placeholder="Cth: 9" id="nim" class="input-text"
                             value="{{ old('nim') ?? $user->nim }}">
                         @error('nim')
-                            <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                            <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -96,7 +96,7 @@
                         <input type="text" name="edu_program" placeholder="Cth: Teknologi Rekayasa Multimedia"
                             class="input-text" value="{{ old('edu_program') ?? $user->edu_program }}">
                         @error('edu_program')
-                            <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                            <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -106,10 +106,10 @@
                         <input type="email" name="email" placeholder="Cth: blabla@email.com" class="input-text"
                             value="{{ old('email') ?? $user->email }}">
                         @error('email')
-                            <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                            <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                         @enderror
                         @error('credentials')
-                            <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                            <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                         @enderror
                     </div>
 

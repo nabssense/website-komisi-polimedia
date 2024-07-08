@@ -2,7 +2,7 @@
 @include('partials.navbar')
 @include('partials.navbar-mobile')
 @section('container')
-    <div class="w-full h-fit px-32 py-32 bg-soft-base flex-col justify-center items-center gap-8 flex">
+    <div class="w-full h-fit px-4 lg:px-0 py-20 md:p-32  bg-soft-base flex-col justify-center items-center gap-8 flex">
         <div class="w-full max-w-1480 flex-col justify-center items-center gap-4 lg:gap-8 flex">
             <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
                 <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
@@ -33,15 +33,6 @@
                             <th class="w-full grow shrink basis-3/12 flex">
                                 <div class="text-start text-neutral-900 Heading3 font-semibold">Lomba</div>
                             </th>
-                            <th class="w-fit basis-1/12 flex">
-                                <a href=""
-                                    class="py-1 hidden rounded-full justify-center items-center gap-2">
-                                    <div
-                                        class="text-center text-netral-900 Heading4 font-medium">
-                                        Edit</div>
-                                    <i class="text-2xl text-netral-900 ph ph-pencil-simple"></i>
-                                </a>
-                            </th>
                         </tr>
                     </thead>
                     <tbody
@@ -63,23 +54,14 @@
                                     <div class="text-netral-900 Heading4 font-semibold">
                                         {{ $period->end_date }}</div>
                                 </td>
-                                <td class="w-fit grow shrink basis-1/12 flex">
-                                    <a href="{{ route('kelola.pencairan.periode.edit', $period->id) }}"
-                                        class="py-1 rounded-full justify-center items-center gap-2 flex">
-                                        <div
-                                            class="text-center text-netral-900 Heading4 font-medium">
-                                            Edit</div>
-                                        <i class="text-2xl text-netral-900 ph ph-pencil-simple"></i>
-                                    </a>
-                                </td>
+                                
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                <div class="h-14 px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 inline-flex">
-                    <div class="text-center text-netral-900 text-2xl font-medium font-THICCCBOI leading-9">Lihat
-                        Selengkapnya</div>
-                </div>
+                <button class="btn-secondary">Lihat
+                        Selengkapnya
+                </button>
             </div>
         </div>
     </div>

@@ -52,7 +52,7 @@
                                 <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih Gambar</label>
                             </div>
                             @error('profile_picture')
-                                <div class="text-red-500 font-normal Heading4">
+                                <div class="text-primary-base font-normal Heading4">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     @error('profile_picture')
-                        <div class="text-red-500 font-normal Heading4">
+                        <div class="text-primary-base font-normal Heading4">
                             {{ $message }}
                         </div>
                     @enderror
@@ -77,7 +77,7 @@
                         </div>
                         <input type="text" name="fullname" placeholder="Cth: KOBRA" id="fullname" class="input-text">
                         @error('fullname')
-                            <div class="text-red-500 font-normal Heading4">
+                            <div class="text-primary-base font-normal Heading4">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -90,7 +90,7 @@
                         </div>
                         <input type="number" name="nim" placeholder="Cth: 9" id="nim_nip" class="input-text">
                         @error('nim')
-                            <div class="text-red-500 font-normal Heading4">
+                            <div class="text-primary-base font-normal Heading4">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -104,7 +104,7 @@
                         <input type="text" name="edu_program" placeholder="Cth: Teknologi Rekayasa Multimedia"
                             class="input-text">
                         @error('edu_program')
-                            <div class="text-red-500 font-normal Heading4">
+                            <div class="text-primary-base font-normal Heading4">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -117,12 +117,12 @@
                         </div>
                         <input type="email" name="email" placeholder="Cth: blabla@email.com" class="input-text">
                         @error('email')
-                            <div class="text-red-500 font-normal Heading4">
+                            <div class="text-primary-base font-normal Heading4">
                                 {{ $message }}
                             </div>
                         @enderror
                         @error('credentials')
-                            <div class="text-red-500 font-normal Heading4">
+                            <div class="text-primary-base font-normal Heading4">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -138,7 +138,7 @@
                         <input type="hidden" name="password" value="K0MIS1KoBr4.">
                     </div>
                     @error('password')
-                        <div class="text-red-500 font-normal Heading4">
+                        <div class="text-primary-base font-normal Heading4">
                             {{ $message }}
                         </div>
                     @enderror

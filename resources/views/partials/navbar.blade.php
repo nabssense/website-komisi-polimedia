@@ -5,11 +5,11 @@
         <div
             class="h-12 md:h-16 justify-start {{ $active === 'Masuk Akun' || $active === 'Daftar Akun' ? 'justify-center w-full' : '' }} items-center gap-1 lg:gap-2 xl:gap-4 flex">
             <a href="/beranda" class="w-fit h-full relative">
-                <img class="h-full w-fit aspect-square object-scale-down" src="{{ url('img/Logo-Komisi.svg') }}"
+                <img  class="lazyload h-full w-fit aspect-square object-scale-down" src="{{ url('img/Logo-Komisi.svg') }}"
                     alt="Image" />
             </a>
-            <a href="/beranda" class="w-fit h-full relative">
-                <img class="w-fit h-full object-scale-down" src="{{ url('img/komisi_polimedia/Logo-Kabinet-Kobra.svg') }}"
+            <a href="/beranda" class="w-fit h-full  relative">
+                <img class="lazyload w-fit h-full" src="{{ url('img/kabinet/HARPIAH/Logo/Kabinet_Harpiah_Vertical.svg') }}"
                     alt="Image" />
             </a>
         </div>

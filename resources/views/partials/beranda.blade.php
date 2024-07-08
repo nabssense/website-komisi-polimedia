@@ -4,7 +4,7 @@
 @include('partials.navbar-mobile')
     <div class="w-full flex-col gap-32 mt-24 justify-start items-start z-10 ">
         {{-- Section 1 Headline Berita --}}
-        <div class="w-full xl:px-56 px-8 py-8 bg-red-600 justify-center items-center gap-16 flex">
+        <div class="w-full xl:px-56 px-8 py-8 bg-primary-600 justify-center items-center gap-16 flex">
             <div class="w-full h-96 justify-center relative flex">
                 <div class="w-[1480px] h-96 bg-yellow-300 rounded-3xl justify-center items-center relative">
                     <div class="w-full top-[360px] gap-4 absolute justify-center items-center inline-flex">
@@ -29,7 +29,7 @@
         <div class="xl:px-56 px-8 py-12 xl:justify-center justify-start bg-primary-100 items-center gap-12 flex flex-wrap">
             <img class="w-fit h-32" src="{{ url('img/Logo-Polimedia.png') }}" alt="" />
             <img class="aspect-square" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
-            <img class="w-fit h-32" src="{{ url('img/komisi_polimedia/Logo-Kabinet-Kobra.svg') }}" alt="Image" />
+            <img class="w-fit h-32" src="{{ url('img/kabinet/HARPIAH/Logo/Kabinet_Harpiah_Vertical.svg') }}" alt="Image" />
         </div>
         {{-- Section 3 Berita --}}
         <div class="w-full h-fit xl:px-56 px-4 py-16 bg-white flex-col justify-center items-center gap-12 flex flex-wrap">

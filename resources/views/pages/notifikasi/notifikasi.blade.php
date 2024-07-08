@@ -7,7 +7,7 @@
             <div class="w-full  text-netral-900 Heading1 font-extrabold flex">Notifikasi</div>
             <div class="w-full h-fit p-4 lg:p-8 bg-white rounded-2xl shadow-card justify-start items-center gap-4 lg:gap-8 inline-flex">
                 <div class="w-fit h-full aspect-square">
-                    <img src="{{ url('img/komisi_polimedia/Logo-Kabinet-Kobra.svg') }}" class="aspect-square rounded-lg object-cover" alt="">
+                    <img src="{{ url('img/kabinet/HARPIAH/Logo/Kabinet_Harpiah_Vertical.svg') }}" class="aspect-square rounded-lg object-cover" alt="">
                 </div>
                 <div class="w-full self-stretch flex-col justify-start items-start gap-6 flex">
                     <div class="w-full h-full flex-col justify-start items-start gap-2 flex">
@@ -27,7 +27,7 @@
             </div>
             <div class="w-full h-fit p-4 lg:p-8 bg-white rounded-2xl shadow-card justify-start items-center gap-4 lg:gap-8 inline-flex">
                 <div class="w-fit h-full">
-                    <img src="{{ url('img/komisi_polimedia/Logo-Kabinet-Kobra.svg') }}" class="aspect-square rounded-lg object-cover" alt="">
+                    <img src="{{ url('img/kabinet/HARPIAH/Logo/Kabinet_Harpiah_Vertical.svg') }}" class="aspect-square rounded-lg object-cover" alt="">
                 </div>
                 <div class="w-full self-stretch flex-col justify-start items-start gap-6 flex">
                     <div class="w-full h-full flex-col justify-start items-start gap-2 flex">

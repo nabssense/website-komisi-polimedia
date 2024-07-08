@@ -45,7 +45,7 @@
                         </div>
                         <input type="text" name="name" placeholder="Cth: KOBRA" id="name" class="input-text">
                         @error('name')
-                            <div class="text-red-500 font-normal Heading4">
+                            <div class="text-primary-base font-normal Heading4">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -59,7 +59,7 @@
                         <input type="datetime-local" name="start_date" placeholder="Cth: 9" id="start_date"
                             class="input-text">
                         @error('start_date')
-                            <div class="text-red-500 font-normal Heading4">
+                            <div class="text-primary-base font-normal Heading4">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -73,7 +73,7 @@
                         <input type="datetime-local" name="end_date" placeholder="Cth: Teknologi Rekayasa Multimedia"
                             class="input-text">
                         @error('end_date')
-                            <div class="text-red-500 font-normal Heading4">
+                            <div class="text-primary-base font-normal Heading4">
                                 {{ $message }}
                             </div>
                         @enderror

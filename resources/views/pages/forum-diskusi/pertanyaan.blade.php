@@ -171,7 +171,7 @@
                                             <i class="text-32 text-netral-900 lg:text-4xl ph ph-chat-teardrop-text"></i>
                                             <div id="discussion-like-count-{{ $discussion->slug }}"
                                                 class="w-full text-nowrap rounded-full justify-start items-start text-netral-900 font-medium flex md:after:content-['\00A0_Balasan']">
-                                                {{ $discussion->likeCount }}
+                                                {{ $discussion->answers->count() }}
                                             </div>
                                         </button>
                                     </div>
@@ -205,7 +205,7 @@
                                         </button>
                                     </div>
                                     @error('answer')
-                                        <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">
+                                        <div class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                                             {{ $message }}</div>
                                     @enderror
                                 </form>
@@ -469,5 +469,5 @@
     <script src="{{ asset('js/animation.js') }}"></script>
     <script src="{{ asset('js/dropdownPopup.js') }}"></script>
     <script src="{{ asset('js/touchdragscroll.js') }}"></script>
-    <script src="{{ asset('js/discussionFunction.js') }}"></script>
+    <script src="{{ asset('js/toggleDropdown2PopUp.js') }}"></script>
 @endsection

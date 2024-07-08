@@ -60,7 +60,7 @@
                             oninput="autoResize(this)">{{ $news->content ?? old('content') }}</textarea>
                     </div>
                     @error('content')
-                        <div class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">
+                        <div class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                             {{ $message }}</div>
                     @enderror
                     

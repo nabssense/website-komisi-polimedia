@@ -2,66 +2,69 @@
 @include('partials.navbar')
 @include('partials.navbar-mobile')
 @section('container')
-    <div class="w-full h-fit  p-4 md:p-8 py-32 bg-soft-base flex-col justify-center items-center gap-8 flex">
+    <div class="w-full h-fit  py-20 md:p-32  bg-soft-base flex-col justify-center items-center gap-8 flex">
         <div class="w-full max-w-1480 flex-col justify-center items-center gap-4 lg:gap-8 flex">
-            <div class="w-full h-fit justify-start items-center gap-6 flex">
-                <div class="w-full h-fit justify-start items-center gap-6 flex">
-                    <a href="{{ route('kelola.website.index') }}" class="text-32 text-netral-800 ph ph-arrow-left"></a>
-                    <div class="grow shrink basis-0 text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">Kelola
-                        Berita</div>
-                    <a href="{{ route('kelola.berita.create') }}"
-                        class="py-3 rounded-full justify-center items-center gap-4 flex">
-                        <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Tambah Berita
-                        </div>
-                        <i class="text-32 text-primary-base ph ph-plus"></i>
+            <div class="w-full h-fit px-4 lg:px-0 justify-start items-center gap-6 flex">
+                <div class="w-full h-fit justify-start items-center gap-4 flex">
+                    <div class="w-full flex gap-2 lg:gap-4 justify-center items-center">
+                        <a href="{{ route('kelola.website.index') }}" class="text-32 text-netral-800 ph ph-arrow-left"></a>
+                        <div class="w-full text-netral-900 Heading2 font-extrabold">Kelola
+                            Berita</div>
+                    </div>
+
+                    <a href="{{ route('kelola.berita.create') }}" class="btn-primary">Tambah Berita
+                        <i class=" ph ph-plus"></i>
                     </a>
                 </div>
             </div>
             {{-- Main Content --}}
             <div class="w-full flex flex-col gap-4">
-                <div class="justify-start items-start gap-9 flex">
-                    <div class="p-4 bg-red-200 rounded-2xl flex-col justify-start items-start flex">
+                <div class="justify-start items-start px-4 lg:px-0 gap-4 flex">
+                    <div class="p-4 bg-primary-100 rounded-2xl flex-col justify-start items-start flex">
                         <div class="text-netral-900 Body1 font-medium">Total Berita</div>
                         <div class="justify-end items-end gap-4 flex">
-                            <div class="text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10">
+                            <div class="text-netral-900 Heading2 font-extrabold">
                                 {{ $news->count() }}</div>
                         </div>
                     </div>
                     <div class="px-6 py-4 bg-netral-100 rounded-2xl flex-col justify-start items-start flex">
                         <div class="text-netral-900 Body1 font-medium">Total Headline Aktif
                         </div>
-                        <div class="text-netral-900 text-3xl font-extrabold font-THICCCBOI leading-10"> {{ $news->where('headline_status', true)->count() }}</div>
+                        <div class="text-netral-900 Heading2 font-extrabold">
+                            {{ $news->where('headline_status', true)->count() }}</div>
                     </div>
                 </div>
-                <div class="self-stretch h-fit p-4 bg-white rounded-2xl flex-col justify-start items-center gap-8 flex">
+                {{-- Table --}}
+                <div
+                    class="self-stretch h-fit px-4 lg:px-0 pb-4 bg-white lg:rounded-2xl flex-col justify-start items-center gap-8 flex">
                     <table class="w-full h-fit rounded-lg flex-col justify-start items-center flex">
                         <thead
-                            class="w-full px-4 py-6 rounded-tl-lg rounded-tr-lg border-b-2 border-neutral-900 justify-start items-center gap-4 flex">
+                            class="w-full px-0 lg:px-4 py-2 lg:py-6 rounded-tl-lg rounded-tr-lg lg:border-b-2 border-neutral-900 justify-start items-center gap-4 flex">
                             <tr class="w-full justify-center items-center flex flex-row gap-8">
                                 <th class="w-full h-fit grow shrink basis-4/12 justify-start gap-4 items-center flex">
                                     {{-- <i class="text-32 ph ph-square"></i> --}}
-                                    <div class="text-neutral-900 text-2xl font-semibold font-THICCCBOI leading-9">Info
+                                    <div class="text-neutral-900 Heading3 font-semibold">Info
                                         Berita</div>
                                 </th>
-                                <th class="w-full grow shrink basis-2/12 flex">
-                                    <div class="text-neutral-900 text-2xl font-semibold font-THICCCBOI leading-9">Isi Berita
+                                <th class="w-full grow shrink basis-2/12 hidden lg:flex">
+                                    <div class="text-neutral-900 Heading3 font-semibold">Isi Berita
                                     </div>
                                 </th>
-                                <th class="w-full grow shrink basis-1/12 flex">
-                                    <div class="text-neutral-900 text-2xl font-semibold font-THICCCBOI leading-9">Headline
+                                <th class="w-full grow shrink basis-2/12 lg:basis-1/12 justify-center flex">
+                                    <div class="text-neutral-900 Heading3 font-semibold">Headline
                                     </div>
                                 </th>
                                 <th class="w-full grow shrink basis-3/12 flex">
-                                    <div class="text-neutral-900 text-2xl font-semibold font-THICCCBOI leading-9"></div>
+                                    <div class="text-neutral-900 Heading3 font-semibold"></div>
                                 </th>
                             </tr>
                         </thead>
                         <tbody
-                            class="self-stretch px-4 py-6 h-fit rounded-bl-lg rounded-br-lg flex-col justify-start items-start flex gap-4">
+                            class="self-stretch px-0 lg:px-4 py-2 lg:py-6 h-fit rounded-bl-lg rounded-br-lg flex-col justify-start items-start flex gap-4">
                             @foreach ($news as $oneNews)
                                 <tr class="w-full h-fit flex-row justify-start items-center gap-8 flex cursor-pointer">
                                     <td
-                                        class="w-full h-full grow shrink basis-4/12 flex flex-row gap-4 justify-start items-center">
+                                        class="w-full h-full grow shrink basis-4/12 flex flex-col lg:flex-row gap-4 justify-start items-start">
                                         {{-- <div class="justify-start items-center flex">
                                             <i class="text-32 ph ph-square"></i>
                                         </div> --}}
@@ -87,7 +90,7 @@
                                                 {{ $oneNews->created_at->diffforHumans() }}</div>
                                         </div>
                                     </td>
-                                    <td class="w-full flex grow shrink basis-2/12">
+                                    <td class="w-full grow shrink basis-2/12  hidden lg:flex">
                                         <div class="h-full justify-start items-center gap-4 flex">
                                             <div class="self-stretch flex-col justify-center items-start flex">
                                                 <div class="grow shrink basis-0 text-netral-900 Body1 font-normal">
@@ -95,7 +98,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="w-full flex Heading4 flex-col grow shrink basis-1/12">
+                                    <td class="w-full flex Heading4 flex-col grow shrink basis-2/12 lg:basis-1/12">
                                         <div class="w-full flex justify-center items-center">
                                             <i class="text-5xl ph ph-toggle-left headline-switch {{ $oneNews->headline_status === 'Aktif' ? 'ph-fill ph-toggle-right' : '' }}"
                                                 data-id="{{ $oneNews->id }}"></i>
@@ -154,10 +157,8 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="h-14 px-8 py-3 bg-rose-100 rounded-full justify-center items-center gap-6 flex">
-                        <div class="text-center text-netral-900 text-2xl font-medium font-THICCCBOI leading-9">Lihat
-                            Selengkapnya</div>
-                    </div>
+                    <button class="btn-secondary">Lihat
+                        Selengkapnya</button>
                 </div>
             </div>
         </div>

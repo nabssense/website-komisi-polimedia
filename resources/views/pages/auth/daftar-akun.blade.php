@@ -31,7 +31,7 @@
                                     value="{{ old('fullname') }}"
                                     class="w-full pt-2 pb-3 @error('fullname') border-danger-base @enderror bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                 @error('fullname')
-                                    <div id="fullname-error" class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">
+                                    <div id="fullname-error" class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                                         {{ $message }}</div>
                                 @enderror
                             </div>
@@ -45,7 +45,7 @@
                                     value="{{ old('email') }}"
                                     class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                 @error('email')
-                                    <div id="email-error" class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">
+                                    <div id="email-error" class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                                         {{ $message }}</div>
                                 @enderror
                             </div>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 @error('password')
-                                    <div id="password-error" class="text-red-500 text-lg font-normal font-THICCCBOI leading-7">
+                                    <div id="password-error" class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                                         {{ $message }}</div>
                                 @enderror
                             </div>
@@ -179,8 +179,14 @@
             //             console.error('Error:', error);
             //         });
             // });
+            // Example validation logic, replace with your own
+            
 
             function runButtonAnimation() {
+                 // Redirect to beranda after animation
+                 document.getElementById("buttonAsli").addEventListener("animationend", function() {
+                    window.location.href = "{{ route('beranda.index') }}";
+                });
                 // Implement your button animation logic here
                 // This function should handle the animation of your button as per your design
                 // Jalankan animasi tombol seperti yang telah Anda definisikan

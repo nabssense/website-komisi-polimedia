@@ -15,6 +15,7 @@
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     {{-- Phosphor Icons --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />

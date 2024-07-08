@@ -27,11 +27,11 @@
                                         class="input-text
                                                     @error('email') border-red-500 @enderror">
                                     @error('email')
-                                        <div id="email-error" class="text-red-500 font-normal Heading4">{{ $message }}
+                                        <div id="email-error" class="text-primary-base font-normal Heading4">{{ $message }}
                                         </div>
                                     @enderror
                                     @error('credentials')
-                                        <div id="credentials-error" class="text-red-500 font-normal Heading4">
+                                        <div id="credentials-error" class="text-primary-base font-normal Heading4">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                     @error('password')
-                                        <div class="text-red-500 font-normal Heading4">{{ $message }}</div>
+                                        <div class="text-primary-base font-normal Heading4">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>

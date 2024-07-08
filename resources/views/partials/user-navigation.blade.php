@@ -1,6 +1,6 @@
 @if ($active === 'User Profile' || $active === 'Kelola Website')
     <div
-        class="w-full h-fit flex-col justify-center items-center flex px-0 md:px-8 xl:px-16 py-10 md:py-28 lg:py-32 gap-8">
+        class="w-full h-fit flex-col justify-center items-center flex px-0 md:px-8 xl:px-16 py-10 md:py-16 lg:py-32 gap-8">
         <div
             class="w-full h-fit  max-w-1480 bg-netral-100 flex-col justify-center items-center relative rounded-2xl  grid-cols-12 shadow-card overflow-clip hidden lg:grid">
             {{-- Navigation --}}

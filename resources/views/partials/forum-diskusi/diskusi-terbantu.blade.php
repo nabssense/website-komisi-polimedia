@@ -267,7 +267,7 @@
     @endforelse
 </section>
 
-<script src="{{ asset('js/discussionFunction.js') }}"></script>
+<script src="{{ asset('js/toggleDropdown2PopUp.js') }}"></script>
 <script src="{{ asset('js/discussionCategory.js') }}"></script>
 <script src="{{ asset('js/discussionSort.js') }}"></script>
 <script src="{{ asset('js/inputImagePreview.js') }}"></script>

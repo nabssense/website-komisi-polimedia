@@ -8,6 +8,7 @@ export default {
   theme: {
     fontFamily: {
       'THICCCBOI': "THICCCBOI",
+      'Figtree': "Figtree",
     },
     extend: {
       
@@ -16,14 +17,14 @@ export default {
           'base': '#EFF3F8',
         },
         primary: {
-          'base': '#ED0038',
-          100: '#FFE4E5',
-          200: '#FFACB1',
-          300: '#FF6A77',
-          400: '#ED0038',
-          500: '#AB0026',
-          600: '#810026',
-          700: '#350006',
+          'base': '#ef6324',
+          100: '#FEEEEB',
+          200: '#FDCEC4',
+          300: '#FB9C87',
+          400: '#EF6324',
+          500: '#D8571D',
+          600: '#AB3E0D',
+          700: '#762505',
         },
         secondary: {
           'base': '#2D30C8',
@@ -50,7 +51,7 @@ export default {
         netral: {
           'base': '#FFFFFF',
           100: '#FFFFFF',
-          200: '#EAEAEB',
+          200: '#EFF3F8',
           300: '#D5D6D7',
           400: '#9A9BA3',
           500: '#747681',
@@ -211,9 +212,7 @@ export default {
         '99': '.99',
       },
     },
-    buttonPrimary: {
-      'button-primary': 'px-4 py-2 lg:px-8 lg:py-4 bg-primary-base rounded-full justify-center items-center flex text-center text-netral-100 text-2xl font-medium font-THICCCBOI leading-9',
-    },
+  
   },
   variants: {
     extend: {
