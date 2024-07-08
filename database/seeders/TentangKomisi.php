@@ -20,7 +20,7 @@ class TentangKomisi extends Seeder
                 'name' => 'Komunitas BidikMisi Polimedia',
                 'slogan' => 'Membidik Prestasi Membangun Negeri',
                 'description' => 'Komisi ialah dskandksandaskndsajkdasjkdbasjkd',
-                'logo_cabinet' => ('img/kabinet/HARPIAH/Logo/Kabinet_Harpiah_Vertical.svg'),
+                'logo_cabinet' => ('img/kabinet/Kabinet_Harpiah_Vertical.svg'),
             ],
         ]);
     }

@@ -7,7 +7,7 @@
         <div class="w-full h-fit xl:px-24 pt-8 pb-36 bg-white flex-col justify-start items-center gap-12 flex">
             <div class="self-stretch h-fit flex-col justify-start items-center gap-4 flex">
                 <div class="w-48 h-14 justify-center items-center inline-flex">
-                    <img src="{{ url('img/kabinet/HARPIAH/Logo/Kabinet_Harpiah_Vertical.svg') }}" alt="Image" />
+                    <img src="{{ url('img/kabinet/Kabinet_Harpiah_Vertical.svg') }}" alt="Image" />
                 </div>
                 <div class="self-stretch text-center text-netral-900 text-5xl font-extrabold font-THICCCBOI ">Kolaborasi,
                     Optimis, Berprestasi, Realistis, Apresiasif</div>
