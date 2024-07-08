@@ -17,7 +17,33 @@
                         <button id="clearButton" onclick="clearSearchText()" type="button"
                             class="hidden lg:px-6 w-fit text-base lg:text-xl text-netral-900 ph ph-x absolute right-0 h-full"></button>
                     </form>
-
+                    {{-- Pop Up --}}
+                    <div id="menuDropdownSort"
+                        class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
+                        <div onclick="toggleDropdownPopUp('sort'); event.stopPropagation()"
+                            class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                            <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
+                                role="none">
+                                <div class="w-full flex flex-col gap-4">
+                                    <div class="w-full text-start Heading3">Urutkan</div>
+                                    <div class="w-full flex flex-col gap-2">
+                                        <a href="{{ route('berita.index', ['sort_field' => 'title', 'sort_order' => 'asc']) }}"
+                                            class="btn-popup-sm">A-Z</a>
+                                        <a href="{{ route('berita.index', ['sort_field' => 'title', 'sort_order' => 'desc']) }}"
+                                            class="btn-popup-sm">Z-A</a>
+                                        <a href="{{ route('berita.index', ['sort_field' => 'created_at', 'sort_order' => 'desc']) }}"
+                                            class="btn-popup-sm">Terbaru</a>
+                                        <a href="{{ route('berita.index', ['sort_field' => 'created_at', 'sort_order' => 'asc']) }}"
+                                            class="btn-popup-sm">Terlama</a>
+                                    </div>
+                                </div>
+                                <button class="w-full flex btn-secondary-sm px-4"
+                                    onclick="toggleDropdownPopUp('sort')">
+                                    Tutup
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                     {{-- Button Urutkan --}}
                     <div class="w-fit lg:flex flex-row hidden ">
                         <button id="menuButtonSort" onclick="toggleDropdownPopUp('sort')" type="button"
@@ -26,33 +52,7 @@
                             <div class="">Urutkan</div>
                             <i class="ph ph-caret-down"></i>
                         </button>
-                        {{-- Pop Up --}}
-                        <div id="menuDropdownSort"
-                            class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
-                            <div onclick="toggleDropdownPopUp('sort'); event.stopPropagation()"
-                                class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
-                                <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
-                                    role="none">
-                                    <div class="w-full flex flex-col gap-4">
-                                        <div class="w-full text-start Heading3">Urutkan</div>
-                                        <div class="w-full flex flex-col gap-2">
-                                            <a href="{{ route('berita.index', ['sort_field' => 'title', 'sort_order' => 'asc']) }}"
-                                                class="btn-popup-sm">A-Z</a>
-                                            <a href="{{ route('berita.index', ['sort_field' => 'title', 'sort_order' => 'desc']) }}"
-                                                class="btn-popup-sm">Z-A</a>
-                                            <a href="{{ route('berita.index', ['sort_field' => 'created_at', 'sort_order' => 'desc']) }}"
-                                                class="btn-popup-sm">Terbaru</a>
-                                            <a href="{{ route('berita.index', ['sort_field' => 'created_at', 'sort_order' => 'asc']) }}"
-                                                class="btn-popup-sm">Terlama</a>
-                                        </div>
-                                    </div>
-                                    <button class="w-full flex btn-secondary-sm px-4"
-                                        onclick="toggleDropdownPopUp('sort')">
-                                        Tutup
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     {{-- Kategori --}}
@@ -115,40 +115,14 @@
                     @endforeach
                 </div>
                 {{-- Button Urutkan --}}
-                <div class="w-fit flex flex-row lg:hidden">
+                <div class="w-fit flex flex-row lg:hidden ">
                     <button id="menuButtonSort" onclick="toggleDropdownPopUp('sort')" type="button"
                         class="btn-popup option-button">
                         <i class="ph ph-funnel-simple"></i>
                         <div class="">Urutkan</div>
                         <i class="ph ph-caret-down"></i>
                     </button>
-                    {{-- Pop Up --}}
-                    <div id="menuDropdownSort"
-                        class="flex-col Body1 gap-2 fixed top-0 left-0  justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
-                        <div onclick="toggleDropdownPopUp('sort'); event.stopPropagation()"
-                            class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
-                            <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4"
-                                role="none">
-                                <div class="w-full flex flex-col gap-4">
-                                    <div class="w-full text-start Heading3">Urutkan</div>
-                                    <div class="w-full flex flex-col gap-2">
-                                        <a href="{{ route('berita.index', ['sort_field' => 'title', 'sort_order' => 'asc']) }}"
-                                            class="btn-popup-sm">A-Z</a>
-                                        <a href="{{ route('berita.index', ['sort_field' => 'title', 'sort_order' => 'desc']) }}"
-                                            class="btn-popup-sm">Z-A</a>
-                                        <a href="{{ route('berita.index', ['sort_field' => 'created_at', 'sort_order' => 'desc']) }}"
-                                            class="btn-popup-sm">Terbaru</a>
-                                        <a href="{{ route('berita.index', ['sort_field' => 'created_at', 'sort_order' => 'asc']) }}"
-                                            class="btn-popup-sm">Terlama</a>
-                                    </div>
-                                </div>
-                                <button class="w-full flex btn-secondary-sm px-4"
-                                    onclick="toggleDropdownPopUp('sort')">
-                                    Tutup
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             {{-- Content Berita --}}

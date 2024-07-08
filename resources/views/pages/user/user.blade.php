@@ -28,37 +28,36 @@
                     </div>
                 </a>
             @endif
-
             <button onclick="togglePopUpShow('keluarAkunAlert')"
                 class="w-full text-left self-stretch px-4 py-3 bg-white rounded-lg justify-start items-center gap-3 inline-flex">
                 <i class="text-2xl ph ph-sign-out"></i>
                 <div class="text-netral-900 font-medium Heading4">Keluar</div>
             </button>
-            {{-- Pop Up --}}
-            <div id="keluarAkunAlert"
-                class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
-                <div
-                    class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
-                    <form action="{{ route('auth.masuk.logout') }}" method="POST" onclick="event.stopPropagation();"
-                        class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4">
-                        @csrf
-                        <div class="self-stretch h-fit flex-col justify-start items-start flex" role="none"
-                            onclick="event.stopPropagation();">
-                            <div class="w-full Heading4 text-center">Kamu yakin ingin keluar?</div>
-                        </div>
-                        <div class="w-full flex flex-row gap-2">
-                            <button id="confirm-delete-button" onclick="" type="submit"
-                                class="w-full flex btn-secondary-sm px-4">
-                                Iya, Keluar
-                            </button>
-                            <button id="cancel-delete-button" type="button" onclick="togglePopUpShow('keluarAkunAlert')"
-                                class="w-full flex btn-primary-sm px-4">
-                                Tidak
-                            </button>
-                        </div>
-                    </form>
+
+        </div>
+    </div>
+    {{-- Pop Up --}}
+    <div id="keluarAkunAlert"
+        class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
+        <div class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+            <form action="{{ route('auth.masuk.logout') }}" method="POST" onclick="event.stopPropagation();"
+                class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-6 p-4">
+                @csrf
+                <div class="self-stretch h-fit flex-col justify-start items-start flex" role="none"
+                    onclick="event.stopPropagation();">
+                    <div class="w-full Heading4 text-center">Kamu yakin ingin keluar?</div>
                 </div>
-            </div>
+                <div class="w-full flex flex-row gap-2">
+                    <button id="confirm-delete-button" onclick="" type="submit"
+                        class="w-full flex btn-secondary-sm px-4">
+                        Iya, Keluar
+                    </button>
+                    <button id="cancel-delete-button" type="button" onclick="togglePopUpShow('keluarAkunAlert')"
+                        class="w-full flex btn-primary-sm px-4">
+                        Tidak
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
     {{-- Fungsi Option Card --}}
@@ -128,9 +127,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             function redirectToUserPage() {
                 if (window.innerWidth <= 640) { // Tailwind's 'sm' breakpoint is 640px
-                    window.location.href="{{ route('user') }}"; // Redirect to the user page
+                    window.location.href = "{{ route('user') }}"; // Redirect to the user page
                 } else {
-                    window.location.href="{{ route('user.profile') }}"; // Redirect to the user profile page
+                    window.location.href = "{{ route('user.profile') }}"; // Redirect to the user profile page
                 }
             }
 
@@ -141,14 +140,13 @@
     {{-- toogle --}}
     <script>
         function togglePopUpShow(popupId) {
-    var popup = document.getElementById(popupId);
-    if (popup.classList.contains('hidden')) {
-        popup.classList.remove('hidden');
-    } else {
+            var popup = document.getElementById(popupId);
+            if (popup.classList.contains('hidden')) {
+                popup.classList.remove('hidden');
+            } else {
 
-        popup.classList.add('hidden');
-    }
-}
+                popup.classList.add('hidden');
+            }
+        }
     </script>
-    
 @endsection

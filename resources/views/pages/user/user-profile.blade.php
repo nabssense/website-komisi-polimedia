@@ -347,7 +347,7 @@
                         </div>
                     </div>
                     <input type="text" disabled placeholder="Masukkan program pendidikan kamu"
-                        value="{{ auth()->user()->email }}" class="input-text
+                        value="{{ auth()->user()->edu_program }}" class="input-text
                                ">
                     @error('email')
                         <div id="email-error" class="text-primary-base font-normal Heading4">{{ $message }}</div>

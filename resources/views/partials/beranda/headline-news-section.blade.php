@@ -4,25 +4,31 @@
 @endphp
 
 
-<section class="w-full h-fit relative items-center justify-center pt-16 md:pt-24 lg:pt-32 pb-4 lg:pb-12 lg:px-8 xl:px-16 flex">
+<section
+    class="w-full h-fit relative items-center justify-center pt-16 md:pt-24 lg:pt-32 pb-4 lg:pb-12 lg:px-8 xl:px-16 flex">
     {{-- ISI BERITA --}}
     @if ($itemCount > 0)
-        <div class="headline-container w-1480 h-fit gap-1 lg:gap-4 flex-col justify-center items-center flex lg:px-16 relative">
+        <div
+            class="headline-container w-1480 h-fit gap-1 lg:gap-4 flex-col justify-center items-center flex lg:px-16 relative">
             @foreach ($combinedItems as $index => $item)
                 @if ($item instanceof \App\Models\PeriodFunding)
-                    <a href="{{ route('kelola.pencairan.form', $item->slug) }}"
+                    <a @auth href="{{ route('kelola.pencairan.form', $item->slug) }} " @endauth @guest href="/masuk-akun" @endguest
                         class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer {{ $index === 0 ? '' : 'hidden' }}"
                         data-index="{{ $index }}">
-                        <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
-                            <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ $item->getImagePathAttribute() }}" alt="{{ $item->name }}" />
+                        <div
+                            class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
+                            <img class="w-full h-full object-cover lg:rounded-2xl"
+                                src="{{ $item->getImagePathAttribute() }}" alt="{{ $item->name }}" />
                         </div>
                     </a>
                 @elseif ($item instanceof \App\Models\News)
                     <a href="{{ route('berita.show', $item->slug) }}"
                         class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer {{ $index === 0 ? '' : 'hidden' }}"
                         data-index="{{ $index }}">
-                        <div class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
-                            <img class="w-full h-full object-cover lg:rounded-2xl" src="{{ asset('storage/' . $item->headline_image) }}" alt="{{ $item->title }}" />
+                        <div
+                            class="w-full h-full aspect-21/9 flex bg-netral-100 shadow-card lg:rounded-2xl justify-center items-center">
+                            <img class="w-full h-full object-cover lg:rounded-2xl"
+                                src="{{ asset('storage/' . $item->headline_image) }}" alt="{{ $item->title }}" />
                         </div>
                     </a>
                 @endif
@@ -30,11 +36,15 @@
 
             {{-- Button next & prev --}}
             @if ($itemCount > 1)
-                <div class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center lg:flex hidden lg:pl-12">
-                    <i class="xs:text-xl sm:text-3xl md:text-5xl ph ph-caret-left text-primary-base cursor-pointer prev-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
+                <div
+                    class="w-fit h-full z-40 pb-8 -left-4 top-0 absolute justify-center items-center lg:flex hidden lg:pl-12">
+                    <i
+                        class="xs:text-xl sm:text-3xl md:text-5xl ph ph-caret-left text-primary-base cursor-pointer prev-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
                 </div>
-                <div class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center lg:flex hidden lg:pr-12">
-                    <i class="xs:text-xl sm:text-3xl md:text-5xl ph ph-caret-right text-primary-base cursor-pointer next-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
+                <div
+                    class="w-fit h-full z-40 pb-8 -right-4 top-0 absolute justify-center items-center lg:flex hidden lg:pr-12">
+                    <i
+                        class="xs:text-xl sm:text-3xl md:text-5xl ph ph-caret-right text-primary-base cursor-pointer next-btn p-1 bg-netral-100 rounded-full shadow-card-m xs:leading-none sm:leading-none"></i>
                 </div>
             @endif
 
@@ -42,8 +52,12 @@
             <div class="w-full px-4 justify-center items-center gap-1 lg:gap-2 flex flex-row">
                 @foreach ($combinedItems as $index => $item)
                     <div class="w-fit">
-                        <div class="z-10 w-6 lg:w-16 h-1 lg:h-2 bg-primary-base rounded-full flex-row justify-center items-center list-indicator {{ $index === 0 ? '' : 'hidden' }}"></div>
-                        <div class="w-2 lg:w-4 lg:h-2 h-1 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default {{ $index === 0 ? 'hidden' : '' }}"></div>
+                        <div
+                            class="z-10 w-6 lg:w-16 h-1 lg:h-2 bg-primary-base rounded-full flex-row justify-center items-center list-indicator {{ $index === 0 ? '' : 'hidden' }}">
+                        </div>
+                        <div
+                            class="w-2 lg:w-4 lg:h-2 h-1 bg-netral-300 rounded-full flex-row justify-center items-center list-indicator-default {{ $index === 0 ? 'hidden' : '' }}">
+                        </div>
                     </div>
                 @endforeach
             </div>
