@@ -204,9 +204,9 @@
                                                 {{-- <div class="w-full h-fit justify-end items-center gap-4 flex flex-row">
                                                     <a href="{{ route('kelola.akun.edit', $user) }}"
                                                         class="py-1 rounded-full justify-center items-center gap-2 flex">
-                                                        <div class="text-center text-rose-600 Heading4 font-medium">Ubah
+                                                        <div class="text-center text-primary-base Heading4 font-medium">Ubah
                                                         </div>
-                                                        <i class="text-2xl text-rose-600 ph ph-pencil-simple"></i>
+                                                        <i class="text-2xl text-primary-base ph ph-pencil-simple"></i>
                                                     </a>
                                                     <form id="deleteForm-{{ $user->id }}"
                                                         action="{{ route('kelola.akun.destroy', $user) }}" method="POST"
@@ -216,10 +216,10 @@
                                                         <button type="button"
                                                             onclick="confirmDelete('{{ $user->id }}')"
                                                             class="py-1 rounded-full justify-center items-center gap-2 flex">
-                                                            <div class="text-center text-rose-600 Heading4 font-medium">
+                                                            <div class="text-center text-primary-base Heading4 font-medium">
                                                                 Hapus
                                                             </div>
-                                                            <i class="text-2xl text-rose-600 ph ph-trash-simple"></i>
+                                                            <i class="text-2xl text-primary-base ph ph-trash-simple"></i>
                                                         </button>
                                                     </form>
                                                    
@@ -276,9 +276,9 @@
                                                 <div class="w-full h-fit justify-end items-center gap-4 flex flex-wrap">
                                                     <a href="{{ route('kelola.akun.edit', $user) }}"
                                                         class="py-1 rounded-full justify-center items-center gap-2 flex">
-                                                        <div class="text-center text-rose-600 Heading4 font-medium">Ubah
+                                                        <div class="text-center text-primary-base Heading4 font-medium">Ubah
                                                         </div>
-                                                        <i class="text-2xl text-rose-600 ph ph-pencil-simple"></i>
+                                                        <i class="text-2xl text-primary-base ph ph-pencil-simple"></i>
                                                     </a>
                                                     <form id="deleteForm-{{ $user->id }}"
                                                         action="{{ route('kelola.akun.destroy', $user) }}" method="POST"
@@ -288,10 +288,10 @@
                                                         <button type="button"
                                                             onclick="confirmDelete('{{ $user->id }}')"
                                                             class="py-1 rounded-full justify-center items-center gap-2 flex">
-                                                            <div class="text-center text-rose-600 Heading4 font-medium">
+                                                            <div class="text-center text-primary-base Heading4 font-medium">
                                                                 Hapus
                                                             </div>
-                                                            <i class="text-2xl text-rose-600 ph ph-trash-simple"></i>
+                                                            <i class="text-2xl text-primary-base ph ph-trash-simple"></i>
                                                         </button>
                                                     </form>
 

@@ -10,7 +10,7 @@
             <div id="MainContent"
                 class="w-full h-full lg:h-fit px-4 md:px-8 lg:px-32 xl:px-72 flex-col justify-center items-center flex lg:flex-none">
                 <div id="MainContent2"
-                    class="w-full h-full max-w-1480 flex-col justify-center items-center gap-2 md:gap-4 flex">
+                    class="w-full h-full max-w-720 flex-col justify-center items-center gap-2 md:gap-4 flex">
                     <div
                         class="w-full h-fit p-4 md:p-6 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-2 md:gap-4 flex">
                         <p class="w-full  text-netral-900 font-extrabold Heading1 line-clamp-1">
@@ -22,7 +22,7 @@
                                     <div class="input-text-label">
                                         Email
                                     </div>
-                                    <input type="email" id="email" name="email" placeholder="Masukkan email kamu"
+                                    <input type="email" id="email" name="email" placeholder="Masukkan email kamu" required
                                         value="{{ old('email') }}"
                                         class="input-text
                                                     @error('email') border-red-500 @enderror">
@@ -40,7 +40,7 @@
                                         Kata sandi
                                     </div>
                                     <div class="w-full justify-center items-center flex flex-row relative">
-                                        <input type="password" id="password" name="password"
+                                        <input type="password" id="password" name="password" required
                                             placeholder="Masukkan kata sandi kamu" id="password"
                                             class="input-text @error('password') border-red-500 @enderror">
                                         <div class="h-full justify-center items-center cursor-pointer">

@@ -24,7 +24,11 @@
                                 <div class="justify-start items-center gap-2 flex">
                                     <p class="w-full text-netral-900 font-semibold line-clamp-1">
                                         {{ $discussion->user->fullname }}</p>
-                                    <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                    @if (
+                                                        $discussion->user->user_type === 'Pembina Komisi' ||
+                                                            ($discussion->user->user_type === 'Mahasiswa' && $discussion->user->admin === 'Aktif'))
+                                                        <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                    @endif
                                 </div>
                                 <div class="text-netral-900 font-semibold hidden md:flex">
                                     -</div>
@@ -169,7 +173,11 @@
                                     <div class="justify-start items-center gap-2 flex">
                                         <p class="w-full text-netral-900 font-semibold line-clamp-1">
                                             {{ $discussion->user->fullname }}</p>
-                                        <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                        @if (
+                                                        $discussion->user->user_type === 'Pembina Komisi' ||
+                                                            ($discussion->user->user_type === 'Mahasiswa' && $discussion->user->admin === 'Aktif'))
+                                                        <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                    @endif
                                     </div>
                                     <div class="text-netral-900 font-semibold hidden md:flex">
                                         -</div>

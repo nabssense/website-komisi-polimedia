@@ -156,7 +156,7 @@
             </div>
         </div>
         <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
-                <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
+                <div class="text-center text-primary-base text-2xl font-medium font-THICCCBOI leading-9">Selesai
                 </div>
             </div>
             {{--  --}}
@@ -791,7 +791,7 @@ function btnJabatanANDformAnggotaID() {
                     </div>
                 </div>
                 <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
-                    <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
+                    <div class="text-center text-primary-base text-2xl font-medium font-THICCCBOI leading-9">Selesai
                 </div>
             </div>
                 
@@ -1012,7 +1012,7 @@ function btnJabatanANDformAnggotaID() {
             </div>
         </div>
         <div class=" w-full bg-blue-400 h-fit py-1 rounded-full justify-center items-center gap-6 inline-flex">
-                <div class="text-center text-rose-600 text-2xl font-medium font-THICCCBOI leading-9">Selesai
+                <div class="text-center text-primary-base text-2xl font-medium font-THICCCBOI leading-9">Selesai
                 </div>
             </div>
         `;

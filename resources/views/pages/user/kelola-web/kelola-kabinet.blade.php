@@ -73,8 +73,8 @@
                         <td class="w-full h-full flex grow shrink basis-4/12 flex-row gap-4 justify-start items-center">
                             <div class="w-full h-fit grow shrink basis-0  justify-end items-center gap-4 flex">
                                 <a href="/kelola-kabinet-pilih" class="py-1 rounded-full justify-center items-center gap-2 flex">
-                                    <div class="text-center text-rose-600 text-lg font-medium font-THICCCBOI leading-7">Ubah</div>
-                                    <i class="text-2xl text-rose-600 ph ph-pencil-simple"></i>
+                                    <div class="text-center text-primary-base text-lg font-medium font-THICCCBOI leading-7">Ubah</div>
+                                    <i class="text-2xl text-primary-base ph ph-pencil-simple"></i>
                                 </a>
                                 <a href="/kelola-kabinet-pilih" class="py-1 px-6 bg-primary-100 rounded-full justify-center items-center gap-2 flex">
                                     <div class="text-center text-netral-900 text-lg font-medium font-THICCCBOI leading-7">Lihat</div>

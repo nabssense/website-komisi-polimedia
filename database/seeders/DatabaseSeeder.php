@@ -168,5 +168,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TentangKomisi::class,
         ]);
+        $this->call([
+            ExcelToDatabaseSeeder::class,
+        ]);
     }
 }

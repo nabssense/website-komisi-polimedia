@@ -9,7 +9,7 @@
             <section id="MainContent"
                 class="w-full h-full lg:h-fit px-4 md:px-8 lg:px-32 xl:px-72 flex-col justify-center items-center flex lg:flex-none">
                 <div id="MainContent2"
-                    class="w-full h-full max-w-1480 flex-col justify-center items-center gap-2 md:gap-4 flex">
+                    class="w-full h-full max-w-720 flex-col justify-center items-center gap-2 md:gap-4 flex">
                     <div
                         class="w-full h-fit p-4 md:p-6 bg-netral-100 rounded-3xl shadow-card flex-col justify-start items-start gap-2 md:gap-4 flex">
                         <div class="w-full h-fit justify-start items-center flex flex-row gap-4">
@@ -27,7 +27,7 @@
                                         Lengkap
                                     </div>
                                 </div>
-                                <input type="text" name="fullname" placeholder="Masukkan nama lengkapmu" id="fullname"
+                                <input type="text" name="fullname" placeholder="Masukkan nama lengkapmu" id="fullname" required
                                     value="{{ old('fullname') }}"
                                     class="w-full pt-2 pb-3 @error('fullname') border-danger-base @enderror bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                 @error('fullname')
@@ -41,13 +41,19 @@
                                     <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Email
                                     </div>
                                 </div>
-                                <input type="email" name="email" placeholder="Masukkan email kamu" id="email"
+                                <input type="email" name="email" placeholder="Masukkan email kamu" id="email" required
                                     value="{{ old('email') }}"
                                     class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                 @error('email')
                                     <div id="email-error" class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                                         {{ $message }}</div>
                                 @enderror
+                            </div>
+                            <div class="w-full bg-netral-200 rounded Body1 font-medium flex flex-row px-4 py-2 items-center gap-4">
+                                <i class="ph-fill ph-info cursor-pointer"></i>
+                                <p class="w-full">
+                                    Gunakkan password dengan format Min. berjumlah 8 karakter, 1 huruf kecil, 1 huruf besar, 1 angka.
+                                </p>
                             </div>
                             <div class="self-stretch h-fit flex-col justify-start items-start flex">
                                 <div class="justify-start items-start inline-flex">
@@ -56,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full justify-center items-center flex flex-row relative">
-                                    <input type="password" name="password" placeholder="Masukkan kata sandi kamu"
+                                    <input type="password" name="password" placeholder="Masukkan kata sandi kamu" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                         value="{{ old('password') }}" id="passwordInput"
                                         class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                     <div onclick="togglePassword('passwordInput', 'showPassword')"
@@ -71,12 +77,12 @@
                             </div>
                             <div class="self-stretch h-fit flex-col justify-start items-start flex">
                                 <div class="justify-start items-start inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Ulang
+                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Ulang 
                                         Kata sandi
                                     </div>
                                 </div>
                                 <div class="w-full justify-center items-center flex flex-row relative">
-                                    <input type="password" name="password_confirmation"
+                                    <input type="password" name="password_confirmation" required
                                         placeholder="Masukkan ulang kata sandi kamu" id="REpasswordInput"
                                         class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                     <div onclick="togglePassword('REpasswordInput', 'REshowPassword')"
@@ -137,56 +143,55 @@
         // 
         // 
         document.addEventListener("DOMContentLoaded", function() {
-            // const form = document.querySelector('form'); // Select the form element
+            const form = document.querySelector('form'); // Select the form element
 
-            // form.addEventListener('submit', function(event) {
-            //     event.preventDefault(); // Prevent form submission
+            form.addEventListener('submit', function(event) {
+                var password = document.getElementById("passwordInput").value;
+        var confirmPassword = document.getElementById("REpasswordInput").value;
+        if (password !== confirmPassword) {
+            event.preventDefault(); // Prevent form submission
+            document.getElementById("passwordMatchError").classList.remove("hidden");
+        } else {
+            document.getElementById("passwordMatchError").classList.add("hidden");
+        }
+                event.preventDefault(); // Prevent form submission
 
-            //     const formData = new FormData(form);
+                const formData = new FormData(form);
 
-            //     fetch(form.action, {
-            //             method: 'POST',
-            //             headers: {
-            //                 'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-            //                 'Accept': 'application/json',
-            //             },
-            //             body: formData // Send form data as-is (no need for JSON.stringify)
-            //         })
-            //         .then(response => response.json())
-            //         .then(data => {
-            //             if (data.success) {
-            //                 runButtonAnimation(); // Run animation if login successful
-            //                 setTimeout(() => {
-            //                     window.location.href =
-            //                         "{{ route('beranda.index') }}"; // Redirect after animation
-            //                 }, 13500); // Adjust timing based on your animation duration
-            //             } else {
-            //                 // Handle validation errors
-            //                 Object.keys(data.errors).forEach(key => {
-            //                     const inputField = document.querySelector(
-            //                         `input[name="${key}"]`);
-            //                     const errorContainer = inputField
-            //                         .nextElementSibling; // Assuming error container follows input
-            //                     if (errorContainer) {
-            //                         errorContainer.textContent = data.errors[key][
-            //                             0
-            //                         ]; // Display first error message
-            //                     }
-            //                 });
-            //             }
-            //         })
-            //         .catch(error => {
-            //             console.error('Error:', error);
-            //         });
-            // });
-            // Example validation logic, replace with your own
-            
+                fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                            'Accept': 'application/json',
+                        },
+                        body: formData // Send form data as-is (no need for JSON.stringify)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            runButtonAnimation(); // Run animation if login successful
+                            setTimeout(() => {
+                                window.location.href =
+                                "{{ route('beranda.index') }}"; // Redirect after animation
+                            }, 13500); // Adjust timing based on your animation duration
+                        } else {
+                            // Handle validation errors
+                            Object.keys(data.errors).forEach(key => {
+                                const errorContainer = document.getElementById(`${key}Error`);
+                                if (errorContainer) {
+                                    errorContainer.textContent = data.errors[key][
+                                    0]; // Display first error message
+                                }
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+
+            });
 
             function runButtonAnimation() {
-                 // Redirect to beranda after animation
-                 document.getElementById("buttonAsli").addEventListener("animationend", function() {
-                    window.location.href = "{{ route('beranda.index') }}";
-                });
                 // Implement your button animation logic here
                 // This function should handle the animation of your button as per your design
                 // Jalankan animasi tombol seperti yang telah Anda definisikan
@@ -194,7 +199,9 @@
                 document.getElementById("navbar").classList.add('body-opacity-0');
                 document.getElementById("text-btn").classList.add('body-opacity-0');
 
+
                 document.getElementById("text-btn").addEventListener("animationend", function() {
+                    document.getElementById("buttonAsli").classList.add('h-0');
                     document.getElementById("form-login").classList.remove('gap-8', 'pt-20', 'md:pt-32');
                     document.getElementById("MainContent").classList.add('body-height-0');
                     document.getElementById("MainContent2").classList.add('body-height-0');

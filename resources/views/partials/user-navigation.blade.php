@@ -49,14 +49,14 @@
                                     <div class="w-full Heading4 text-center">Kamu yakin ingin keluar?</div>
                                 </div>
                                 <div class="w-full flex flex-row gap-2">
-                                    <button id="confirm-delete-button" onclick="" type="submit"
-                                        class="w-full flex btn-secondary-sm px-4">
-                                        Iya, Keluar
-                                    </button>
                                     <button id="cancel-delete-button" type="button"
                                         onclick="togglePopUpShow('keluarAkunAlert')"
                                         class="w-full flex btn-primary-sm px-4">
                                         Tidak
+                                    </button>
+                                    <button id="confirm-delete-button" onclick="" type="submit"
+                                        class="w-full flex btn-secondary-sm px-4">
+                                        Iya, Keluar
                                     </button>
                                 </div>
                             </form>

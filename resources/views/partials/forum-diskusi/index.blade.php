@@ -208,10 +208,11 @@
                     class="w-full py-2 px-4 md:px-8 bg-netral-100 md:rounded-lg justify-start items-start flex text-netral-900 font-semibold Heading2">
                     @if (isset($search))
                         {{ "Hasil Pencarian \"$search\"" }}
+                    @elseif (isset($withCategory))
+                        {{ 'Kategori ' . $withCategory->name }}
                     @else
                         {{ 'Semua Pertanyaan' }}
                     @endif
-                    <span>{{ isset($withCategory) ? ' Kategori ' . $withCategory->name : '' }}</span>
                 </div>
                 <div class="self-stretch h-fit flex-col justify-start items-start gap-4 flex">
                     @forelse ($discussions as $discussion)
@@ -239,7 +240,12 @@
                                                     @if (
                                                         $discussion->user->user_type === 'Pembina Komisi' ||
                                                             ($discussion->user->user_type === 'Mahasiswa' && $discussion->user->admin === 'Aktif'))
-                                                        <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                        @if (
+                                                            $discussion->user->user_type === 'Pembina Komisi' ||
+                                                                ($discussion->user->user_type === 'Mahasiswa' && $discussion->user->admin === 'Aktif'))
+                                                            <i
+                                                                class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                        @endif
                                                     @endif
                                                 </div>
                                                 <div class="text-netral-900 font-semibold hidden md:flex">
@@ -372,82 +378,7 @@
                                 </div>
                             </div>
                             {{-- Answer --}}
-                            <div onclick="window.location.href='{{ route('forum-diskusi.show', $discussion->slug) }}'"
-                                class="w-full h-fit flex-col justify-center items-center py-4 lg:py-8 gap-8 flex cursor-pointer">
-                                {{-- Answer Content --}}
-
-
-                                <div class="w-full h-fit flex-col justify-start items-center gap-6 flex">
-                                    <div class="w-full h-fit flex-col justify-center items-center gap-4 flex">
-                                        <div class="w-full justify-start items-center gap-2 inline-flex">
-                                            {{-- Profil --}}
-                                            <div class="flex-none" href="{{ route('user.profile') }}">
-                                                <img src="{{ filter_var($discussion->user->profile_picture, FILTER_VALIDATE_URL)
-                                                    ? $discussion->user->profile_picture
-                                                    : Storage::url($discussion->user->profile_picture) }}"
-                                                    alt="{{ $discussion->user->fullname }}"
-                                                    class="rounded-full w-9 lg:w-12">
-                                            </div>
-                                            <div
-                                                class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
-                                                <div class="w-full justify-start items-center gap-2 inline-flex ">
-                                                    <div class="justify-start items-center gap-2 flex">
-                                                        <p class="w-full text-netral-900 font-semibold line-clamp-1">
-                                                            {{ $discussion->user->fullname }}</p>
-                                                        <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
-                                                    </div>
-                                                    <div class="text-netral-900 font-semibold hidden md:flex">
-                                                        -</div>
-                                                    <div
-                                                        class="w-fit  text-netral-500 font-normal relative hidden lg:flex">
-                                                        <p class="w-full line-clamp-1">
-                                                            {{ $discussion->user->user_type }}
-                                                        </p>
-                                                    </div>
-                                                    <i
-                                                        class="Heading3 leading-none ph ph-info flex md:hidden group/info-akun relative">
-                                                        <div id="info-akun"
-                                                            class="w-fit h-fit p-4 group-hover/info-akun:flex bg-netral-900 bg-opacity-40 Body2 absolute hidden right-0 bottom-0 line-clamp-2 text-white rounded-lg">
-                                                            {{ $discussion->user->user_type }}</div>
-                                                    </i>
-                                                </div>
-                                                <p class="w-fit text-neutral-900 font-medium Body2">
-                                                    {{ $discussion->created_at->diffForHumans() }}</p>
-                                            </div>
-                                            {{-- <i id="menuButton"
-                                                    class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three relative">
-                                                    <div id="menuDropdown"
-                                                        class="w-fit h-fit flex-col absolute top-10 right-0 p-4 bg-netral-100 gap-4 hidden rounded-lg shadow-card-m">
-                                                        <button
-                                                            onclick="location.href='{{ route('forum-diskusi.edit', $discussion->slug) }}'"
-                                                            class="w-full flex Body1">
-                                                            Ubah
-                                                        </button>
-                                                        <button class="w-full flex Body1">
-                                                            Hapus
-                                                        </button>
-                                                    </div>
-                                                </i> --}}
-                                        </div>
-                                        {{-- Content --}}
-                                        <div class="w-full h-fit flex-col justify-start items-start gap-4 flex">
-                                            <div class="w-full  flex flex-col gap-2">
-                                                <div
-                                                    class="w-full break-all text-neutral-900 font-normal Body1 md:Heading4">
-                                                    {{ $discussion->answer }}</div>
-                                            </div>
-                                            @if (isset($discussion->image) && !empty($answer->image))
-                                                <div class="h-48 rounded-2xl overflow-clip">
-                                                    <img class="h-full"
-                                                        src="{{ asset('storage/' . $answer->image) }}"
-                                                        alt="Gambar Diskusi">
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                           
                         </div>
                     @empty
                         <div class="w-full flex justify-center Heading4 py-8">

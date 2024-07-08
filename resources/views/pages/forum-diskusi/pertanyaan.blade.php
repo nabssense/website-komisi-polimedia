@@ -36,7 +36,11 @@
                                                 <div class="justify-start items-center gap-2 flex">
                                                     <p class="w-full text-netral-900 font-semibold line-clamp-1">
                                                         {{ $discussion->user->fullname }}</p>
-                                                    <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                    @if (
+                                                        $discussion->user->user_type === 'Pembina Komisi' ||
+                                                            ($discussion->user->user_type === 'Mahasiswa' && $discussion->user->admin === 'Aktif'))
+                                                        <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                    @endif
                                                 </div>
                                                 <div class="text-netral-900 font-semibold hidden md:flex">
                                                     -</div>
@@ -60,9 +64,9 @@
                                             class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three relative cursor-pointer">
                                         </i>
                                         <div id="menuDropdown-{{ $discussion->slug }}"
-                                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="toggleDropdownPopUp('{{ $discussion->slug }}'); event.stopPropagation()"
-                                                class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                                class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                 <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
                                                     role="none" onclick="event.stopPropagation();">
                                                     <div class="w-full flex flex-col gap-2">
@@ -94,9 +98,9 @@
                                         </div>
                                         {{-- Alert Delete --}}
                                         <div id="alertDelete-{{ $discussion->slug }}"
-                                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                            class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                                             <div onclick="hideAlertDelete('{{ $discussion->slug }}')"
-                                                class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                                class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                 <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
                                                     role="none" onclick="event.stopPropagation();">
                                                     <div class="w-full Heading4 text-center">Kamu yakin ingin menghapus
@@ -230,7 +234,11 @@
                                                         <div class="justify-start items-center gap-2 flex">
                                                             <p class="w-full text-netral-900 font-semibold line-clamp-1">
                                                                 {{ $answer->user->fullname }}</p>
-                                                            <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                            @if (
+                                                        $discussion->user->user_type === 'Pembina Komisi' ||
+                                                            ($discussion->user->user_type === 'Mahasiswa' && $discussion->user->admin === 'Aktif'))
+                                                        <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                    @endif
                                                         </div>
                                                         <div class="text-netral-900 font-semibold hidden md:flex">
                                                             -</div>
@@ -256,9 +264,9 @@
                                                     class="w-fit text-netral-900 text-2xl md:text-4xl ph ph-dots-three relative cursor-pointer">
                                                 </i>
                                                 <div id="menuDropdown-{{ $answer->id }}"
-                                                    class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                                    class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                                                     <div onclick="toggleDropdownPopUp('{{ $answer->id }}'); event.stopPropagation()"
-                                                        class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                                        class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                         <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
                                                             role="none" onclick="event.stopPropagation();">
                                                             <div class="w-full flex flex-col gap-2">
@@ -291,9 +299,9 @@
                                                 </div>
                                                 {{-- Alert Delete --}}
                                                 <div id="alertDelete-{{ $answer->id }}"
-                                                    class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-screen h-screen bg-opacity-20 bg-netral-900 hidden">
+                                                    class="flex-col Body1 gap-2 fixed left-0 top-0 justify-center items-center z-50 w-full h-full bg-opacity-20 bg-netral-900 hidden">
                                                     <div onclick="hideAlertDelete('{{ $answer->id }}')"
-                                                        class="close-button-bg w-screen h-screen relative justify-center items-end px-4 pb-4 lg:items-center flex">
+                                                        class="close-button-bg w-full h-full relative justify-center items-end px-4 pb-4 lg:items-center flex">
                                                         <div class="flex flex-col bg-netral-100 rounded-xl w-full lg:w-480 h-fit justify-center items-center overflow-clip gap-4 p-4"
                                                             role="none" onclick="event.stopPropagation();">
                                                             <div class="w-full Heading4 text-center">Kamu yakin ingin

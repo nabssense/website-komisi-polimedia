@@ -28,7 +28,7 @@
                         {{-- Ubah --}}
                         <div class="w-fit flex flex-row">
                             <button id="ubahNamaButton" onclick="togglePopUpShow('ubahNamaPopup')" type="button"
-                                class="option-button text-center text-rose-600 text-lg font-medium font-THICCCBOI leading-7">Ubah</button>
+                                class="option-button text-center text-primary-base text-lg font-medium font-THICCCBOI leading-7">Ubah</button>
 
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                         {{-- Ubah --}}
                         <div class="w-fit flex flex-row">
                             <button id="ubahPasswordButton" onclick="togglePopUpShow('ubahPasswordPopup')" type="button"
-                                class="option-button text-center text-rose-600 text-lg font-medium font-THICCCBOI leading-7">Ubah</button>
+                                class="option-button text-center text-primary-base text-lg font-medium font-THICCCBOI leading-7">Ubah</button>
 
                         </div>
 

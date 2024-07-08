@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\ManageWebsite;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ManageUserUpdateRequest extends FormRequest
@@ -27,9 +28,15 @@ class ManageUserUpdateRequest extends FormRequest
             'remove_profile_picture' => 'nullable|boolean', // Ubah max:2048 sesuai dengan kebutuhan ukuran file
             'fullname' => 'required',
             'email' => 'required|email|min:8|max:50|unique:users,email,' . $userId,
-            'nim' => 'required|numeric|unique:users,user_type,nim,'. $userId,
+            'nim' => [
+                'required',
+                Rule::unique('users', 'nim')->where(function ($query) {
+                    return $query->where('user_type', $this->input('user_type'));
+                }),
+            ],
             'user_type' => 'required|in:Mahasiswa,Admin,Pembina Komisi',
             'status' => 'required',
+            'admin' => 'required',
         ];
         // Jika user_type bukan "Mahasiswa", buat edu_program menjadi opsional
         if ($this->input('user_type') !== 'Mahasiswa') {

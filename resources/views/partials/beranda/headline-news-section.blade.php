@@ -12,7 +12,8 @@
             class="headline-container w-1480 h-fit gap-1 lg:gap-4 flex-col justify-center items-center flex lg:px-16 relative">
             @foreach ($combinedItems as $index => $item)
                 @if ($item instanceof \App\Models\PeriodFunding)
-                    <a @auth href="{{ route('kelola.pencairan.form', $item->slug) }} " @endauth @guest href="/masuk-akun" @endguest
+                    <a @auth href="{{ route('kelola.pencairan.form', $item->slug) }}" @endauth
+                        @guest href="/masuk-akun" @endguest
                         class="headline-item z-30 w-full h-fit flex flex-row justify-center items-center transition-transform duration-500 ease-in-out cursor-pointer {{ $index === 0 ? '' : 'hidden' }}"
                         data-index="{{ $index }}">
                         <div
@@ -66,70 +67,106 @@
 </section>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const headlineItems = document.querySelectorAll('.headline-item');
-        const listIndicators = document.querySelectorAll('.list-indicator');
-        const defaultListIndicators = document.querySelectorAll('.list-indicator-default');
-        let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const headlineItems = document.querySelectorAll('.headline-item');
+    const listIndicators = document.querySelectorAll('.list-indicator');
+    const defaultListIndicators = document.querySelectorAll('.list-indicator-default');
+    let currentIndex = 0;
+    let startX, endX;
 
-        function showHeadlineItem(index) {
-            headlineItems.forEach((item, i) => {
-                if (i === index) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-            updateListIndicators(index);
-        }
-
-        function showPrevItem() {
-            if (currentIndex > 0) {
-                currentIndex--;
+    function showHeadlineItem(index) {
+        console.log("showHeadlineItem called with index:", index);
+        headlineItems.forEach((item, i) => {
+            if (i === index) {
+                item.classList.remove('hidden');
             } else {
-                currentIndex = headlineItems.length - 1;
+                item.classList.add('hidden');
             }
-            showHeadlineItem(currentIndex);
+        });
+        updateListIndicators(index);
+    }
+
+    function showPrevItem() {
+        console.log("showPrevItem called");
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = headlineItems.length - 1;
         }
-
-        function showNextItem() {
-            if (currentIndex < headlineItems.length - 1) {
-                currentIndex++;
-            } else {
-                currentIndex = 0;
-            }
-            showHeadlineItem(currentIndex);
-        }
-
-        function updateListIndicators(index) {
-            listIndicators.forEach((indicator, i) => {
-                if (i === index) {
-                    indicator.classList.remove('hidden');
-                } else {
-                    indicator.classList.add('hidden');
-                }
-            });
-            defaultListIndicators.forEach((indicator, i) => {
-                if (i === index) {
-                    indicator.classList.add('hidden');
-                } else {
-                    indicator.classList.remove('hidden');
-                }
-            });
-        }
-
-        prevBtn.addEventListener('click', showPrevItem);
-        nextBtn.addEventListener('click', showNextItem);
-
         showHeadlineItem(currentIndex);
+    }
 
-        // Auto-slide functionality
-        const formLogin = document.getElementById('form-login');
-        if (!formLogin) {
-            // Auto-slide functionality if not on login page
-            autoSlideInterval = setInterval(showNextItem, 8000);
+    function showNextItem() {
+        console.log("showNextItem called");
+        if (currentIndex < headlineItems.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
         }
+        showHeadlineItem(currentIndex);
+    }
+
+    function updateListIndicators(index) {
+        console.log("updateListIndicators called with index:", index);
+        listIndicators.forEach((indicator, i) => {
+            if (i === index) {
+                indicator.classList.remove('hidden');
+            } else {
+                indicator.classList.add('hidden');
+            }
+        });
+        defaultListIndicators.forEach((indicator, i) => {
+            if (i === index) {
+                indicator.classList.add('hidden');
+            } else {
+                indicator.classList.remove('hidden');
+            }
+        });
+    }
+
+    function handleTouchStart(e) {
+        startX = e.touches[0].clientX;
+    }
+
+    function handleTouchEnd(e) {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    }
+
+    function handleSwipe() {
+        if (startX > endX) {
+            showNextItem();
+        } else if (startX < endX) {
+            showPrevItem();
+        }
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', showPrevItem);
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', showNextItem);
+    }
+
+    headlineItems.forEach(item => {
+        item.addEventListener('touchstart', handleTouchStart);
+        item.addEventListener('touchend', handleTouchEnd);
     });
+
+    showHeadlineItem(currentIndex);
+
+    // Auto-slide functionality
+    const formLogin = document.getElementById('form-login');
+    if (!formLogin) {
+        // Auto-slide functionality if not on login page
+        autoSlideInterval = setInterval(showNextItem, 8000);
+    }
+});
+
 </script>
+<script src="{{ asset('js/animation.js') }}"></script>
+<script src="{{ asset('js/dropdownPopup.js') }}"></script>
+

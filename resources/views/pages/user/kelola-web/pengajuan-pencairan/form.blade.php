@@ -9,7 +9,7 @@
         @csrf
         <div class="h-fit justify-start items-center gap-4 inline-flex">
             <button type="button" onclick="pageBeranda()" class="ph ph-x text-32"></button>
-            <div class="w-80 text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Form Pengajuan</div>
+            <div class="w-full text-netral-900 text-2xl font-extrabold font-THICCCBOI leading-9">Form Pengajuan</div>
         </div>
         {{-- Main Content --}}
         <div
