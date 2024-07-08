@@ -9,7 +9,7 @@
                     alt="Image" />
             </a>
             <a href="/beranda" class="w-fit h-full  relative">
-                <img class="lazyload w-fit h-full" src="{{ url('img/kabinet/HARPIAH/Logo/Kabinet_Harpiah_Vertical.svg') }}"
+                <img class="lazyload w-fit h-full" src="{{ asset('img/kabinet/HARPIAH/Logo/Kabinet_Harpiah_Vertical.svg') }}"
                     alt="Image" />
             </a>
         </div>
