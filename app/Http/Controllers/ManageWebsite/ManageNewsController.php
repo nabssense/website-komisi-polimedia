@@ -6,6 +6,7 @@ use App\Models\News;
 use App\Models\Berita;
 use Illuminate\Support\Str;
 use App\Models\CategoryNews;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ManageWebsite\ManageNewsRequest;
@@ -69,42 +70,53 @@ class ManageNewsController extends Controller
 
     public function store(ManageNewsRequest $request)
     {
-        // Validasi dilakukan otomatis oleh request class
         $validated = $request->validated();
 
-        // Menambahkan gambar utama jika ada
-        $gambarUtamaPaths = [];
+        // Process image uploads
         if ($request->hasFile('image')) {
+            $gambarUtamaPaths = [];
             foreach ($request->file('image') as $file) {
                 $path = $file->store('image/news', 'public');
                 $gambarUtamaPaths[] = $path;
             }
-            $validated['image'] = json_encode($gambarUtamaPaths); // Konversi array ke JSON
+            $validated['image'] = json_encode($gambarUtamaPaths);
         } else {
-            $validated['image'] = null; // Berikan nilai null jika tidak ada gambar utama
+            $validated['image'] = null;
         }
-
-        $categoryId = CategoryNews::where('slug', $validated['category_slug'])->first()->id;
-        $validated['category_id'] = $categoryId;
-        $validated['user_id'] = auth()->id();
-        $validated['slug'] = Str::slug($validated['title']) . '-' . time();
-
-        // Menambahkan path gambar headline jika ada
+    
+        // Handle headline image upload
         if ($request->hasFile('headline_image')) {
             $gambarHeadlinePath = $request->file('headline_image')->store('image/news/headline', 'public');
             $validated['headline_image'] = $gambarHeadlinePath;
         } else {
-            $validated['headline_image'] = null; // Berikan nilai null jika tidak ada gambar headline
+            $validated['headline_image'] = null;
         }
-
-        $create = News::create($validated);
-
-        if ($create) {
-            // Redirect atau berikan respons sesuai kebutuhan aplikasi Anda
+    
+        // Add user_id, category_id, and other necessary fields
+        $validated['category_id'] = CategoryNews::where('slug', $validated['category_slug'])->first()->id;
+        $validated['user_id'] = auth()->id();
+        $validated['slug'] = Str::slug($validated['title']) . '-' . time();
+    
+        // Create news entry
+        $news = News::create($validated);
+    
+        if ($news) {
+            // Handle notifications if needed
+            if ($request->input('send_notification') == 'Aktif') {
+                $notification = new Notification();
+                $notification->user_id = auth()->id();
+                $notification->news_id = $news->id; // Use $news->id to get the newly created news id
+                $notification->title = $validated['title'];
+                $notification->image = $validated['image'];
+                $notification->message = $validated['content']; // Ensure 'message' is set in your form
+                $notification->save();
+            }
+    
             return redirect()->route('kelola.berita.index')->with('success', 'Berita berhasil ditambahkan!');
         }
+    
+        return back()->withInput()->with('error', 'Gagal menambahkan berita. Silakan coba lagi.');
     }
-
 
     public function edit($id)
     {
@@ -124,48 +136,48 @@ class ManageNewsController extends Controller
     }
 
     public function update(ManageNewsRequest $request, $id)
-{
-    // Validasi dilakukan oleh ManageNewsRequest
-    $validated = $request->validated();
+    {
+        // Validasi dilakukan oleh ManageNewsRequest
+        $validated = $request->validated();
 
-    // Temukan berita berdasarkan ID
-    $news = News::findOrFail($id);
+        // Temukan berita berdasarkan ID
+        $news = News::findOrFail($id);
 
-    // Menangani gambar utama jika ada
-    $gambarUtamaPaths = [];
-    // Menangani gambar utama jika ada perubahan
-    if ($request->hasFile('image')) {
+        // Menangani gambar utama jika ada
         $gambarUtamaPaths = [];
-        foreach ($request->file('image') as $file) {
-            $path = $file->store('image/news', 'public');
-            $gambarUtamaPaths[] = $path;
+        // Menangani gambar utama jika ada perubahan
+        if ($request->hasFile('image')) {
+            $gambarUtamaPaths = [];
+            foreach ($request->file('image') as $file) {
+                $path = $file->store('image/news', 'public');
+                $gambarUtamaPaths[] = $path;
+            }
+            $validated['image'] = json_encode($gambarUtamaPaths); // Ubah array gambar ke JSON
+        } else {
+            // Jika tidak ada perubahan gambar, gunakan gambar yang sudah ada
+            $validated['image'] = $news->image;
         }
-        $validated['image'] = json_encode($gambarUtamaPaths); // Ubah array gambar ke JSON
-    } else {
-        // Jika tidak ada perubahan gambar, gunakan gambar yang sudah ada
-        $validated['image'] = $news->image;
+
+        // Menangani gambar headline jika ada
+        if ($request->hasFile('headline_image')) {
+            $gambarHeadlinePath = $request->file('headline_image')->store('image/news/headline', 'public');
+            $validated['headline_image'] = $gambarHeadlinePath;
+        }
+
+        // Update data berita sesuai input yang diterima
+        $news->update([
+            'title' => $validated['title'],
+            'content' => $validated['content'],
+            'category_slug' => $validated['category_slug'],
+            'headline_status' => $validated['headline_status'],
+            'headline_image' => isset($validated['headline_image']) ? $validated['headline_image'] : null,
+            'image' => $validated['image'],
+            // tambahkan kolom lainnya sesuai kebutuhan
+        ]);
+
+        // Redirect ke halaman index atau halaman lainnya
+        return redirect()->route('kelola.berita.index')->with('success', 'Berita berhasil diperbarui!');
     }
-
-    // Menangani gambar headline jika ada
-    if ($request->hasFile('headline_image')) {
-        $gambarHeadlinePath = $request->file('headline_image')->store('image/news/headline', 'public');
-        $validated['headline_image'] = $gambarHeadlinePath;
-    }
-
-    // Update data berita sesuai input yang diterima
-    $news->update([
-        'title' => $validated['title'],
-        'content' => $validated['content'],
-        'category_slug' => $validated['category_slug'],
-        'headline_status' => $validated['headline_status'],
-        'headline_image' => isset($validated['headline_image']) ? $validated['headline_image'] : null,
-        'image' => $validated['image'],
-        // tambahkan kolom lainnya sesuai kebutuhan
-    ]);
-
-    // Redirect ke halaman index atau halaman lainnya
-    return redirect()->route('kelola.berita.index')->with('success', 'Berita berhasil diperbarui!');
-}
 
 
     public function destroy($id)

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <div class="w-full h-screen  p-4 md:p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" >
+    <div class="w-full h-screen  p-4 md:p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex">
 
         {{-- Main Content --}}
         <form action="{{ route('kelola.berita.store') }}" method="POST" enctype="multipart/form-data"
@@ -30,7 +30,7 @@
                         @error('image')
                             <div id="image-error" class="text-danger-base font-normal Heading4">{{ $message }}</div>
                         @enderror
-                        
+
                     </div>
 
                     {{-- Image Tampil taruh disini --}}
@@ -38,9 +38,10 @@
                         class="w-fit parent flex flex-row gap-4 scrollbar-hidden-vertikal touch-pan-y" class="flex gap-4">
                         {{-- Preview gambar akan ditambahkan secara dinamis di sini --}}
                     </div>
-                    
+
                 </div>
-                <div class="w-full flex text-stone-700 font-normal Body1">Masukkan gambar dengan ratio 1:1 atau 4:5 agar sesuai. MAKS 3MB
+                <div class="w-full flex text-stone-700 font-normal Body1">Masukkan gambar dengan ratio 1:1 atau 4:5 agar
+                    sesuai. MAKS 3MB
                 </div>
                 <div class="w-full h-fit flex-col justify-start items-start flex">
                     <div class="input-text-label">Judul Berita
@@ -63,7 +64,7 @@
                         <div class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                             {{ $message }}</div>
                     @enderror
-                    
+
                 </div>
 
                 <div class="w-full h-fit flex-col justify-start items-start inline-flex">
@@ -85,7 +86,12 @@
                         </div>
                     @enderror
                 </div>
-                
+                <div class="w-full bg-netral-200 rounded Body1 font-medium flex flex-row px-4 py-2 items-center gap-4">
+                    <i class="ph-fill ph-info cursor-pointer"></i>
+                    <p class="w-full">
+                        Headline News adalah berita yang akan ditampilkan dihalaman awal dipaling atas.
+                    </p>
+                </div>
                 <div class="w-full h-full justify-start items-start gap-4 inline-flex flex-col">
                     <div id="toggle-btn1"
                         onclick="toggleSwitch('toggle-btn1', 'toggle-status1', 'toggle-value1', 'toggle-icon-inner1', 'gambar-headline1');"
@@ -124,19 +130,31 @@
                             @error('headline_image')
                                 <div id="image-error" class="text-danger-base font-normal Heading4">{{ $message }}</div>
                             @enderror
-                            <div class="w-full flex text-stone-700 font-normal Body1">Masukkan gambar dengan ukuran 21:9 agar sesuai. MAKS 4MB
+                            <div class="w-full flex text-stone-700 font-normal Body1">Masukkan gambar dengan ukuran 21:9
+                                agar sesuai. MAKS 4MB
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="w-full bg-netral-200 rounded Body1 font-medium flex flex-row px-4 py-2 items-center gap-4">
-                    <i class="ph-fill ph-info cursor-pointer"></i>
-                    <p class="w-full">
-                        Headline News adalah berita yang akan ditampilkan dihalaman awal dipaling atas.
-                    </p>
+                <div class="w-full h-full justify-start items-start gap-4 inline-flex flex-col">
+                    <div id="toggle-btn-notif"
+                        onclick="toggleSwitch('toggle-btn-notif', 'toggle-status-notif', 'toggle-value-notif', 'toggle-icon-inner-notif');"
+                        class="w-full h-fit flex-col justify-start items-center inline-flex relative">
+                        <div class="w-full justify-start items-start inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Kirim
+                                notifikasi ke semua</div>
+                        </div>
+                        <div class="relative flex flex-row items-center w-full cursor-pointer">
+                            <div id="toggle-status-notif"
+                                class="w-full bg-white focus:outline-none focus:font-semibold font-semibold text-netral-800 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                Tidak Aktif</div>
+                            <input type="hidden" name="send_notification" id="toggle-value-notif" value="0">
+                        </div>
+                        <div id="toggle-icon" class="absolute right-0 items-center justify-center flex h-full">
+                            <i id="toggle-icon-inner-notif" class="text-32 ph ph-toggle-left cursor-pointer"></i>
+                        </div>
+                    </div>
                 </div>
-                <script></script>
-
             </div>
 
 
@@ -147,7 +165,7 @@
         </form>
     </div>
     <script>
-       document.querySelector('#image-input-multiple').addEventListener('change', function() {
+        document.querySelector('#image-input-multiple').addEventListener('change', function() {
             const previewContainer = document.querySelector('#image-preview-container');
             previewContainer.innerHTML = ''; // Bersihkan preview sebelum menambahkan gambar baru
 
@@ -158,7 +176,8 @@
                 reader.onload = function(e) {
                     const imgPreview = document.createElement('img');
                     imgPreview.src = e.target.result;
-                    imgPreview.classList.add('w-40', 'h-40', 'aspect-auto', 'rounded-2xl', 'object-cover');
+                    imgPreview.classList.add('w-40', 'h-40', 'aspect-auto', 'rounded-2xl',
+                        'object-cover');
                     previewContainer.appendChild(imgPreview);
                 };
                 reader.readAsDataURL(file);
@@ -173,41 +192,27 @@
     </script>
 
     <script>
-        // Ambil elemen toggle dan tambahkan event listener pada saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleButton = document.querySelector('#toggle-btn1');
-            const toggleText = document.querySelector('#toggle-status1');
-            const toggleValue = document.querySelector('#toggle-value1');
-            const toggleIcon = document.querySelector('#toggle-icon-inner1');
-            const toggleContent = document.querySelector('#gambar-headline1');
-
-            toggleButton.addEventListener('click', function() {
-                if (toggleText.textContent.trim() === 'Tidak Aktif') {
-                    toggleValue.value = 'Aktif';
-                    toggleText.textContent = 'Aktif';
-                    toggleIcon.classList.remove('ph-toggle-left');
-                    toggleIcon.classList.remove('ph');
-                    toggleIcon.classList.add('ph-toggle-right');
-                    toggleIcon.classList.add('ph-fill');
-                    toggleContent.classList.remove('hidden');
-                } else {
-                    toggleValue.value = 'Tidak Aktif';
-                    toggleText.textContent = 'Tidak Aktif';
-                    toggleIcon.classList.remove('ph-fill');
-                    toggleIcon.classList.remove('ph-toggle-right');
-                    toggleIcon.classList.add('ph');
-                    toggleIcon.classList.add('ph-toggle-left');
-                    toggleContent.classList.add('hidden');
-                }
-            });
-
-            // Reset input gambar ketika klik pilih gambar di dalam toggleContent
-            toggleContent.querySelector('input[type="file"]').addEventListener('click', function() {
-                this.value = null;
-            });
-        });
+        function toggleSwitch(btnId, statusId, valueId, iconInnerId, headlineId) {
+            const btn = document.getElementById(btnId);
+            const status = document.getElementById(statusId);
+            const value = document.getElementById(valueId);
+            const icon = document.getElementById(iconInnerId);
+            const headline = document.getElementById(headlineId);
+            if (status.textContent.trim() === 'Tidak Aktif') {
+                status.textContent = 'Aktif';
+                value.value = 'Aktif';
+                icon.classList.remove('ph-toggle-left');
+                icon.classList.add('ph-toggle-right', 'ph-fill');
+                headline.classList.remove('hidden');
+            } else {
+                status.textContent = 'Tidak Aktif';
+                value.value = 'Tidak Aktif';
+                icon.classList.remove('ph-toggle-right', 'ph-fill');
+                icon.classList.add('ph-toggle-left');
+                headline.classList.add('hidden');
+            }
+        }
     </script>
-
 
     <script src="{{ asset('js/inputImagePreview.js') }}"></script>
     <script src="{{ asset('js/touchdragscroll.js') }}"></script>

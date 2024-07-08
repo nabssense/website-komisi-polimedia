@@ -4,13 +4,14 @@ use App\Models\PeriodsFunding;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ForumDiscussion\AnswerController;
 use App\Http\Controllers\ManageWebsite\ManageNewsController;
 use App\Http\Controllers\ManageWebsite\ManageUserController;
 use App\Http\Controllers\ForumDiscussion\DiscussionController;
 use App\Http\Controllers\ManageWebsite\ManageBeritaController;
-use App\Http\Controllers\ManageWebsite\ScholarshipFunding\ExportController;
 use App\Http\Controllers\ScholarshipFunding\PeriodFundingController;
+use App\Http\Controllers\ManageWebsite\ScholarshipFunding\ExportController;
 use App\Http\Controllers\ManageWebsite\ScholarshipFunding\ScholarshipFundingController;
 use App\Http\Controllers\ManageWebsite\ScholarshipFunding\PeriodFundingController as ScholarshipFundingPeriodFundingController;
 /*
@@ -104,6 +105,9 @@ Route::middleware('auth')->group(function () {
             Route::patch('update-profile-picture', [UserController::class, 'updateProfilePicture'])->name('user.update.profile-picture')->middleware('auth');
         });
     });
+// Notifikasi
+
+    Route::get('/notifikasi', [NotificationController::class, 'index'])->name('notifikasi.index');
 
 
     Route::prefix('kelola-website')->group(function () {
@@ -239,13 +243,6 @@ Route::get('/tentang-kabinet', function () {
 
 
 
-// Notifikasi
-Route::get('/notifikasi', function () {
-    return view('pages.notifikasi.notifikasi', [
-        "title" => "Website Komisi | Notifikasi",
-        "active" => "Notifikasi",
-    ]);
-});
 
 
 Route::get('/kelola-kabinet-tambah', function () {

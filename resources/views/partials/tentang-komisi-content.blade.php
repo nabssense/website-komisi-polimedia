@@ -202,7 +202,8 @@
             class="w-full max-w-1480 h-fit p-4 md:p-12 bg-white rounded-3xl shadow flex-col justify-start items-start gap-9 flex">
             <div class="w-full h-fit flex-col justify-start items-start gap-8 flex ">
                 <div class="w-full justify-start items-center gap-8 flex xl:flex-row">
-                    <div class="text-center lg:text-start text-netral-900 Heading1  lg:text-5xl xl:text-7xl  font-extrabold">
+                    <div
+                        class="text-center lg:text-start text-netral-900 Heading1  lg:text-5xl xl:text-7xl  font-extrabold">
                         Membidik Prestasi Membangun Negeri</div>
                     <div class="w-full h-full lg:flex hidden">
                         <img class="w-full h-full " src="{{ url('img/kabinet/Kabinet_Harpiah_Vertical.svg') }}"
@@ -229,15 +230,15 @@
                     <div class="w-full h-fit flex-col justify-start items-start gap-2 inline-flex pt-2">
                         <div class="text-netral-900 text-2xl font-medium font-THICCCBOI leading-9">Komunitas
                             Bidikmisi
-                            Politeknik Negeri Media Kreatif (KOMISI PoliMedia)</div>
+                            Politeknik Negeri Media Kreatif</div>
                         <div
                             class="w-full h-fit text-justify text-zinc-500 text-base font-normal font-THICCCBOI leading-normal">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat metus sed lacus,
-                            ornare
-                            feugiat mattis. Sed pulvinar id bibendum id vel consequat dui elementum auctor.
-                            Fringilla
-                            hendrerit maecenas pharetra vestibulum, eu elit nibh. Maecenas pellentesque enim
-                            tincidunt.</div>
+                            Komunitas yang menaungi KIP di Polimedia berperan sebagai jembatan dalam mengurus segala hal
+                            terkait Bidikmisi, yang sekarang dikenal sebagai KIP-K. Komunitas ini memfasilitasi
+                            komunikasi antara mahasiswa dan pihak kampus, serta sebaliknya, untuk memastikan segala
+                            urusan terkait program KIP-K berjalan lancar dan efektif. Komunitas ini membantu mahasiswa
+                            dalam memahami dan mengakses hak-hak mereka, serta menyampaikan informasi penting dari
+                            kampus kepada mahasiswa penerima KIP-K.</div>
                     </div>
                 </div>
             </div>

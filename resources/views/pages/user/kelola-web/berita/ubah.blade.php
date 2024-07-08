@@ -50,7 +50,7 @@
                     <input type="text" name="title" placeholder="Cth: KOBRA" value="{{ $news->title }}"
                         class="input-text">
                     @error('title')
-                        <div id="image-error" class="text-danger-base font-normal Heading4">{{ $message }}</div>
+                        <div class="text-danger-base font-normal Heading4">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -194,6 +194,6 @@
         });
     </script>
     <script src="{{ asset('js/inputImagePreview.js') }}"></script>
-    <script src="{{ asset('js/touchdragscroll.js') }}"></script>
+    {{-- <script src="{{ asset('js/touchdragscroll.js') }}"></script> --}}
     <script src="{{ asset('js/inputTextArea.js') }}"></script>
 @endsection

@@ -52,7 +52,7 @@
                 </div>
                 <div class="justify-end items-center gap-4 xl:gap-8 flex flex-none">
                     @auth
-                        <a href="/notifikasi"
+                        <a href="{{ route('notifikasi.index') }}"
                             class="{{ $active === 'Notifikasi' ? 'ph-fill text-primary-base ' : '' }} ph ph-notification text-4xl md:text-32"></a>
                         <a class="w-fit h-fit lg:flex hidden" href="{{ route('user.profile')}}">
                             <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
