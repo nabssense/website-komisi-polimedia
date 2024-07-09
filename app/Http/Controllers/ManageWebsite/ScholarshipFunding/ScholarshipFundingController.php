@@ -43,14 +43,14 @@ class ScholarshipFundingController extends Controller
 
         // Process and store uploaded files (statement_letter and activity_certificate)
         if ($request->hasFile('statement_letter')) {
-            $validatedData['statement_letter'] = $request->file('statement_letter')->store('scholarship_fundings');
+            $validatedData['statement_letter'] = $request->file('statement_letter')->store('scholarship_fundings', 'public');
         }
 
         if ($request->hasFile('activity_certificate')) {
-            $validatedData['activity_certificate'] = $request->file('activity_certificate')->store('scholarship_fundings');
+            $validatedData['activity_certificate'] = $request->file('activity_certificate')->store('scholarship_fundings', 'public');
         }
         if ($request->hasFile('activity_certificate')) {
-            $validatedData['competition_certificate'] = $request->file('competition_certificate')->store('scholarship_fundings');
+            $validatedData['competition_certificate'] = $request->file('competition_certificate')->store('scholarship_fundings', 'public');
         }
 
         // Set user_id based on authenticated user

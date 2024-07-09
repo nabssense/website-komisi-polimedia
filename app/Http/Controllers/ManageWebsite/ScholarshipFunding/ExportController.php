@@ -53,15 +53,15 @@ class ExportController extends Controller
             $sheet->setCellValue('F' . $row, $funding->edu_program);
             $sheet->setCellValue('G' . $row, $funding->name);
             $sheet->setCellValue('H' . $row, $funding->scholarship_type);
-            $sheet->setCellValue('I' . $row, $funding->statement_letter ? 'www.komisi-polimedia.com/' . $funding->statement_letter : '');
+            $sheet->setCellValue('I' . $row, $funding->statement_letter ? 'www.komisi-polimedia.com/storage/' . $funding->statement_letter : '');
             $sheet->setCellValue('J' . $row, $funding->mbkm_program);
             $sheet->setCellValue('K' . $row, $funding->student_activity);
-            $sheet->setCellValue('L' . $row, $funding->activity_certificate ? 'www.komisi-polimedia.com/' . $funding->activity_certificate : '');
+            $sheet->setCellValue('L' . $row, $funding->activity_certificate ? 'www.komisi-polimedia.com/storage/' . $funding->activity_certificate : '');
             $sheet->setCellValue('M' . $row, $funding->competition_status);
             $sheet->setCellValue('N' . $row, $funding->competition_name);
             $sheet->setCellValue('O' . $row, $funding->competition_level);
             $sheet->setCellValue('P' . $row, $funding->competition_rank);
-            $sheet->setCellValue('Q' . $row, $funding->competition_certificate ? 'www.komisi-polimedia.com/' . $funding->competition_certificate : '');
+            $sheet->setCellValue('Q' . $row, $funding->competition_certificate ? 'www.komisi-polimedia.com/storage/' . $funding->competition_certificate : '');
             $row++;
         }
 
