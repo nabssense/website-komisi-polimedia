@@ -138,7 +138,7 @@
                                                 <div
                                                     class="h-16 w-16 overflow-clip object-fill rounded-full justify-center items-center flex relative">
                                                     <img class="w-full aspect-auto object-bottom"
-                                                        src="{{ filter_var($user->profile_picture, FILTER_VALIDATE_URL)
+                                                        src="{{ strpos($user->profile_picture, 'https://ui-avatars.com') === 0
                                                             ? $user->profile_picture
                                                             : Storage::url($user->profile_picture) }}" />
                                                 </div>
@@ -276,7 +276,8 @@
                                                 <div class="w-full h-fit justify-end items-center gap-4 flex flex-wrap">
                                                     <a href="{{ route('kelola.akun.edit', $user) }}"
                                                         class="py-1 rounded-full justify-center items-center gap-2 flex">
-                                                        <div class="text-center text-primary-base Heading4 font-medium">Ubah
+                                                        <div class="text-center text-primary-base Heading4 font-medium">
+                                                            Ubah
                                                         </div>
                                                         <i class="text-2xl text-primary-base ph ph-pencil-simple"></i>
                                                     </a>
@@ -288,7 +289,8 @@
                                                         <button type="button"
                                                             onclick="confirmDelete('{{ $user->id }}')"
                                                             class="py-1 rounded-full justify-center items-center gap-2 flex">
-                                                            <div class="text-center text-primary-base Heading4 font-medium">
+                                                            <div
+                                                                class="text-center text-primary-base Heading4 font-medium">
                                                                 Hapus
                                                             </div>
                                                             <i class="text-2xl text-primary-base ph ph-trash-simple"></i>
@@ -309,7 +311,7 @@
                                                             <div
                                                                 class="h-12 w-12 overflow-clip object-fill rounded-full justify-center items-center flex relative">
                                                                 <img class="w-full aspect-auto object-bottom"
-                                                                    src="{{ filter_var($user->profile_picture, FILTER_VALIDATE_URL)
+                                                                    src="{{ strpos($user->profile_picture, 'https://ui-avatars.com') === 0
                                                                         ? $user->profile_picture
                                                                         : Storage::url($user->profile_picture) }}" />
                                                             </div>
@@ -377,14 +379,58 @@
 
                             </tbody>
                         </table>
-                        <button class="btn-secondary">Lihat
-                            Selengkapnya
-                        </button>
+                        <!-- Pagination links -->
+                        <!-- Load More Button -->
+                        <div id="load-more-container" class="mt-4">
+                            <button id="load-more-btn" class="btn-secondary">Lihat Selengkapnya</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        @push('scripts')
+            <script>
+                // JavaScript for Load More functionality
+                document.addEventListener('DOMContentLoaded', function() {
+                    let page = 1;
 
+                    // Function to load more users
+                    function loadMoreUsers() {
+                        fetch(`/load-more-users?page=${page}`, {
+                                method: 'GET',
+                                headers: {
+                                    'X-Requested-With': 'XMLHttpRequest'
+                                }
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                const userList = document.getElementById('user-list');
+                                data.users.forEach(user => {
+                                    let html = `
+                                <tr class="w-full flex-col bg-netral-100 lg:flex-row justify-start items-center gap-4 hidden lg:flex relative">
+                                    <!-- User data cells -->
+                                    <!-- Adjust as per your user data -->
+                                </tr>
+                            `;
+                                    userList.insertAdjacentHTML('beforeend', html);
+                                });
+                                page++;
+                                if (!data.has_more) {
+                                    document.getElementById('load-more-container').style.display = 'none';
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error loading more users:', error);
+                            });
+                    }
+
+                    // Event listener for Load More button
+                    document.getElementById('load-more-btn').addEventListener('click', function() {
+                        loadMoreUsers();
+                    });
+                });
+            </script>
+        @endpush
 
         @include('partials.footer')
         <script src="{{ asset('js/toggleDropdown2PopUp.js') }}"></script>

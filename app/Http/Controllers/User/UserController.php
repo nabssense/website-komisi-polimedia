@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request;
 use App\Http\Requests\User\UpdateFullnameRequest;
 use App\Http\Requests\User\UpdatePasswordRequest;
 use App\Http\Requests\User\UpdateProfilePictureRequest;
@@ -101,4 +102,22 @@ class UserController extends Controller
     
         return redirect()->back()->with('success', 'Gambar profil berhasil diubah.');
     }   
+
+
+    public function loadMoreUsers(Request $request)
+    {
+        $page = $request->input('page', 1); // Ambil nomor halaman dari permintaan GET
+        $perPage = 10; // Jumlah pengguna per halaman
+
+        $users = User::skip(($page - 1) * $perPage)
+                     ->take($perPage)
+                     ->get();
+
+        $hasMore = $users->count() > 0; // Atur kondisi "has_more" berdasarkan apakah ada lebih banyak data
+
+        return response()->json([
+            'users' => $users,
+            'has_more' => $hasMore,
+        ]);
+    }
 }

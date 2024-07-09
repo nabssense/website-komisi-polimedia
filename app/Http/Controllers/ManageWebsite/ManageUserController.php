@@ -17,7 +17,7 @@ class ManageUserController extends Controller
     //
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(15); 
         return view('pages.user.kelola-web.akun.index', [
             "title" => "Website Komisi | Kelola Akun",
             "active" => "Kelola Akun",

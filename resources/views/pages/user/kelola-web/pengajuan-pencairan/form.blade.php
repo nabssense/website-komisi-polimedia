@@ -18,7 +18,7 @@
             {{-- Profil --}}
             <div class="w-full justify-start items-center gap-2 bg-netral-200 p-2 rounded-lg inline-flex relative">
                 <div class="flex-none" href="{{ route('user.profile')}}">
-                    <img src="{{ filter_var($user->profile_picture, FILTER_VALIDATE_URL)
+                    <img src="{{ strpos($user->profile_picture, 'https://ui-avatars.com') === 0
                         ? $user->profile_picture
                         : Storage::url($user->profile_picture) }}"
                         alt="{{ $user->fullname }}" class="rounded-full w-12 lg:w-20">

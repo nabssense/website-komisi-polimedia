@@ -96,7 +96,7 @@ Route::middleware('auth')->group(function () {
 
         Route::prefix('user')->group(function () {
             Route::get('/', [UserController::class, 'indexUser'])->name('user');
-            Route::get('user-profile',[UserController::class, 'index'])->name('user.profile');
+            Route::get('user-profile', [UserController::class, 'index'])->name('user.profile');
 
             Route::post('update-fullname', [UserController::class, 'updateFullname'])->name('update-fullname');
             Route::post('update-password', [UserController::class, 'updatePassword'])->name('update-password');
@@ -105,7 +105,7 @@ Route::middleware('auth')->group(function () {
             Route::patch('update-profile-picture', [UserController::class, 'updateProfilePicture'])->name('user.update.profile-picture')->middleware('auth');
         });
     });
-// Notifikasi
+    // Notifikasi
 
     Route::get('/notifikasi', [NotificationController::class, 'index'])->name('notifikasi.index');
 
@@ -127,6 +127,8 @@ Route::middleware('auth')->group(function () {
             Route::post('akun/ubah/{user}/toggle-status', [ManageUserController::class, 'toggleStatus'])->name('kelola.akun.toggleStatus');
             Route::post('akun/ubah/{user}/toggle-admin', [ManageUserController::class, 'toggleAdminStatus'])->name('kelola.akun.toggle-admin');
             Route::delete('akun/hapus/{user}', [ManageUserController::class, 'destroy'])->name('kelola.akun.destroy');
+
+            Route::get('/load-more-users', [UserController::class, 'loadMoreUsers'])->name('load-more-users');
         });
 
         // Kelola Berita

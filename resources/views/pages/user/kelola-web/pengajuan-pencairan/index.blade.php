@@ -86,12 +86,12 @@
                                         Info
                                         Mahasiswa</div>
                                 </th>
-                                <th class="w-full grow shrink basis-3/12 flex">
+                                <th class="w-full grow shrink basis-4/12 flex">
                                     <div class="text-neutral-900 text-2xl font-semibold font-THICCCBOI leading-9">
                                         Info
                                         Pengajuan</div>
                                 </th>
-                                <th class="w-full grow shrink basis-2/12 flex">
+                                <th class="w-full grow shrink basis-5/12 flex">
                                     <div class="text-neutral-900 text-2xl font-semibold font-THICCCBOI leading-9">
                                         Lomba
                                     </div>
@@ -103,9 +103,9 @@
                             class="self-stretch px-4 h-fit rounded-bl-lg rounded-br-lg flex-col justify-start items-start flex gap-8">
                             @forelse ($scholarshipFundings ?? [] as $funding)
                                 <tr
-                                    class="w-full h-fit flex-row justify-start items-start gap-8 py-8 flex cursor-pointer border-b-2 border-netral-200">
+                                    class="w-full h-fit flex-row justify-start  items-start gap-8 py-8 flex cursor-pointer border-b-2 border-netral-200">
                                     <td
-                                        class="w-fit flex-none h-full overflow-clip flex flex-row gap-4 justify-start items-start">
+                                        class="w-fit h-full basis-3/12 overflow-clip flex flex-row gap-4 justify-start items-start">
                                         <div class="w-full h-full flex flex-col gap-4">
                                             <div
                                                 class="w-32 h-32 overflow-clip  object-fill bg-netral-100 shadow-card-m p-2 rounded-lg justify-center items-center flex relative">
@@ -116,8 +116,7 @@
                                             <div
                                                 class="w-full h-full flex-col justify-center items-center inline-flex gap-2">
                                                 <!-- Example: Display user's name, student ID, etc. -->
-                                                <div
-                                                    class="w-full text-netral-900 Heading4 font-semibold">
+                                                <div class="w-full text-netral-900 Heading4 font-semibold">
                                                     {{ $funding->user->fullname }}</div>
                                                 <div
                                                     class="w-full text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
@@ -137,78 +136,71 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="w-full flex flex-col gap-4 overflow-clip">
+                                    <td class="w-full flex flex-col basis-4/12 gap-4 overflow-clip">
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Skema</div>
                                             <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->scholarship_type }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
-                                                Unggah Surat Pernyataan</div>
-                                            <div class="w-full text-netral-900 Heading4 font-semibold">
-                                                {{ $funding->statement_letter }}</div>
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                                Surat Pernyataan</div>
+                                            <a href="{{ Storage::url($funding->statement_letter) }}"
+                                                class="w-full text-primary-base Heading4 font-semibold">
+                                                {{ $funding->statement_letter ? 'Lihat' : 'Tidak Ada' }}</a>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Keikutsertaan Program MBKM</div>
                                             <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->mbkm_program }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Keaktifan Kegiatan Kemahasiswaan</div>
                                             <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->student_activity }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
-                                                Unggah Sertifikat atau Surat Tugas Kegiatan Kemahasiswaan</div>
-                                            <div class="w-full text-netral-900 Heading4 font-semibold">
-                                                {{ $funding->activity_certificate }}</div>
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                                Sertifikat atau Surat Tugas Kegiatan Kemahasiswaan</div>
+                                            <a href="{{ Storage::url($funding->activity_certificate) }}"
+                                                class="w-full text-primary-base Heading4 font-semibold">
+                                                {{ $funding->activity_certificate ? 'Lihat' : 'Tidak Ada' }}</a>
                                         </div>
                                     </td>
-                                    <td class="w-full h-full  flex flex-col gap-4 overflow-clip items-start">
+                                    <td class="w-full h-full  flex flex-col basis-5/12 gap-4 overflow-clip items-start">
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
-                                                Pernah Mengikuti Kegiatan Lomba dalam 1 Tahun Terakhir</div>
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                                Mengikuti Kegiatan Lomba dalam 1 Tahun Terakhir</div>
                                             <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->competition_status }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Nama Lomba</div>
                                             <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->competition_name }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Tingkat</div>
                                             <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->competition_level }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Peringkat</div>
                                             <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->competition_rank }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
-                                            <div
-                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
-                                                Unggah Sertifikat Lomba</div>
-                                            <div class="w-full text-netral-900 Heading4 font-semibold">
-                                                {{ $funding->competition_certificate }}</div>
+                                            <div class="w-full text-netral-500 Heading4 font-normal capitalize">
+                                                Sertifikat Lomba</div>
+                                            <a href="{{ Storage::url($funding->competition_certificate) }}"
+                                                class="w-full text-primary-base Heading4 font-semibold">
+                                                {{ $funding->competition_certificate ? 'Lihat' : 'Tidak Ada' }}</a>
                                         </div>
                                     </td>
 
@@ -217,15 +209,18 @@
                                 <tr
                                     class="self-stretch order-last h-fit p-4 bg-white rounded-2xl flex-col justify-start items-center gap-8 flex">
                                     <!-- Tampilkan pesan jika tidak ada data -->
-                                    <td class="w-full text-center text-netral-900 Heading4 font-normal">Tidak ada pengajuan pencairan yang tersedia.</td>
+                                    <td class="w-full text-center text-netral-900 Heading4 font-normal">Tidak ada pengajuan
+                                        pencairan yang tersedia.</td>
                                 </tr>
                             @endforelse
                         </tbody>
                     </table>
                 </div>
-                <button class="btn-secondary">Lihat
-                    Selengkapnya
-                </button>
+                <!-- Pagination links -->
+                <div class="mt-4">
+                    {{ $scholarshipFundings->links() }}
+                </div>
+                <button id="load-more-btn" class="btn-secondary">Lihat Selengkapnya</button>
             </div>
         </div>
     </div>
@@ -269,6 +264,40 @@
             previousStep.classList.add('inline-flex');
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentPage = 1; // Initial page number
+            const loadMoreButton = document.getElementById('load-more-btn');
+            const fundingsContainer = document.querySelector('.scholarship-fundings-table');
 
+            loadMoreButton.addEventListener('click', function() {
+                const nextPage = currentPage + 1;
+
+                axios.get(`/your-api-endpoint?page=${nextPage}`)
+                    .then(response => {
+                        const fundings = response.data.data; // Assuming your API response structure
+
+                        fundings.forEach(funding => {
+                            // Append each funding row to the table
+                            const rowHtml = `<tr>
+                            <!-- Render your funding data here -->
+                        </tr>`;
+                            fundingsContainer.insertAdjacentHTML('beforeend', rowHtml);
+                        });
+
+                        // Update current page number
+                        currentPage = nextPage;
+
+                        // Check if there are more pages to load
+                        if (currentPage >= response.data.last_page) {
+                            loadMoreButton.style.display = 'none'; // Hide button if no more pages
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching more fundings', error);
+                    });
+            });
+        });
+    </script>
     @include('partials.footer')
 @endsection

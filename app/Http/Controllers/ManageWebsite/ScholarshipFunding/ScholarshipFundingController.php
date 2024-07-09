@@ -17,7 +17,7 @@ class ScholarshipFundingController extends Controller
     {
         $activePeriod = PeriodFunding::where('slug', $slug)->first();
         // Cek role pengguna
-       
+
         $user = Auth::user();
         return view('pages.user.kelola-web.pengajuan-pencairan.form', [
             "title" => "Form Pengajuan Pencairan",
@@ -74,21 +74,31 @@ class ScholarshipFundingController extends Controller
 
     public function index($category = null)
     {
+        // Fetch all categories for selection
         $categories = PeriodFunding::all();
-        $scholarshipFundings = ScholarshipFunding::all(); // Adjust query if needed
 
+        // Initialize $scholarshipFundings to all fundings if no category is selected
+        $scholarshipFundings = ScholarshipFunding::query();
+
+        // If a category slug is provided, filter fundings by that category
         if ($category) {
+            // Find the category by its slug
             $withCategory = PeriodFunding::where('slug', $category)->first();
 
+            // If category is not found, abort with 404 error
             if (!$withCategory) {
                 abort(404, 'Kategori tidak ditemukan');
             }
 
-            $scholarshipFundings = $withCategory->scholarshipFundings;
+            // Filter scholarship fundings by the selected category
+            $scholarshipFundings = $withCategory->scholarshipFundings()->paginate(15); // Adjust pagination as needed
         } else {
+            // No specific category selected, so fetch all scholarship fundings
+            $scholarshipFundings = $scholarshipFundings->paginate(15); // Adjust pagination as needed
             $withCategory = null; // Optional: Handle case when no category is provided
         }
 
+        // Return the view with necessary data
         return view('pages.user.kelola-web.pengajuan-pencairan.index', [
             "title" => "Website Komisi | Kelola Pengajuan Pencairan",
             "active" => "Kelola Pengajuan Pencairan",
@@ -130,11 +140,11 @@ class ScholarshipFundingController extends Controller
     public function exportToExcel(Request $request)
     {
         // Ambil data scholarship fundings yang ditampilkan di halaman saat ini
-       // Ambil data scholarship fundings yang dipilih untuk diekspor
-       $selectedItems = $request->input('selectedItems', []);
+        // Ambil data scholarship fundings yang dipilih untuk diekspor
+        $selectedItems = $request->input('selectedItems', []);
 
-       // Ambil data sesuai dengan kategori atau periode yang dipilih
-       $scholarshipFundings = ScholarshipFunding::whereIn('id', $selectedItems)->get();
+        // Ambil data sesuai dengan kategori atau periode yang dipilih
+        $scholarshipFundings = ScholarshipFunding::whereIn('id', $selectedItems)->get();
 
         // Inisialisasi spreadsheet
         $spreadsheet = new Spreadsheet();
