@@ -54,8 +54,8 @@ class DatabaseSeeder extends Seeder
         User::create([
             'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
             'fullname' => 'Yuyun',
-            'email' => 'buyuyun@gmail.com',
-            'password' => 'buyuyun',
+            'email' => 'yuyunkh@polimedia.ac.id',
+            'password' => 'Buyuyunkh@polimedia.ac.id',
             'nim'=> '0',
             'nik'=> '',
             'number_wa'=> '089503033804',
@@ -183,9 +183,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TentangKomisi::class,
         ]);
-        $this->call([
-            ExcelToDatabaseSeeder::class,
-        ]);
+        // $this->call([
+        //     ExcelToDatabaseSeeder::class,
+        // ]);
         $this->call([
             NewsSeeder::class,
         ]);
