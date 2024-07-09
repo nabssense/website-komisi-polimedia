@@ -30,6 +30,6 @@ class News extends Model
     // Definisikan relasi 'category'
     public function category()
     {
-        return $this->belongsTo(CategoryNewsSeeder::class);
+        return $this->belongsTo(CategoryNews::class);
     }
 }
