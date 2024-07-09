@@ -17,3 +17,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/storage/*
+!/storage/app/public/data_seeder
+!/storage/app/public/news
