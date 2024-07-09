@@ -49,6 +49,9 @@ class ScholarshipFundingController extends Controller
         if ($request->hasFile('activity_certificate')) {
             $validatedData['activity_certificate'] = $request->file('activity_certificate')->store('scholarship_fundings');
         }
+        if ($request->hasFile('activity_certificate')) {
+            $validatedData['competition_certificate'] = $request->file('competition_certificate')->store('scholarship_fundings');
+        }
 
         // Set user_id based on authenticated user
         $validatedData['user_id'] = auth()->user()->id;

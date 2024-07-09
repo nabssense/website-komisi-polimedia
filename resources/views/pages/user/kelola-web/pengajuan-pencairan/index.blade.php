@@ -2,7 +2,7 @@
 @include('partials.navbar')
 @include('partials.navbar-mobile')
 @section('container')
-    <div class="w-full h-fit py-20 md:py-32 bg-soft-base flex-col justify-center items-center gap-8 flex">
+    <div class="w-full h-fit py-20 md:py-32 bg-netral-200 flex-col justify-center items-center gap-8 flex">
         <div class="w-full max-w-1480 flex-col justify-center items-center gap-4 lg:gap-8 flex">
             <div class="w-full h-fit px-4 lg:px-0 flex-col lg:flex-row justify-start items-center gap-6 flex">
                 <div class="w-full flex lg:flex-row gap-4 justify-center items-center">
@@ -18,7 +18,7 @@
                             class="btn-popup option-button">
                             <i class="ph ph-square-half"></i>
                             <div class="">Periode</div>
-                            <i class=" text-netral-900 ph ph-caret-down"></i>
+                            <i class=" w-full text-netral-900 ph ph-caret-down"></i>
                         </button>
                         {{-- Pop Up --}}
                         <div id="menuDropdown"
@@ -29,7 +29,7 @@
                                     role="none" onclick="; event.stopPropagation(); ">
                                     <div class="w-full flex flex-col gap-4">
                                         <div class="w-full text-start Heading3">Periode</div>
-                                        <div class="w-full flex flex-col gap-2 overflow-scroll">
+                                        <div class="w-full max-h-480 flex flex-col gap-2 overflow-y-scroll">
                                             <button
                                                 class="btn-popup-sm {{ !isset($withCategory) ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}"
                                                 onclick="window.location.href='{{ route('kelola.pencairan.index') }}'">
@@ -64,9 +64,9 @@
             </div>
             <div class="w-full justify-start items-start px-4 lg:px-0 gap-4 flex">
                 <div class="p-4 bg-primary-100 rounded-2xl flex-col justify-start items-start flex">
-                    <div class="text-netral-900 Body1 font-medium">Total Pengajuan</div>
+                    <div class="w-full text-netral-900 Body1 font-medium">Total Pengajuan</div>
                     <div class="justify-end items-end gap-4 flex">
-                        <div class="text-netral-900 Heading2 font-extrabold">
+                        <div class="w-full text-netral-900 Heading2 font-extrabold">
                             {{ $scholarshipFundings->count() }}</div>
                     </div>
                 </div>
@@ -104,9 +104,8 @@
                             @forelse ($scholarshipFundings ?? [] as $funding)
                                 <tr
                                     class="w-full h-fit flex-row justify-start items-start gap-8 py-8 flex cursor-pointer border-b-2 border-netral-200">
-
                                     <td
-                                        class="w-full h-full grow shrink basis-3/12 flex flex-row gap-4 justify-start items-start">
+                                        class="w-fit flex-none h-full overflow-clip flex flex-row gap-4 justify-start items-start">
                                         <div class="w-full h-full flex flex-col gap-4">
                                             <div
                                                 class="w-32 h-32 overflow-clip  object-fill bg-netral-100 shadow-card-m p-2 rounded-lg justify-center items-center flex relative">
@@ -118,97 +117,97 @@
                                                 class="w-full h-full flex-col justify-center items-center inline-flex gap-2">
                                                 <!-- Example: Display user's name, student ID, etc. -->
                                                 <div
-                                                    class="self-stretch text-netral-900 text-2xl font-semibold font-THICCCBOI leading-7">
+                                                    class="w-full text-netral-900 Heading4 font-semibold">
                                                     {{ $funding->user->fullname }}</div>
                                                 <div
-                                                    class="self-stretch text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
+                                                    class="w-full text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
                                                     {{ $funding->user->edu_program }}</div>
                                                 <div
-                                                    class="self-stretch text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
+                                                    class="w-full text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
                                                     {{ $funding->user->nim }}</div>
                                                 <div
-                                                    class="self-stretch text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
+                                                    class="w-full text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
                                                     {{ $funding->user->bank_account }}</div>
                                                 <div
-                                                    class="self-stretch text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
+                                                    class="w-full text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
                                                     {{ $funding->user->address }}</div>
                                                 <div
-                                                    class="self-stretch text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
+                                                    class="w-full text-netral-900 text-base font-normal font-THICCCBOI leading-normal">
                                                     {{ $funding->user->study_program }}</div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="w-full flex flex-col gap-4 grow shrink basis-3/12">
+                                    <td class="w-full flex flex-col gap-4 overflow-clip">
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Skema</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->scholarship_type }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Unggah Surat Pernyataan</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->statement_letter }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Keikutsertaan Program MBKM</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->mbkm_program }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Keaktifan Kegiatan Kemahasiswaan</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->student_activity }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Unggah Sertifikat atau Surat Tugas Kegiatan Kemahasiswaan</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->activity_certificate }}</div>
                                         </div>
                                     </td>
-                                    <td class="w-full h-full  flex flex-col gap-4 grow shrink basis-2/12 items-start">
+                                    <td class="w-full h-full  flex flex-col gap-4 overflow-clip items-start">
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Pernah Mengikuti Kegiatan Lomba dalam 1 Tahun Terakhir</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->competition_status }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Nama Lomba</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->competition_name }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Tingkat</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->competition_level }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Peringkat</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->competition_rank }}</div>
                                         </div>
                                         <div class="w-full h-full justify-start items-startflex flex-col">
                                             <div
-                                                class="text-netral-500 text-base font-normal font-THICCCBOI leading-7 capitalize">
+                                                class="w-full text-netral-500 Heading4 font-normal capitalize">
                                                 Unggah Sertifikat Lomba</div>
-                                            <div class="text-netral-900 text-lg font-semibold font-THICCCBOI leading-7">
+                                            <div class="w-full text-netral-900 Heading4 font-semibold">
                                                 {{ $funding->competition_certificate }}</div>
                                         </div>
                                     </td>
@@ -216,9 +215,9 @@
                                 </tr>
                             @empty
                                 <tr
-                                    class="self-stretch h-fit p-4 bg-white rounded-2xl flex-col justify-start items-center gap-8 flex">
+                                    class="self-stretch order-last h-fit p-4 bg-white rounded-2xl flex-col justify-start items-center gap-8 flex">
                                     <!-- Tampilkan pesan jika tidak ada data -->
-                                    <p>Tidak ada pengajuan pencairan yang tersedia.</p>
+                                    <td class="w-full text-center text-netral-900 Heading4 font-normal">Tidak ada pengajuan pencairan yang tersedia.</td>
                                 </tr>
                             @endforelse
                         </tbody>

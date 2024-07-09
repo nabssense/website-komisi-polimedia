@@ -86,7 +86,7 @@
                         </div>
                     @enderror
                 </div>
-                <div class="w-full bg-netral-200 rounded Body1 font-medium flex flex-row px-4 py-2 items-center gap-4">
+                <div class="w-full bg-netral-200 text-netral-500 rounded Body1 font-medium flex flex-row px-4 py-2 items-center gap-4">
                     <i class="ph-fill ph-info cursor-pointer"></i>
                     <p class="w-full">
                         Headline News adalah berita yang akan ditampilkan dihalaman awal dipaling atas.

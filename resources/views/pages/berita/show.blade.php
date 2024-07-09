@@ -3,8 +3,8 @@
 @include('partials.navbar-mobile')
 @section('container')
     <div
-        class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-20 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
-        <div class="w-full max-w-1480 h-fit bg-soft-base flex-col justify-center items-center gap-4 lg:gap-8 flex ">
+        class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-20 md:py-32 bg-netral-200 flex-col justify-center items-center inline-flex ">
+        <div class="w-full max-w-1480 h-fit bg-netral-200 flex-col justify-center items-center gap-4 lg:gap-8 flex ">
             <div class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 flex-col md:flex-row lg:flex ">
                 <a href="/berita" class="w-fit rounded-lg justify-start items-center gap-4 flex flex-row Heading2">
                     <i class=" ph ph-arrow-left"></i>

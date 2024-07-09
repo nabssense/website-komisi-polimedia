@@ -164,19 +164,25 @@ class ManageNewsController extends Controller
             $validated['headline_image'] = $gambarHeadlinePath;
         }
 
-        // Update data berita sesuai input yang diterima
-        $news->update([
-            'title' => $validated['title'],
-            'content' => $validated['content'],
-            'category_slug' => $validated['category_slug'],
-            'headline_status' => $validated['headline_status'],
-            'headline_image' => isset($validated['headline_image']) ? $validated['headline_image'] : null,
-            'image' => $validated['image'],
-            // tambahkan kolom lainnya sesuai kebutuhan
-        ]);
-
-        // Redirect ke halaman index atau halaman lainnya
-        return redirect()->route('kelola.berita.index')->with('success', 'Berita berhasil diperbarui!');
+        // Create news entry
+       
+    
+        if ($news) {
+            // Handle notifications if needed
+            if ($request->input('send_notification') == 'Aktif') {
+                $notification = new Notification();
+                $notification->user_id = auth()->id();
+                $notification->news_id = $news->id; // Use $news->id to get the newly created news id
+                $notification->title = $validated['title'];
+                $notification->image = $validated['image'];
+                $notification->message = $validated['content']; // Ensure 'message' is set in your form
+                $notification->save();
+            }
+    
+            return redirect()->route('kelola.berita.index')->with('success', 'Berita berhasil ditambahkan!');
+        }
+    
+        return back()->withInput()->with('error', 'Gagal menambahkan berita. Silakan coba lagi.');
     }
 
 

@@ -13,9 +13,7 @@ export default {
     extend: {
       
       colors: {
-        soft: {
-          'base': '#EFF3F8',
-        },
+       
         primary: {
           'base': '#ef6324',
           100: '#FEEEEB',

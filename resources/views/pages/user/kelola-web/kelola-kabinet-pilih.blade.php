@@ -2,7 +2,7 @@
 @include('partials.navbar')
 @include('partials.navbar-mobile')
 @section('container')
-<div class="w-full h-fit px-56 py-8 bg-soft-base rounded-2xl shadow flex-col justify-start items-start gap-8 inline-flex">
+<div class="w-full h-fit px-56 py-8 bg-netral-200 rounded-2xl shadow flex-col justify-start items-start gap-8 inline-flex">
     <div class="self-stretch h-fit rounded-2xl flex-col justify-start items-start gap-9 flex">
         <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
             <button onclick="goBack()" class="text-32 text-netral-800 ph ph-arrow-left"></button>
@@ -203,7 +203,7 @@
                             <div class="justify-start items-center flex">
                                 <i class="text-32 ph ph-square"></i>
                             </div>
-                            <div class="h-32 w-44 overflow-clip  object-fill bg-soft-base rounded-lg justify-center items-end flex relative">
+                            <div class="h-32 w-44 overflow-clip  object-fill bg-netral-200 rounded-lg justify-center items-end flex relative">
                                 <img class="aspect-auto object-bottom" src="{{ url('img/Kabinet/KOBRA/KETUA-WAKIL.png') }}" />
                             </div>
                             <div class="self-stretch justify-start items-center gap-4 flex">
@@ -257,7 +257,7 @@
                             <div class="justify-start items-center flex">
                                 <i class="text-32 ph ph-square"></i>
                             </div>
-                            <div class="h-20 w-20 overflow-clip  object-fill bg-soft-base rounded-lg justify-center items-end flex relative">
+                            <div class="h-20 w-20 overflow-clip  object-fill bg-netral-200 rounded-lg justify-center items-end flex relative">
                                 <img class="aspect-auto object-bottom" src="{{ url('img/Kabinet/KOBRA/KETUA-WAKIL.png') }}" />
                             </div>
                             <div class="grow shrink basis-0 self-stretch flex-col justify-center items-start inline-flex">

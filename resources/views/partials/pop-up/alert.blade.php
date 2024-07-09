@@ -1,4 +1,4 @@
-@if($errors->any() || session('error'))
+@if(session('error'))
     <div id="error-alert" class="w-full h-fit p-8 bg-danger-base text-netral-100 fixed z-50 Heading4 lg:Heading2 drop-shadow-sm animate-slide-down">
         {{ session('error') }}
     </div>
@@ -9,7 +9,6 @@
         {{ session('success') }}
     </div>
 @endif
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {

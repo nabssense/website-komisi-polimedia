@@ -4,7 +4,7 @@
     <section class="w-full h-screen step p-8 bg-netral-100 shadow justify-start items-start gap-12 flex" id="step1">
 
         {{-- Stepper --}}
-        <div class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 flex">
+        <div class="h-full bg-netral-200 rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 flex">
             <div class="flex-col justify-start items-center flex">
                 <div class="w-8 h-8 p-2.5 bg-primary-base rounded-full flex-col justify-center items-center gap-2.5 flex">
                     <div class="text-white text-2xl font-extrabold font-THICCCBOI leading-9">1</div>
@@ -268,7 +268,7 @@
         id="step2">
         {{-- Stepper --}}
         <div
-            class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
+            class="h-full bg-netral-200 rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
             <div class="flex-col justify-start items-center flex">
                 <div class="w-8 h-8 p-2.5 bg-gray-200 rounded-full flex-col justify-center items-center gap-2.5 flex">
                     <div class="text-white text-2xl font-extrabold font-THICCCBOI leading-9">1</div>
@@ -352,7 +352,7 @@
         id="step3">
         {{-- Stepper --}}
         <div
-            class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
+            class="h-full bg-netral-200 rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
             <div class="flex-col justify-start items-center flex">
                 <div class="w-8 h-8 p-2.5 bg-gray-200 rounded-full flex-col justify-center items-center gap-2.5 flex">
                     <div class="text-white text-2xl font-extrabold font-THICCCBOI leading-9">1</div>
@@ -432,7 +432,7 @@
         id="step4">
         {{-- Stepper --}}
         <div
-            class="h-full bg-soft-base rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
+            class="h-full bg-netral-200 rounded-2xl self-stretch px-8 py-4 flex-col justify-center items-center gap-2 inline-flex">
             <div class="flex-col justify-start items-center flex">
                 <div class="w-8 h-8 p-2.5 bg-gray-200 rounded-full flex-col justify-center items-center gap-2.5 flex">
                     <div class="text-white text-2xl font-extrabold font-THICCCBOI leading-9">1</div>

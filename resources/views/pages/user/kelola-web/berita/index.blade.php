@@ -2,16 +2,15 @@
 @include('partials.navbar')
 @include('partials.navbar-mobile')
 @section('container')
-    <div class="w-full h-fit  py-20 md:py-32  bg-soft-base flex-col justify-center items-center gap-8 flex">
+    <div class="w-full h-fit px-4 md:px-8 xl:px-16 py-20 md:py-32 bg-netral-200 flex-col justify-center items-center gap-8 flex">
         <div class="w-full max-w-1480 flex-col justify-center items-center gap-4 lg:gap-8 flex">
-            <div class="w-full h-fit px-4 lg:px-0 justify-start items-center gap-6 flex">
+            <div class="w-full h-fit justify-start items-center gap-6 flex">
                 <div class="w-full h-fit justify-start items-center gap-4 flex">
                     <div class="w-full flex gap-2 lg:gap-4 justify-center items-center">
                         <a href="{{ route('kelola.website.index') }}" class="text-32 text-netral-800 ph ph-arrow-left"></a>
                         <div class="w-full text-netral-900 Heading2 font-extrabold">Kelola
                             Berita</div>
                     </div>
-
                     <a href="{{ route('kelola.berita.create') }}" class="btn-primary">Tambah Berita
                         <i class=" ph ph-plus"></i>
                     </a>
@@ -19,7 +18,7 @@
             </div>
             {{-- Main Content --}}
             <div class="w-full flex flex-col gap-4">
-                <div class="justify-start items-start px-4 lg:px-0 gap-4 flex">
+                <div class="justify-start items-start gap-4 flex">
                     <div class="p-4 bg-primary-100 rounded-2xl flex-col justify-start items-start flex">
                         <div class="text-netral-900 Body1 font-medium">Total Berita</div>
                         <div class="justify-end items-end gap-4 flex">
@@ -93,8 +92,8 @@
                                     <td class="w-full grow shrink basis-2/12  hidden lg:flex">
                                         <div class="h-full justify-start items-center gap-4 flex">
                                             <div class="self-stretch flex-col justify-center items-start flex">
-                                                <div class="grow shrink basis-0 text-netral-900 Body1 font-normal">
-                                                    {{ Str::limit($oneNews->content, 40) }}</div>
+                                                <div class="w-full line-clamp-5 text-netral-900 Body2 font-normal">
+                                                    {{ Str::limit($oneNews->content, ) }}</div>
                                             </div>
                                         </div>
                                     </td>
@@ -147,7 +146,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a href="/kelola-kabinet-pilih" class="btn-secondary-sm">
+                                            <a href="{{ route('berita.show', $oneNews->slug) }}" class="btn-secondary-sm">
                                                 Lihat
                                                 <i class="text-2xl ph ph-eye"></i>
                                             </a>

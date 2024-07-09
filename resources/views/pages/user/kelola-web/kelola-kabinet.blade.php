@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-<div class="w-full h-fit px-56 py-8 bg-soft-base flex-col justify-start items-start gap-8 inline-flex">
+<div class="w-full h-fit px-56 py-8 bg-netral-200 flex-col justify-start items-start gap-8 inline-flex">
     <div class="self-stretch h-14 justify-start items-center gap-6 inline-flex">
         <div class="w-full h-fit justify-start items-center gap-6 inline-flex">
             <button onclick="goBack()" class="text-32 text-netral-800 ph ph-arrow-left"></button>

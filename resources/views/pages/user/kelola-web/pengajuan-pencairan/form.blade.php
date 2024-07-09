@@ -14,9 +14,9 @@
         {{-- Main Content --}}
         <div
             class="w-full h-full justify-start items-start gap-8 flex flex-col flex-1  overflow-x-scroll cursor-pointer scrollbar-hidden ">
-            <input type="hidden" name="period_id" value="{{ $periodId }}">
+            <input type="hidden" name="period_id" value="{{ old('period_id', $periodId) }}">
             {{-- Profil --}}
-            <div class="w-full justify-start items-center gap-2 bg-soft-base p-2 rounded-lg inline-flex relative">
+            <div class="w-full justify-start items-center gap-2 bg-netral-200 p-2 rounded-lg inline-flex relative">
                 <div class="flex-none" href="{{ route('user.profile')}}">
                     <img src="{{ filter_var($user->profile_picture, FILTER_VALIDATE_URL)
                         ? $user->profile_picture
@@ -44,10 +44,10 @@
                 <!-- Input Field -->
                 <select name="scholarship_type" id="" class="input-text">
                     <option class="text-netral-200 " value="">-- Pilih Skema --</option>
-                    <option value="KIPK-PENUH">
+                    <option {{ old('scholarship_type') == 'KIPK-PENUH' ? 'selected' : '' }}>
                         KIPK-PENUH
                     </option>
-                    <option value="KIPK-PENUH">
+                    <option {{ old('scholarship_type') == 'KIPK-UKT' ? 'selected' : '' }}>
                         KIPK-UKT
                     </option>
                 </select>
@@ -64,14 +64,14 @@
                 <div class="w-full h-fit flex flex-row items-end gap-4">
                     <div class="w-40 h-40 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
                         <input name="statement_letter" class="w-full h-full z-10 opacity-0 absolute cursor-pointer rounded-2xl" type="file" id="image-input-1" accept="file/*">
-                        <img id="image-preview-1" src="{{ isset($scholarshipFunding) ? asset('storage/' . $scholarshipFunding->statement_letter) : '' }}" class="w-full h-full object-cover absolute top-0 bg-white rounded-2xl {{ isset($scholarshipFunding->statement_letter) ? '' : 'hidden' }}">
+                        <img id="image-preview-1" src="{{ old('statement_letter') ? asset('storage/' . old('statement_letter')) : (isset($scholarshipFunding) ? asset('storage/' . $scholarshipFunding->statement_letter) : '') }}" class="w-full h-full object-cover absolute top-0 bg-white rounded-2xl {{ isset($scholarshipFunding->statement_letter) ? '' : 'hidden' }}">
                         <i href="#" class="ph ph-plus text-7xl"></i>
                         <i href="#" class="ph-fill ph-file text-7xl hidden"></i>
                         <label for="image-input-1" class="text-neutral-900 Body1 font-medium">Pilih File</label>
                     </div>
                 </div>
                 <div id="file-name-1" class="w-full flex text-stone-700 font-normal Body1"></div> <!-- Nama file ditampilkan di sini -->
-                <div class="w-full flex text-stone-700 font-normal Body1">Ukuran Maksimal 5MB</div>
+                <div class="w-full flex text-stone-700 font-normal Body1">Ukuran Maksimal 4MB</div>
                 @error('statement_letter')
                     <div id="image-error" class="text-danger-base font-normal Heading4">
                         {{ $message }}
@@ -86,13 +86,13 @@
                 <!-- Input Field -->
                 <select name="mbkm_program" id="" class="input-text">
                     <option class="text-netral-200 " value="">-- Pilih Program --</option>
-                    <option value="KIPK-PENUH">
+                    <option value="KIPK-PENUH" {{ old('mbkm_program') == 'MSIB' ? 'selected' : '' }}>
                         MSIB
                     </option>
-                    <option value="KIPK-PENUH">
+                    <option value="KIPK-PENUH" {{ old('mbkm_program') == 'WKM' ? 'selected' : '' }}>
                         WKM
                     </option>
-                    <option value="KIPK-PENUH">
+                    <option value="KIPK-PENUH" {{ old('mbkm_program') == 'Tidak Pernah' ? 'selected' : '' }}>
                         Tidak Pernah
                     </option>
                 </select>
@@ -111,30 +111,30 @@
                     <div class="relative flex flex-row items-center w-full cursor-pointer">
                         <div id="toggle-status1"
                             class="w-full bg-white focus:outline-none focus:font-semibold font-semibold text-netral-800 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                            Tidak Pernah</div>
-                        <input type="hidden" name="student_activity" id="toggle-value1" value="Tidak Pernah">
+                            {{ old('student_activity', 'Tidak Pernah') }}</div>
+                        <input type="hidden" name="student_activity" id="toggle-value1" value="{{ old('student_activity', 'Tidak Pernah') }}">
                     </div>
                     <div id="toggle-icon" class="absolute right-0 items-center justify-center flex h-full">
-                        <i id="toggle-icon-inner1" class="text-32 ph ph-toggle-left cursor-pointer"></i>
+                        <i id="toggle-icon-inner1" class="text-32 cursor-pointer {{ old('student_activity') == 'Pernah' ? 'ph-fill ph-toggle-right' : 'ph ph-toggle-left' }}"></i>
                     </div>
                 </div>
 
                 <div id="gambar-headline1"
-                    class="w-full bg-soft-base rounded-lg p-4 flex-col justify-start items-start gap-8  hidden">
+                    class="w-full bg-netral-200 rounded-lg p-4 flex-col justify-start items-start gap-8 {{ old('student_activity') == 'Pernah' ? '' : 'hidden' }}">
                     <div class="w-fit h-fit flex-col justify-start items-start gap-1 flex">
                         <div class="input-text-label">
                             Unggah Sertifikat Atau Surat Tugas Kegiatan Kemahasiswaan
                         </div>
                         <div class="w-full h-fit flex flex-row items-end gap-4">
                             <div class="w-40 h-40 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
-                                <input name="activity_certificate" class="w-full h-full z-10 opacity-0 absolute cursor-pointer rounded-2xl" type="file" id="image-input-2" accept="file/*">
-                                <img id="image-preview-2" src="{{ isset($scholarshipFunding) ? asset('storage/' . $scholarshipFunding->activity_certificate) : '' }}" class="w-full h-full object-cover absolute top-0 bg-white rounded-2xl {{ isset($scholarshipFunding->activity_certificate) ? '' : 'hidden' }}">
+                                <input name="activity_certificate" class="w-full h-full z-10 opacity-0 absolute cursor-pointer rounded-2xl" type="file" id="image-input-2" accept="file/*" >
+                                <img id="image-preview-2"  src="{{ old('activity_certificate') ? asset('storage/' . old('activity_certificate')) : (isset($scholarshipFunding) ? asset('storage/' . $scholarshipFunding->activity_certificate) : '') }}"  class="w-full h-full object-cover absolute top-0 bg-white rounded-2xl {{ isset($scholarshipFunding->activity_certificate) || old('activity_certificate') ? '' : 'hidden' }}">
                                 <i href="#" class="ph ph-plus text-7xl"></i>
                                 <label for="image-input-2" class="text-neutral-900 Body1 font-medium">Pilih File</label>
                             </div>
                         </div>
                         <div id="file-name-2" class="w-full flex text-stone-700 font-normal Body1"></div> <!-- Nama file ditampilkan di sini -->
-                        <div class="w-full flex text-stone-700 font-normal Body1">Ukuran Maksimal 5MB</div>
+                        <div class="w-full flex text-stone-700 font-normal Body1">Ukuran Maksimal 4MB</div>
                         @error('activity_certificate')
                             <div id="image-error" class="text-danger-base font-normal Heading4">
                                 {{ $message }}
@@ -153,16 +153,52 @@
                     <div class="relative flex flex-row items-center w-full cursor-pointer">
                         <div id="toggle-status2"
                             class="w-full bg-white focus:outline-none focus:font-semibold font-semibold text-netral-800 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                            Tidak Pernah</div>
-                        <input type="hidden" name="competition" id="toggle-value2" value="Tidak Pernah">
+                            {{ old('competition_status', 'Tidak Pernah') }}</div>
+                        <input type="hidden" name="competition_status" id="toggle-value2" value="{{ old('competition_status', 'Tidak Pernah') }}">
                     </div>
                     <div id="toggle-icon" class="absolute right-0 items-center justify-center flex h-full">
-                        <i id="toggle-icon-inner2" class="text-32 ph ph-toggle-left cursor-pointer"></i>
+                        <i id="toggle-icon-inner2" class="text-32 cursor-pointer {{ old('competition_status') == 'Pernah' ? 'ph-fill ph-toggle-right' : 'ph ph-toggle-left' }}"></i>
                     </div>
                 </div>
 
                 <div id="gambar-headline2"
-                    class="w-full bg-soft-base rounded-lg p-4 flex-col justify-start items-start gap-8  hidden">
+                    class="w-full bg-netral-200 rounded-lg p-4 flex-col justify-start items-start gap-8 {{ old('competition_status') == 'Pernah' ? '' : 'hidden' }}">
+                    {{-- Full Name --}}
+                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                        <div class="input-text-label">
+                            Nama Lomba
+                        </div>
+                        <input type="text" name="competition_name" placeholder="Cth: Nama Lomba/Kompetisi" id="name" class="input-text" value="{{ old('competition_name', '') }}">
+                        @error('competition_name')
+                            <div class="text-primary-base font-normal Heading4">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    {{-- Full Name --}}
+                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                        <div class="input-text-label">
+                            Tingkat
+                        </div>
+                        <input type="text" name="competition_level" placeholder="Cth: Internasional, Nasional, Fakultas" id="competition_level" class="input-text" value="{{ old('competition_level', '') }}">
+                        @error('competition_level')
+                            <div class="text-primary-base font-normal Heading4">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    {{-- Full Name --}}
+                    <div class="self-stretch h-fit flex-col justify-start items-start flex">
+                        <div class="input-text-label">
+                            Pencapaian
+                        </div>
+                        <input type="text" name="competition_rank" placeholder="Cth: Juara 1, Juara Harapan, Final Four, 16 Besar, Partisipan Lomba" id="competition_rank" class="input-text" value="{{ old('competition_rank', '') }}">
+                        @error('competition_rank')
+                            <div class="text-primary-base font-normal Heading4">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                     <div class="w-fit h-fit flex-col justify-start items-start gap-1 flex">
                         <div class="input-text-label">
                             Unggah Sertifikat Kompetisi
@@ -170,13 +206,13 @@
                         <div class="w-full h-fit flex flex-row items-end gap-4">
                             <div class="w-40 h-40 bg-white px-6 py-4 rounded-2xl border border-stone-300 flex-col justify-center items-center gap-2 flex relative">
                                 <input name="competition_certificate" class="w-full h-full z-10 opacity-0 absolute cursor-pointer rounded-2xl" type="file" id="image-input-3" accept="file/*">
-                                <img id="image-preview-3" src="{{ isset($scholarshipFunding) ? asset('storage/' . $scholarshipFunding->competition_certificate) : '' }}" class="w-full h-full object-cover absolute top-0 bg-white rounded-2xl {{ isset($scholarshipFunding->competition_certificate) ? '' : 'hidden' }}">
+                                <img id="image-preview-3"src="{{ old('competition_certificate') ? asset('storage/' . old('competition_certificate')) : (isset($scholarshipFunding) ? asset('storage/' . $scholarshipFunding->competition_certificate) : '') }}" class="w-full h-full object-cover absolute top-0 bg-white rounded-2xl {{ isset($scholarshipFunding->competition_certificate) || old('competition_certificate') ? '' : 'hidden' }}">
                                 <i href="#" class="ph ph-plus text-7xl"></i>
                                 <label for="image-input-3" class="text-neutral-900 Body1 font-medium">Pilih File</label>
                             </div>
                         </div>
                         <div id="file-name-3" class="w-full flex text-stone-700 font-normal Body1"></div> <!-- Nama file ditampilkan di sini -->
-                        <div class="w-full flex text-stone-700 font-normal Body1">Ukuran Maksimal 5MB</div>
+                        <div class="w-full flex text-stone-700 font-normal Body1">Ukuran Maksimal 4MB</div>
                         @error('competition_certificate')
                             <div id="image-error" class="text-danger-base font-normal Heading4">
                                 {{ $message }}
@@ -222,14 +258,14 @@
         if (status.textContent.trim() === 'Tidak Pernah') {
             status.textContent = 'Pernah';
             value.value = 'Pernah';
-            icon.classList.remove('ph-toggle-left');
+            icon.classList.remove('ph-toggle-left', 'ph');
             icon.classList.add('ph-toggle-right', 'ph-fill');
             headline.classList.remove('hidden');
         } else {
             status.textContent = 'Tidak Pernah';
             value.value = 'Tidak Pernah';
             icon.classList.remove('ph-toggle-right', 'ph-fill');
-            icon.classList.add('ph-toggle-left');
+            icon.classList.add('ph-toggle-left', 'ph');
             headline.classList.add('hidden');
         }
     }

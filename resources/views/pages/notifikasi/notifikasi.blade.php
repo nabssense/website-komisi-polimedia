@@ -3,7 +3,7 @@
 @include('partials.navbar-mobile')
 @section('container')
     <div
-        class="w-full h-fit px-4 md:px-8 xl:px-16 py-20 md:py-32 bg-white flex-col justify-center items-center gap-8 inline-flex">
+        class="w-full h-fit px-4 md:px-8 xl:px-16 px-4 md:px-8 xl:px-16 py-20 md:py-32 bg-white flex-col justify-center items-center gap-8 inline-flex">
         <div class="w-full max-w-1480 h-fit flex-col justify-center items-center gap-4 lg:gap-8 flex">
             <div class="w-full  text-netral-900 Heading1 font-extrabold flex">Notifikasi</div>
             @foreach ($notifications as $notification)

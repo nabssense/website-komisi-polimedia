@@ -36,8 +36,8 @@ class NotificationController extends Controller
         }
 
         return view('pages.notifikasi.notifikasi', [
-            'title' => 'Website Komisi | Kelola Notifikasi',
-            'active' => 'Kelola Notifikasi',
+            'title' => 'Website Komisi | Notifikasi',
+            'active' => 'Notifikasi',
             
             'notifications' => $notifications,
             'firstImages' => $firstImages, // Pass the array of first images to the view

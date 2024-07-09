@@ -1,5 +1,5 @@
 <div
-    class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-20 md:py-32 bg-soft-base flex-col justify-center items-center inline-flex ">
+    class="w-full h-fit md:px-8 xl:px-16  {{ $active === 'Beranda' ? 'pt-8 lg:pt-16' : '' }} pt-20 md:py-32 bg-netral-200 flex-col justify-center items-center inline-flex ">
     {{-- Button Fix --}}
 
     @auth
@@ -16,7 +16,7 @@
             <div class="before:content-['Pertanyaan'] md:before:content-['Mulai_Bertanya']"></div>
         </a>
     @endguest
-    <div class="w-full max-w-1480 h-fit bg-soft-base flex-col justify-center items-center gap-4 lg:gap-8 flex ">
+    <div class="w-full max-w-1480 h-fit bg-netral-200 flex-col justify-center items-center gap-4 lg:gap-8 flex ">
         <div
             class="w-full px-4 md:px-0 xl:px-0 justify-start items-center gap-4 {{ $active === 'Beranda' ? 'flex' : 'hidden' }} flex-col md:flex-row lg:flex ">
             <p class="w-full Heading1 font-extrabold {{ $active === 'Beranda' ? 'flex' : 'hidden' }}  lg:flex">Forum

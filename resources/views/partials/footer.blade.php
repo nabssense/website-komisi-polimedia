@@ -88,6 +88,6 @@
     </div>
     <div class="w-full h-fit flex-col justify-start items-center gap-4 flex">
         <div class="w-full h-0.5 lg:h-1 bg-gray-200 rounded-2xl"></div>
-        <div class="text-center"><span class="text-white font-normal Body2 md:Heading4">• Membidik Prestasi Membangun Negeri • © 2022 Copyright Komisi Polimedia</span></div>
+        <div class="text-center"><span class="text-white font-normal Body2 md:Heading4">• Membidik Prestasi Membangun Negeri • © 2024 www.komisipolimedia.com</span></div>
     </div>
 </footer>

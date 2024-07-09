@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('container')
-    <div class="w-screen h-screen step p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
+    <div class="w-screen h-screen step p-4 md:p-8 bg-netral-100 shadow justify-center items-center gap-4 inline-flex" id="step1">
         {{-- Main Content --}}
         <form action="{{ route('kelola.berita.update', $news->id) }}" method="POST" enctype="multipart/form-data"
-            class="w-full max-w-960 h-full px-8 flex-col justify-start items-start gap-8 inline-flex">
+            class="w-full max-w-960 h-full flex-col justify-start items-start gap-8 inline-flex">
             {{-- 1 --}}
             @csrf
             @method('PUT')
@@ -125,6 +125,25 @@
                         </div>
                     </div>
                 </div>
+                <div class="w-full h-full justify-start items-start gap-4 inline-flex flex-col">
+                    <div id="toggle-btn-notif"
+                        onclick="toggleSwitch('toggle-btn-notif', 'toggle-status-notif', 'toggle-value-notif', 'toggle-icon-inner-notif');"
+                        class="w-full h-fit flex-col justify-start items-center inline-flex relative">
+                        <div class="w-full justify-start items-start inline-flex">
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Kirim
+                                notifikasi ke semua</div>
+                        </div>
+                        <div class="relative flex flex-row items-center w-full cursor-pointer">
+                            <div id="toggle-status-notif"
+                                class="w-full bg-white focus:outline-none focus:font-semibold font-semibold text-netral-800 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
+                                Tidak Aktif</div>
+                            <input type="hidden" name="send_notification" id="toggle-value-notif" value="0">
+                        </div>
+                        <div id="toggle-icon" class="absolute right-0 items-center justify-center flex h-full">
+                            <i id="toggle-icon-inner-notif" class="text-32 ph ph-toggle-left cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {{-- 3 --}}
@@ -192,6 +211,28 @@
                 this.value = null;
             });
         });
+    </script>
+    <script>
+        function toggleSwitch(btnId, statusId, valueId, iconInnerId, headlineId) {
+            const btn = document.getElementById(btnId);
+            const status = document.getElementById(statusId);
+            const value = document.getElementById(valueId);
+            const icon = document.getElementById(iconInnerId);
+            const headline = document.getElementById(headlineId);
+            if (status.textContent.trim() === 'Tidak Aktif') {
+                status.textContent = 'Aktif';
+                value.value = 'Aktif';
+                icon.classList.remove('ph-toggle-left');
+                icon.classList.add('ph-toggle-right', 'ph-fill');
+                headline.classList.remove('hidden');
+            } else {
+                status.textContent = 'Tidak Aktif';
+                value.value = 'Tidak Aktif';
+                icon.classList.remove('ph-toggle-right', 'ph-fill');
+                icon.classList.add('ph-toggle-left');
+                headline.classList.add('hidden');
+            }
+        }
     </script>
     <script src="{{ asset('js/inputImagePreview.js') }}"></script>
     {{-- <script src="{{ asset('js/touchdragscroll.js') }}"></script> --}}
