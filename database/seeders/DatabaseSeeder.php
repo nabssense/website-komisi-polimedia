@@ -53,6 +53,21 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
+            'fullname' => 'Yuyun',
+            'email' => 'buyuyun@gmail.com',
+            'password' => 'buyuyun',
+            'nim'=> '0',
+            'nik'=> '',
+            'number_wa'=> '089503033804',
+            'regional_campus'=> 'Jakarta',
+            'edu_program' => '',
+            'user_type' => 'Admin',
+            'status' => 'Aktif',
+            'admin' => 'Aktif',
+        ]);
+
+        User::create([
+            'profile_picture' => config('app.avatar_generator_url').$modifiedFullname,
             'fullname' => 'Suhaili',
             'email' => 'Suhaili@gmail.com',
             'password' => 'Suhaili',
@@ -170,6 +185,9 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([
             ExcelToDatabaseSeeder::class,
+        ]);
+        $this->call([
+            NewsSeeder::class,
         ]);
     }
 }

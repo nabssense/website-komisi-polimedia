@@ -2,10 +2,10 @@
     <div class="max-w-1480 h-fit w-full justify-center items-center gap-8 lg:gap-16 flex flex-col xl:flex-row">
         <section class="w-full h-fit order-2 xl:order-1 flex-col justify-center relative items-start gap-8 lg:gap-12 inline-flex">
             <div class="w-full h-fit justify-start items-center gap-2 md:gap-8 flex flex-row">
-                @php
+                {{-- @php
                     // Baca isi file SVG
                     $svgContent = file_get_contents(
-                        public_path('img/Kabinet/KOBRA/Logo-Kabinet-Kobra.svg'),
+                        public_path('img/Kabinet_Harpiah_White.svg'),
                     );
 
                     // Analisis isi SVG untuk mendapatkan semua data path dan warna fill
@@ -20,11 +20,14 @@
                                 'fill' => $match[2], // Data fill
                             ];
                         }
-                @endphp
+                @endphp --}}
                 <div class="w-24 h-24 relative">
                     <img class="h-full w-fit fill-netral-100 aspect-square object-scale-down" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
                 </div>
-                <div class="h-fit justify-center items-center relative ">
+                <div class="w-48 h-48 relative">
+                    <img class="h-full w-fit fill-netral-100 aspect-square object-scale-down" src="{{ url('img/Kabinet_Harpiah_Vertical_White.svg') }}" alt="Image" />
+                </div>
+                {{-- <div class="h-fit justify-center items-center relative ">
                     <svg class="w-full h-full object-scale-down" style="width:100%; height:100%;" viewBox="0 0 200  60" >
                         @foreach ($pathDataWithFill as $pathInfo)
                             : ?>
@@ -33,7 +36,7 @@
                                 fill="{{ $pathInfo['fill'] }}" />
                         @endforeach
                     </svg>
-                </div>
+                </div> --}}
             </div>
             <div class="self-stretch justify-start items-start gap-8 lg:gap-24 inline-flex flex-col md:flex-row">
                 <div class="w-full flex-col lg:flex-none lg:w-fit items-start gap-2 lg:gap-4 inline-flex">

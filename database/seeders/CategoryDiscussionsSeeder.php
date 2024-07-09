@@ -16,10 +16,7 @@ class CategoryDiscussionsSeeder extends Seeder
         //
         DB::table('categories_discussions')->insert([
             
-            [
-                'slug' => 'berita-resmi',
-                'name' => 'Berita Resmi',
-            ],
+           
             [
                 'slug' => 'pencairan',
                 'name' => 'Pencairan',

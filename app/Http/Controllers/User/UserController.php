@@ -67,6 +67,7 @@ class UserController extends Controller
     public function updatePassword(UpdatePasswordRequest $request)
     {
         /** @var \App\Models\User $user **/
+        
         $user = auth()->user();
         $user->password = Hash::make($request->input('password'));
         $user->save();
@@ -99,5 +100,5 @@ class UserController extends Controller
         $user->save();
     
         return redirect()->back()->with('success', 'Gambar profil berhasil diubah.');
-    }
+    }   
 }

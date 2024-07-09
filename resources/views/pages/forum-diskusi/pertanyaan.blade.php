@@ -142,8 +142,8 @@
                                                     onclick="openZoom({{ $discussion->id }})">
                                                 <div id="overlay-{{ $discussion->id }}"
                                                     class="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 transition-opacity duration-300 bg-neutral-900 opacity-0 pointer-events-none">
-                                                    <div class="w-full flex justify-center items-center lg:p-4">
-                                                        <img class="w-11/12 h-full object-scale-down"
+                                                    <div class="w-full p-32 flex justify-center items-center lg:p-4">
+                                                        <img class="w-1/4 h-full object-scale-down"
                                                             src="{{ asset('storage/' . $discussion->image) }}"
                                                             alt="Gambar Diskusi Zoom">
                                                         <button onclick="closeZoom({{ $discussion->id }})"
@@ -235,10 +235,11 @@
                                                             <p class="w-full text-netral-900 font-semibold line-clamp-1">
                                                                 {{ $answer->user->fullname }}</p>
                                                             @if (
-                                                        $discussion->user->user_type === 'Pembina Komisi' ||
-                                                            ($discussion->user->user_type === 'Mahasiswa' && $discussion->user->admin === 'Aktif'))
-                                                        <i class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
-                                                    @endif
+                                                                $discussion->user->user_type === 'Pembina Komisi' ||
+                                                                    ($discussion->user->user_type === 'Mahasiswa' && $discussion->user->admin === 'Aktif'))
+                                                                <i
+                                                                    class="Heading3 ph-fill text-blue-700 ph-seal-check"></i>
+                                                            @endif
                                                         </div>
                                                         <div class="text-netral-900 font-semibold hidden md:flex">
                                                             -</div>

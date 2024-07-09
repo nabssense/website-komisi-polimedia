@@ -20,10 +20,6 @@ class CategoryNewsSeeder extends Seeder
                 'name' => 'Hari Peringatan',
             ],
             [
-                'slug' => 'berita-resmi',
-                'name' => 'Berita Resmi',
-            ],
-            [
                 'slug' => 'pencairan',
                 'name' => 'Pencairan',
             ],
@@ -38,10 +34,6 @@ class CategoryNewsSeeder extends Seeder
             [
                 'slug' => 'prestasi',
                 'name' => 'Prestasi',
-            ],
-            [
-                'slug' => 'permasalahan',
-                'name' => 'Permasalahan',
             ],
         ]);
     }
