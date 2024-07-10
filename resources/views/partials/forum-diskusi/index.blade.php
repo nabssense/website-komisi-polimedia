@@ -225,9 +225,9 @@
                                     {{-- Profil --}}
                                     <div class="w-full justify-start items-center gap-2 inline-flex relative">
                                         <div class="flex-none" href="{{ route('user.profile') }}">
-                                            <img src="{{ strpos($discussion->user->profile_picture, 'https://ui-avatars.com') === 0 ? $discussion->user->profile_picture : Storage::url($user->profile_picture) }}"
+                                            <img src="{{ strpos($discussion->user->profile_picture, 'https://ui-avatars.com') === 0 ? $discussion->user->profile_picture : Storage::url($discussion->user->profile_picture) }}"
                                                 alt="{{ $discussion->user->fullname }}"
-                                                class="rounded-full w-9 lg:w-12">
+                                                class="rounded-full aspect-square w-9 lg:w-12">
                                         </div>
                                         <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1"
                                             onclick="event.stopPropagation();">

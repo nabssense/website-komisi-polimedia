@@ -55,11 +55,11 @@
                         <a href="{{ route('notifikasi.index') }}"
                             class="{{ $active === 'Notifikasi' ? 'ph-fill text-primary-base ' : '' }} ph ph-notification text-4xl md:text-32"></a>
                         <a class="w-fit h-fit lg:flex hidden" href="{{ route('user.profile')}}">
-                            <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}"
+                            <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
                                 alt="{{ auth()->user()->fullname }}" class="rounded-full w-12  aspect-square object-cover">
                         </a>
                         <a class="w-fit h-fit lg:hidden flex" href="/user">
-                            <img src="{{  strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}"
+                            <img src="{{  strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
                                 alt="{{ auth()->user()->fullname }}" class="rounded-full w-12  aspect-square object-cover">
                         </a>
                     @endauth

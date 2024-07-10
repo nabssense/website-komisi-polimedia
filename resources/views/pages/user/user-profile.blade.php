@@ -8,7 +8,7 @@
         <div class="w-full h-fit flex flex-row gap-8">
             <div
                 class="w-fit h-fit rounded-lg py-4 px-4 border-b border-netral-300 justify-start items-center gap-4 flex flex-col shadow-card-m">
-                <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}"
+                <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
                     alt="{{ auth()->user()->fullname }}" class="w-360 aspect-square object-cover rounded-full">
                 <button id="ubahPicProfilButton" onclick="togglePopUpShow('ubahPicProfilPopup')" type="button"
                     class="w-full flex btn-secondary-sm px-4">Ubah</button>
@@ -268,7 +268,7 @@
         <div class="w-full h-fit flex flex-col gap-8">
             <div
                 class="w-full h-fit rounded-lg py-4 px-4 border-b border-netral-300 justify-start items-center gap-4 flex flex-col shadow-card-m">
-                <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}"
+                <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
                     alt="{{ auth()->user()->fullname }}" class="w-32 rounded-full aspect-square object-cover">
                 <button class="btn-secondary w-full" onclick="togglePopUpShow('ubahPicProfilPopup')">
                     Ubah Gambar
