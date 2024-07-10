@@ -72,6 +72,8 @@ class RegisterController extends Controller
         $modifiedFullname = str_replace(' ', '%20', $validated['fullname']);
         $validated['profile_picture'] = config('app.avatar_generator_url') . $modifiedFullname;
         // Set default admin status to "Tidak Aktif"
+        $validated['status'] = 'Tidak Aktif';
+
         $validated['admin'] = 'Tidak Aktif';
 
         $create = User::create($validated);
