@@ -258,7 +258,7 @@
                                                     class="w-full order-1 lg:order-2 text-center status-text text-netral-900 Body1 font-normal text-wrap">
                                                     {{ $user->status }}</p>
                                             </td>
-                                            @if (auth()->user()->user_type === 'Admin' || auth()->user()->user_type === 'Pembina Komisi')
+                                            @if (auth()->user()->user_type === 'Admin' || auth()->user()->user_type === 'Pembina Komisi' || (auth()->user()->user_type === 'Mahasiswa' && $user->admin === 'Aktif'))
                                                 <td
                                                     class="w-full flex flex-col items-center basis-2/12 justify-center cursor-pointer">
                                                     <i class="admin-switch text-5xl ph ph-toggle-left {{ $user->admin === 'Aktif' ? 'ph-fill ph-toggle-right' : '' }}"
@@ -352,7 +352,7 @@
                                                                 data-id="{{ $user->id }}"></i>
                                                         </div>
                                                     </div>
-                                                    @if (auth()->user()->user_type === 'Admin' || auth()->user()->user_type === 'Pembina Komisi')
+                                                    @if (auth()->user()->user_type === 'Admin' || auth()->user()->user_type === 'Pembina Komisi' || (auth()->user()->user_type === 'Mahasiswa' && auth()->user()->admin === 'Aktif'))
                                                         <div
                                                             class="headline-switch w-full flex flex-row p-2 bg-netral-200 rounded-lg">
                                                             <div class="w-full h-fit flex flex-col">
@@ -380,6 +380,9 @@
                             </tbody>
                         </table>
                         <!-- Pagination links -->
+                        <div class="mt-4">
+                            {{ $users->links() }}
+                        </div>
                         <!-- Load More Button -->
                         <div id="load-more-container" class="mt-4">
                             <button id="load-more-btn" class="btn-secondary">Lihat Selengkapnya</button>
@@ -388,49 +391,6 @@
                 </div>
             </div>
         </div>
-        @push('scripts')
-            <script>
-                // JavaScript for Load More functionality
-                document.addEventListener('DOMContentLoaded', function() {
-                    let page = 1;
-
-                    // Function to load more users
-                    function loadMoreUsers() {
-                        fetch(`/load-more-users?page=${page}`, {
-                                method: 'GET',
-                                headers: {
-                                    'X-Requested-With': 'XMLHttpRequest'
-                                }
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                const userList = document.getElementById('user-list');
-                                data.users.forEach(user => {
-                                    let html = `
-                                <tr class="w-full flex-col bg-netral-100 lg:flex-row justify-start items-center gap-4 hidden lg:flex relative">
-                                    <!-- User data cells -->
-                                    <!-- Adjust as per your user data -->
-                                </tr>
-                            `;
-                                    userList.insertAdjacentHTML('beforeend', html);
-                                });
-                                page++;
-                                if (!data.has_more) {
-                                    document.getElementById('load-more-container').style.display = 'none';
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error loading more users:', error);
-                            });
-                    }
-
-                    // Event listener for Load More button
-                    document.getElementById('load-more-btn').addEventListener('click', function() {
-                        loadMoreUsers();
-                    });
-                });
-            </script>
-        @endpush
 
         @include('partials.footer')
         <script src="{{ asset('js/toggleDropdown2PopUp.js') }}"></script>

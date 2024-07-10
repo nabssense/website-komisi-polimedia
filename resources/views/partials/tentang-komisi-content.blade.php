@@ -211,7 +211,7 @@
                     </div>
                 </div>
                 {{-- Section 2 Logo --}}
-                <section class=" w-full h-32 md:h-48 xl:h-72 xl:px-16 justify-center items-center  flex lg:hidden">
+                <div class=" w-full h-32 md:h-48 xl:h-72 xl:px-16 justify-center items-center  flex lg:hidden">
                     <div class="w-full h-full py-8 justify-center max-w-1480  gap-1 md:gap-4 xl:gap-12 flex">
                         <div class="fh-full ">
                             <img class=" h-full object-fill" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
@@ -221,7 +221,7 @@
                                 alt="Image" />
                         </div>
                     </div>
-                </section>
+                </div>
                 <div class="w-full  justify-start items-start gap-8 flex flex-col md:flex-row ">
                     <div class="w-fit h-full lg:flex lg:flex-none hidden">
                         <img class="w-full h-full aspect-square" src="{{ url('img/Logo-Komisi.svg') }}"

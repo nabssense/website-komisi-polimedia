@@ -67,7 +67,7 @@ class DiscussionController extends Controller
 
             'discussionsTerbantu' => $discussionsTerbantu,
             'discussions' => $discussions->orderBy('created_at', 'desc')->paginate(10)->withQueryString(),
-            'categories' => CategoryDiscussion::all(),
+            'categoriesDiscussions' => CategoryDiscussion::all(),
             'search' => $request->search,
         ]);
     }
@@ -83,7 +83,7 @@ class DiscussionController extends Controller
         return response()->view('pages.forum-diskusi.ajukan-pertanyaan', [
             "title" => "Website Komisi | Forum Diskusi",
             "active" => "Forum Diskusi",
-            'categories' => CategoryDiscussion::all(),
+            'categoriesDiscussions' => CategoryDiscussion::all(),
 
 
         ]);
@@ -183,7 +183,7 @@ class DiscussionController extends Controller
             "active" => "Pertanyaan",
 
             'discussion' => $discussion,
-            'categories' => CategoryDiscussion::all(),
+            'categoriesDiscussions' => CategoryDiscussion::all(),
         ]);
     }
 

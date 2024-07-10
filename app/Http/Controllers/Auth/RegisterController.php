@@ -5,14 +5,15 @@ namespace App\Http\Controllers\Auth;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Discussion;
+use App\Models\CategoryNews;
 use Illuminate\Http\Request;
 use App\Models\PeriodFunding;
+use Illuminate\Http\JsonResponse;
 use App\Models\CategoryDiscussion;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Auth\RegisterRequest;
-use Illuminate\Http\JsonResponse;
 
 
 class RegisterController extends Controller
@@ -37,7 +38,7 @@ class RegisterController extends Controller
                 $firstImages[$item->id] = null;
             }
         }
-        
+
 
         $discussionsTerbantu = Discussion::with('user', 'category')
             ->withCount('likes')
@@ -56,7 +57,8 @@ class RegisterController extends Controller
             'news' => $news,
             'discussionsTerbantu' => $discussionsTerbantu,
             'discussions' => $discussions->orderBy('created_at', 'desc')->paginate(10)->withQueryString(),
-            'categories' => CategoryDiscussion::all(),
+            'categoriesDiscussions' => CategoryDiscussion::all(),
+            'categoriesNews' => CategoryNews::all(),
             'search' => $request->search,
             'firstImages' => $firstImages,
             'activeHeadlineNews' => $activeNews,
@@ -69,6 +71,8 @@ class RegisterController extends Controller
         $validated['password'] = bcrypt($validated['password']);
         $modifiedFullname = str_replace(' ', '%20', $validated['fullname']);
         $validated['profile_picture'] = config('app.avatar_generator_url') . $modifiedFullname;
+        // Set default admin status to "Tidak Aktif"
+        $validated['admin'] = 'Tidak Aktif';
 
         $create = User::create($validated);
 

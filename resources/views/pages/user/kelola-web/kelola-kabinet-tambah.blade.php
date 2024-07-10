@@ -831,7 +831,7 @@
                                                 <input type="text" placeholder="Cari Student" class="searchbar" onkeyup="filterOptions('options', this)">
                                                 <div id="student-list" class="w-full flex flex-col gap-2">
                                                     <button class="w-full flex flex-row cursor-pointer has-[input:checked]:bg-primary-100 has-[input:checked]:text-primary-base has-[input:checked]:border-primary-base p-2 gap-2 border rounded-2xl items-center justify-start" onclick="updateInput('student-input', this)">
-                                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
+                                                        <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
                                                         <div class="w-full flex flex-col justify-center items-center">
                                                             <div id="name" class="w-full text-netral-900 flex">Nama Mahasiswa 1</div>
                                                             <div class="w-full flex Body2 text-netral-500">20240090</div>
@@ -840,7 +840,7 @@
                                                         <input type="radio" name="student" value="Nama Mahasiswa 1" class="checked:border-primary-base hidden">
                                                     </button>
                                                     <button class="w-full flex flex-row cursor-pointer has-[input:checked]:bg-primary-100 has-[input:checked]:text-primary-base has-[input:checked]:border-primary-base p-2 gap-2 border rounded-2xl items-center justify-start" onclick="updateInput('student-input', this)">
-                                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
+                                                        <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
                                                         <div class="w-full flex flex-col justify-center items-center">
                                                             <div id="name" class="w-full text-netral-900 flex">Nama Mahasiswa 2</div>
                                                             <div class="w-full flex Body2 text-netral-500">20240090</div>
@@ -849,7 +849,7 @@
                                                         <input type="radio" name="student" value="Nama Mahasiswa 2" class="checked:border-primary-base hidden">
                                                     </button>
                                                     <button class="w-full flex flex-row cursor-pointer has-[input:checked]:bg-primary-100 has-[input:checked]:text-primary-base has-[input:checked]:border-primary-base p-2 gap-2 border rounded-2xl items-center justify-start" onclick="updateInput('student-input', this)">
-                                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
+                                                        <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
                                                         <div class="w-full flex flex-col justify-center items-center">
                                                             <div id="name" class="w-full text-netral-900 flex">Nama Mahasiswa 3</div>
                                                             <div class="w-full flex Body2 text-netral-500">20240090</div>
@@ -858,7 +858,7 @@
                                                         <input type="radio" name="student" value="Nama Mahasiswa 3" class="checked:border-primary-base hidden">
                                                     </button>
                                                     <button class="w-full flex flex-row cursor-pointer has-[input:checked]:bg-primary-100 has-[input:checked]:text-primary-base has-[input:checked]:border-primary-base p-2 gap-2 border rounded-2xl items-center justify-start" onclick="updateInput('student-input', this)">
-                                                        <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
+                                                        <img src="{{ strpos($user->profile_picture, 'https://ui-avatars.com') === 0 ? $user->profile_picture : Storage::url($user->profile_picture) }}" alt="{{ auth()->user()->fullname }}" class="w-12 rounded-lg">
                                                         <div class="w-full flex flex-col justify-center items-center">
                                                             <div id="name" class="w-full text-netral-900 flex">Nama Mahasiswa 4</div>
                                                             <div class="w-full flex Body2 text-netral-500">20240090</div>

@@ -116,7 +116,7 @@
                                                     class="btn-popup-sm {{ !isset($withCategory) ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}">
                                                     Semua
                                                 </button>
-                                                @foreach ($categories as $category)
+                                                @foreach ($categoriesDiscussions as $category)
                                                     <button
                                                         onclick="toggleCategory('{{ $category->slug }}', '{{ route('forum-diskusi.index') }}', '{{ route('forum-diskusi.diskusi.kategori.show', $category->slug) }}')"
                                                         class="btn-popup-sm {{ isset($withCategory) && $withCategory->id === $category->id ? 'border-primary-base bg-primary-100 text-primary-base' : '' }} ">
@@ -150,7 +150,7 @@
                         class="btn-popup {{ !isset($withCategory) ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}">
                         Semua
                     </button>
-                    @foreach ($categories as $category)
+                    @foreach ($categoriesDiscussions as $category)
                         <button
                             onclick="toggleCategory('{{ $category->slug }}', '{{ route('forum-diskusi.index') }}', '{{ route('forum-diskusi.diskusi.kategori.show', $category->slug) }}')"
                             class="btn-popup {{ isset($withCategory) && $withCategory->id === $category->id ? 'border-primary-base bg-primary-100 text-primary-base' : '' }} ">

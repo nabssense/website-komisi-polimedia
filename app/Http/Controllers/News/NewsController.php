@@ -30,7 +30,7 @@ class NewsController extends Controller
             $query->where('category_id', $category->id);
         }
 
-        // Apply sorting based on 'sort' parameter
+        // Apply sorting based on 'sort' parameter or default to 'created_at' descending
         $sortField = $request->sort_field ?? 'created_at';
         $sortOrder = $request->sort_order ?? 'desc';
 
@@ -55,8 +55,8 @@ class NewsController extends Controller
         // Retrieve all news items
         $news = $query->get();
 
-        // Retrieve all categories
-        $categories = CategoryNews::all();
+        // Retrieve all categoriesNews
+        $categoriesNews = CategoryNews::all();
 
         // Initialize an array to store image paths
         $firstImages = [];
@@ -80,9 +80,8 @@ class NewsController extends Controller
             "title" => "Website Komisi | Berita",
             "active" => "Berita",
 
-            
             'news' => $news,
-            'categories' => $categories,
+            'categoriesNews' => $categoriesNews,
             "search" => $request->search,
             'firstImages' => $firstImages,
             'withCategory' => isset($category) ? $category : null, // Pass selected category for highlighting

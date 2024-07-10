@@ -40,7 +40,7 @@
                     <!-- Input Field -->
                     <select name="category_slug" id="" class="input-text">
                         <option class="text-netral-200 " value="">-- Pilih Kategori --</option>
-                        @foreach ($categories as $category)
+                        @foreach ($categoriesDiscussions as $category)
                             <option value="{{ $category->slug }}"
                                 @if (($discussion->category->slug ?? old('category_slug')) === $category->slug) {{ 'selected' }} @endif>
                                 {{ $category->name }}

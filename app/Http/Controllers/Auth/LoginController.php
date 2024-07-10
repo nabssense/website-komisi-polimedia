@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\CategoryNews;
 use Illuminate\Support\Facades\Redirect;
 
 
@@ -56,7 +57,8 @@ class LoginController extends Controller
             'news' => $news,
             'discussionsTerbantu' => $discussionsTerbantu,
             'discussions' => $discussions->orderBy('created_at', 'desc')->paginate(10)->withQueryString(),
-            'categories' => CategoryDiscussion::all(),
+            'categoriesDiscussions' => CategoryDiscussion::all(),
+            'categoriesNews' => CategoryNews::all(),
             'search' => $request->search,
             'firstImages' => $firstImages,
             'activeHeadlineNews' => $activeNews,

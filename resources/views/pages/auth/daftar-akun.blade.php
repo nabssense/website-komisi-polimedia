@@ -75,6 +75,7 @@
                                         {{ $message }}</div>
                                 @enderror
                             </div>
+                           
                             <div class="self-stretch h-fit flex-col justify-start items-start flex">
                                 <div class="justify-start items-start inline-flex">
                                     <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Ulang 
@@ -141,19 +142,10 @@
 
     <script>
         // 
-        // 
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector('form'); // Select the form element
 
             form.addEventListener('submit', function(event) {
-                var password = document.getElementById("passwordInput").value;
-        var confirmPassword = document.getElementById("REpasswordInput").value;
-        if (password !== confirmPassword) {
-            event.preventDefault(); // Prevent form submission
-            document.getElementById("passwordMatchError").classList.remove("hidden");
-        } else {
-            document.getElementById("passwordMatchError").classList.add("hidden");
-        }
                 event.preventDefault(); // Prevent form submission
 
                 const formData = new FormData(form);
@@ -175,20 +167,17 @@
                                 "{{ route('beranda.index') }}"; // Redirect after animation
                             }, 13500); // Adjust timing based on your animation duration
                         } else {
-                            // Handle validation errors
-                            Object.keys(data.errors).forEach(key => {
-                                const errorContainer = document.getElementById(`${key}Error`);
-                                if (errorContainer) {
-                                    errorContainer.textContent = data.errors[key][
-                                    0]; // Display first error message
-                                }
-                            });
+                            // Handle errors here, display appropriate message
+                            if (data.error) {
+                                alert('Login gagal: ' + data.error);
+                            } else {
+                                alert('Login gagal, silakan cek kembali informasi login Anda.');
+                            }
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
                     });
-
             });
 
             function runButtonAnimation() {
@@ -217,9 +206,9 @@
                             document.getElementById("text-btn-1").classList.add(
                                 'show-btn-1', 'flex');
                             document.getElementById("text-btn-1").classList.remove(
-                                'hidden');
+                            'hidden');
                             document.getElementById("text-skip").classList.add(
-                                'show-btn-1');
+                            'show-btn-1');
                             document.getElementById("text-skip").classList.remove('hidden');
                         }, 2400);
 
@@ -238,7 +227,7 @@
                                         setTimeout(function() {
                                             document.getElementById("text-btn-2")
                                                 .classList.add('show-btn-2',
-                                                    'flex');
+                                                'flex');
                                             document.getElementById("text-btn-2")
                                                 .classList.remove('hidden');
                                         }, 800);

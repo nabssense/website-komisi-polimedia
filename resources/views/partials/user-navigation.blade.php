@@ -8,7 +8,7 @@
                 class=" h-full p-8 border-r-2 border-netral-300 bg-white col-span-3 justify-start items-start flex flex-col gap-8 ">
                 <a href="{{ route('user.profile')}}"
                     class="{{ $active === 'User Profile' ? 'bg-netral-200 rounded-lg' : '' }} w-full h-fit  py-4 px-4 border-b border-netral-300 justify-start items-center gap-4 inline-flex ">
-                    <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
+                    <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}"
                         alt="{{ auth()->user()->fullname }}" class="rounded-full w-8 md:w-12  aspect-square object-cover">
                     <div class="w-full h-fit flex-col justify-start items-start inline-flex overflow-hidden">
                         <div
@@ -20,13 +20,14 @@
                     </div>
                 </a>
                 <div class="w-full h-fit content-stretch self-stretch flex flex-col justify-start items-start gap-4">
-                    @if (auth()->user()->user_type === 'Mahasiswa' || auth()->user()->user_type === 'Admin')
+                    @if (auth()->user()->user_type === 'Mahasiswa' && auth()->user()->admin === 'Admin' || auth()->user()->user_type === 'Pembina Komisi' || auth()->user()->user_type === 'Admin')
                         <a href="/kelola-website"
                             class="{{ $active === 'Kelola Website' ? 'bg-netral-200' : '' }} text-left self-stretch px-4 py-3 rounded-lg justify-start items-center gap-3 inline-flex">
                             <i class="text-4xl ph ph-kanban"></i>
                             <div class="text-netral-900 font-medium Heading4">Kelola Website
                             </div>
                         </a>
+                        @else
                     @endif
 
                     <button id="keluarAkunBtn" onclick="togglePopUpShow('keluarAkunAlert')"

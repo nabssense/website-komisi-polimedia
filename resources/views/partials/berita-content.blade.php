@@ -77,7 +77,7 @@
                                                 class="btn-popup-sm {{ !isset($withCategory) ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}">
                                                 Semua
                                             </a>
-                                            @foreach ($categories as $category)
+                                            @foreach ($categoriesNews as $category)
                                                 <a href="{{ route('berita.index', ['category' => $category->slug]) }}"
                                                     class="btn-popup-sm {{ isset($withCategory) && $withCategory->id === $category->id ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}">
                                                     {{ $category->name }}
@@ -107,7 +107,7 @@
                         class="btn-popup {{ !isset($withCategory) ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}">
                         Semua
                     </a>
-                    @foreach ($categories as $category)
+                    @foreach ($categoriesNews as $category)
                         <a href="{{ route('berita.index', ['category' => $category->slug]) }}"
                             class="btn-popup {{ isset($withCategory) && $withCategory->id === $category->id ? 'border-primary-base bg-primary-100 text-primary-base' : '' }}">
                             {{ $category->name }}

@@ -9,14 +9,15 @@ use App\Models\PeriodFunding;
 use Illuminate\Support\Carbon;
 use App\Models\CategoryDiscussion;
 use App\Http\Controllers\Controller;
+use App\Models\CategoryNews;
 
 class HomeController extends Controller
 {
     //
     public function index()
 {
-    $news = News::all();
-    $discussions = Discussion::with('user', 'category');
+    $news = News::orderBy('created_at', 'desc')->get();
+    $discussions = Discussion::with('user', 'category')->orderBy('created_at', 'desc');
     $activeNews = News::where('headline_status', 'Aktif')->get();
     $activePeriods = PeriodFunding::where('start_date', '<=', Carbon::now())
     ->where('end_date', '>=', Carbon::now())
@@ -43,7 +44,8 @@ class HomeController extends Controller
         'news' => $news,
         'discussionsTerbantu' => $discussionsTerbantu,
         'discussions' => $discussions->orderBy('created_at', 'desc')->paginate(3)->withQueryString(),
-        'categories' => CategoryDiscussion::all(),
+        'categoriesDiscussions' => CategoryDiscussion::all(),
+        'categoriesNews' => CategoryNews::all(),
         'firstImages' => $firstImages,
         'activeHeadlineNews' => $activeNews,
         'activePeriods' => $activePeriods 

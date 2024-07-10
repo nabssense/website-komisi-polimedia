@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User; // Import model User
 
 class ExcelToDatabaseSeeder extends Seeder
 {
@@ -32,8 +33,8 @@ class ExcelToDatabaseSeeder extends Seeder
             $data[] = [
                 'profile_picture' => config('app.avatar_generator_url').$row[0],
                 'fullname' => $row[0],
-                'email' =>  $row[1] . '@polimedia.ac.id',
-                'password' => 'KOM1S1K0Br4.',
+                'email' => $row[1] . '@polimedia.ac.id',
+                'password' => Hash::make('KomisiKOBR4'),
                 'nim' => $row[1],
                 'nik' => $row[3],
                 'number_wa' => $row[2],
@@ -42,10 +43,12 @@ class ExcelToDatabaseSeeder extends Seeder
                 'user_type' => 'Mahasiswa',
                 'status' => 'Aktif',
                 'admin' => 'Tidak Aktif',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ];
         }
 
-        // Masukkan data ke dalam tabel scholarship_fundings
-        DB::table('users')->insert($data);
+        // Masukkan data ke dalam tabel users menggunakan model User
+        User::insert($data);
     }
 }

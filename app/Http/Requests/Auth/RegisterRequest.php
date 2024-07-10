@@ -31,6 +31,7 @@ class RegisterRequest extends FormRequest
             'edu_program' => '',
             'user_type' => '',
             'status' => '',
+            'admin' => '',
         ];
     }
 

@@ -53,7 +53,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <a href="/" class="self-stretch h-10 pt-3 flex-col justify-start items-start gap-2 flex">
+                            <a href="https://wa.me/6285155330033" class="self-stretch h-10 pt-3 flex-col justify-start items-start gap-2 flex">
                                 <div class="self-stretch justify-end items-center inline-flex">
                                     <div class="text-right text-zinc-500 font-normal Heading4">
                                         Lupa kata sandi?</div>
@@ -136,136 +136,133 @@
     </script>
 
 
-    <script>
-        // 
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector('form'); // Select the form element
+<script>
+    // 
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector('form'); // Select the form element
 
-            form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent form submission
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
 
-                const formData = new FormData(form);
+            const formData = new FormData(form);
 
-                fetch(form.action, {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-                            'Accept': 'application/json',
-                        },
-                        body: formData // Send form data as-is (no need for JSON.stringify)
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            runButtonAnimation(); // Run animation if login successful
-                            setTimeout(() => {
-                                window.location.href =
-                                "{{ route('beranda.index') }}"; // Redirect after animation
-                            }, 13500); // Adjust timing based on your animation duration
+            fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                        'Accept': 'application/json',
+                    },
+                    body: formData // Send form data as-is (no need for JSON.stringify)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        runButtonAnimation(); // Run animation if login successful
+                        setTimeout(() => {
+                            window.location.href =
+                            "{{ route('beranda.index') }}"; // Redirect after animation
+                        }, 13500); // Adjust timing based on your animation duration
+                    } else {
+                        // Handle errors here, display appropriate message
+                        if (data.error) {
+                            alert('Login gagal: ' + data.error);
                         } else {
-                            // Handle validation errors
-                            Object.keys(data.errors).forEach(key => {
-                                const errorContainer = document.getElementById(`${key}Error`);
-                                if (errorContainer) {
-                                    errorContainer.textContent = data.errors[key][
-                                    0]; // Display first error message
-                                }
-                            });
+                            alert('Login gagal, silakan cek kembali informasi login Anda.');
                         }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-
-            });
-
-            function runButtonAnimation() {
-                // Implement your button animation logic here
-                // This function should handle the animation of your button as per your design
-                // Jalankan animasi tombol seperti yang telah Anda definisikan
-                document.getElementById("MainContent").classList.add("body-opacity-0");
-                document.getElementById("navbar").classList.add('body-opacity-0');
-                document.getElementById("text-btn").classList.add('body-opacity-0');
-
-
-                document.getElementById("text-btn").addEventListener("animationend", function() {
-                    document.getElementById("buttonAsli").classList.add('h-0');
-                    document.getElementById("form-login").classList.remove('gap-8', 'pt-20', 'md:pt-32');
-                    document.getElementById("MainContent").classList.add('body-height-0');
-                    document.getElementById("MainContent2").classList.add('body-height-0');
-                    document.getElementById("buttonAsli").classList.add('btn-Rounded', 'h-full');
-                    document.getElementById("navbar").classList.add('navbar-height-0');
-
-                    document.getElementById("buttonAsli").addEventListener("animationend", function() {
-                        setTimeout(function() {
-                            document.getElementById("text-btn-content").classList.add(
-                                'show-btn-1');
-                            document.getElementById("text-btn-content").classList.remove(
-                                'hidden');
-                            document.getElementById("text-btn-1").classList.add(
-                                'show-btn-1', 'flex');
-                            document.getElementById("text-btn-1").classList.remove(
-                                'hidden');
-                            document.getElementById("text-skip").classList.add(
-                                'show-btn-1');
-                            document.getElementById("text-skip").classList.remove('hidden');
-                        }, 2400);
-
-                        document.getElementById("text-btn-1").addEventListener("animationend",
-                            function() {
-                                setTimeout(function() {
-                                    document.getElementById("text-btn-1").classList.add(
-                                        'hide-btn-1');
-                                    document.getElementById("text-skip-1").classList
-                                        .add('hide-btn-1');
-                                }, 1200);
-
-                                document.getElementById("text-btn-1").addEventListener(
-                                    "animationend",
-                                    function() {
-                                        setTimeout(function() {
-                                            document.getElementById("text-btn-2")
-                                                .classList.add('show-btn-2',
-                                                    'flex');
-                                            document.getElementById("text-btn-2")
-                                                .classList.remove('hidden');
-                                        }, 800);
-
-                                        document.getElementById("text-btn-2")
-                                            .addEventListener("animationend", function() {
-                                                setTimeout(function() {
-                                                    document.getElementById(
-                                                            "text-btn-2")
-                                                        .classList.add(
-                                                            'hide-btn-2');
-                                                    document.getElementById(
-                                                            "text-skip")
-                                                        .classList.add(
-                                                            'hide-btn-2');
-                                                    document.getElementById(
-                                                            "form-login")
-                                                        .classList.add(
-                                                            'tutup-btn');
-                                                }, 3300);
-
-                                                document.getElementById("form-login")
-                                                    .addEventListener("animationend",
-                                                        function() {
-                                                            // Setelah animasi selesai, redirect ke halaman beranda
-                                                            setTimeout(function() {
-                                                                window.location
-                                                                    .href =
-                                                                    "{{ route('beranda.index') }}";
-                                                            }, 60 * 900);
-                                                        });
-                                            });
-                                    });
-                            });
-                    });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                 });
-            }
         });
-    </script>
+
+        function runButtonAnimation() {
+            // Implement your button animation logic here
+            // This function should handle the animation of your button as per your design
+            // Jalankan animasi tombol seperti yang telah Anda definisikan
+            document.getElementById("MainContent").classList.add("body-opacity-0");
+            document.getElementById("navbar").classList.add('body-opacity-0');
+            document.getElementById("text-btn").classList.add('body-opacity-0');
+
+
+            document.getElementById("text-btn").addEventListener("animationend", function() {
+                document.getElementById("buttonAsli").classList.add('h-0');
+                document.getElementById("form-login").classList.remove('gap-8', 'pt-20', 'md:pt-32');
+                document.getElementById("MainContent").classList.add('body-height-0');
+                document.getElementById("MainContent2").classList.add('body-height-0');
+                document.getElementById("buttonAsli").classList.add('btn-Rounded', 'h-full');
+                document.getElementById("navbar").classList.add('navbar-height-0');
+
+                document.getElementById("buttonAsli").addEventListener("animationend", function() {
+                    setTimeout(function() {
+                        document.getElementById("text-btn-content").classList.add(
+                            'show-btn-1');
+                        document.getElementById("text-btn-content").classList.remove(
+                            'hidden');
+                        document.getElementById("text-btn-1").classList.add(
+                            'show-btn-1', 'flex');
+                        document.getElementById("text-btn-1").classList.remove(
+                        'hidden');
+                        document.getElementById("text-skip").classList.add(
+                        'show-btn-1');
+                        document.getElementById("text-skip").classList.remove('hidden');
+                    }, 2400);
+
+                    document.getElementById("text-btn-1").addEventListener("animationend",
+                        function() {
+                            setTimeout(function() {
+                                document.getElementById("text-btn-1").classList.add(
+                                    'hide-btn-1');
+                                document.getElementById("text-skip-1").classList
+                                    .add('hide-btn-1');
+                            }, 1200);
+
+                            document.getElementById("text-btn-1").addEventListener(
+                                "animationend",
+                                function() {
+                                    setTimeout(function() {
+                                        document.getElementById("text-btn-2")
+                                            .classList.add('show-btn-2',
+                                            'flex');
+                                        document.getElementById("text-btn-2")
+                                            .classList.remove('hidden');
+                                    }, 800);
+
+                                    document.getElementById("text-btn-2")
+                                        .addEventListener("animationend", function() {
+                                            setTimeout(function() {
+                                                document.getElementById(
+                                                        "text-btn-2")
+                                                    .classList.add(
+                                                        'hide-btn-2');
+                                                document.getElementById(
+                                                        "text-skip")
+                                                    .classList.add(
+                                                        'hide-btn-2');
+                                                document.getElementById(
+                                                        "form-login")
+                                                    .classList.add(
+                                                        'tutup-btn');
+                                            }, 3300);
+
+                                            document.getElementById("form-login")
+                                                .addEventListener("animationend",
+                                                    function() {
+                                                        // Setelah animasi selesai, redirect ke halaman beranda
+                                                        setTimeout(function() {
+                                                            window.location
+                                                                .href =
+                                                                "{{ route('beranda.index') }}";
+                                                        }, 60 * 900);
+                                                    });
+                                        });
+                                });
+                        });
+                });
+            });
+        }
+    });
+</script>
 @endsection
 @section('after-script')
     <script src="{{ asset('js/searchField.js') }}"></script>

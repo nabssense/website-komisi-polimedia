@@ -10,7 +10,7 @@
         </div> --}}
         <a href="{{ route('user.profile') }}"
             class="{{ $active === 'User' ? 'bg-netral-200 rounded-lg' : '' }} w-full h-fit  py-4 px-4 border-b bg-netral-100 justify-start items-center gap-4 inline-flex ">
-            <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL) ? auth()->user()->profile_picture : Storage::url(auth()->user()->profile_picture) }}"
+            <img src="{{ strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}"
                 alt="{{ auth()->user()->fullname }}" class="rounded-full w-12 aspect-square object-cover">
             <div class="w-full h-fit flex-col justify-start items-start inline-flex overflow-hidden">
                 <div class="truncate text-left self-stretch text-neutral-900 text-lg font-bold font-THICCCBOI leading-H4">
