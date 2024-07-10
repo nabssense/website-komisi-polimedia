@@ -213,7 +213,7 @@
                 {{-- Section 2 Logo --}}
                 <div class=" w-full h-32 md:h-48 xl:h-72 xl:px-16 justify-center items-center  flex lg:hidden">
                     <div class="w-full h-full py-8 justify-center max-w-1480  gap-1 md:gap-4 xl:gap-12 flex">
-                        <div class="fh-full ">
+                        <div class="h-full ">
                             <img class=" h-full object-fill" src="{{ url('img/Logo-Komisi.svg') }}" alt="Image" />
                         </div>
                         <div class="h-full">
