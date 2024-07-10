@@ -66,7 +66,7 @@ class CategoryController extends Controller
 
             'discussionsTerbantu' => $discussionsTerbantu,
             'discussions' => $discussions,
-            'categories' => CategoryDiscussion::all(),
+            'categoriesDiscussions' => CategoryDiscussion::all(),
             'withCategory' => $category,
             'search' => $request->search,
             'order_by' => $request->order_by,
