@@ -59,9 +59,7 @@
                                 alt="{{ auth()->user()->fullname }}" class="rounded-full w-12  aspect-square object-cover">
                         </a>
                         <a class="w-fit h-fit lg:hidden flex" href="/user">
-                            <img src="{{ filter_var(auth()->user()->profile_picture, FILTER_VALIDATE_URL)
-                                ? auth()->user()->profile_picture
-                                : Storage::url(auth()->user()->profile_picture) }}"
+                            <img src="{{  strpos(auth()->user()->profile_picture, 'https://ui-avatars.com') === 0 ? auth()->user()->profile_picture : Storage::url($user->profile_picture) }}"
                                 alt="{{ auth()->user()->fullname }}" class="rounded-full w-12  aspect-square object-cover">
                         </a>
                     @endauth
