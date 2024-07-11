@@ -224,7 +224,7 @@
                                                         ? $answer->user->profile_picture
                                                         : Storage::url($answer->user->profile_picture) }}"
                                                         alt="{{ $answer->user->fullname }}"
-                                                        class="rounded-full w-9 lg:w-12">
+                                                        class="rounded-full aspect-square w-9 lg:w-12">
                                                 </div>
                                                 <div
                                                     class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
