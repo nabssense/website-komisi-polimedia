@@ -69,7 +69,7 @@
                                                 <img src="{{ filter_var($news->user->profile_picture, FILTER_VALIDATE_URL)
                                                     ? $news->user->profile_picture
                                                     : Storage::url($news->user->profile_picture) }}"
-                                                    alt="{{ $news->user->fullname }}" class="rounded-full aspect-square w-9 lg:w-12">
+                                                    alt="{{ $news->user->fullname }}" class="rounded-full aspect-square object-cover w-9 lg:w-12">
                                             </div>
                                             <div class="w-full h-fit flex-col justify-center items-start inline-flex Body1">
                                                 <div class="w-full justify-start items-center gap-2 inline-flex ">
