@@ -143,7 +143,7 @@
                         <div class="relative flex flex-row items-center w-full cursor-pointer">
                             <div id="toggle-status2"
                                 class="toggle-status w-full bg-white focus:outline-none focus:font-semibold font-semibold text-netral-800 justify-start items-center gap-2 inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
-                                Tidak Aktif
+                                {{ old('admin') ?? $user->admin }}
                             </div>
                             <input type="hidden" name="admin" id="toggle-value2" class="toggle-value"
                                 value="{{ old('admin') ?? $user->admin }}">
