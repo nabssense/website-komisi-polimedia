@@ -149,7 +149,7 @@
                                 value="{{ old('admin') ?? $user->admin }}">
                         </div>
                         <div class="toggle-icon absolute right-0 items-center justify-center flex h-full">
-                            <i id="toggle-icon-inner2" class="text-32 ph ph-toggle-left cursor-pointer"></i>
+                            <i id="toggle-icon-inner2" class="text-32 {{ old('admin') ?? $user->admin ? 'ph-fill ph-toggle-right' : 'ph ph-toggle-left' }} cursor-pointer"></i>
                         </div>
                     </div>
                 </div>
