@@ -397,8 +397,9 @@
     </div>
     <script>
         document.getElementById('hapusGambarButton').addEventListener('click', function() {
-            var imageInput = document.getElementById('image-input');
-            var imagePreview = document.getElementById('image-preview');
+            var imageInput = document.getElementById('image-input-1'); // Ganti ID sesuai dengan yang ada di HTML
+            var imagePreview = document.getElementById(
+            'image-preview-1'); // Ganti ID sesuai dengan yang ada di HTML
             var hiddenInput = document.getElementById('remove-profile-picture');
 
             imageInput.value = ''; // Clear the file input
@@ -422,7 +423,7 @@
         document.querySelectorAll('input[type="file"]').forEach(input => {
             input.addEventListener('change', function() {
                 const imgPreviewId = this.getAttribute('id').replace('image-input-',
-                ''); // Get unique ID suffix
+                    ''); // Get unique ID suffix
                 const imgPreview = document.querySelector('#image-preview-' + imgPreviewId);
                 const file = this.files[0];
 
@@ -443,7 +444,7 @@
                 if (this.value) {
                     this.value = null; // Reset input value to allow the same file to be selected again
                     const imgPreviewId = this.getAttribute('id').replace('image-input-',
-                    ''); // Get unique ID suffix
+                        ''); // Get unique ID suffix
                     const imgPreview = document.querySelector('#image-preview-' + imgPreviewId);
                     imgPreview.src = '';
                     imgPreview.classList.add('hidden');

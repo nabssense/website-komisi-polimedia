@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
             ->only(['edit', 'update', 'destroy']);
         Route::post('jawab/{answer}/like', 'LikeController@answerLike')->name('jawab.like.like');
         Route::post('jawab/{answer}/unlike', 'LikeController@answerUnlike')->name('jawab.like.unlike');
+
+        Route::put('jawab/edit/{id}', [AnswerController::class, 'update'])->name('jawab.update');
     });
 
 

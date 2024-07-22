@@ -178,39 +178,6 @@
             previewContainer.innerHTML = ''; // Bersihkan preview saat input diklik kembali
         });
 
-        // Event listener for the headline toggle switch
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleButton = document.querySelector('#toggle-btn1');
-            const toggleText = document.querySelector('#toggle-status1');
-            const toggleValue = document.querySelector('#toggle-value1');
-            const toggleIcon = document.querySelector('#toggle-icon-inner1');
-            const toggleContent = document.querySelector('#gambar-headline1');
-
-            toggleButton.addEventListener('click', function() {
-                if (toggleValue.value === 'Tidak Aktif') {
-                    toggleValue.value = 'Aktif';
-                    toggleText.textContent = 'Aktif';
-                    toggleIcon.classList.remove('ph-toggle-left');
-                    toggleIcon.classList.remove('ph');
-                    toggleIcon.classList.add('ph-toggle-right');
-                    toggleIcon.classList.add('ph-fill');
-                    toggleContent.classList.remove('hidden');
-                } else {
-                    toggleValue.value = 'Tidak Aktif';
-                    toggleText.textContent = 'Tidak Aktif';
-                    toggleIcon.classList.remove('ph-fill');
-                    toggleIcon.classList.remove('ph-toggle-right');
-                    toggleIcon.classList.add('ph');
-                    toggleIcon.classList.add('ph-toggle-left');
-                    toggleContent.classList.add('hidden');
-                }
-            });
-
-            // Reset input gambar ketika klik pilih gambar di dalam toggleContent
-            toggleContent.querySelector('input[type="file"]').addEventListener('click', function() {
-                this.value = null;
-            });
-        });
     </script>
     <script>
         function toggleSwitch(btnId, statusId, valueId, iconInnerId, headlineId) {

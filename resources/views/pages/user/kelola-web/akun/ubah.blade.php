@@ -128,7 +128,8 @@
                                 value="{{ old('status') ?? $user->status }}">
                         </div>
                         <div class="toggle-icon absolute right-0 items-center justify-center flex h-full">
-                            <i id="toggle-icon-inner1" class="text-32 {{ (old('status') ?? $user->status) ? 'ph-fill ph-toggle-right' : 'ph ph-toggle-left' }} cursor-pointer"></i>
+                            <i id="toggle-icon-inner1"
+                                class="text-32 {{ old('status') ?? $user->status ? 'ph-fill ph-toggle-right' : 'ph ph-toggle-left' }} cursor-pointer"></i>
                         </div>
                     </div>
 
@@ -136,7 +137,8 @@
                     <div id="toggle-btn2"
                         class="toggle-btn w-full h-fit flex-col justify-start items-center inline-flex relative">
                         <div class="w-full justify-start items-start inline-flex">
-                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Akses Admin</div>
+                            <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Akses Admin
+                            </div>
                         </div>
                         <div class="relative flex flex-row items-center w-full cursor-pointer">
                             <div id="toggle-status2"
@@ -228,16 +230,12 @@
         });
     </script>
     <script>
-        // Script untuk menyembunyikan/menampilkan bidang Prodi berdasarkan pilihan User Type
-        document.getElementById('user_type').addEventListener('change', function() {
-            var prodiField = document.getElementById('prodi');
-            if (this.value === 'Pembina Komisi') {
-                prodiField.style.display = 'none';
-                prodiField.value = '0';
-            } else {
-                prodiField.style.display = 'block';
-                prodiField.value = '';
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('hapusGambarButton').addEventListener('click', function() {
+                document.getElementById('remove-profile-picture').value = '1';
+                document.getElementById('image-preview-1').src = '';
+                document.getElementById('image-preview-1').classList.add('hidden');
+            });
         });
     </script>
 @endsection

@@ -30,20 +30,12 @@ class ManageUserUpdateRequest extends FormRequest
             'email' => 'required|email|min:8|max:50|unique:users,email,' . $userId,
             'nim' => [
                 'required',
-                Rule::unique('users', 'nim')->where(function ($query) {
-                    return $query->where('user_type', $this->input('user_type'));
-                }),
+                Rule::unique('users', 'nim')->ignore($userId),
             ],
             'user_type' => 'required|in:Mahasiswa,Admin,Pembina Komisi',
             'status' => 'required',
             'admin' => 'required',
+            'edu_program' => 'nullable|string|max:255',
         ];
-        // Jika user_type bukan "Mahasiswa", buat edu_program menjadi opsional
-        if ($this->input('user_type') !== 'Mahasiswa') {
-            $rules['edu_program'] = 'nullable';
-        } else {
-            $rules['edu_program'] = 'required';
-        }
     }
-    
 }
