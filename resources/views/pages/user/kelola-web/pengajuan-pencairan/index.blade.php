@@ -2,7 +2,7 @@
 @include('partials.navbar')
 @include('partials.navbar-mobile')
 @section('container')
-    <div class="w-full h-fit py-20 md:py-32 bg-netral-200 flex-col justify-center items-center gap-8 flex">
+    <div class="w-full h-fit px-4 md:px-8 xl:px-16 py-20 md:py-32 bg-netral-200 flex-col justify-center items-center gap-8 flex">
         <div class="w-full max-w-1480 flex-col justify-center items-center gap-4 lg:gap-8 flex">
             <div class="w-full h-fit px-4 lg:px-0 flex-col lg:flex-row justify-start items-center gap-6 flex">
                 <div class="w-full flex lg:flex-row gap-4 justify-center items-center">

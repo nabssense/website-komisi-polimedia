@@ -25,37 +25,6 @@ use App\Http\Controllers\ManageWebsite\ScholarshipFunding\PeriodFundingControlle
 |
 */
 
-// Masuk & Daftar
-// Route::get('/masuk-akun', function () {
-//    
-// });
-// Route::get('/daftar-akun', function () {
-//     return view('pages.auth.daftar-akun', [
-//         "title" => "Website Komisi | Daftar",
-//         "active" => "Daftar Akun",
-//     ]);
-// });
-// Route::get('/beranda', function () {
-//     return view('pages.beranda', [
-//         "title" => "Website Komisi | Beranda",
-//         "active" => "Beranda",
-//     ]);
-// });
-
-// Route::namespace('App\Http\Controllers\Discussions')->group(function()){
-
-// }
-
-// Harus Login atau Sudah Login
-// Route::middleware('auth.warning')->group(function () {
-
-//     // Route::namespace('App\Http\Controllers\ForumDiscussions')->group(function(){
-
-//     //     // Route::get('ajukan-pertanyaan', 'ForumDiscussionsController@askQuestions')->name('forumdiscussions.askquestion.index');
-//     // });
-// });
-
-
 // Harus Login atau Sudah Login
 Route::middleware('auth')->group(function () {
 
@@ -200,13 +169,6 @@ Route::namespace('App\Http\Controllers\Home')->group(function () {
 
 
 
-Route::get('/testing', function () {
-    return view('pages.auth.testing', [
-        "title" => "Website Komisi | Testing",
-        "active" => "Testing",
-    ]);
-});
-
 
 
 // Berita
@@ -224,8 +186,6 @@ Route::get('/berita-detail', function () {
 
 
 
-// // Forum Diskusi
-
 
 // Tentang Komisi
 Route::get('/tentang-komisi', function () {
@@ -234,6 +194,14 @@ Route::get('/tentang-komisi', function () {
         "active" => "Tentang Komisi",
     ]);
 });
+
+
+
+
+
+
+
+
 Route::get('/tentang-kabinet', function () {
     return view('pages.tentang-komisi.tentang-kabinet', [
         "title" => "Website Komisi | Tentang Kabinet",
@@ -243,6 +211,13 @@ Route::get('/tentang-kabinet', function () {
 
 
 
+
+Route::get('/testing', function () {
+    return view('pages.auth.testing', [
+        "title" => "Website Komisi | Testing",
+        "active" => "Testing",
+    ]);
+});
 
 
 
