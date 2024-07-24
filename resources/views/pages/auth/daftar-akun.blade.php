@@ -27,11 +27,12 @@
                                         Lengkap
                                     </div>
                                 </div>
-                                <input type="text" name="fullname" placeholder="Masukkan nama lengkapmu" id="fullname" required
-                                    value="{{ old('fullname') }}"
+                                <input type="text" name="fullname" placeholder="Masukkan nama lengkapmu" id="fullname"
+                                    required value="{{ old('fullname') }}"
                                     class="w-full pt-2 pb-3 @error('fullname') border-danger-base @enderror bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                 @error('fullname')
-                                    <div id="fullname-error" class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
+                                    <div id="fullname-error"
+                                        class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                                         {{ $message }}</div>
                                 @enderror
                             </div>
@@ -41,18 +42,21 @@
                                     <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Email
                                     </div>
                                 </div>
-                                <input type="email" name="email" placeholder="Masukkan email kamu" id="email" required
-                                    value="{{ old('email') }}"
+                                <input type="email" name="email" placeholder="Masukkan email kamu" id="email"
+                                    required value="{{ old('email') }}"
                                     class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                 @error('email')
-                                    <div id="email-error" class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
+                                    <div id="email-error"
+                                        class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                                         {{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="w-full bg-netral-200 rounded Body1 font-medium flex flex-row px-4 py-2 items-center gap-4">
+                            <div
+                                class="w-full bg-netral-200 rounded Body1 font-medium flex flex-row px-4 py-2 items-center gap-4">
                                 <i class="ph-fill ph-info cursor-pointer"></i>
                                 <p class="w-full">
-                                    Gunakkan password dengan format Min. berjumlah 8 karakter, 1 huruf kecil, 1 huruf besar, 1 angka.
+                                    Gunakkan password dengan format Min. berjumlah 8 karakter, 1 huruf kecil, 1 huruf besar,
+                                    1 angka.
                                 </p>
                             </div>
                             <div class="self-stretch h-fit flex-col justify-start items-start flex">
@@ -62,8 +66,9 @@
                                     </div>
                                 </div>
                                 <div class="w-full justify-center items-center flex flex-row relative">
-                                    <input type="password" name="password" placeholder="Masukkan kata sandi kamu" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                        value="{{ old('password') }}" id="passwordInput"
+                                    <input type="password" name="password" placeholder="Masukkan kata sandi kamu" required
+                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="{{ old('password') }}"
+                                        id="passwordInput"
                                         class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                     <div onclick="togglePassword('passwordInput', 'showPassword')"
                                         class="h-full justify-center items-center cursor-pointer"><i id="showPassword"
@@ -71,14 +76,15 @@
                                     </div>
                                 </div>
                                 @error('password')
-                                    <div id="password-error" class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
+                                    <div id="password-error"
+                                        class="text-primary-base text-lg font-normal font-THICCCBOI leading-7">
                                         {{ $message }}</div>
                                 @enderror
                             </div>
-                           
+
                             <div class="self-stretch h-fit flex-col justify-start items-start flex">
                                 <div class="justify-start items-start inline-flex">
-                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Ulang 
+                                    <div class="text-stone-700 text-base font-normal font-THICCCBOI leading-normal">Ulang
                                         Kata sandi
                                     </div>
                                 </div>
@@ -139,46 +145,43 @@
             {{-- Section 5 Tentang Komisi --}}
         </div>
     </div>
-
     <script>
         // 
         document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector('form'); // Select the form element
-
+            const form = document.querySelector('form');
             form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent form submission
-
+                event.preventDefault();
                 const formData = new FormData(form);
-
                 fetch(form.action, {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
                             'Accept': 'application/json',
                         },
-                        body: formData // Send form data as-is (no need for JSON.stringify)
+                        body: formData
                     })
                     .then(response => response.json())
                     .then(data => {
+                        console.log(data); // Periksa data yang diterima
                         if (data.success) {
-                            runButtonAnimation(); // Run animation if login successful
+                            runButtonAnimation();
                             setTimeout(() => {
-                                window.location.href =
-                                "{{ route('beranda.index') }}"; // Redirect after animation
-                            }, 13500); // Adjust timing based on your animation duration
+                                window.location.href = "{{ route('verification.notice') }}";
+                            }, 13500);
                         } else {
-                            // Handle errors here, display appropriate message
                             if (data.error) {
-                                alert('Login gagal: ' + data.error);
+                                alert('Pendaftaran gagal: ' + data.error);
                             } else {
-                                alert('Login gagal, silakan cek kembali informasi login Anda.');
+                                alert('Pendaftaran gagal, silakan cek kembali informasi Anda.');
                             }
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
                     });
+
             });
+
 
             function runButtonAnimation() {
                 // Implement your button animation logic here
@@ -206,9 +209,9 @@
                             document.getElementById("text-btn-1").classList.add(
                                 'show-btn-1', 'flex');
                             document.getElementById("text-btn-1").classList.remove(
-                            'hidden');
+                                'hidden');
                             document.getElementById("text-skip").classList.add(
-                            'show-btn-1');
+                                'show-btn-1');
                             document.getElementById("text-skip").classList.remove('hidden');
                         }, 2400);
 
@@ -227,7 +230,7 @@
                                         setTimeout(function() {
                                             document.getElementById("text-btn-2")
                                                 .classList.add('show-btn-2',
-                                                'flex');
+                                                    'flex');
                                             document.getElementById("text-btn-2")
                                                 .classList.remove('hidden');
                                         }, 800);

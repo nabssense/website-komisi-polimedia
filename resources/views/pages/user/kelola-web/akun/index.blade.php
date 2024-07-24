@@ -26,14 +26,9 @@
                             <div class="text-netral-900 Body1 font-medium">Total Akun Mahasiswa</div>
                             <div class="justify-end items-end gap-4 flex">
                                 <div class="text-netral-900 Heading2 font-extrabold">
-                                    {{ $users->where('user_type', 'Mahasiswa')->count() }}</div>
+                                    {{ $totalMahasiswa }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="px-6 py-4 bg-netral-100 rounded-2xl flex-col justify-start items-start flex">
-                            <div class="text-netral-900 Body1 font-medium">Total Akun Umum
-                            </div>
-                            <div class="text-netral-900 Heading2 font-extrabold">
-                                {{ $users->where('user_type', 'Umum')->count() }}</div>
                         </div>
                     </div>
                     {{-- Table --}}

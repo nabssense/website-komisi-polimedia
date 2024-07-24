@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'nim',
+        'email_verified_at',
         'edu_program',
         'user_type',
         'status',
@@ -59,6 +60,6 @@ class User extends Authenticatable
 
     public function isActive()
     {
-        return $this->status === 'Aktif'; // Sesuaikan dengan logika status aktif pada model Anda
+        return $this->status === 'Aktif';
     }
 }

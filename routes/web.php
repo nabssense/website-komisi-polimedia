@@ -1,10 +1,12 @@
 <?php
 
+use Illuminate\Http\Request;
 use App\Models\PeriodsFunding;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\NotificationController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\ForumDiscussion\AnswerController;
 use App\Http\Controllers\ManageWebsite\ManageNewsController;
 use App\Http\Controllers\ManageWebsite\ManageUserController;
@@ -24,6 +26,27 @@ use App\Http\Controllers\ManageWebsite\ScholarshipFunding\PeriodFundingControlle
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/email/verify', function () {
+    return view('pages.auth.verify-email',[
+        "title" => "Website Komisi | Verify Email",
+        "active" => "Verify Email",
+    ]);
+    
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/beranda');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Link verifikasi email telah dikirim.');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
 
 // Harus Login atau Sudah Login
 Route::middleware('auth')->group(function () {

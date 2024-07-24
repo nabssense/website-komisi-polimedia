@@ -12,6 +12,7 @@ use Illuminate\Http\JsonResponse;
 use App\Models\CategoryDiscussion;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Auth\RegisterRequest;
 
@@ -65,21 +66,21 @@ class RegisterController extends Controller
             'activePeriods' => $activePeriods
         ]);
     }
+
     public function register(RegisterRequest $request): JsonResponse
     {
         $validated = $request->validated();
         $validated['password'] = bcrypt($validated['password']);
         $modifiedFullname = str_replace(' ', '%20', $validated['fullname']);
         $validated['profile_picture'] = config('app.avatar_generator_url') . $modifiedFullname;
-        // Set default admin status to "Tidak Aktif"
         $validated['status'] = 'Tidak Aktif';
-
         $validated['admin'] = 'Tidak Aktif';
 
-        $create = User::create($validated);
+        $user = User::create($validated);
 
-        if ($create) {
-            Auth::login($create);
+        if ($user) {
+            event(new Registered($user)); // Trigger email verification
+            Auth::login($user);
             return response()->json(['success' => true]);
         }
 

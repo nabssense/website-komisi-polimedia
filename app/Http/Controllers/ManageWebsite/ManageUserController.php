@@ -17,12 +17,13 @@ class ManageUserController extends Controller
     //
     public function index()
     {
-        $users = User::paginate(15); 
+        $users = User::latest()->paginate(15);
+        $totalMahasiswa = User::where('user_type', 'Mahasiswa')->count();
         return view('pages.user.kelola-web.akun.index', [
             "title" => "Website Komisi | Kelola Akun",
             "active" => "Kelola Akun",
-
             "users" => $users,
+            "totalMahasiswa" => $totalMahasiswa,
         ]);
     }
 
