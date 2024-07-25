@@ -13,8 +13,11 @@ class SingleUserSeeder extends Seeder
      */
     public function run()
     {
+        $fullname = 'Muhammad Nabil Musyaffa';
+        $modifiedFullname = str_replace(' ', '%20', $fullname);
+        
         User::create([
-            'profile_picture' => 'https://example.com/path/to/profile-picture.jpg', // Ganti dengan URL atau path yang sesuai
+           'profile_picture' => config('app.avatar_generator_url').$modifiedFullname, // Ganti dengan URL atau path yang sesuai
             'fullname' => 'Muhammad Nabil Musyaffa',
             'email' => 'nabilmusyaffa7@gmail.com',
             'password' => 'KomisiKOBR4', // Pastikan password terenkripsi
