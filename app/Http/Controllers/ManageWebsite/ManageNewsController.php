@@ -26,7 +26,7 @@ class ManageNewsController extends Controller
     {
         // Mengambil semua data berita
         $categories = CategoryNews::all();
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->get(); 
 
         // Initialize an array to store image paths
         $firstImages = [];
