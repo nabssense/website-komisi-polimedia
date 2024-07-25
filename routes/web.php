@@ -55,8 +55,13 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 
+// Logout 
+Route::namespace('App\Http\Controllers\Auth')->group(function () {
+    Route::post('keluar-akun', 'LoginController@logout')->middleware('auth')->name('auth.masuk.logout');
+});
+
 // Harus Login atau Sudah Login
-Route::middleware(['auth', 'verified', 'check.active'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::namespace('App\Http\Controllers\ForumDiscussion')->group(function () {
         Route::resource('forum-diskusi', DiscussionController::class)
@@ -83,11 +88,6 @@ Route::middleware(['auth', 'verified', 'check.active'])->group(function () {
 
 
 
-
-    // Logout 
-    Route::namespace('App\Http\Controllers\Auth')->group(function () {
-        Route::post('keluar-akun', 'LoginController@logout')->name('auth.masuk.logout');
-    });
 
     // User // Akun - Kelola Web
 
