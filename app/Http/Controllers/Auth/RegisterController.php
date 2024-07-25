@@ -69,7 +69,15 @@ class RegisterController extends Controller
 
     public function register(RegisterRequest $request): JsonResponse
     {
+        // Validasi otomatis dengan RegisterRequest
         $validated = $request->validated();
+
+        // Proses validasi secara manual jika diperlukan
+        // $validator = Validator::make($request->all(), $request->rules(), $request->messages());
+        // if ($validator->fails()) {
+        //     return response()->json(['errors' => $validator->errors()], 422);
+        // }
+
         $validated['password'] = bcrypt($validated['password']);
         $modifiedFullname = str_replace(' ', '%20', $validated['fullname']);
         $validated['profile_picture'] = config('app.avatar_generator_url') . $modifiedFullname;
@@ -85,5 +93,5 @@ class RegisterController extends Controller
         }
 
         return response()->json(['errors' => ['general' => 'Gagal membuat akun.']], 422);
-    }
+    }   
 }

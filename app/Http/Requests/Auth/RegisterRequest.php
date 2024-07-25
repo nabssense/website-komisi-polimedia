@@ -2,11 +2,23 @@
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Services\KickboxService;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterRequest extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+
+    //  protected $kickbox;
+
+    // public function __construct(KickboxService $kickbox)
+    // {
+    //     $this->kickbox = $kickbox;
+    // }
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -23,9 +35,8 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
             'fullname' => 'required',
-            'email' => 'required|email|unique:App\Models\User,email|min:8|max:50',
+            'email' => 'required|email:dns|unique:users,email',
             'password' => ['required', Password::min(8)->mixedCase()->numbers()],
             'nim' => '',
             'edu_program' => '',
@@ -52,10 +63,24 @@ class RegisterRequest extends FormRequest
         ];
     }
 
+    // public function withValidator($validator)
+    // {
+    //     $validator->after(function ($validator) {
+    //         $email = $this->input('email');
+    //         $result = $this->kickbox->verify($email);
+
+    //         if ($result['result'] !== 'deliverable') {
+    //             $validator->errors()->add('email', 'Alamat email tidak valid atau tidak dapat menerima email.');
+    //         }
+    //     });
+    // }
+
     public function response(array $errors)
     {
         if ($this->expectsJson()) {
             return response()->json(['errors' => $errors], 422);
         }
+
+        return parent::response($errors);
     }
 }

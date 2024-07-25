@@ -169,8 +169,8 @@
                                 window.location.href = "{{ route('verification.notice') }}";
                             }, 13500);
                         } else {
-                            if (data.error) {
-                                alert('Pendaftaran gagal: ' + data.error);
+                            if (data.errors) {
+                                displayErrors(data.errors);
                             } else {
                                 alert('Pendaftaran gagal, silakan cek kembali informasi Anda.');
                             }
@@ -179,8 +179,33 @@
                     .catch(error => {
                         console.error('Error:', error);
                     });
-
             });
+
+            function displayErrors(errors) {
+                // Clear existing errors
+                document.querySelectorAll('.text-primary-base').forEach(el => el.textContent = '');
+
+                // Display email errors
+                if (errors.email) {
+                    document.getElementById('email-error').textContent = errors.email.join(', ');
+                }
+
+                // Display other errors similarly if needed
+                if (errors.fullname) {
+                    document.getElementById('fullname-error').textContent = errors.fullname.join(', ');
+                }
+                if (errors.password) {
+                    document.getElementById('password-error').textContent = errors.password.join(', ');
+                }
+                if (errors.password_confirmation) {
+                    document.getElementById('password_confirmation-error').textContent = errors
+                        .password_confirmation.join(', ');
+                }
+                if (errors.general) {
+                    alert('Pendaftaran gagal: ' + errors.general.join(', '));
+                }
+            }
+
 
 
             function runButtonAnimation() {

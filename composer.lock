@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db7e6a64d39dc7571dac332431c7562a",
+    "content-hash": "a8b7efbb21182b80faf90689755b6360",
     "packages": [
         {
             "name": "brick/math",
@@ -1049,6 +1049,69 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "kickbox/kickbox",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kickboxio/kickbox-php.git",
+                "reference": "718dcc23bff02693f1599514033db164e4be1e14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kickboxio/kickbox-php/zipball/718dcc23bff02693f1599514033db164e4be1e14",
+                "reference": "718dcc23bff02693f1599514033db164e4be1e14",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.3",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kickbox\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chaitanya Surapaneni",
+                    "email": "chaitanya.surapaneni@kickbox.com",
+                    "homepage": "https://github.com/kickboxio"
+                },
+                {
+                    "name": "jon shusta",
+                    "email": "jon@kickbox.com",
+                    "homepage": "https://kickbox.com/"
+                }
+            ],
+            "description": "Official kickbox API library client for PHP",
+            "homepage": "https://kickbox.com",
+            "keywords": [
+                "email",
+                "free",
+                "kickbox",
+                "sendex",
+                "service",
+                "validation",
+                "verification"
+            ],
+            "support": {
+                "docs": "https://docs.kickbox.com",
+                "email": "help@kickbox.com",
+                "issues": "https://github.com/kickboxio/kickbox-php/issues",
+                "source": "https://github.com/kickboxio/kickbox-php/tree/v3.0.0"
+            },
+            "time": "2023-03-10T19:58:56+00:00"
         },
         {
             "name": "laravel/framework",
