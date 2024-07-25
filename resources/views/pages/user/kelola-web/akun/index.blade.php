@@ -253,7 +253,7 @@
                                                     class="w-full order-1 lg:order-2 text-center status-text text-netral-900 Body1 font-normal text-wrap">
                                                     {{ $user->status }}</p>
                                             </td>
-                                            @if (auth()->user()->user_type === 'Admin' || auth()->user()->user_type === 'Pembina Komisi' || (auth()->user()->user_type === 'Mahasiswa' && $user->admin === 'Aktif'))
+                                            @if (auth()->user()->user_type === 'Admin' || auth()->user()->user_type === 'Pembina Komisi' || (auth()->user()->user_type === 'Mahasiswa' && auth()->user()->admin === 'Aktif'))
                                                 <td
                                                     class="w-full flex flex-col items-center basis-2/12 justify-center cursor-pointer">
                                                     <i class="admin-switch text-5xl ph ph-toggle-left {{ $user->admin === 'Aktif' ? 'ph-fill ph-toggle-right' : '' }}"
