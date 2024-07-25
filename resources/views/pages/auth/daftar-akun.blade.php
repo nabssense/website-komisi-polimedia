@@ -128,7 +128,7 @@
                     </div>
                 </div>
                 <div id="text-skip" class="grow shrink basis-0 bottom-0 hidden justify-end items-end gap-2 flex-col">
-                    <a href="/beranda" class="text-center text-white text-opacity-60 font-normal Body1">Lewati,
+                    <a href="/email/verify" class="text-center text-white text-opacity-60 font-normal Body1">Lewati,
                         Langsung ke beranda</a>
                 </div>
             </button>
