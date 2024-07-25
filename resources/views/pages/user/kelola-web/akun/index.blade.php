@@ -51,7 +51,7 @@
                                         <div class="text-neutral-900 Heading3 font-semibold">Status
                                         </div>
                                     </th>
-                                    @if (auth()->user()->user_type === 'Admin' || auth()->user()->user_type === 'Pembina Komisi')
+                                    @if (auth()->user()->user_type === 'Admin' || auth()->user()->user_type === 'Pembina Komisi' || (auth()->user()->user_type === 'Mahasiswa' && auth()->user()->admin === 'Aktif'))
                                         <th class="w-full grow shrink basis-2/12 flex justify-center">
                                             <div class="text-neutral-900 Heading3 font-semibold">Akses Admin
                                             </div>
