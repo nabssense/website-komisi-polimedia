@@ -189,5 +189,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             NewsSeeder::class,
         ]);
+         // Panggil SingleUserSeeder
+         $this->call([
+            SingleUserSeeder::class,
+        ]);
     }
 }
