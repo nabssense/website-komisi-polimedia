@@ -56,7 +56,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 
 // Harus Login atau Sudah Login
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'check.active'])->group(function () {
 
     Route::namespace('App\Http\Controllers\ForumDiscussion')->group(function () {
         Route::resource('forum-diskusi', DiscussionController::class)

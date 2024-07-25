@@ -74,5 +74,6 @@ class Kernel extends HttpKernel
         'RedirectUserNonActive' => \App\Http\Middleware\RedirectUserNonActive::class,
         // Middleware lainnya
         'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
+        'check.active' => \App\Http\Middleware\CheckUserActive::class,
     ];
 }

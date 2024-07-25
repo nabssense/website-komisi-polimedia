@@ -47,7 +47,7 @@ class LoginController extends Controller
             ->paginate(5);
 
         if ($request->search) {
-            $discussions->where('title', 'like', "%$request->search%")
+            $discussions->where('title', 'like', "%$request->sekarch%")
                 ->orWhere('question', 'like', "%$request->search%");
         }
 
