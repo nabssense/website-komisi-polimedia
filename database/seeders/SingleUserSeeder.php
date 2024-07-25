@@ -15,7 +15,7 @@ class SingleUserSeeder extends Seeder
     {
         $fullname = 'Muhammad Nabil Musyaffa';
         $modifiedFullname = str_replace(' ', '%20', $fullname);
-        
+
         User::create([
            'profile_picture' => config('app.avatar_generator_url').$modifiedFullname, // Ganti dengan URL atau path yang sesuai
             'fullname' => 'Muhammad Nabil Musyaffa',
@@ -29,6 +29,7 @@ class SingleUserSeeder extends Seeder
             'user_type' => 'Mahasiswa',
             'status' => 'Aktif',
             'admin' => 'Aktif',
+            'created_at' => '2023-06-07 16:24:01',
         ]);
     }
 }
