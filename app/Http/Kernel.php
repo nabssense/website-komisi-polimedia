@@ -73,6 +73,6 @@ class Kernel extends HttpKernel
         'checkUserStatus' => \App\Http\Middleware\CheckUserStatus::class,
         'RedirectUserNonActive' => \App\Http\Middleware\RedirectUserNonActive::class,
         // Middleware lainnya
-        
+        'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
     ];
 }

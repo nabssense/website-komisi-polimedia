@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Redirect;
 class LoginController extends Controller
 {
     //
+
     public function index(Request $request)
     {
         $discussions = Discussion::with('user', 'category');
@@ -79,10 +80,13 @@ class LoginController extends Controller
         return response()->json(['success' => false], 401);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         auth()->logout();
-
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+    
+       
         return redirect()->route('beranda.index');
     }
 }

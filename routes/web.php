@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use App\Models\PeriodsFunding;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\NotificationController;
@@ -28,11 +30,16 @@ use App\Http\Controllers\ManageWebsite\ScholarshipFunding\PeriodFundingControlle
 */
 
 Route::get('/email/verify', function () {
-    return view('pages.auth.verify-email',[
+    $user = Auth::user();
+
+    if ($user->hasVerifiedEmail()) {
+        return Redirect::to('/beranda');
+    }
+
+    return view('pages.auth.verify-email', [
         "title" => "Website Komisi | Verify Email",
         "active" => "Verify Email",
     ]);
-    
 })->middleware('auth')->name('verification.notice');
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
@@ -49,8 +56,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 
 // Harus Login atau Sudah Login
-Route::middleware('auth')->group(function () {
-
+Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::namespace('App\Http\Controllers\ForumDiscussion')->group(function () {
         Route::resource('forum-diskusi', DiscussionController::class)
