@@ -12,6 +12,7 @@ use Illuminate\Http\JsonResponse;
 use App\Models\CategoryDiscussion;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Auth\RegisterRequest;
@@ -67,15 +68,14 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function register(RegisterRequest $request): JsonResponse
+
+    public function register(RegisterRequest $request): RedirectResponse
     {
         // Validasi otomatis dengan RegisterRequest
         $validated = $request->validated();
 
-        // Proses validasi secara manual jika diperlukan
-        // $validator = Validator::make($request->all(), $request->rules(), $request->messages());
-        // if ($validator->fails()) {
-        //     return response()->json(['errors' => $validator->errors()], 422);
+        // if ($validated->fails()) {
+        //     return response()->json(['errors' => $validated->errors()], 422);
         // }
 
         $validated['password'] = bcrypt($validated['password']);
@@ -89,9 +89,12 @@ class RegisterController extends Controller
         if ($user) {
             event(new Registered($user)); // Trigger email verification
             Auth::login($user);
-            return response()->json(['success' => true]);
+
+            // Redirect ke route tertentu setelah registrasi berhasil
+            return redirect()->route('verification.notice')->with('success', 'Akun berhasil dibuat. Silakan periksa email Anda untuk verifikasi.');
         }
 
-        return response()->json(['errors' => ['general' => 'Gagal membuat akun.']], 422);
-    }   
+        // Redirect kembali ke halaman registrasi dengan pesan kesalahan jika pembuatan akun gagal
+        return redirect()->back()->withErrors(['general' => 'Gagal membuat akun.'])->withInput();
+    }
 }

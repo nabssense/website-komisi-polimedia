@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full justify-center items-center flex flex-row relative">
-                                    <input type="password" name="password_confirmation" required
+                                    <input type="password" name="password_confirmation" required value="{{ old('password') }}"
                                         placeholder="Masukkan ulang kata sandi kamu" id="REpasswordInput"
                                         class="w-full pt-2 pb-3 bg-white focus:border-b-2 focus:outline-none focus:border-primary-base focus:font-semibold font-semibold focus:text-netral-800 text-netral-800 border-b border-neutral-900 justify-start items-center inline-flex placeholder:text-netral-300 text-lg placeholder:font-normal font-THICCCBOI leading-7">
                                     <div onclick="togglePassword('REpasswordInput', 'REshowPassword')"
@@ -145,7 +145,7 @@
             {{-- Section 5 Tentang Komisi --}}
         </div>
     </div>
-    <script>
+    {{-- <script>
         // 
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector('form');
@@ -190,19 +190,20 @@
                     document.getElementById('email-error').textContent = errors.email.join(', ');
                 }
 
-                // Display other errors similarly if needed
+                // Display fullname errors
                 if (errors.fullname) {
                     document.getElementById('fullname-error').textContent = errors.fullname.join(', ');
                 }
+
+                // Display password errors
                 if (errors.password) {
                     document.getElementById('password-error').textContent = errors.password.join(', ');
                 }
+
+                // Display password_confirmation errors
                 if (errors.password_confirmation) {
                     document.getElementById('password_confirmation-error').textContent = errors
                         .password_confirmation.join(', ');
-                }
-                if (errors.general) {
-                    alert('Pendaftaran gagal: ' + errors.general.join(', '));
                 }
             }
 
@@ -294,7 +295,7 @@
                 });
             }
         });
-    </script>
+    </script> --}}
 @endsection
 @section('after-script')
     <script src="{{ asset('js/inputPassword.js') }}"></script>

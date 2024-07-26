@@ -2,22 +2,18 @@
 
 namespace App\Http\Requests\Auth;
 
-use App\Services\KickboxService;
+
+use App\Rules\ValidEmail;
 use Illuminate\Validation\Rules\Password;
+use Egulias\EmailValidator\EmailValidator;
 use Illuminate\Foundation\Http\FormRequest;
+use Egulias\EmailValidator\Validation\RFCValidation;
 
 class RegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-
-    //  protected $kickbox;
-
-    // public function __construct(KickboxService $kickbox)
-    // {
-    //     $this->kickbox = $kickbox;
-    // }
 
     /**
      * Determine if the user is authorized to make this request.
@@ -36,8 +32,8 @@ class RegisterRequest extends FormRequest
     {
         return [
             'fullname' => 'required',
-            'email' => 'required|email:dns|unique:users,email',
-            'password' => ['required', Password::min(8)->mixedCase()->numbers()],
+            'email' => ['required', 'email', new ValidEmail],
+            'password' => ['required', Password::min(8)->mixedCase()->numbers(), 'confirmed'],
             'nim' => '',
             'edu_program' => '',
             'user_type' => '',
@@ -55,6 +51,7 @@ class RegisterRequest extends FormRequest
             'email.unique' => 'Email sudah digunakan.',
             'email.min' => 'Email minimal :min karakter.',
             'email.max' => 'Email maksimal :max karakter.',
+            'email.valid_email' => 'Email tidak valid, periksa kembali.',
             'password.required' => 'Password harus diisi.',
             'password.min' => 'Password minimal :min karakter.',
             'password.mixed_case' => 'Password harus mengandung huruf besar dan kecil.',
@@ -62,18 +59,6 @@ class RegisterRequest extends FormRequest
             'password.symbols' => 'Password harus mengandung simbol.'
         ];
     }
-
-    // public function withValidator($validator)
-    // {
-    //     $validator->after(function ($validator) {
-    //         $email = $this->input('email');
-    //         $result = $this->kickbox->verify($email);
-
-    //         if ($result['result'] !== 'deliverable') {
-    //             $validator->errors()->add('email', 'Alamat email tidak valid atau tidak dapat menerima email.');
-    //         }
-    //     });
-    // }
 
     public function response(array $errors)
     {
