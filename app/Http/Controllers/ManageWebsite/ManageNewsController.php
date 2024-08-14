@@ -158,10 +158,12 @@ class ManageNewsController extends Controller
             $validated['image'] = $news->image;
         }
 
-        // Menangani gambar headline jika ada
+        // Handle headline image upload
         if ($request->hasFile('headline_image')) {
             $gambarHeadlinePath = $request->file('headline_image')->store('image/news/headline', 'public');
             $validated['headline_image'] = $gambarHeadlinePath;
+        } else {
+            $validated['headline_image'] = null;
         }
 
         // Create news entry
